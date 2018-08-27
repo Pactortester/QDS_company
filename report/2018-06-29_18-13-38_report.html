@@ -1,0 +1,1374 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>权大师测试报告</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.2.2"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    
+<style type="text/css" media="screen">
+body        { font-family: Microsoft YaHei,Tahoma,arial,helvetica,sans-serif;padding: 20px; font-size: 80%; }
+table       { font-size: 100%; }
+
+/* -- heading ---------------------------------------------------------------------- */
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+
+.heading .description {
+    margin-top: 4ex;
+    margin-bottom: 6ex;
+}
+
+/* -- report ------------------------------------------------------------------------ */
+#total_row  { font-weight: bold; }
+.passCase   { color: #5cb85c; }
+.failCase   { color: #d9534f; font-weight: bold; }
+.errorCase  { color: #f0ad4e; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+</style>
+
+</head>
+<body >
+<script language="javascript" type="text/javascript">
+output_list = Array();
+
+/*level 调整增加只显示通过用例的分类 --Findyou
+0:Summary //all hiddenRow
+1:Failed  //pt hiddenRow, ft none
+2:Pass    //pt none, ft hiddenRow
+3:All     //pt none, ft none
+*/
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level == 2 || level == 0 ) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level < 2) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+    }
+
+    //加入【详细】切换文字变化 --Findyou
+    detail_class=document.getElementsByClassName('detail');
+	//console.log(detail_class.length)
+	if (level == 3) {
+		for (var i = 0; i < detail_class.length; i++){
+			detail_class[i].innerHTML="收起"
+		}
+	}
+	else{
+			for (var i = 0; i < detail_class.length; i++){
+			detail_class[i].innerHTML="详细"
+		}
+	}
+}
+
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        //ID修改 点 为 下划线 -Findyou
+        tid0 = 't' + cid.substr(1) + '_' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        //修改点击无法收起的BUG，加入【详细】切换文字变化 --Findyou
+        if (toHide) {
+            document.getElementById(tid).className = 'hiddenRow';
+            document.getElementById(cid).innerText = "详细"
+        }
+        else {
+            document.getElementById(tid).className = '';
+            document.getElementById(cid).innerText = "收起"
+        }
+    }
+}
+
+function html_escape(s) {
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+</script>
+<div class='heading'>
+<h1 style="font-family: Microsoft YaHei">权大师测试报告</h1>
+<p class='attribute'><strong>测试人员 : </strong> lijiawei</p>
+<p class='attribute'><strong>开始时间 : </strong> 2018-06-29 18:13:38</p>
+<p class='attribute'><strong>合计耗时 : </strong> 0:21:25.406647</p>
+<p class='attribute'><strong>测试结果 : </strong> 共 43，通过 39，失败 4，通过率= 90.70%</p>
+
+<p class='description'>Environment: os:win10  browser:chrome</p>
+</div>
+
+
+
+<p id='show_detail_line'>
+<a class="btn btn-primary" href='javascript:showCase(0)'>概要{ 90.70% }</a>
+<a class="btn btn-danger" href='javascript:showCase(1)'>失败{ 4 }</a>
+<a class="btn btn-success" href='javascript:showCase(2)'>通过{ 39 }</a>
+<a class="btn btn-info" href='javascript:showCase(3)'>所有{ 43 }</a>
+</p>
+<table id='result_table' class="table table-condensed table-bordered table-hover">
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row' class="text-center success" style="font-weight: bold;font-size: 14px;">
+    <td>用例集/测试用例</td>
+    <td>总计</td>
+    <td>通过</td>
+    <td>失败</td>
+    <td>错误</td>
+    <td>详细</td>
+</tr>
+
+<tr class='passClass warning'>
+    <td>bmkstest.bmkstest: 保姆注册测试集</td>
+    <td class="text-center">1</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c1',1)" class="detail" id='c1'>详细</a></td>
+</tr>
+
+<tr id='pt1_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_bmks: 保姆快速注册</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_1'>通过</button>
+    <div id='div_pt1_1' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt1_1'>通过</button>
+    <div id='div_pt1_1' class="collapse in">
+    <pre>
+    
+pt1_1: 商标注册-权大师
+费用总计:600.00
+总价:600.00
+价格一致
+订单提交成功，应付金额:600.00
+测试通过
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr class='passClass warning'>
+    <td>bqywtest.bqywtest: 版权业务测试集</td>
+    <td class="text-center">7</td>
+    <td class="text-center">7</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c2',7)" class="detail" id='c2'>详细</a></td>
+</tr>
+
+<tr id='pt2_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_msdj: 美术作品版权登记加急测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt2_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt2_1'>通过</button>
+    <div id='div_pt2_1' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt2_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt2_1'>通过</button>
+    <div id='div_pt2_1' class="collapse in">
+    <pre>
+    
+pt2_1: 美术作品版权登记加急-权大师
+费用总计:2299.00
+总价:2299.00
+价格一致
+订单提交成功，应付金额:2299.00
+测试通过
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt2_2' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_mszp: 美术作品版权登记测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt2_2' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt2_2'>通过</button>
+    <div id='div_pt2_2' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt2_2' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt2_2'>通过</button>
+    <div id='div_pt2_2' class="collapse in">
+    <pre>
+    
+pt2_2: 美术作品版权登记-权大师
+费用总计:799.00
+总价:799.00
+价格一致
+订单提交成功，应付金额:799.00
+测试通过
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt2_3' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_rjbg: 软件著作权变更测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt2_3' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt2_3'>通过</button>
+    <div id='div_pt2_3' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt2_3' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt2_3'>通过</button>
+    <div id='div_pt2_3' class="collapse in">
+    <pre>
+    
+pt2_3: 软件著作权变更-权大师
+费用总计:799.00
+总价:799.00
+价格一致
+订单提交成功，应付金额:799.00
+测试通过
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt2_4' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_rjbz: 软件著作权补证测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt2_4' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt2_4'>通过</button>
+    <div id='div_pt2_4' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt2_4' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt2_4'>通过</button>
+    <div id='div_pt2_4' class="collapse in">
+    <pre>
+    
+pt2_4: 软件著作权补证-权大师
+费用总计:799.00
+总价:799.00
+价格一致
+订单提交成功，应付金额:799.00
+测试通过
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt2_5' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_rjzr: 软件著作权转让测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt2_5' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt2_5'>通过</button>
+    <div id='div_pt2_5' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt2_5' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt2_5'>通过</button>
+    <div id='div_pt2_5' class="collapse in">
+    <pre>
+    
+pt2_5: 软件著作权转让-权大师
+费用总计:799.00
+总价:799.00
+价格一致
+订单提交成功，应付金额:799.00
+测试通过
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt2_6' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_wzdj: 文字作品版权登记加急测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt2_6' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt2_6'>通过</button>
+    <div id='div_pt2_6' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt2_6' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt2_6'>通过</button>
+    <div id='div_pt2_6' class="collapse in">
+    <pre>
+    
+pt2_6: 文字作品版权登记加急-权大师
+费用总计:2299.00
+总价:2299.00
+价格一致
+订单提交成功，应付金额:2299.00
+测试通过
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt2_7' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_wzzp: 文字作品版权登记测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt2_7' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt2_7'>通过</button>
+    <div id='div_pt2_7' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt2_7' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt2_7'>通过</button>
+    <div id='div_pt2_7' class="collapse in">
+    <pre>
+    
+pt2_7: 文字作品版权登记-权大师
+费用总计:799.00
+总价:799.00
+价格一致
+订单提交成功，应付金额:799.00
+测试通过
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr class='passClass warning'>
+    <td>cxzctest.cxzctest: 查询是注册测试集</td>
+    <td class="text-center">2</td>
+    <td class="text-center">2</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c3',2)" class="detail" id='c3'>详细</a></td>
+</tr>
+
+<tr id='pt3_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_gnsb: 国内商标查询测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt3_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt3_1'>通过</button>
+    <div id='div_pt3_1' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt3_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt3_1'>通过</button>
+    <div id='div_pt3_1' class="collapse in">
+    <pre>
+    
+pt3_1: 国内商标查询（报告）-国内商标查询报告-权大师
+费用总计:99.00
+总价:99.00
+价格一致
+订单提交成功，应付金额:99.00
+测试通过
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt3_2' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_mfsb: 免费商标查询测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt3_2' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt3_2'>通过</button>
+    <div id='div_pt3_2' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt3_2' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt3_2'>通过</button>
+    <div id='div_pt3_2' class="collapse in">
+    <pre>
+    
+pt3_2: 注册商标查询_中国商标查询_权大师官网
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr class='passClass warning'>
+    <td>dbwytest.dbwytest: 担保无忧测试集</td>
+    <td class="text-center">1</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c4',1)" class="detail" id='c4'>详细</a></td>
+</tr>
+
+<tr id='pt4_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_dbwy: 担保无忧测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt4_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt4_1'>通过</button>
+    <div id='div_pt4_1' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt4_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt4_1'>通过</button>
+    <div id='div_pt4_1' class="collapse in">
+    <pre>
+    
+pt4_1: 商标注册-权大师
+费用总计:1280.00
+总价:1280.00
+价格一致
+订单提交成功，应付金额:1280.00
+测试通过
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr class='passClass warning'>
+    <td>fmzltest.fmzltest: 发明专利测试集</td>
+    <td class="text-center">1</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c5',1)" class="detail" id='c5'>详细</a></td>
+</tr>
+
+<tr id='pt5_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_fmzl: 基础型</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt5_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt5_1'>通过</button>
+    <div id='div_pt5_1' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt5_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt5_1'>通过</button>
+    <div id='div_pt5_1' class="collapse in">
+    <pre>
+    
+pt5_1: 发明专利申请基础型_权大师
+费用总计:3859.00
+总价:3859.00
+价格一致
+订单提交成功，应付金额:3859.00
+测试通过
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr class='passClass warning'>
+    <td>hometest.hometest: 个人中心测试集</td>
+    <td class="text-center">1</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c6',1)" class="detail" id='c6'>详细</a></td>
+</tr>
+
+<tr id='pt6_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_bmks: 个人中心</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt6_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt6_1'>通过</button>
+    <div id='div_pt6_1' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt6_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt6_1'>通过</button>
+    <div id='div_pt6_1' class="collapse in">
+    <pre>
+    
+pt6_1: 权大师_个人中心
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr class='passClass warning'>
+    <td>hwgstest.hwgstest: 海外高速测试集</td>
+    <td class="text-center">1</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c7',1)" class="detail" id='c7'>详细</a></td>
+</tr>
+
+<tr id='pt7_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_hwgs: 海外高速测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt7_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt7_1'>通过</button>
+    <div id='div_pt7_1' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt7_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt7_1'>通过</button>
+    <div id='div_pt7_1' class="collapse in">
+    <pre>
+    
+pt7_1: 商标注册-权大师
+费用总计:600.00
+总价:600.00
+价格一致
+订单提交成功，应付金额:600.00
+测试通过
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr class='passClass warning'>
+    <td>hwsctest.sbzrtest: 海外市场测试集</td>
+    <td class="text-center">5</td>
+    <td class="text-center">5</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c8',5)" class="detail" id='c8'>详细</a></td>
+</tr>
+
+<tr id='pt8_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_mdl: 马德里商标注册测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt8_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt8_1'>通过</button>
+    <div id='div_pt8_1' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt8_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt8_1'>通过</button>
+    <div id='div_pt8_1' class="collapse in">
+    <pre>
+    
+pt8_1: 马德里商标注册
+费用总计:6600.00
+总价:6600.00
+价格一致
+订单提交成功，应付金额:6600.00
+测试通过
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt8_2' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_mg: 美国商标注册测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt8_2' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt8_2'>通过</button>
+    <div id='div_pt8_2' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt8_2' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt8_2'>通过</button>
+    <div id='div_pt8_2' class="collapse in">
+    <pre>
+    
+pt8_2: 美国商标注册-权大师
+费用总计:5799.00
+总价:5799.00
+价格一致
+订单提交成功，应付金额:5799.00
+测试通过
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt8_3' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_om: 欧盟商标注册测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt8_3' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt8_3'>通过</button>
+    <div id='div_pt8_3' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt8_3' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt8_3'>通过</button>
+    <div id='div_pt8_3' class="collapse in">
+    <pre>
+    
+pt8_3: 欧盟商标注册-权大师
+费用总计:11499.00
+总价:11499.00
+价格一致
+订单提交成功，应付金额:11499.00
+测试通过
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt8_4' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_rb: 印度商标注册测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt8_4' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt8_4'>通过</button>
+    <div id='div_pt8_4' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt8_4' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt8_4'>通过</button>
+    <div id='div_pt8_4' class="collapse in">
+    <pre>
+    
+pt8_4: 印度商标注册-权大师
+费用总计:4699.00
+总价:4699.00
+价格一致
+订单提交成功，应付金额:4699.00
+测试通过
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt8_5' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_xg: 香港商标注册测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt8_5' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt8_5'>通过</button>
+    <div id='div_pt8_5' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt8_5' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt8_5'>通过</button>
+    <div id='div_pt8_5' class="collapse in">
+    <pre>
+    
+pt8_5: 香港商标注册-权大师
+费用总计:3299.00
+总价:3299.00
+价格一致
+订单提交成功，应付金额:3299.00
+测试通过
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr class='passClass warning'>
+    <td>mfsbtest.gnsbtest: 免费商标测试集</td>
+    <td class="text-center">1</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c9',1)" class="detail" id='c9'>详细</a></td>
+</tr>
+
+<tr id='pt9_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_gnsb: 免费商标测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt9_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt9_1'>通过</button>
+    <div id='div_pt9_1' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt9_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt9_1'>通过</button>
+    <div id='div_pt9_1' class="collapse in">
+    <pre>
+    
+pt9_1: 注册商标查询_中国商标查询_权大师官网
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr class='passClass warning'>
+    <td>rjzztest.rjzztest: 软件著作权测试集</td>
+    <td class="text-center">1</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c10',1)" class="detail" id='c10'>详细</a></td>
+</tr>
+
+<tr id='pt10_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_rjzz: 软件著作权登记</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt10_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt10_1'>通过</button>
+    <div id='div_pt10_1' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt10_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt10_1'>通过</button>
+    <div id='div_pt10_1' class="collapse in">
+    <pre>
+    
+pt10_1: 软件著作权登记-权大师
+费用总计:799.00
+总价:799.00
+价格一致
+订单提交成功，应付金额:799.00
+测试通过
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr class='passClass warning'>
+    <td>sbxxtest.sbxxtest: 商标信息测试集</td>
+    <td class="text-center">5</td>
+    <td class="text-center">5</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c11',5)" class="detail" id='c11'>详细</a></td>
+</tr>
+
+<tr id='pt11_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_sbbg: 商标变更测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt11_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt11_1'>通过</button>
+    <div id='div_pt11_1' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt11_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt11_1'>通过</button>
+    <div id='div_pt11_1' class="collapse in">
+    <pre>
+    
+pt11_1: 商标变更-权大师
+费用总计:1249.00
+总价:1249.00
+价格一致
+订单提交成功，应付金额:1249.00
+测试通过
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt11_2' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_sbkz: 商标宽展测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt11_2' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt11_2'>通过</button>
+    <div id='div_pt11_2' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt11_2' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt11_2'>通过</button>
+    <div id='div_pt11_2' class="collapse in">
+    <pre>
+    
+pt11_2: 商标宽展-权大师
+费用总计:2249.00
+总价:2249.00
+价格一致
+订单提交成功，应付金额:2249.00
+测试通过
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt11_3' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_sbxk: 商标许可备案测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt11_3' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt11_3'>通过</button>
+    <div id='div_pt11_3' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt11_3' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt11_3'>通过</button>
+    <div id='div_pt11_3' class="collapse in">
+    <pre>
+    
+pt11_3: 商标许可备案-权大师
+费用总计:749.00
+总价:749.00
+价格一致
+订单提交成功，应付金额:749.00
+测试通过
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt11_4' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_sbxz: 商标续展让测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt11_4' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt11_4'>通过</button>
+    <div id='div_pt11_4' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt11_4' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt11_4'>通过</button>
+    <div id='div_pt11_4' class="collapse in">
+    <pre>
+    
+pt11_4: 商标续展-权大师
+费用总计:1999.00
+总价:1999.00
+价格一致
+订单提交成功，应付金额:1999.00
+测试通过
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt11_5' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_sbzr: 商标撤转让测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt11_5' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt11_5'>通过</button>
+    <div id='div_pt11_5' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt11_5' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt11_5'>通过</button>
+    <div id='div_pt11_5' class="collapse in">
+    <pre>
+    
+pt11_5: 商标转让-权大师
+费用总计:1499.00
+总价:1499.00
+价格一致
+订单提交成功，应付金额:1499.00
+测试通过
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr class='passClass warning'>
+    <td>yytrtest.yytrtest: 异议他人商标测试集</td>
+    <td class="text-center">3</td>
+    <td class="text-center">3</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c12',3)" class="detail" id='c12'>详细</a></td>
+</tr>
+
+<tr id='pt12_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_sbcs: 商标撤三测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt12_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt12_1'>通过</button>
+    <div id='div_pt12_1' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt12_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt12_1'>通过</button>
+    <div id='div_pt12_1' class="collapse in">
+    <pre>
+    
+pt12_1: 商标撤三申请-权大师
+费用总计:1499.00
+总价:1499.00
+价格一致
+订单提交成功，应付金额:1499.00
+测试通过
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt12_2' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_sbwx: 商标无效宣告申请测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt12_2' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt12_2'>通过</button>
+    <div id='div_pt12_2' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt12_2' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt12_2'>通过</button>
+    <div id='div_pt12_2' class="collapse in">
+    <pre>
+    
+pt12_2: 商标无效宣告申请-权大师
+费用总计:3249.00
+总价:3249.00
+价格一致
+订单提交成功，应付金额:3249.00
+测试通过
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt12_3' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_sbyy: 商标异议申请测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt12_3' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt12_3'>通过</button>
+    <div id='div_pt12_3' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt12_3' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt12_3'>通过</button>
+    <div id='div_pt12_3' class="collapse in">
+    <pre>
+    
+pt12_3: 商标异议申请-权大师
+费用总计:2999.00
+总价:2999.00
+价格一致
+订单提交成功，应付金额:2999.00
+测试通过
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr class='passClass warning'>
+    <td>zahjtest.zahjtest: 遇到障碍如何化解测试集</td>
+    <td class="text-center">3</td>
+    <td class="text-center">3</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c13',3)" class="detail" id='c13'>详细</a></td>
+</tr>
+
+<tr id='pt13_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_sbbh: 商标驳回测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt13_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt13_1'>通过</button>
+    <div id='div_pt13_1' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt13_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt13_1'>通过</button>
+    <div id='div_pt13_1' class="collapse in">
+    <pre>
+    
+pt13_1: 商标驳回复审-权大师
+费用总计:2749.00
+总价:2749.00
+价格一致
+订单提交成功，应付金额:2749.00
+测试通过
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt13_2' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_sbcsdb: 商标撤三答辩测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt13_2' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt13_2'>通过</button>
+    <div id='div_pt13_2' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt13_2' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt13_2'>通过</button>
+    <div id='div_pt13_2' class="collapse in">
+    <pre>
+    
+pt13_2: 商标撤三答辩-权大师
+费用总计:2999.00
+总价:2999.00
+价格一致
+订单提交成功，应付金额:2999.00
+测试通过
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt13_3' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_sbdb: 商标异议答辩测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt13_3' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt13_3'>通过</button>
+    <div id='div_pt13_3' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt13_3' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt13_3'>通过</button>
+    <div id='div_pt13_3' class="collapse in">
+    <pre>
+    
+pt13_3: 商标异议答辩-权大师
+费用总计:2999.00
+总价:2999.00
+价格一致
+订单提交成功，应付金额:2999.00
+测试通过
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr class='failClass warning'>
+    <td>zlywtest.zlywtest: 专利业务测试集</td>
+    <td class="text-center">10</td>
+    <td class="text-center">6</td>
+    <td class="text-center">4</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c14',10)" class="detail" id='c14'>详细</a></td>
+</tr>
+
+<tr id='ft14_1' class='none'>
+    <td class='failCase'><div class='testcase'>test_cpwg: 产品外观设计测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft14_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft14_1'>失败</button>
+    <div id='div_ft14_1' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft14_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft14_1'>失败</button>
+    <div id='div_ft14_1' class="collapse in">
+    <pre>
+    
+ft14_1: 产品外观设计专利_权大师
+费用总计:1499.00
+总价:1074.00
+Traceback (most recent call last):
+  File "D:\quandashitest\case\zlywtest.py", line 114, in test_cpwg
+    self.assertIn(aa, ii)
+AssertionError: '1499.00' not found in '1074.00'
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft14_2' class='none'>
+    <td class='failCase'><div class='testcase'>test_gui: GUI外观设计测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft14_2' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft14_2'>失败</button>
+    <div id='div_ft14_2' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft14_2' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft14_2'>失败</button>
+    <div id='div_ft14_2' class="collapse in">
+    <pre>
+    
+ft14_2: GUI外观设计专利_权大师
+费用总计:1799.00
+总价:1374.00
+Traceback (most recent call last):
+  File "D:\quandashitest\case\zlywtest.py", line 169, in test_gui
+    self.assertIn(aa, ii)
+AssertionError: '1799.00' not found in '1374.00'
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt14_3' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_nfjn: 年费缴纳测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt14_3' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt14_3'>通过</button>
+    <div id='div_pt14_3' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt14_3' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt14_3'>通过</button>
+    <div id='div_pt14_3' class="collapse in">
+    <pre>
+    
+pt14_3: 发明专利年费缴纳-权大师
+费用总计:99.00
+总价:999.00
+价格一致
+订单提交成功，应付金额:999.00
+测试通过
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft14_4' class='none'>
+    <td class='failCase'><div class='testcase'>test_syxxjc: 实用新型专利基础版</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft14_4' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft14_4'>失败</button>
+    <div id='div_ft14_4' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft14_4' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft14_4'>失败</button>
+    <div id='div_ft14_4' class="collapse in">
+    <pre>
+    
+ft14_4: 实用新型专利基础版_权大师
+费用总计:2499.00
+总价:2074.00
+Traceback (most recent call last):
+  File "D:\quandashitest\case\zlywtest.py", line 224, in test_syxxjc
+    self.assertIn(aa, ii)
+AssertionError: '2499.00' not found in '2074.00'
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft14_5' class='none'>
+    <td class='failCase'><div class='testcase'>test_syxxzy: 实用新型专利卓越版</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft14_5' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft14_5'>失败</button>
+    <div id='div_ft14_5' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft14_5' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft14_5'>失败</button>
+    <div id='div_ft14_5' class="collapse in">
+    <pre>
+    
+ft14_5: 实用新型专利卓越版_权大师
+费用总计:3799.00
+总价:3374.00
+Traceback (most recent call last):
+  File "D:\quandashitest\case\zlywtest.py", line 279, in test_syxxzy
+    self.assertIn(aa, ii)
+AssertionError: '3799.00' not found in '3374.00'
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt14_6' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_zlbg: 专利著录项变更测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt14_6' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt14_6'>通过</button>
+    <div id='div_pt14_6' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt14_6' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt14_6'>通过</button>
+    <div id='div_pt14_6' class="collapse in">
+    <pre>
+    
+pt14_6: 专利著录项变更-权大师
+费用总计:399.00
+总价:399.00
+价格一致
+订单提交成功，应付金额:399.00
+测试通过
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt14_7' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_zlbh: 专利驳回复审测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt14_7' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt14_7'>通过</button>
+    <div id='div_pt14_7' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt14_7' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt14_7'>通过</button>
+    <div id='div_pt14_7' class="collapse in">
+    <pre>
+    
+pt14_7: 发明专利驳回复审_权大师
+费用总计:10999.00
+总价:10999.00
+价格一致
+订单提交成功，应付金额:10999.00
+测试通过
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt14_8' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_zldb: 专利无效答辩测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt14_8' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt14_8'>通过</button>
+    <div id='div_pt14_8' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt14_8' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt14_8'>通过</button>
+    <div id='div_pt14_8' class="collapse in">
+    <pre>
+    
+pt14_8: 发明专利无效答辩_权大师
+费用总计:24999.00
+总价:24999.00
+价格一致
+订单提交成功，应付金额:24999.00
+测试通过
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt14_9' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_zljs: 专利查新检索（报告）测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt14_9' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt14_9'>通过</button>
+    <div id='div_pt14_9' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt14_9' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt14_9'>通过</button>
+    <div id='div_pt14_9' class="collapse in">
+    <pre>
+    
+pt14_9: 专利查新检索（报告）_权大师
+费用总计:299.00
+总价:299.00
+价格一致
+订单提交成功，应付金额:299.00
+测试通过
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt14_10' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_zlxg: 专利无效宣告测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt14_10' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt14_10'>通过</button>
+    <div id='div_pt14_10' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt14_10' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt14_10'>通过</button>
+    <div id='div_pt14_10' class="collapse in">
+    <pre>
+    
+pt14_10: 发明专利无效宣告_权大师
+费用总计:32999.00
+总价:32999.00
+价格一致
+订单提交成功，应付金额:32999.00
+测试通过
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr class='passClass warning'>
+    <td>znzztest.znzztest: 智能注册测试集</td>
+    <td class="text-center">1</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c15',1)" class="detail" id='c15'>详细</a></td>
+</tr>
+
+<tr id='pt15_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_znzz: 智能注册测</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt15_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt15_1'>通过</button>
+    <div id='div_pt15_1' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt15_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt15_1'>通过</button>
+    <div id='div_pt15_1' class="collapse in">
+    <pre>
+    
+pt15_1: 商标注册-权大师
+费用总计:300.00
+总价:321.00
+订单提交成功，应付金额:321.00
+测试通过
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='total_row' class="text-center active">
+    <td>总计</td>
+    <td>43</td>
+    <td>39</td>
+    <td>4</td>
+    <td>0</td>
+    <td>通过率：90.70%</td>
+</tr>
+</table>
+
+<div id='ending'>&nbsp;</div>
+    <div style=" position:fixed;right:50px; bottom:30px; width:20px; height:20px;cursor:pointer">
+    <a href="#"><span class="glyphicon glyphicon-eject" style = "font-size:30px;" aria-hidden="true">
+    </span></a></div>
+    
+
+</body>
+</html>

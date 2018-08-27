@@ -1,0 +1,1614 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>权大师测试报告</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.2.2"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    
+<style type="text/css" media="screen">
+body        { font-family: Microsoft YaHei,Tahoma,arial,helvetica,sans-serif;padding: 20px; font-size: 80%; }
+table       { font-size: 100%; }
+
+/* -- heading ---------------------------------------------------------------------- */
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+
+.heading .description {
+    margin-top: 4ex;
+    margin-bottom: 6ex;
+}
+
+/* -- report ------------------------------------------------------------------------ */
+#total_row  { font-weight: bold; }
+.passCase   { color: #5cb85c; }
+.failCase   { color: #d9534f; font-weight: bold; }
+.errorCase  { color: #f0ad4e; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+</style>
+
+</head>
+<body >
+<script language="javascript" type="text/javascript">
+output_list = Array();
+
+/*level 调整增加只显示通过用例的分类 --Findyou
+0:Summary //all hiddenRow
+1:Failed  //pt hiddenRow, ft none
+2:Pass    //pt none, ft hiddenRow
+3:All     //pt none, ft none
+*/
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level == 2 || level == 0 ) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level < 2) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+    }
+
+    //加入【详细】切换文字变化 --Findyou
+    detail_class=document.getElementsByClassName('detail');
+	//console.log(detail_class.length)
+	if (level == 3) {
+		for (var i = 0; i < detail_class.length; i++){
+			detail_class[i].innerHTML="收起"
+		}
+	}
+	else{
+			for (var i = 0; i < detail_class.length; i++){
+			detail_class[i].innerHTML="详细"
+		}
+	}
+}
+
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        //ID修改 点 为 下划线 -Findyou
+        tid0 = 't' + cid.substr(1) + '_' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        //修改点击无法收起的BUG，加入【详细】切换文字变化 --Findyou
+        if (toHide) {
+            document.getElementById(tid).className = 'hiddenRow';
+            document.getElementById(cid).innerText = "详细"
+        }
+        else {
+            document.getElementById(tid).className = '';
+            document.getElementById(cid).innerText = "收起"
+        }
+    }
+}
+
+function html_escape(s) {
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+</script>
+<div class='heading'>
+<h1 style="font-family: Microsoft YaHei">权大师测试报告</h1>
+<p class='attribute'><strong>测试人员 : </strong> lijiawei</p>
+<p class='attribute'><strong>开始时间 : </strong> 2018-07-29 12:01:00</p>
+<p class='attribute'><strong>合计耗时 : </strong> 0:22:38.182890</p>
+<p class='attribute'><strong>测试结果 : </strong> 共 48，通过 1，失败 1，错误 46，通过率= 2.08%</p>
+
+<p class='description'>Environment:  OS:win10  Browser:chrome</p>
+</div>
+
+
+
+<p id='show_detail_line'>
+<a class="btn btn-primary" href='javascript:showCase(0)'>概要{ 2.08% }</a>
+<a class="btn btn-danger" href='javascript:showCase(1)'>失败{ 1 }</a>
+<a class="btn btn-success" href='javascript:showCase(2)'>通过{ 1 }</a>
+<a class="btn btn-info" href='javascript:showCase(3)'>所有{ 48 }</a>
+</p>
+<table id='result_table' class="table table-condensed table-bordered table-hover">
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row' class="text-center success" style="font-weight: bold;font-size: 14px;">
+    <td>用例集/测试用例</td>
+    <td>总计</td>
+    <td>通过</td>
+    <td>失败</td>
+    <td>错误</td>
+    <td>详细</td>
+</tr>
+
+<tr class='errorClass warning'>
+    <td>bmkstest.bmkstest: 保姆注册测试集</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center">1</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c1',1)" class="detail" id='c1'>详细</a></td>
+</tr>
+
+<tr id='ft1_1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_bmks: 保姆快速注册</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft1_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft1_1'>错误</button>
+    <div id='div_ft1_1' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft1_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft1_1'>错误</button>
+    <div id='div_ft1_1' class="collapse in">
+    <pre>
+    
+ft1_1: 商标注册-权大师
+费用总计:600.00
+Traceback (most recent call last):
+  File "G:\quandashitest_company\quandashitest_company\case\bmkstest.py", line 51, in test_bmks
+    self.driver.find_element_by_name("ownerContactPerson").send_keys("全大师")
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 365, in find_element_by_name
+    return self.find_element(by=By.NAME, value=name)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 752, in find_element
+    'value': value})['value']
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 236, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 192, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.UnexpectedAlertPresentException: Alert Text: None
+Message: unexpected alert open: {Alert text : 请登录}
+  (Session info: chrome=68.0.3440.75)
+  (Driver info: chromedriver=2.40.565498 (ea082db3280dd6843ebfb08a625e3eb905c4f5ab),platform=Windows NT 10.0.17134 x86_64)
+
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr class='errorClass warning'>
+    <td>bqywtest.bqywtest: 版权业务测试集</td>
+    <td class="text-center">7</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center">7</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c2',7)" class="detail" id='c2'>详细</a></td>
+</tr>
+
+<tr id='ft2_1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_msdj: 美术作品版权登记加急测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft2_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft2_1'>错误</button>
+    <div id='div_ft2_1' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft2_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft2_1'>错误</button>
+    <div id='div_ft2_1' class="collapse in">
+    <pre>
+    
+ft2_1: 美术作品版权登记加急-权大师
+费用总计:2299.00
+Traceback (most recent call last):
+  File "G:\quandashitest_company\quandashitest_company\case\bqywtest.py", line 99, in test_msdj
+    self.driver.find_element_by_name("ownerContactPerson").send_keys("全大师")
+AttributeError: 'NoneType' object has no attribute 'send_keys'
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft2_2' class='none'>
+    <td class='errorCase'><div class='testcase'>test_mszp: 美术作品版权登记测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft2_2' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft2_2'>错误</button>
+    <div id='div_ft2_2' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft2_2' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft2_2'>错误</button>
+    <div id='div_ft2_2' class="collapse in">
+    <pre>
+    
+ft2_2: 美术作品版权登记-权大师
+费用总计:799.00
+Traceback (most recent call last):
+  File "G:\quandashitest_company\quandashitest_company\case\bqywtest.py", line 44, in test_mszp
+    self.driver.find_element_by_name("ownerContactPerson").send_keys("全大师")
+AttributeError: 'NoneType' object has no attribute 'send_keys'
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft2_3' class='none'>
+    <td class='errorCase'><div class='testcase'>test_rjbg: 软件著作权变更测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft2_3' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft2_3'>错误</button>
+    <div id='div_ft2_3' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft2_3' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft2_3'>错误</button>
+    <div id='div_ft2_3' class="collapse in">
+    <pre>
+    
+ft2_3: 软件著作权变更-权大师
+费用总计:799.00
+Traceback (most recent call last):
+  File "G:\quandashitest_company\quandashitest_company\case\bqywtest.py", line 265, in test_rjbg
+    self.driver.find_element_by_name("ownerContactPerson").send_keys("全大师")
+AttributeError: 'NoneType' object has no attribute 'send_keys'
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft2_4' class='none'>
+    <td class='errorCase'><div class='testcase'>test_rjbz: 软件著作权补证测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft2_4' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft2_4'>错误</button>
+    <div id='div_ft2_4' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft2_4' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft2_4'>错误</button>
+    <div id='div_ft2_4' class="collapse in">
+    <pre>
+    
+ft2_4: 软件著作权补证-权大师
+费用总计:799.00
+Traceback (most recent call last):
+  File "G:\quandashitest_company\quandashitest_company\case\bqywtest.py", line 320, in test_rjbz
+    self.driver.find_element_by_name("ownerContactPerson").send_keys("全大师")
+AttributeError: 'NoneType' object has no attribute 'send_keys'
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft2_5' class='none'>
+    <td class='errorCase'><div class='testcase'>test_rjzr: 软件著作权转让测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft2_5' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft2_5'>错误</button>
+    <div id='div_ft2_5' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft2_5' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft2_5'>错误</button>
+    <div id='div_ft2_5' class="collapse in">
+    <pre>
+    
+ft2_5: 软件著作权转让-权大师
+费用总计:799.00
+Traceback (most recent call last):
+  File "G:\quandashitest_company\quandashitest_company\case\bqywtest.py", line 375, in test_rjzr
+    self.driver.find_element_by_name("ownerContactPerson").send_keys("全大师")
+AttributeError: 'NoneType' object has no attribute 'send_keys'
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft2_6' class='none'>
+    <td class='errorCase'><div class='testcase'>test_wzdj: 文字作品版权登记加急测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft2_6' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft2_6'>错误</button>
+    <div id='div_ft2_6' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft2_6' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft2_6'>错误</button>
+    <div id='div_ft2_6' class="collapse in">
+    <pre>
+    
+ft2_6: 文字作品版权登记加急-权大师
+费用总计:2299.00
+Traceback (most recent call last):
+  File "G:\quandashitest_company\quandashitest_company\case\bqywtest.py", line 209, in test_wzdj
+    self.driver.find_element_by_name("ownerContactPerson").send_keys("全大师")
+AttributeError: 'NoneType' object has no attribute 'send_keys'
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft2_7' class='none'>
+    <td class='errorCase'><div class='testcase'>test_wzzp: 文字作品版权登记测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft2_7' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft2_7'>错误</button>
+    <div id='div_ft2_7' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft2_7' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft2_7'>错误</button>
+    <div id='div_ft2_7' class="collapse in">
+    <pre>
+    
+ft2_7: 文字作品版权登记-权大师
+费用总计:799.00
+Traceback (most recent call last):
+  File "G:\quandashitest_company\quandashitest_company\case\bqywtest.py", line 154, in test_wzzp
+    self.driver.find_element_by_name("ownerContactPerson").send_keys("全大师")
+AttributeError: 'NoneType' object has no attribute 'send_keys'
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr class='errorClass warning'>
+    <td>cxzctest.cxzctest: 查询注册测试集</td>
+    <td class="text-center">2</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">1</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c3',2)" class="detail" id='c3'>详细</a></td>
+</tr>
+
+<tr id='ft3_1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_gnsb: 国内商标查询测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft3_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft3_1'>错误</button>
+    <div id='div_ft3_1' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft3_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft3_1'>错误</button>
+    <div id='div_ft3_1' class="collapse in">
+    <pre>
+    
+ft3_1: 国内商标查询（报告）-国内商标查询报告-权大师
+费用总计:99.00
+Traceback (most recent call last):
+  File "G:\quandashitest_company\quandashitest_company\case\cxzctest.py", line 74, in test_gnsb
+    self.driver.find_element_by_name("ownerContactPerson").send_keys("全大师")
+AttributeError: 'NoneType' object has no attribute 'send_keys'
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt3_2' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_mfsb: 免费商标查询测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt3_2' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt3_2'>通过</button>
+    <div id='div_pt3_2' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt3_2' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt3_2'>通过</button>
+    <div id='div_pt3_2' class="collapse in">
+    <pre>
+    
+pt3_2: 注册商标查询_中国商标查询_权大师官网
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr class='errorClass warning'>
+    <td>dbwytest.dbwytest: 担保无忧测试集</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center">1</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c4',1)" class="detail" id='c4'>详细</a></td>
+</tr>
+
+<tr id='ft4_1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_dbwy: 担保无忧测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft4_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft4_1'>错误</button>
+    <div id='div_ft4_1' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft4_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft4_1'>错误</button>
+    <div id='div_ft4_1' class="collapse in">
+    <pre>
+    
+ft4_1: 商标注册-权大师
+费用总计:1280.00
+Traceback (most recent call last):
+  File "G:\quandashitest_company\quandashitest_company\case\dbwytest.py", line 41, in test_dbwy
+    self.driver.find_element_by_name("ownerContactPerson").send_keys("全大师")
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 365, in find_element_by_name
+    return self.find_element(by=By.NAME, value=name)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 752, in find_element
+    'value': value})['value']
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 236, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 192, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.UnexpectedAlertPresentException: Alert Text: None
+Message: unexpected alert open: {Alert text : 请登录}
+  (Session info: chrome=68.0.3440.75)
+  (Driver info: chromedriver=2.40.565498 (ea082db3280dd6843ebfb08a625e3eb905c4f5ab),platform=Windows NT 10.0.17134 x86_64)
+
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr class='errorClass warning'>
+    <td>fmzltest.fmzltest: 发明专利测试集</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center">1</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c5',1)" class="detail" id='c5'>详细</a></td>
+</tr>
+
+<tr id='ft5_1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_fmzl: 基础型</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft5_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft5_1'>错误</button>
+    <div id='div_ft5_1' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft5_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft5_1'>错误</button>
+    <div id='div_ft5_1' class="collapse in">
+    <pre>
+    
+ft5_1: 发明专利申请基础型_权大师
+费用总计:3859.00
+Traceback (most recent call last):
+  File "G:\quandashitest_company\quandashitest_company\case\fmzltest.py", line 39, in test_fmzl
+    self.driver.find_element_by_name("ownerContactPerson").send_keys("全大师")
+AttributeError: 'NoneType' object has no attribute 'send_keys'
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr class='errorClass warning'>
+    <td>hhrtest.hhrtest: 合伙人个人中心测试集</td>
+    <td class="text-center">2</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center">2</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c6',2)" class="detail" id='c6'>详细</a></td>
+</tr>
+
+<tr id='ft6_1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_hhrsbzc: 合伙人商标注册</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft6_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft6_1'>错误</button>
+    <div id='div_ft6_1' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft6_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft6_1'>错误</button>
+    <div id='div_ft6_1' class="collapse in">
+    <pre>
+    
+ft6_1: Traceback (most recent call last):
+  File "G:\quandashitest_company\quandashitest_company\case\hhrtest.py", line 118, in test_hhrsbzc
+    self.driver.find_element_by_css_selector("#personalCenter2-header &gt; div.header-box &gt; div.header-box &gt; div.header-nav &gt; a").click()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 437, in find_element_by_css_selector
+    return self.find_element(by=By.CSS_SELECTOR, value=css_selector)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 752, in find_element
+    'value': value})['value']
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 236, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 192, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"#personalCenter2-header &gt; div.header-box &gt; div.header-box &gt; div.header-nav &gt; a"}
+  (Session info: chrome=68.0.3440.75)
+  (Driver info: chromedriver=2.40.565498 (ea082db3280dd6843ebfb08a625e3eb905c4f5ab),platform=Windows NT 10.0.17134 x86_64)
+
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft6_2' class='none'>
+    <td class='errorCase'><div class='testcase'>test_sbdd: 商标订单</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft6_2' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft6_2'>错误</button>
+    <div id='div_ft6_2' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft6_2' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft6_2'>错误</button>
+    <div id='div_ft6_2' class="collapse in">
+    <pre>
+    
+ft6_2: Traceback (most recent call last):
+  File "G:\quandashitest_company\quandashitest_company\case\hhrtest.py", line 23, in test_sbdd
+    self.driver.find_element_by_css_selector("#personalCenter2-header &gt; div.header-box &gt; div.header-box &gt; div.header-nav &gt; a").click()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 437, in find_element_by_css_selector
+    return self.find_element(by=By.CSS_SELECTOR, value=css_selector)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 752, in find_element
+    'value': value})['value']
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 236, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 192, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"#personalCenter2-header &gt; div.header-box &gt; div.header-box &gt; div.header-nav &gt; a"}
+  (Session info: chrome=68.0.3440.75)
+  (Driver info: chromedriver=2.40.565498 (ea082db3280dd6843ebfb08a625e3eb905c4f5ab),platform=Windows NT 10.0.17134 x86_64)
+
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr class='errorClass warning'>
+    <td>hometest.hometest: 个人中心测试集</td>
+    <td class="text-center">4</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center">4</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c7',4)" class="detail" id='c7'>详细</a></td>
+</tr>
+
+<tr id='ft7_1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_ddzx: 订单中心</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft7_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft7_1'>错误</button>
+    <div id='div_ft7_1' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft7_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft7_1'>错误</button>
+    <div id='div_ft7_1' class="collapse in">
+    <pre>
+    
+ft7_1: Traceback (most recent call last):
+  File "G:\quandashitest_company\quandashitest_company\case\hometest.py", line 33, in test_ddzx
+    self.driver.find_element_by_css_selector("#personalCenter2-leftNav &gt; ul &gt; li.menu.open &gt; ul &gt; li:nth-child(1) &gt; a").click()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 437, in find_element_by_css_selector
+    return self.find_element(by=By.CSS_SELECTOR, value=css_selector)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 752, in find_element
+    'value': value})['value']
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 236, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 192, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"#personalCenter2-leftNav &gt; ul &gt; li.menu.open &gt; ul &gt; li:nth-child(1) &gt; a"}
+  (Session info: chrome=68.0.3440.75)
+  (Driver info: chromedriver=2.40.565498 (ea082db3280dd6843ebfb08a625e3eb905c4f5ab),platform=Windows NT 10.0.17134 x86_64)
+
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft7_2' class='none'>
+    <td class='errorCase'><div class='testcase'>test_dzgl: 发票地址管理</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft7_2' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft7_2'>错误</button>
+    <div id='div_ft7_2' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft7_2' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft7_2'>错误</button>
+    <div id='div_ft7_2' class="collapse in">
+    <pre>
+    
+ft7_2: Traceback (most recent call last):
+  File "G:\quandashitest_company\quandashitest_company\case\hometest.py", line 123, in test_dzgl
+    self.driver.find_element_by_link_text("邮寄地址管理").click()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 317, in find_element_by_link_text
+    return self.find_element(by=By.LINK_TEXT, value=link_text)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 752, in find_element
+    'value': value})['value']
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 236, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 192, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"link text","selector":"邮寄地址管理"}
+  (Session info: chrome=68.0.3440.75)
+  (Driver info: chromedriver=2.40.565498 (ea082db3280dd6843ebfb08a625e3eb905c4f5ab),platform=Windows NT 10.0.17134 x86_64)
+
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft7_3' class='none'>
+    <td class='errorCase'><div class='testcase'>test_fpsq: 发票申请</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft7_3' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft7_3'>错误</button>
+    <div id='div_ft7_3' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft7_3' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft7_3'>错误</button>
+    <div id='div_ft7_3' class="collapse in">
+    <pre>
+    
+ft7_3: Traceback (most recent call last):
+  File "G:\quandashitest_company\quandashitest_company\case\hometest.py", line 166, in test_fpsq
+    self.driver.find_element_by_link_text("发票申请").click()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 317, in find_element_by_link_text
+    return self.find_element(by=By.LINK_TEXT, value=link_text)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 752, in find_element
+    'value': value})['value']
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 236, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 192, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"link text","selector":"发票申请"}
+  (Session info: chrome=68.0.3440.75)
+  (Driver info: chromedriver=2.40.565498 (ea082db3280dd6843ebfb08a625e3eb905c4f5ab),platform=Windows NT 10.0.17134 x86_64)
+
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft7_4' class='none'>
+    <td class='errorCase'><div class='testcase'>test_gwyj: 官文邮寄</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft7_4' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft7_4'>错误</button>
+    <div id='div_ft7_4' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft7_4' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft7_4'>错误</button>
+    <div id='div_ft7_4' class="collapse in">
+    <pre>
+    
+ft7_4: Traceback (most recent call last):
+  File "G:\quandashitest_company\quandashitest_company\case\hometest.py", line 218, in test_gwyj
+    self.driver.find_element_by_link_text("官文管理").click()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 317, in find_element_by_link_text
+    return self.find_element(by=By.LINK_TEXT, value=link_text)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 752, in find_element
+    'value': value})['value']
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 236, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 192, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"link text","selector":"官文管理"}
+  (Session info: chrome=68.0.3440.75)
+  (Driver info: chromedriver=2.40.565498 (ea082db3280dd6843ebfb08a625e3eb905c4f5ab),platform=Windows NT 10.0.17134 x86_64)
+
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr class='errorClass warning'>
+    <td>hwgstest.hwgstest: 海外高速测试集</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center">1</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c8',1)" class="detail" id='c8'>详细</a></td>
+</tr>
+
+<tr id='ft8_1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_hwgs: 海外高速测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft8_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft8_1'>错误</button>
+    <div id='div_ft8_1' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft8_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft8_1'>错误</button>
+    <div id='div_ft8_1' class="collapse in">
+    <pre>
+    
+ft8_1: 商标注册-权大师
+费用总计:600.00
+Traceback (most recent call last):
+  File "G:\quandashitest_company\quandashitest_company\case\hwgstest.py", line 81, in test_hwgs
+    "body &gt; div.smartRegister-page &gt; div.agentInfo-wrap.applicant-wrap.overseas &gt; div.section-base &gt; div.overseas-form &gt; table.table-1.table-overseas.table-type2.active &gt; tbody.tbody-qiye &gt; tr:nth-child(1) &gt; td.td-content.contact-select-container &gt; dl &gt; dt &gt; input").send_keys(
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 437, in find_element_by_css_selector
+    return self.find_element(by=By.CSS_SELECTOR, value=css_selector)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 752, in find_element
+    'value': value})['value']
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 236, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 192, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"body &gt; div.smartRegister-page &gt; div.agentInfo-wrap.applicant-wrap.overseas &gt; div.section-base &gt; div.overseas-form &gt; table.table-1.table-overseas.table-type2.active &gt; tbody.tbody-qiye &gt; tr:nth-child(1) &gt; td.td-content.contact-select-container &gt; dl &gt; dt &gt; input"}
+  (Session info: chrome=68.0.3440.75)
+  (Driver info: chromedriver=2.40.565498 (ea082db3280dd6843ebfb08a625e3eb905c4f5ab),platform=Windows NT 10.0.17134 x86_64)
+
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr class='errorClass warning'>
+    <td>hwsctest.sbzrtest: 海外市场测试集</td>
+    <td class="text-center">5</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center">5</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c9',5)" class="detail" id='c9'>详细</a></td>
+</tr>
+
+<tr id='ft9_1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_mdl: 马德里商标注册测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft9_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft9_1'>错误</button>
+    <div id='div_ft9_1' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft9_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft9_1'>错误</button>
+    <div id='div_ft9_1' class="collapse in">
+    <pre>
+    
+ft9_1: 马德里商标注册
+费用总计:6600.00
+Traceback (most recent call last):
+  File "G:\quandashitest_company\quandashitest_company\case\hwsctest.py", line 45, in test_mdl
+    self.driver.find_element_by_name("ownerContactPerson").send_keys("全大师")
+AttributeError: 'NoneType' object has no attribute 'send_keys'
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft9_2' class='none'>
+    <td class='errorCase'><div class='testcase'>test_mg: 美国商标注册测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft9_2' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft9_2'>错误</button>
+    <div id='div_ft9_2' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft9_2' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft9_2'>错误</button>
+    <div id='div_ft9_2' class="collapse in">
+    <pre>
+    
+ft9_2: 美国商标注册-权大师
+费用总计:5799.00
+Traceback (most recent call last):
+  File "G:\quandashitest_company\quandashitest_company\case\hwsctest.py", line 100, in test_mg
+    self.driver.find_element_by_name("ownerContactPerson").send_keys("全大师")
+AttributeError: 'NoneType' object has no attribute 'send_keys'
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft9_3' class='none'>
+    <td class='errorCase'><div class='testcase'>test_om: 欧盟商标注册测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft9_3' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft9_3'>错误</button>
+    <div id='div_ft9_3' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft9_3' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft9_3'>错误</button>
+    <div id='div_ft9_3' class="collapse in">
+    <pre>
+    
+ft9_3: 欧盟商标注册-权大师
+费用总计:11499.00
+Traceback (most recent call last):
+  File "G:\quandashitest_company\quandashitest_company\case\hwsctest.py", line 155, in test_om
+    self.driver.find_element_by_name("ownerContactPerson").send_keys("全大师")
+AttributeError: 'NoneType' object has no attribute 'send_keys'
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft9_4' class='none'>
+    <td class='errorCase'><div class='testcase'>test_rb: 印度商标注册测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft9_4' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft9_4'>错误</button>
+    <div id='div_ft9_4' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft9_4' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft9_4'>错误</button>
+    <div id='div_ft9_4' class="collapse in">
+    <pre>
+    
+ft9_4: 印度商标注册-权大师
+费用总计:4699.00
+Traceback (most recent call last):
+  File "G:\quandashitest_company\quandashitest_company\case\hwsctest.py", line 265, in test_rb
+    self.driver.find_element_by_name("ownerContactPerson").send_keys("全大师")
+AttributeError: 'NoneType' object has no attribute 'send_keys'
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft9_5' class='none'>
+    <td class='errorCase'><div class='testcase'>test_xg: 香港商标注册测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft9_5' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft9_5'>错误</button>
+    <div id='div_ft9_5' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft9_5' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft9_5'>错误</button>
+    <div id='div_ft9_5' class="collapse in">
+    <pre>
+    
+ft9_5: 香港商标注册-权大师
+费用总计:3299.00
+Traceback (most recent call last):
+  File "G:\quandashitest_company\quandashitest_company\case\hwsctest.py", line 320, in test_xg
+    self.driver.find_element_by_name("ownerContactPerson").send_keys("全大师")
+AttributeError: 'NoneType' object has no attribute 'send_keys'
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr class='failClass warning'>
+    <td>mfsbtest.gnsbtest: 商标搜索查询测试集</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c10',1)" class="detail" id='c10'>详细</a></td>
+</tr>
+
+<tr id='ft10_1' class='none'>
+    <td class='failCase'><div class='testcase'>test_sbss: 商标搜索</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft10_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft10_1'>失败</button>
+    <div id='div_ft10_1' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft10_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft10_1'>失败</button>
+    <div id='div_ft10_1' class="collapse in">
+    <pre>
+    
+ft10_1: 注册商标查询_中国商标查询_权大师官网
+Traceback (most recent call last):
+  File "G:\quandashitest_company\quandashitest_company\case\mfsbtest.py", line 48, in test_sbss
+    self.assertIn("测试_全球更好用的商标搜索_权大师",self.driver.title)
+AssertionError: '测试_全球更好用的商标搜索_权大师' not found in '注册商标查询_中国商标查询_权大师官网'
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr class='errorClass warning'>
+    <td>rjzztest.rjzztest: 软件著作权测试集</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center">1</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c11',1)" class="detail" id='c11'>详细</a></td>
+</tr>
+
+<tr id='ft11_1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_rjzz: 软件著作权登记</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft11_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft11_1'>错误</button>
+    <div id='div_ft11_1' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft11_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft11_1'>错误</button>
+    <div id='div_ft11_1' class="collapse in">
+    <pre>
+    
+ft11_1: 软件著作权登记-权大师
+费用总计:799.00
+Traceback (most recent call last):
+  File "G:\quandashitest_company\quandashitest_company\case\rjzztest.py", line 38, in test_rjzz
+    self.driver.find_element_by_name("ownerContactPerson").send_keys("全大师")
+AttributeError: 'NoneType' object has no attribute 'send_keys'
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr class='errorClass warning'>
+    <td>sbxxtest.sbxxtest: 商标信息测试集</td>
+    <td class="text-center">5</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center">5</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c12',5)" class="detail" id='c12'>详细</a></td>
+</tr>
+
+<tr id='ft12_1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_sbbg: 商标变更测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft12_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft12_1'>错误</button>
+    <div id='div_ft12_1' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft12_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft12_1'>错误</button>
+    <div id='div_ft12_1' class="collapse in">
+    <pre>
+    
+ft12_1: 商标变更-权大师
+费用总计:1249.00
+Traceback (most recent call last):
+  File "G:\quandashitest_company\quandashitest_company\case\sbxxtest.py", line 267, in test_sbbg
+    self.driver.find_element_by_name("ownerContactPerson").send_keys("全大师")
+AttributeError: 'NoneType' object has no attribute 'send_keys'
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft12_2' class='none'>
+    <td class='errorCase'><div class='testcase'>test_sbkz: 商标宽展测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft12_2' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft12_2'>错误</button>
+    <div id='div_ft12_2' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft12_2' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft12_2'>错误</button>
+    <div id='div_ft12_2' class="collapse in">
+    <pre>
+    
+ft12_2: 商标宽展-权大师
+费用总计:2249.00
+Traceback (most recent call last):
+  File "G:\quandashitest_company\quandashitest_company\case\sbxxtest.py", line 157, in test_sbkz
+    self.driver.find_element_by_name("ownerContactPerson").send_keys("全大师")
+AttributeError: 'NoneType' object has no attribute 'send_keys'
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft12_3' class='none'>
+    <td class='errorCase'><div class='testcase'>test_sbxk: 商标许可备案测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft12_3' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft12_3'>错误</button>
+    <div id='div_ft12_3' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft12_3' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft12_3'>错误</button>
+    <div id='div_ft12_3' class="collapse in">
+    <pre>
+    
+ft12_3: 商标许可备案-权大师
+费用总计:749.00
+Traceback (most recent call last):
+  File "G:\quandashitest_company\quandashitest_company\case\sbxxtest.py", line 212, in test_sbxk
+    self.driver.find_element_by_name("ownerContactPerson").send_keys("全大师")
+AttributeError: 'NoneType' object has no attribute 'send_keys'
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft12_4' class='none'>
+    <td class='errorCase'><div class='testcase'>test_sbxz: 商标续展让测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft12_4' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft12_4'>错误</button>
+    <div id='div_ft12_4' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft12_4' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft12_4'>错误</button>
+    <div id='div_ft12_4' class="collapse in">
+    <pre>
+    
+ft12_4: 商标续展-权大师
+费用总计:1999.00
+Traceback (most recent call last):
+  File "G:\quandashitest_company\quandashitest_company\case\sbxxtest.py", line 102, in test_sbxz
+    self.driver.find_element_by_name("ownerContactPerson").send_keys("全大师")
+AttributeError: 'NoneType' object has no attribute 'send_keys'
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft12_5' class='none'>
+    <td class='errorCase'><div class='testcase'>test_sbzr: 商标撤转让测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft12_5' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft12_5'>错误</button>
+    <div id='div_ft12_5' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft12_5' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft12_5'>错误</button>
+    <div id='div_ft12_5' class="collapse in">
+    <pre>
+    
+ft12_5: 商标转让-权大师
+费用总计:1499.00
+Traceback (most recent call last):
+  File "G:\quandashitest_company\quandashitest_company\case\sbxxtest.py", line 47, in test_sbzr
+    self.driver.find_element_by_name("ownerContactPerson").send_keys("全大师")
+AttributeError: 'NoneType' object has no attribute 'send_keys'
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr class='errorClass warning'>
+    <td>yytrtest.yytrtest: 异议他人商标测试集</td>
+    <td class="text-center">3</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center">3</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c13',3)" class="detail" id='c13'>详细</a></td>
+</tr>
+
+<tr id='ft13_1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_sbcs: 商标撤三测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft13_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft13_1'>错误</button>
+    <div id='div_ft13_1' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft13_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft13_1'>错误</button>
+    <div id='div_ft13_1' class="collapse in">
+    <pre>
+    
+ft13_1: 商标撤三申请-权大师
+费用总计:1499.00
+Traceback (most recent call last):
+  File "G:\quandashitest_company\quandashitest_company\case\yytrtest.py", line 44, in test_sbcs
+    self.driver.find_element_by_name("ownerContactPerson").send_keys("全大师")
+AttributeError: 'NoneType' object has no attribute 'send_keys'
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft13_2' class='none'>
+    <td class='errorCase'><div class='testcase'>test_sbwx: 商标无效宣告申请测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft13_2' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft13_2'>错误</button>
+    <div id='div_ft13_2' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft13_2' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft13_2'>错误</button>
+    <div id='div_ft13_2' class="collapse in">
+    <pre>
+    
+ft13_2: 商标无效宣告申请-权大师
+费用总计:3249.00
+Traceback (most recent call last):
+  File "G:\quandashitest_company\quandashitest_company\case\yytrtest.py", line 152, in test_sbwx
+    self.driver.find_element_by_name("ownerContactPerson").send_keys("全大师")
+AttributeError: 'NoneType' object has no attribute 'send_keys'
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft13_3' class='none'>
+    <td class='errorCase'><div class='testcase'>test_sbyy: 商标异议申请测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft13_3' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft13_3'>错误</button>
+    <div id='div_ft13_3' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft13_3' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft13_3'>错误</button>
+    <div id='div_ft13_3' class="collapse in">
+    <pre>
+    
+ft13_3: 商标异议申请-权大师
+费用总计:2999.00
+Traceback (most recent call last):
+  File "G:\quandashitest_company\quandashitest_company\case\yytrtest.py", line 98, in test_sbyy
+    self.driver.find_element_by_name("ownerContactPerson").send_keys("全大师")
+AttributeError: 'NoneType' object has no attribute 'send_keys'
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr class='errorClass warning'>
+    <td>zahjtest.zahjtest: 遇到障碍如何化解测试集</td>
+    <td class="text-center">3</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center">3</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c14',3)" class="detail" id='c14'>详细</a></td>
+</tr>
+
+<tr id='ft14_1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_sbbh: 商标驳回测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft14_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft14_1'>错误</button>
+    <div id='div_ft14_1' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft14_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft14_1'>错误</button>
+    <div id='div_ft14_1' class="collapse in">
+    <pre>
+    
+ft14_1: 商标驳回复审-权大师
+费用总计:2749.00
+Traceback (most recent call last):
+  File "G:\quandashitest_company\quandashitest_company\case\zahjtest.py", line 44, in test_sbbh
+    self.driver.find_element_by_name("ownerContactPerson").send_keys("全大师")
+AttributeError: 'NoneType' object has no attribute 'send_keys'
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft14_2' class='none'>
+    <td class='errorCase'><div class='testcase'>test_sbcsdb: 商标撤三答辩测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft14_2' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft14_2'>错误</button>
+    <div id='div_ft14_2' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft14_2' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft14_2'>错误</button>
+    <div id='div_ft14_2' class="collapse in">
+    <pre>
+    
+ft14_2: 商标撤三答辩-权大师
+费用总计:2999.00
+Traceback (most recent call last):
+  File "G:\quandashitest_company\quandashitest_company\case\zahjtest.py", line 152, in test_sbcsdb
+    self.driver.find_element_by_name("ownerContactPerson").send_keys("全大师")
+AttributeError: 'NoneType' object has no attribute 'send_keys'
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft14_3' class='none'>
+    <td class='errorCase'><div class='testcase'>test_sbdb: 商标异议答辩测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft14_3' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft14_3'>错误</button>
+    <div id='div_ft14_3' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft14_3' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft14_3'>错误</button>
+    <div id='div_ft14_3' class="collapse in">
+    <pre>
+    
+ft14_3: 商标异议答辩-权大师
+费用总计:2999.00
+Traceback (most recent call last):
+  File "G:\quandashitest_company\quandashitest_company\case\zahjtest.py", line 98, in test_sbdb
+    self.driver.find_element_by_name("ownerContactPerson").send_keys("全大师")
+AttributeError: 'NoneType' object has no attribute 'send_keys'
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr class='errorClass warning'>
+    <td>zlywtest.zlywtest: 专利业务测试集</td>
+    <td class="text-center">10</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center">10</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c15',10)" class="detail" id='c15'>详细</a></td>
+</tr>
+
+<tr id='ft15_1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_cpwg: 产品外观设计测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft15_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft15_1'>错误</button>
+    <div id='div_ft15_1' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft15_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft15_1'>错误</button>
+    <div id='div_ft15_1' class="collapse in">
+    <pre>
+    
+ft15_1: 产品外观设计专利_权大师
+费用总计:1074.00
+Traceback (most recent call last):
+  File "G:\quandashitest_company\quandashitest_company\case\zlywtest.py", line 102, in test_cpwg
+    self.driver.find_element_by_name("ownerContactPerson").send_keys("全大师")
+AttributeError: 'NoneType' object has no attribute 'send_keys'
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft15_2' class='none'>
+    <td class='errorCase'><div class='testcase'>test_gui: GUI外观设计测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft15_2' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft15_2'>错误</button>
+    <div id='div_ft15_2' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft15_2' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft15_2'>错误</button>
+    <div id='div_ft15_2' class="collapse in">
+    <pre>
+    
+ft15_2: GUI外观设计专利_权大师
+费用总计:1374.00
+Traceback (most recent call last):
+  File "G:\quandashitest_company\quandashitest_company\case\zlywtest.py", line 157, in test_gui
+    self.driver.find_element_by_name("ownerContactPerson").send_keys("全大师")
+AttributeError: 'NoneType' object has no attribute 'send_keys'
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft15_3' class='none'>
+    <td class='errorCase'><div class='testcase'>test_nfjn: 年费缴纳测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft15_3' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft15_3'>错误</button>
+    <div id='div_ft15_3' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft15_3' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft15_3'>错误</button>
+    <div id='div_ft15_3' class="collapse in">
+    <pre>
+    
+ft15_3: 发明专利年费缴纳-权大师
+费用总计:999.00
+Traceback (most recent call last):
+  File "G:\quandashitest_company\quandashitest_company\case\zlywtest.py", line 487, in test_nfjn
+    self.driver.find_element_by_name("ownerContactPerson").send_keys("全大师")
+AttributeError: 'NoneType' object has no attribute 'send_keys'
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft15_4' class='none'>
+    <td class='errorCase'><div class='testcase'>test_syxxjc: 实用新型专利基础版</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft15_4' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft15_4'>错误</button>
+    <div id='div_ft15_4' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft15_4' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft15_4'>错误</button>
+    <div id='div_ft15_4' class="collapse in">
+    <pre>
+    
+ft15_4: 实用新型专利基础版_权大师
+费用总计:2074.00
+Traceback (most recent call last):
+  File "G:\quandashitest_company\quandashitest_company\case\zlywtest.py", line 212, in test_syxxjc
+    self.driver.find_element_by_name("ownerContactPerson").send_keys("全大师")
+AttributeError: 'NoneType' object has no attribute 'send_keys'
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft15_5' class='none'>
+    <td class='errorCase'><div class='testcase'>test_syxxzl: 实用新型专利卓越版</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft15_5' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft15_5'>错误</button>
+    <div id='div_ft15_5' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft15_5' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft15_5'>错误</button>
+    <div id='div_ft15_5' class="collapse in">
+    <pre>
+    
+ft15_5: 实用新型专利卓越版_权大师
+费用总计:3374.00
+Traceback (most recent call last):
+  File "G:\quandashitest_company\quandashitest_company\case\zlywtest.py", line 267, in test_syxxzl
+    self.driver.find_element_by_name("ownerContactPerson").send_keys("全大师")
+AttributeError: 'NoneType' object has no attribute 'send_keys'
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft15_6' class='none'>
+    <td class='errorCase'><div class='testcase'>test_zlbg: 专利著录项变更测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft15_6' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft15_6'>错误</button>
+    <div id='div_ft15_6' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft15_6' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft15_6'>错误</button>
+    <div id='div_ft15_6' class="collapse in">
+    <pre>
+    
+ft15_6: 专利著录项变更-权大师
+费用总计:399.00
+Traceback (most recent call last):
+  File "G:\quandashitest_company\quandashitest_company\case\zlywtest.py", line 543, in test_zlbg
+    self.driver.find_element_by_name("ownerContactPerson").send_keys("全大师")
+AttributeError: 'NoneType' object has no attribute 'send_keys'
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft15_7' class='none'>
+    <td class='errorCase'><div class='testcase'>test_zlbh: 专利驳回复审测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft15_7' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft15_7'>错误</button>
+    <div id='div_ft15_7' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft15_7' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft15_7'>错误</button>
+    <div id='div_ft15_7' class="collapse in">
+    <pre>
+    
+ft15_7: 发明专利驳回复审_权大师
+费用总计:10999.00
+Traceback (most recent call last):
+  File "G:\quandashitest_company\quandashitest_company\case\zlywtest.py", line 322, in test_zlbh
+    self.driver.find_element_by_name("ownerContactPerson").send_keys("全大师")
+AttributeError: 'NoneType' object has no attribute 'send_keys'
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft15_8' class='none'>
+    <td class='errorCase'><div class='testcase'>test_zldb: 专利无效答辩测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft15_8' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft15_8'>错误</button>
+    <div id='div_ft15_8' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft15_8' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft15_8'>错误</button>
+    <div id='div_ft15_8' class="collapse in">
+    <pre>
+    
+ft15_8: 发明专利无效答辩_权大师
+费用总计:24999.00
+Traceback (most recent call last):
+  File "G:\quandashitest_company\quandashitest_company\case\zlywtest.py", line 432, in test_zldb
+    self.driver.find_element_by_name("ownerContactPerson").send_keys("全大师")
+AttributeError: 'NoneType' object has no attribute 'send_keys'
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft15_9' class='none'>
+    <td class='errorCase'><div class='testcase'>test_zljs: 专利查新检索（报告）测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft15_9' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft15_9'>错误</button>
+    <div id='div_ft15_9' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft15_9' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft15_9'>错误</button>
+    <div id='div_ft15_9' class="collapse in">
+    <pre>
+    
+ft15_9: 专利查新检索（报告）_权大师
+费用总计:299.00
+Traceback (most recent call last):
+  File "G:\quandashitest_company\quandashitest_company\case\zlywtest.py", line 45, in test_zljs
+    self.driver.find_element_by_name("ownerContactPerson").send_keys("全大师")
+AttributeError: 'NoneType' object has no attribute 'send_keys'
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='ft15_10' class='none'>
+    <td class='errorCase'><div class='testcase'>test_zlxg: 专利无效宣告测试</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft15_10' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft15_10'>错误</button>
+    <div id='div_ft15_10' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft15_10' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft15_10'>错误</button>
+    <div id='div_ft15_10' class="collapse in">
+    <pre>
+    
+ft15_10: 发明专利无效宣告_权大师
+费用总计:32999.00
+Traceback (most recent call last):
+  File "G:\quandashitest_company\quandashitest_company\case\zlywtest.py", line 377, in test_zlxg
+    self.driver.find_element_by_name("ownerContactPerson").send_keys("全大师")
+AttributeError: 'NoneType' object has no attribute 'send_keys'
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr class='errorClass warning'>
+    <td>znzztest.znzztest: 智能注册测试集</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center">1</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c16',1)" class="detail" id='c16'>详细</a></td>
+</tr>
+
+<tr id='ft16_1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_znzz: 智能注册测</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft16_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft16_1'>错误</button>
+    <div id='div_ft16_1' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft16_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft16_1'>错误</button>
+    <div id='div_ft16_1' class="collapse in">
+    <pre>
+    
+ft16_1: 商标注册-权大师
+费用总计:300.00
+Traceback (most recent call last):
+  File "G:\quandashitest_company\quandashitest_company\case\znzztest.py", line 90, in test_znzz
+    "body &gt; div.smartRegister-page &gt; div.agentInfo-wrap.applicant-wrap &gt; div.section-base &gt; div.applicant-form &gt; table.table-1.table-applicant.table-type1.active &gt; tbody.tbody-qiye &gt; tr:nth-child(1) &gt; td.td-content.contact-select-container &gt; dl &gt; dt &gt; input").clear()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 437, in find_element_by_css_selector
+    return self.find_element(by=By.CSS_SELECTOR, value=css_selector)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 752, in find_element
+    'value': value})['value']
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 236, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 192, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"body &gt; div.smartRegister-page &gt; div.agentInfo-wrap.applicant-wrap &gt; div.section-base &gt; div.applicant-form &gt; table.table-1.table-applicant.table-type1.active &gt; tbody.tbody-qiye &gt; tr:nth-child(1) &gt; td.td-content.contact-select-container &gt; dl &gt; dt &gt; input"}
+  (Session info: chrome=68.0.3440.75)
+  (Driver info: chromedriver=2.40.565498 (ea082db3280dd6843ebfb08a625e3eb905c4f5ab),platform=Windows NT 10.0.17134 x86_64)
+
+
+
+    </pre>
+    </div>
+    </td>
+</tr>
+
+<tr id='total_row' class="text-center active">
+    <td>总计</td>
+    <td>48</td>
+    <td>1</td>
+    <td>1</td>
+    <td>46</td>
+    <td>通过率：2.08%</td>
+</tr>
+</table>
+
+<div id='ending'>&nbsp;</div>
+    <div style=" position:fixed;right:50px; bottom:30px; width:20px; height:20px;cursor:pointer">
+    <a href="#"><span class="glyphicon glyphicon-eject" style = "font-size:30px;" aria-hidden="true">
+    </span></a></div>
+    
+
+</body>
+</html>
