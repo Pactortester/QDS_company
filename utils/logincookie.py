@@ -1,3 +1,5 @@
+import time
+
 
 class dengLuPage:
     #url = "https://www.quandashi.com/"
@@ -18,6 +20,7 @@ class dengLuPage:
         self.open_page()
         self.driver.add_cookie(self.cookie)
         self.driver.refresh()
+        time.sleep(1)
 
     def refresh(self):
 

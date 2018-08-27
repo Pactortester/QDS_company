@@ -294,6 +294,7 @@ from selenium import webdriver
 # totalCount = re.sub("\D","",totalCount)
 #
 # print(totalCount)
+from config.globalparam import report_path, img_path
 from utils.random import Unicode
 
 print("包针雨我爱你！")
@@ -301,3 +302,6 @@ s=Unicode()
 a=len(s)
 print(a)
 print(s)
+
+print(report_path)
+print(img_path)
