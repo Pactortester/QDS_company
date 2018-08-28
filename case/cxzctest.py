@@ -6,12 +6,12 @@ import logging
 
 from selenium.webdriver import ActionChains
 
-from utils.mytestcase import mytestcase
+from utils.mytestcase import MyTestCase
 from utils.logincookie import dengLuPage
 from utils.screenshort import get_screenshort
 
 
-class cxzctest(mytestcase):
+class CxZcTest(MyTestCase):
     """查询注册测试集"""
 
     def test_mfsb(self):
@@ -42,8 +42,6 @@ class cxzctest(mytestcase):
 
 
         get_screenshort(self.driver, "test_mfsb.png")
-
-
 
     def test_gnsb(self):
         """国内商标查询测试"""

@@ -6,12 +6,12 @@ import logging
 
 from selenium.webdriver import ActionChains
 
-from utils.mytestcase import mytestcase
+from utils.mytestcase import MyTestCase
 from utils.logincookie import dengLuPage
 from utils.screenshort import get_screenshort
 
 
-class dbwytest(mytestcase):
+class DbWyTest(MyTestCase):
     """担保无忧测试集"""
 
     def test_dbwy(self):

@@ -5,11 +5,12 @@ import random
 
 import logging
 
-from utils.mytestcase import mytestcase
+from utils.mytestcase import MyTestCase
 from utils.logincookie import dengLuPage
 from utils.screenshort import get_screenshort
 
-class hometest(mytestcase):
+
+class HomeTest(MyTestCase):
 
     """个人中心测试集"""
 
@@ -103,8 +104,6 @@ class hometest(mytestcase):
 
         print("测试通过!")
 
-
-
     def test_dzgl(self):
 
         """发票地址管理"""
@@ -145,8 +144,6 @@ class hometest(mytestcase):
         get_screenshort(self.driver,"dzgltest.png")
 
         print("测试通过！")
-
-
 
     def test_fpsq(self):
 
@@ -198,8 +195,6 @@ class hometest(mytestcase):
         print("发票申请提交成功")
         print("测试通过！")
 
-
-
     def test_gwyj(self):
 
         """官文邮寄"""
@@ -242,13 +237,8 @@ class hometest(mytestcase):
 
         self.driver.find_element_by_xpath("//*[@id=\"address_info\"]/p[5]/a[2]").click()
 
-
-
-        get_screenshort(self.driver,"gwyjtest.png")
-
+        get_screenshort(self.driver,"test_gwyj.png")
         print("官文邮寄成功！")
-
-
         print("测试通过！")
 
 

@@ -6,12 +6,12 @@ import logging
 
 from selenium.webdriver import ActionChains
 
-from utils.mytestcase import mytestcase
+from utils.mytestcase import MyTestCase
 from utils.logincookie import dengLuPage
 from utils.screenshort import get_screenshort
 
 
-class fmzltest(mytestcase):
+class FmZlTest(MyTestCase):
     """发明专利测试集"""
 
     def test_fmzlbz_1(self):
@@ -76,7 +76,6 @@ class fmzltest(mytestcase):
 
         self.driver.find_element_by_css_selector("#alisubmit").click()
 
-
     def test_fmzlbz_2(self):
         """标准型-多个申请人减缓"""
 
@@ -138,7 +137,6 @@ class fmzltest(mytestcase):
         print("测试通过")
 
         self.driver.find_element_by_css_selector("#alisubmit").click()
-
 
     def test_fmzlbz_3(self):
         """标准型-不减缓"""
@@ -202,7 +200,6 @@ class fmzltest(mytestcase):
 
         self.driver.find_element_by_css_selector("#alisubmit").click()
 
-
     def test_fmzldb_1(self):
         """担保型-单个申请人减缓"""
 
@@ -265,7 +262,6 @@ class fmzltest(mytestcase):
 
         self.driver.find_element_by_css_selector("#alisubmit").click()
 
-
     def test_fmzldb_2(self):
         """担保型-多个申请人减缓"""
 
@@ -327,7 +323,6 @@ class fmzltest(mytestcase):
         print("测试通过")
 
         self.driver.find_element_by_css_selector("#alisubmit").click()
-
 
     def test_fmzldb_3(self):
         """担保型-不减缓"""

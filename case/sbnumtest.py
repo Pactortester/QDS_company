@@ -4,14 +4,13 @@ import time
 
 
 from utils.logincookie import dengLuPage
-from utils.mytestcase import mytestcase
+from utils.mytestcase import MyTestCase
 from utils.random import Unicode
 
 
-class sbnumtest(mytestcase):
+class SbNumTest(MyTestCase):
 
     """相似商标个数测试集"""
-
 
     def test_number1(self):
 

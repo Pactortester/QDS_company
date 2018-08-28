@@ -4,12 +4,13 @@ import time
 
 import logging
 
-from utils.mytestcase import mytestcase
+from utils.mytestcase import MyTestCase
 from utils.logincookie import dengLuPage
 from utils.random import Unicode
 from utils.screenshort import get_screenshort
 
-class hhrtest(mytestcase):
+
+class HhrTest(MyTestCase):
 
     """合伙人个人中心测试集"""
 
@@ -107,9 +108,6 @@ class hhrtest(mytestcase):
 
         print("测试通过!")
 
-
-
-
     def test_hhrsbzc(self):
 
         """合伙人商标注册"""
@@ -205,9 +203,6 @@ class hhrtest(mytestcase):
         self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.paying-wrap.paying-sk-wrap > div.paying-sk-button > a.button.send").click()
 
         print("订单已发送客户付款!")
-
-
-
 
     def test_hhrqdxd(self):
 

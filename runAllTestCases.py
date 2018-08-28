@@ -78,7 +78,7 @@ from config import globalparam
 reportPath = globalparam.report_path
 logger = Log()
 # 配置收发件人
-recvaddress = ['lijiawei@quandashi.com', '1456470136@qq.com']
+recvaddress = ['lijiawei@quandashi.com']
 # 163的用户名和密码
 sendaddr_name = 'lijiawei@quandashi.com'
 sendaddr_pswd = '!QAZ1qaz'

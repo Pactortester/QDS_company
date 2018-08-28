@@ -7,12 +7,12 @@ import logging
 
 from selenium.webdriver import ActionChains
 
-from utils.mytestcase import mytestcase
+from utils.mytestcase import MyTestCase
 from utils.logincookie import dengLuPage
 from utils.screenshort import get_screenshort
 
 
-class zlywtest(mytestcase):
+class ZlYwTest(MyTestCase):
     """专利业务测试集"""
 
     def test_zljs(self):
@@ -74,7 +74,6 @@ class zlywtest(mytestcase):
         self.driver.find_element_by_css_selector("#alisubmit").click()
 
         # com-navbar > div > div.drop-nav > div > ul > li:nth-child(2) > div > dl:nth-child(3) > dd > a:nth-child(1)
-
 
     def test_cpwgbz_1(self):
         """产品外观标准_单个申请人减缓测试"""
@@ -453,8 +452,6 @@ class zlywtest(mytestcase):
 
         self.driver.find_element_by_css_selector("#alisubmit").click()
 
-
-
     def test_guibz_1(self):
         """GUI标准_单个申请人减缓"""
 
@@ -825,7 +822,6 @@ class zlywtest(mytestcase):
         print("测试通过")
 
         self.driver.find_element_by_css_selector("#alisubmit").click()
-
 
     def test_syzlbz_1(self):
         """标准型-单个申请人减缓"""

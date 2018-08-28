@@ -6,13 +6,13 @@ import logging
 
 from selenium.webdriver import ActionChains
 
-from utils.mytestcase import mytestcase
+from utils.mytestcase import MyTestCase
 from utils.logincookie import dengLuPage
 from utils.random import Unicode
 from utils.screenshort import get_screenshort
 
 
-class hwgstest(mytestcase):
+class HwGsTest(MyTestCase):
     """海外高速测试集"""
 
     def test_hwgs_1(self):

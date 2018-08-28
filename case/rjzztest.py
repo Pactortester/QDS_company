@@ -7,12 +7,12 @@ import logging
 
 from selenium.webdriver import ActionChains
 
-from utils.mytestcase import mytestcase
+from utils.mytestcase import MyTestCase
 from utils.logincookie import dengLuPage
 from utils.screenshort import get_screenshort
 
 
-class rjzztest(mytestcase):
+class RjZzTest(MyTestCase):
     """软件著作权测试集"""
 
     def test_rjzz(self):

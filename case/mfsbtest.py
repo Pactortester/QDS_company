@@ -3,12 +3,12 @@ import time
 from utils.random import Unicode
 
 
-from utils.mytestcase import mytestcase
+from utils.mytestcase import MyTestCase
 from utils.logincookie import dengLuPage
 from utils.screenshort import get_screenshort
 
 
-class gnsbtest(mytestcase):
+class MfSbTest(MyTestCase):
     """商标搜索查询测试集"""
 
     def test_sbss(self):

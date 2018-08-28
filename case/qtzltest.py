@@ -7,12 +7,12 @@ import logging
 
 from selenium.webdriver import ActionChains
 
-from utils.mytestcase import mytestcase
+from utils.mytestcase import MyTestCase
 from utils.logincookie import dengLuPage
 from utils.screenshort import get_screenshort
 
 
-class qtzltest(mytestcase):
+class QtZlTest(MyTestCase):
     """专利补充测试集"""
 
     def test_zlbh_2(self):

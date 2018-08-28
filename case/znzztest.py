@@ -6,13 +6,13 @@ import logging
 
 from selenium.webdriver import ActionChains
 
-from utils.mytestcase import mytestcase
+from utils.mytestcase import MyTestCase
 from utils.logincookie import dengLuPage
 from utils.random import Unicode
 from utils.screenshort import get_screenshort
 
 
-class znzztest(mytestcase):
+class ZnZzTest(MyTestCase):
     """智能注册测试集"""
 
     def test_znzz_1(self):
@@ -164,7 +164,6 @@ class znzztest(mytestcase):
         print("测试通过")
 
         self.driver.find_element_by_css_selector("#alisubmit").click()
-
 
     def test_znzz_2(self):
         """智能注册_个体测试"""

@@ -1,12 +1,14 @@
 import unittest
 import time
+
+from config.globalparam import driver_path
 from utils.log import Log
 from selenium import  webdriver
 
 from utils.pyselenium import logger
 
 
-class mytestcase(unittest.TestCase):
+class MyTestCase(unittest.TestCase):
     """
     The base class is for all testcase.
     """
@@ -18,6 +20,9 @@ class mytestcase(unittest.TestCase):
         self.logger = Log()
         self.logger.info('############################### START ###############################')
         self.driver=webdriver.Chrome("C:\\Users\\Administrator\\AppData\Local\\Google\Chrome\\Application\\chromedriver.exe")
+
+        # self.driver = webdriver.Chrome(driver_path+'\\'+'chromedriver.exe')
+
         self.driver.implicitly_wait(30)
         self.driver.maximize_window()
 
