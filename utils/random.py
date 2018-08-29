@@ -1150,8 +1150,8 @@ english = [
     , "fZyana", "mZylen"]
 
 
-
 def Unicode():
+
     a = chr(random.choice(chinses))
     b = chr(random.choice(chinses))
     c = chr(random.choice(chinses))
@@ -1163,19 +1163,11 @@ def Unicode():
     return random.choice(branddict)
 
 
+def zl():
 
+    # j = 12
+    # # id = []
+    # zlid = ''.join(str(i) for i in random.sample(range(0, 9), j))  # sample(seq, n) 从序列seq中选择n个随机且独立的元素；
 
-
-#!/usr/bin/env python
-# -*- coding: utf8 -*-
-#
-# def my_get_letter_list():
-#     import re
-#
-#     fonts_range = []
-#     for lines in file('Chinese_Range', 'r'):
-#         fonts_range.extend(map(lambda x: int(x, 16), \
-#             re.split(',',lines.strip().strip(','))))
-#
-#     letter_list = ''.join(unichr(yf) for yf in fonts_range)
-#     return letter_list
+    patent_no = ''.join(str(random.choice(range(12))) for _ in range(12))
+    return patent_no

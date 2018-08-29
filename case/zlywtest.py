@@ -1512,6 +1512,12 @@ class ZlYwTest(MyTestCase):
 
         self.driver.find_element_by_css_selector(
             "body > div.section-product.width1200 > dl > dd > div.cont-btnBuy > a.btn.btn-next.buynow").click()
+        # patent_no = zl()
+        # self.driver.find_element_by_name("patent_no").send_keys("ZL{}".format(patent_no))
+        # print("专利号:{}".format(patent_no))
+        # patent_name = Unicode()
+        # self.driver.find_element_by_name("patent_name").send_keys("{}".format(patent_name))
+        # print("专利名称:{}".format(patent_name))
         self.driver.find_element_by_name("ownerContactPerson").send_keys("全大师")
         self.driver.find_element_by_name("ownerContactPhone").send_keys("15624992498")
         self.driver.find_element_by_name("contactMail").send_keys("145647@qq.com")

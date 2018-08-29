@@ -295,7 +295,7 @@ from selenium import webdriver
 #
 # print(totalCount)
 from config.globalparam import report_path, img_path
-from utils.random import Unicode
+from utils.random import Unicode, zl
 
 print("包针雨我爱你！")
 s=Unicode()
@@ -305,3 +305,5 @@ print(s)
 
 print(report_path)
 print(img_path)
+
+print(zl())
