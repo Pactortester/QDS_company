@@ -8,7 +8,7 @@ from selenium.webdriver import ActionChains
 
 from utils.mytestcase import MyTestCase
 from utils.logincookie import dengLuPage
-from utils.random import Unicode
+from utils.random import unicode
 from utils.screenshort import get_screenshort
 
 
@@ -51,7 +51,7 @@ class ZnZzTest(MyTestCase):
 
         self.driver.find_element_by_css_selector(
             "body > div.section-product.width1200 > dl > dd > div.cont-btnBuy > a.btn.btn-next.buynow").click()
-        ss=Unicode()
+        ss = unicode()
         self.driver.find_element_by_css_selector(
             "body > div.smartRegister-page.smartRegister3-page > div:nth-child(4) > div > table > tbody > tr.row-name > td.td-content > input").send_keys(
             "{}".format(ss))
@@ -106,7 +106,7 @@ class ZnZzTest(MyTestCase):
 
         self.driver.find_element_by_css_selector(
             "body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base > div.applicant-form > table.table-1.table-applicant.table-type1.active > tbody.tbody-qiye > tr:nth-child(1) > td.td-content.contact-select-container > dl > dt > input").send_keys(
-            "{}".format(Unicode()))
+            "{}".format(unicode()))
         self.driver.find_element_by_css_selector("#ssq").click()
         self.driver.find_element_by_css_selector(
             "#companylistrative > div > div.d-dropdown > div.tab-content.active.tab-province > dl.item.item-a-g.clearfix > dd > span:nth-child(1)").click()
@@ -114,13 +114,13 @@ class ZnZzTest(MyTestCase):
         self.driver.find_element_by_css_selector(
             "#companylistrative > div > div.d-dropdown > div.tab-content.tab-city.active > dl.item.item-a-g.clearfix > dd > span:nth-child(1)").click()
 
-        #解决弹框
-        #self.driver.find_element_by_css_selector("body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base > div.applicant-form > table.table-1.table-applicant.table-type1.active > tbody.tbody-qiye > tr:nth-child(4) > td.td-title").click()
-        #time.sleep(1)
+        # 解决弹框
+        # self.driver.find_element_by_css_selector("body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base > div.applicant-form > table.table-1.table-applicant.table-type1.active > tbody.tbody-qiye > tr:nth-child(4) > td.td-title").click()
+        # time.sleep(1)
 
         self.driver.find_element_by_css_selector(
             "body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base > div.applicant-form > table:nth-child(13) > tbody.tbody-qiye > tr:nth-child(1) > td.td-content > input").send_keys(
-            "{}".format(Unicode()))
+            "{}".format(unicode()))
         self.driver.find_element_by_css_selector(
             "body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base > div.applicant-form > table:nth-child(13) > tbody.tbody-qiye > tr:nth-child(2) > td.td-content > input").send_keys(
             "15624992489")
@@ -130,7 +130,7 @@ class ZnZzTest(MyTestCase):
         self.driver.find_element_by_css_selector(
             "body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base > div.applicant-form > table:nth-child(13) > tbody.tbody-qiye > tr:nth-child(4) > td.td-content > input").send_keys("03515978787")
         time.sleep(2)
-        #解决常用申请人弹框，点击空白处
+        # 解决常用申请人弹框，点击空白处
         self.driver.find_element_by_css_selector("body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base > div.applicant-form > h2").click()
 
         self.driver.find_element_by_css_selector(
@@ -151,9 +151,9 @@ class ZnZzTest(MyTestCase):
             print("总价:"+i.text)
             ii=i.text
 
-        #self.assertIn(aa,ii)
-        #print("测试通过")
-        #self.driver.find_element_by_xpath("/html/body/div[6]/div[3]/div[5]/div/a").click()
+        # self.assertIn(aa,ii)
+        # print("测试通过")
+        # self.driver.find_element_by_xpath("/html/body/div[6]/div[3]/div[5]/div/a").click()
         self.driver.find_element_by_css_selector("body > div.smartRegister-page > div.orderinfo-wrap > div.last-pay.personal-last-pay > div > a").click()
         for o in self.driver.find_elements_by_class_name("payable"):
             print("订单提交成功，应付金额:"+o.text)
@@ -197,11 +197,11 @@ class ZnZzTest(MyTestCase):
 
         for a in self.driver.find_elements_by_css_selector("#total-price"):
             print("费用总计:"+a.text)
-            #aa=a.text
+            # aa=a.text
 
         self.driver.find_element_by_css_selector(
             "body > div.section-product.width1200 > dl > dd > div.cont-btnBuy > a.btn.btn-next.buynow").click()
-        ss=Unicode()
+        ss=unicode()
         self.driver.find_element_by_css_selector(
             "body > div.smartRegister-page.smartRegister3-page > div:nth-child(4) > div > table > tbody > tr.row-name > td.td-content > input").send_keys(
             "{}".format(ss))
@@ -249,7 +249,7 @@ class ZnZzTest(MyTestCase):
             "body > div.smartRegister-page.smartRegister3-page > div.last-pay > ul > li.row-step > a").click()
 
         time.sleep(1)
-        #self.driver.execute_script("document.getElementByName('fname').length = 0;")
+        # self.driver.execute_script("document.getElementByName('fname').length = 0;")
 
         self.driver.find_element_by_css_selector("body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base > table > thead > tr > td.td-content > a:nth-child(2)").click()
 
@@ -257,7 +257,7 @@ class ZnZzTest(MyTestCase):
             "body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base.open > div.applicant-form > table.table-1.table-applicant.table-type1.active > tbody.tbody-gsh > tr:nth-child(1) > td.td-content.contact-select-container > dl > dt > input").clear()
 
         self.driver.find_element_by_css_selector("body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base.open > div.applicant-form > table.table-1.table-applicant.table-type1.active > tbody.tbody-gsh > tr:nth-child(1) > td.td-content.contact-select-container > dl > dt > input").send_keys(
-            "{}".format(Unicode()))
+            "{}".format(unicode()))
         self.driver.find_element_by_css_selector("#geren-idCard").send_keys("140121198906133513")
         time.sleep(1)
         self.driver.find_element_by_css_selector("#personalssq").click()
@@ -268,13 +268,13 @@ class ZnZzTest(MyTestCase):
         self.driver.find_element_by_css_selector("#geren-street").clear()
         self.driver.find_element_by_css_selector("#geren-street").send_keys("北京市昌平区")
 
-        self.driver.find_element_by_css_selector("body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base.open > div.applicant-form > table:nth-child(13) > tbody.tbody-gsh > tr:nth-child(1) > td.td-content > input").send_keys("{}".format(Unicode()))
+        self.driver.find_element_by_css_selector("body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base.open > div.applicant-form > table:nth-child(13) > tbody.tbody-gsh > tr:nth-child(1) > td.td-content > input").send_keys("{}".format(unicode()))
         self.driver.find_element_by_css_selector("body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base.open > div.applicant-form > table:nth-child(13) > tbody.tbody-gsh > tr:nth-child(2) > td.td-content > input").send_keys("15122311456")
         self.driver.find_element_by_css_selector("body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base.open > div.applicant-form > table:nth-child(13) > tbody.tbody-gsh > tr:nth-child(3) > td.td-content > input").send_keys("123313@qq.com")
 
 
 
-        #解决常用申请人弹框，点击空白处
+        # 解决常用申请人弹框，点击空白处
         # self.driver.find_element_by_css_selector("body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base.open > div.applicant-form > h2").click()
 
         self.driver.find_element_by_css_selector(
@@ -293,9 +293,9 @@ class ZnZzTest(MyTestCase):
             print("总价:"+i.text)
             ii=i.text
 
-        #self.assertIn(aa,ii)
-        #print("测试通过")
-        #self.driver.find_element_by_xpath("/html/body/div[6]/div[3]/div[5]/div/a").click()
+        # self.assertIn(aa,ii)
+        # print("测试通过")
+        # self.driver.find_element_by_xpath("/html/body/div[6]/div[3]/div[5]/div/a").click()
         self.driver.find_element_by_css_selector("body > div.smartRegister-page > div.orderinfo-wrap > div.last-pay.personal-last-pay > div > a").click()
         for o in self.driver.find_elements_by_class_name("payable"):
             print("订单提交成功，应付金额:"+o.text)

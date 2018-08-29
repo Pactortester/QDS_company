@@ -6,7 +6,7 @@ import logging
 
 from utils.mytestcase import MyTestCase
 from utils.logincookie import dengLuPage
-from utils.random import Unicode
+from utils.random import unicode
 from utils.screenshort import get_screenshort
 
 
@@ -23,7 +23,7 @@ class HhrTest(MyTestCase):
         self.driver.find_element_by_css_selector("#page-header > div.item-right > ul > li:nth-child(2) > a").click()
         time.sleep(1)
 
-        #新版提示
+        # 新版提示
         self.driver.find_element_by_xpath("//*[@id=\"personalCenter2-rightContainer\"]/div[1]/div/a").click()
 
         self.driver.find_element_by_css_selector("#personalCenter2-leftNav > ul > li.menu.open > ul > li:nth-child(1) > a").click()
@@ -124,7 +124,7 @@ class HhrTest(MyTestCase):
         """填写商标信息"""
 
         self.driver.find_element_by_css_selector("#selectBrandType > label.label.checked").click()
-        ss=Unicode()
+        ss=unicode()
         self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > div.order-form-page > div > div:nth-child(1) > div.brandInfo-wrap > div > table > tbody > tr.row-name > td.td-content > input").send_keys("{}".format(ss))
         print("商标名称：{}".format(ss))
         self.driver.find_element_by_css_selector("#create-tuyang > label.label.checked").click()
@@ -228,7 +228,7 @@ class HhrTest(MyTestCase):
         """填写商标信息"""
 
         self.driver.find_element_by_xpath("//*[@id=\"selectBrandType\"]/label[1]").click()
-        ss=Unicode()
+        ss=unicode()
         self.driver.find_element_by_name("brandName").send_keys("{}".format(ss))
         self.driver.find_element_by_xpath("//*[@id=\"create-tuyang\"]/label[2]").click()
         self.driver.find_element_by_xpath("//*[@id=\"personalCenter2-rightContainer\"]/div/div[1]/div[3]/div[1]/div[1]/table/tbody/tr[4]/td[2]/div[3]/ul/li/div[2]/a").click()

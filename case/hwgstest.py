@@ -8,7 +8,7 @@ from selenium.webdriver import ActionChains
 
 from utils.mytestcase import MyTestCase
 from utils.logincookie import dengLuPage
-from utils.random import Unicode
+from utils.random import unicode
 from utils.screenshort import get_screenshort
 
 
@@ -49,7 +49,7 @@ class HwGsTest(MyTestCase):
             aa=a.text
         self.driver.find_element_by_css_selector(
             "body > div.section-product.width1200 > dl > dd > div.cont-btnBuy > a.btn.btn-next.buynow").click()
-        ss=Unicode()
+        ss=unicode()
 
         self.driver.find_element_by_css_selector(
             "body > div.smartRegister-page.smartRegister3-page > div:nth-child(4) > div > table > tbody > tr.row-name > td.td-content > input").send_keys(
@@ -97,7 +97,7 @@ class HwGsTest(MyTestCase):
 
         self.driver.find_element_by_css_selector(
             "body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap.overseas > div.section-base > div.overseas-form > table.table-1.table-overseas.table-type2.active > tbody.tbody-qiye > tr:nth-child(1) > td.td-content.contact-select-container > dl > dt > input").send_keys(
-            "{}".format(Unicode()))
+            "{}".format(unicode()))
         self.driver.find_element_by_css_selector(
             "body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap.overseas > div.section-base > div.overseas-form > table.table-1.table-overseas.table-type2.active > tbody.tbody-qiye > tr:nth-child(2) > td.td-content > input").send_keys(
             "tesr")
@@ -184,7 +184,7 @@ class HwGsTest(MyTestCase):
             aa=a.text
         self.driver.find_element_by_css_selector(
             "body > div.section-product.width1200 > dl > dd > div.cont-btnBuy > a.btn.btn-next.buynow").click()
-        ss=Unicode()
+        ss=unicode()
         self.driver.find_element_by_css_selector(
             "body > div.smartRegister-page.smartRegister3-page > div:nth-child(4) > div > table > tbody > tr.row-name > td.td-content > input").send_keys(
             "{}".format(ss))
@@ -233,7 +233,7 @@ class HwGsTest(MyTestCase):
         # 企业 自然人
 
         self.driver.find_element_by_css_selector("body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap.overseas > div.section-base > table > thead > tr:nth-child(1) > td.td-content > a:nth-child(2)").click()
-        self.driver.find_element_by_css_selector("body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap.overseas > div.section-base.open > div.overseas-form > table.table-1.table-overseas.table-type2.active > tbody.tbody-gsh > tr:nth-child(1) > td.td-content.contact-select-container > dl > dt > input").send_keys("{}".format(Unicode()))
+        self.driver.find_element_by_css_selector("body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap.overseas > div.section-base.open > div.overseas-form > table.table-1.table-overseas.table-type2.active > tbody.tbody-gsh > tr:nth-child(1) > td.td-content.contact-select-container > dl > dt > input").send_keys("{}".format(unicode()))
         self.driver.find_element_by_css_selector("body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap.overseas > div.section-base.open > div.overseas-form > table.table-1.table-overseas.table-type2.active > tbody.tbody-gsh > tr:nth-child(2) > td.td-content > input").send_keys("dalao")
         self.driver.find_element_by_css_selector("body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap.overseas > div.section-base.open > div.overseas-form > table.table-1.table-overseas.table-type2.active > tbody.tbody-gsh > tr:nth-child(4) > td.td-content > input").send_keys("140121199506133513")
         self.driver.find_element_by_css_selector("body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap.overseas > div.section-base.open > div.overseas-form > table.table-1.table-overseas.table-type2.active > tbody.tbody-gsh > tr:nth-child(5) > td.td-content.fcountry-container > input.myInput").click()

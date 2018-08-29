@@ -5,7 +5,7 @@ import time
 
 from utils.logincookie import dengLuPage
 from utils.mytestcase import MyTestCase
-from utils.random import Unicode
+from utils.random import unicode
 
 
 class SbNumTest(MyTestCase):
@@ -32,7 +32,7 @@ class SbNumTest(MyTestCase):
 
         self.driver.find_element_by_css_selector(
             "body > div.section-product.width1200 > dl > dd > div.cont-btnBuy > a.btn.btn-next.buynow").click()
-        sbmc=Unicode()
+        sbmc=unicode()
         self.driver.find_element_by_css_selector(
             "body > div.smartRegister-page.smartRegister3-page > div:nth-child(4) > div > table > tbody > tr.row-name > td.td-content > input").send_keys(
             "{}".format(sbmc))
@@ -45,9 +45,7 @@ class SbNumTest(MyTestCase):
         self.driver.find_element_by_css_selector(
             "body > div.smartRegister-page.smartRegister3-page > div:nth-child(14) > div.categoryInfo-wrap > div.c-row.row-way > div > a.btn-choice.active").click()
 
-
         suiji = random.randint(2, 46)
-
 
         self.driver.find_element_by_css_selector(
             "#section-selfchoice > div.group-left > ul > li:nth-child({}) > span".format(suiji)).click()
@@ -128,7 +126,7 @@ class SbNumTest(MyTestCase):
 
         self.driver.find_element_by_css_selector(
             "body > div.section-product.width1200 > dl > dd > div.cont-btnBuy > a.btn.btn-next.buynow").click()
-        sbmc = Unicode()
+        sbmc = unicode()
         self.driver.find_element_by_css_selector(
             "body > div.smartRegister-page.smartRegister3-page > div:nth-child(4) > div > table > tbody > tr.row-name > td.td-content > input").send_keys(
             "{}".format(sbmc))

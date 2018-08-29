@@ -1,4 +1,4 @@
-#coding=utf-8
+# coding=utf-8
 
 import codecs
 import os
@@ -6,12 +6,15 @@ import xlrd
 from config import globalparam
 
 data_path = globalparam.data_path
+
+
 def get_xls_to_dict(xlsname, sheetname):
 	"""
 	读取excel表结果为dict
 	第一行为字典的key，下面的为值
 	return [{'title':'1','user':'root'},{'title':'2','user':'xiaoshitou'}]
 	"""
+
 	# dataresult = []
 	# result = []
 	datapath = os.path.join(data_path,xlsname)
@@ -28,6 +31,7 @@ def get_xls_to_dict(xlsname, sheetname):
 	result = [ dict(zip(dataresult[0], dataresult[i])) for i in range(1, len(dataresult))]
 	return result
 
+
 def get_url_data(title):
 	"""
 	读取txt文件，转化成dict;读取url和导航栏的对应关系
@@ -41,6 +45,7 @@ def get_url_data(title):
 	txtdict = dict([txt.strip().replace('\ufeff','').split('=>') for txt in txtcontent])
 	return txtdict[title]
 
+
 def get_xls_to_list(excelname, sheetname):
 	"""
 	读取excel表，返回一个list,只是返回第一列的值
@@ -51,6 +56,7 @@ def get_xls_to_list(excelname, sheetname):
 	table = excel.sheet_by_name(sheetname)
 	result = [table.row_values(i)[0].strip() for i in range(1,table.nrows)]
 	return result
+
 
 if __name__=='__main__':
     res = get_xls_to_list('addressParse.xlsx','Sheet1')

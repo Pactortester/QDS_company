@@ -1,6 +1,6 @@
 
 import time
-from utils.random import Unicode
+from utils.random import unicode
 
 
 from utils.mytestcase import MyTestCase
@@ -45,7 +45,7 @@ class MfSbTest(MyTestCase):
         self.assertIn("注册商标查询_中国商标查询_权大师官网", self.driver.title)
         print(self.driver.title)
         dl.refresh()
-        ss=Unicode()
+        ss=unicode()
         print("搜索商标名称："+ss)
         self.driver.find_element_by_css_selector("body > div.brandSearch2-page > div > div.search > div.searchPanel.clearfix > input.input.search-text").send_keys("{}".format(ss))
         self.driver.find_element_by_css_selector("#btnSearchkey").click()

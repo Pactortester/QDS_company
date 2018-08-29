@@ -1150,7 +1150,7 @@ english = [
     , "fZyana", "mZylen"]
 
 
-def Unicode():
+def unicode():
 
     a = chr(random.choice(chinses))
     b = chr(random.choice(chinses))
@@ -1159,15 +1159,15 @@ def Unicode():
     e = chr(random.choice(chinses))
     f = random.choice(english)
 
-    branddict=[a,f,a+b,f,a+b+c,a+b+c+d,f,a+b+c+d+e,f,f,f,f]
-    return random.choice(branddict)
+    trademark = [a, f, a+b, f, a+b+c, a+b+c+d, f, a+b+c+d+e, f, f, f, f]
+    return random.choice(trademark)
 
 
-def zl():
+def patent():
 
     # j = 12
     # # id = []
-    # zlid = ''.join(str(i) for i in random.sample(range(0, 9), j))  # sample(seq, n) 从序列seq中选择n个随机且独立的元素；
-
-    patent_no = ''.join(str(random.choice(range(12))) for _ in range(12))
+    # patent_no = ''.join(str(i) for i in random.sample(range(0, 9), j))  # sample(seq, n) 从序列seq中选择n个随机且独立的元素；
+    number = 12
+    patent_no = ''.join(str(random.choice(range(number))) for _ in range(number))
     return patent_no

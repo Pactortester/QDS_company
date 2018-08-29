@@ -7,7 +7,7 @@ import logging
 
 from utils.mytestcase import MyTestCase
 from utils.logincookie import dengLuPage
-from utils.random import Unicode
+from utils.random import unicode
 from utils.screenshort import get_screenshort
 
 
@@ -120,7 +120,6 @@ class HomeTest(MyTestCase):
         self.driver.find_element_by_css_selector("#page-header > div.item-right > ul > li:nth-child(1) > a").click()
         time.sleep(1)
 
-
         """添加邮寄地址"""
         self.driver.find_element_by_link_text("邮寄地址管理").click()
 
@@ -130,21 +129,20 @@ class HomeTest(MyTestCase):
 
         #self.driver.find_element_by_css_selector("#personalCenter2-leftNav > ul > li:nth-child(3) > ul > li.selected > a").click()
         self.driver.find_element_by_css_selector("#addAddress").click()
-        ss=Unicode()
+        ss=unicode()
         self.driver.find_element_by_css_selector("#add_Address > table > tbody > tr:nth-child(1) > td:nth-child(2) > input").send_keys("{}".format(ss))
         print("收件人名称:{}".format(ss))
         self.driver.find_element_by_css_selector("#add_Address > table > tbody > tr:nth-child(2) > td:nth-child(2) > input").send_keys("15624992422")
         self.driver.find_element_by_css_selector("#address_info").click()
         self.driver.find_element_by_css_selector("#administrative > div > div.d-dropdown > div.tab-content.active.tab-province > dl.item.item-a-g.clearfix > dd > span:nth-child(1)").click()
         self.driver.find_element_by_css_selector("#administrative > div > div.d-dropdown > div.tab-content.tab-city.active > dl.item.item-a-g.clearfix > dd > span:nth-child(1)").click()
-        qq=Unicode()
+        qq=unicode()
         self.driver.find_element_by_css_selector("#add_Address > table > tbody > tr:nth-child(4) > td:nth-child(2) > textarea").send_keys("{}".format(qq))
         print("收件人地址:北京市昌平区{}街道".format(qq))
         self.driver.find_element_by_css_selector("#add_Address > table > tbody > tr:nth-child(3) > td.td-title").click()
         self.driver.find_element_by_css_selector("#submit-editAddress").click()
 
         print("添加邮寄地址成功！")
-
 
         get_screenshort(self.driver,"dzgltest.png")
 

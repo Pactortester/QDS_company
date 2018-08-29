@@ -295,15 +295,15 @@ from selenium import webdriver
 #
 # print(totalCount)
 from config.globalparam import report_path, img_path
-from utils.random import Unicode, zl
+from utils.random import unicode, patent
 
 print("包针雨我爱你！")
-s=Unicode()
-a=len(s)
+s = unicode()
+a = len(s)
 print(a)
 print(s)
 
 print(report_path)
 print(img_path)
 
-print(zl())
+print(patent())
