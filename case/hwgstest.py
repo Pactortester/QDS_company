@@ -150,8 +150,6 @@ class HwGsTest(MyTestCase):
         print("测试通过")
         self.driver.find_element_by_css_selector("#alisubmit").click()
 
-
-
     def test_hwgs_2(self):
         """海外高速_自然人测试"""
 

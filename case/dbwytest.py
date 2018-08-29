@@ -60,7 +60,7 @@ class DbWyTest(MyTestCase):
         self.driver.find_element_by_css_selector(
             "body > div.myOrder-wrap > div.section-myorder.width1200 > div > table:nth-child(2) > tbody > tr:nth-child(3) > td.td-2 > input").send_keys(
             "4564564@qq.com")
-        self.driver.find_element_by_css_selector("#remark").send_keys("test")
+        self.driver.find_element_by_css_selector("#remark").send_keys(time.strftime("%Y-%m-%d_%H-%M-%S") + "测试订单")
 
         get_screenshort(self.driver, "test_dbwy.png")
 

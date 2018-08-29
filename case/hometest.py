@@ -7,6 +7,7 @@ import logging
 
 from utils.mytestcase import MyTestCase
 from utils.logincookie import dengLuPage
+from utils.random import Unicode
 from utils.screenshort import get_screenshort
 
 
@@ -129,12 +130,16 @@ class HomeTest(MyTestCase):
 
         #self.driver.find_element_by_css_selector("#personalCenter2-leftNav > ul > li:nth-child(3) > ul > li.selected > a").click()
         self.driver.find_element_by_css_selector("#addAddress").click()
-        self.driver.find_element_by_css_selector("#add_Address > table > tbody > tr:nth-child(1) > td:nth-child(2) > input").send_keys("小西瓜")
+        ss=Unicode()
+        self.driver.find_element_by_css_selector("#add_Address > table > tbody > tr:nth-child(1) > td:nth-child(2) > input").send_keys("{}".format(ss))
+        print("收件人名称:{}".format(ss))
         self.driver.find_element_by_css_selector("#add_Address > table > tbody > tr:nth-child(2) > td:nth-child(2) > input").send_keys("15624992422")
         self.driver.find_element_by_css_selector("#address_info").click()
         self.driver.find_element_by_css_selector("#administrative > div > div.d-dropdown > div.tab-content.active.tab-province > dl.item.item-a-g.clearfix > dd > span:nth-child(1)").click()
         self.driver.find_element_by_css_selector("#administrative > div > div.d-dropdown > div.tab-content.tab-city.active > dl.item.item-a-g.clearfix > dd > span:nth-child(1)").click()
-        self.driver.find_element_by_css_selector("#add_Address > table > tbody > tr:nth-child(4) > td:nth-child(2) > textarea").send_keys("大西瓜")
+        qq=Unicode()
+        self.driver.find_element_by_css_selector("#add_Address > table > tbody > tr:nth-child(4) > td:nth-child(2) > textarea").send_keys("{}".format(qq))
+        print("收件人地址:北京市昌平区{}街道".format(qq))
         self.driver.find_element_by_css_selector("#add_Address > table > tbody > tr:nth-child(3) > td.td-title").click()
         self.driver.find_element_by_css_selector("#submit-editAddress").click()
 

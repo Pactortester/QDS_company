@@ -228,11 +228,12 @@ class HhrTest(MyTestCase):
         """填写商标信息"""
 
         self.driver.find_element_by_xpath("//*[@id=\"selectBrandType\"]/label[1]").click()
-        self.driver.find_element_by_name("brandName").send_keys("{}".format(Unicode()))
+        ss=Unicode()
+        self.driver.find_element_by_name("brandName").send_keys("{}".format(ss))
         self.driver.find_element_by_xpath("//*[@id=\"create-tuyang\"]/label[2]").click()
         self.driver.find_element_by_xpath("//*[@id=\"personalCenter2-rightContainer\"]/div/div[1]/div[3]/div[1]/div[1]/table/tbody/tr[4]/td[2]/div[3]/ul/li/div[2]/a").click()
         time.sleep(2)
-
+        print("商标名称:{}".format(ss))
         print("商标名称填写成功!")
 
         self.driver.execute_script("window.scrollBy(0,500)")  # 滑动滚动条

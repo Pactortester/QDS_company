@@ -50,7 +50,7 @@ class SbXxTest(MyTestCase):
         self.driver.find_element_by_name("ownerContactPerson").send_keys("全大师")
         self.driver.find_element_by_name("ownerContactPhone").send_keys("15624992498")
         self.driver.find_element_by_name("contactMail").send_keys("145647@qq.com")
-        self.driver.find_element_by_css_selector("#remark").send_keys("test")
+        self.driver.find_element_by_css_selector("#remark").send_keys(time.strftime("%Y-%m-%d_%H-%M-%S") + "测试订单")
 
         get_screenshort(self.driver, "test_sbzr.png")
 
@@ -108,7 +108,7 @@ class SbXxTest(MyTestCase):
         self.driver.find_element_by_name("ownerContactPerson").send_keys("全大师")
         self.driver.find_element_by_name("ownerContactPhone").send_keys("15624992498")
         self.driver.find_element_by_name("contactMail").send_keys("145647@qq.com")
-        self.driver.find_element_by_css_selector("#remark").send_keys("test")
+        self.driver.find_element_by_css_selector("#remark").send_keys(time.strftime("%Y-%m-%d_%H-%M-%S") + "测试订单")
 
         get_screenshort(self.driver, "test_sbxz.png")
 
@@ -166,7 +166,7 @@ class SbXxTest(MyTestCase):
         self.driver.find_element_by_name("ownerContactPerson").send_keys("全大师")
         self.driver.find_element_by_name("ownerContactPhone").send_keys("15624992498")
         self.driver.find_element_by_name("contactMail").send_keys("145647@qq.com")
-        self.driver.find_element_by_css_selector("#remark").send_keys("test")
+        self.driver.find_element_by_css_selector("#remark").send_keys(time.strftime("%Y-%m-%d_%H-%M-%S") + "测试订单")
 
         get_screenshort(self.driver, "test_sbkz.png")
 
@@ -224,7 +224,7 @@ class SbXxTest(MyTestCase):
         self.driver.find_element_by_name("ownerContactPerson").send_keys("全大师")
         self.driver.find_element_by_name("ownerContactPhone").send_keys("15624992498")
         self.driver.find_element_by_name("contactMail").send_keys("145647@qq.com")
-        self.driver.find_element_by_css_selector("#remark").send_keys("test")
+        self.driver.find_element_by_css_selector("#remark").send_keys(time.strftime("%Y-%m-%d_%H-%M-%S") + "测试订单")
 
         get_screenshort(self.driver, "test_sbxk.png")
 
@@ -281,7 +281,7 @@ class SbXxTest(MyTestCase):
         self.driver.find_element_by_name("ownerContactPerson").send_keys("全大师")
         self.driver.find_element_by_name("ownerContactPhone").send_keys("15624992498")
         self.driver.find_element_by_name("contactMail").send_keys("145647@qq.com")
-        self.driver.find_element_by_css_selector("#remark").send_keys("test")
+        self.driver.find_element_by_css_selector("#remark").send_keys(time.strftime("%Y-%m-%d_%H-%M-%S") + "测试订单")
 
         get_screenshort(self.driver, "test_sbbg.png")
 

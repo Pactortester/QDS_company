@@ -51,7 +51,7 @@ class FmZlTest(MyTestCase):
         self.driver.find_element_by_name("ownerContactPerson").send_keys("全大师")
         self.driver.find_element_by_name("ownerContactPhone").send_keys("15624992498")
         self.driver.find_element_by_name("contactMail").send_keys("145647@qq.com")
-        self.driver.find_element_by_css_selector("#remark").send_keys("test")
+        self.driver.find_element_by_css_selector("#remark").send_keys(time.strftime("%Y-%m-%d_%H-%M-%S") + "测试订单")
 
         get_screenshort(self.driver, "test_fmzl_1.png")
 
@@ -113,7 +113,7 @@ class FmZlTest(MyTestCase):
         self.driver.find_element_by_name("ownerContactPerson").send_keys("全大师")
         self.driver.find_element_by_name("ownerContactPhone").send_keys("15624992498")
         self.driver.find_element_by_name("contactMail").send_keys("145647@qq.com")
-        self.driver.find_element_by_css_selector("#remark").send_keys("test")
+        self.driver.find_element_by_css_selector("#remark").send_keys(time.strftime("%Y-%m-%d_%H-%M-%S") + "测试订单")
 
         get_screenshort(self.driver, "test_fmzl_2.png")
 
@@ -175,7 +175,7 @@ class FmZlTest(MyTestCase):
         self.driver.find_element_by_name("ownerContactPerson").send_keys("全大师")
         self.driver.find_element_by_name("ownerContactPhone").send_keys("15624992498")
         self.driver.find_element_by_name("contactMail").send_keys("145647@qq.com")
-        self.driver.find_element_by_css_selector("#remark").send_keys("test")
+        self.driver.find_element_by_css_selector("#remark").send_keys(time.strftime("%Y-%m-%d_%H-%M-%S") + "测试订单")
 
         get_screenshort(self.driver, "test_fmzl_3.png")
 
@@ -237,7 +237,7 @@ class FmZlTest(MyTestCase):
         self.driver.find_element_by_name("ownerContactPerson").send_keys("全大师")
         self.driver.find_element_by_name("ownerContactPhone").send_keys("15624992498")
         self.driver.find_element_by_name("contactMail").send_keys("145647@qq.com")
-        self.driver.find_element_by_css_selector("#remark").send_keys("test")
+        self.driver.find_element_by_css_selector("#remark").send_keys(time.strftime("%Y-%m-%d_%H-%M-%S") + "测试订单")
 
         get_screenshort(self.driver, "test_fmzl_1.png")
 
@@ -299,7 +299,7 @@ class FmZlTest(MyTestCase):
         self.driver.find_element_by_name("ownerContactPerson").send_keys("全大师")
         self.driver.find_element_by_name("ownerContactPhone").send_keys("15624992498")
         self.driver.find_element_by_name("contactMail").send_keys("145647@qq.com")
-        self.driver.find_element_by_css_selector("#remark").send_keys("test")
+        self.driver.find_element_by_css_selector("#remark").send_keys(time.strftime("%Y-%m-%d_%H-%M-%S") + "测试订单")
 
         get_screenshort(self.driver, "test_fmzl_2.png")
 
@@ -361,7 +361,7 @@ class FmZlTest(MyTestCase):
         self.driver.find_element_by_name("ownerContactPerson").send_keys("全大师")
         self.driver.find_element_by_name("ownerContactPhone").send_keys("15624992498")
         self.driver.find_element_by_name("contactMail").send_keys("145647@qq.com")
-        self.driver.find_element_by_css_selector("#remark").send_keys("test")
+        self.driver.find_element_by_css_selector("#remark").send_keys(time.strftime("%Y-%m-%d_%H-%M-%S") + "测试订单")
 
         get_screenshort(self.driver, "test_fmzl_3.png")
 
