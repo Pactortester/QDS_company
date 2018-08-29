@@ -40,7 +40,7 @@ class ZnZzTest(MyTestCase):
         # 切换到当前最新打开的窗口
         self.driver.switch_to.window(windows[-1])
         time.sleep(3)
-        self.assertIn("商标购买页面_权大师", self.driver.title)
+        self.assertIn("智能商标注册-权大师", self.driver.title)
         print(self.driver.title)
         self.driver.find_element_by_css_selector(
             "body > div.section-product.width1200 > dl > dd > div.cont-serviceItems > table > tbody > tr > td.td-cont > ul > li:nth-child(3)").click()
@@ -190,7 +190,7 @@ class ZnZzTest(MyTestCase):
         # 切换到当前最新打开的窗口
         self.driver.switch_to.window(windows[-1])
         time.sleep(3)
-        self.assertIn("商标购买页面_权大师", self.driver.title)
+        self.assertIn("智能商标注册-权大师", self.driver.title)
         print(self.driver.title)
         self.driver.find_element_by_css_selector(
             "body > div.section-product.width1200 > dl > dd > div.cont-serviceItems > table > tbody > tr > td.td-cont > ul > li:nth-child(3)").click()

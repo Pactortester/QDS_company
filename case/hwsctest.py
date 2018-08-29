@@ -36,7 +36,7 @@ class HwScTest(MyTestCase):
         windows = self.driver.window_handles
         # 切换到当前最新打开的窗口
         self.driver.switch_to.window(windows[-1])
-        self.assertIn("马德里商标注册",self.driver.title)
+        self.assertIn("马德里商标注册", self.driver.title)
         print(self.driver.title)
 
         for a in self.driver.find_elements_by_css_selector("#total-price"):

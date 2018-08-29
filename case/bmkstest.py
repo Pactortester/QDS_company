@@ -37,10 +37,12 @@ class BmKsTest(MyTestCase):
             "body > div.section-banner > div.public-navbar > div > div > h3 > span")).perform()
         time.sleep(2)
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
-            "body > div.section-banner > div.public-navbar > div > div > div > ul:nth-child(1) > li:nth-child(1) > h3 > a")).perform()
+            "body > div.section-banner > div.public-navbar > div > div > div > ul:nth-child(1) > li:nth-child(1) > h3 "
+            "> a")).perform()
         ActionChains(self.driver).release()
         self.driver.find_element_by_css_selector(
-            "body > div.section-banner > div.public-navbar > div > div > div > ul:nth-child(1) > li:nth-child(1) > div > dl:nth-child(3) > dd > a:nth-child(1)").click()
+            "body > div.section-banner > div.public-navbar > div > div > div > ul:nth-child(1) > li:nth-child(1) > div"
+            " > dl:nth-child(3) > dd > a:nth-child(1)").click()
         # 获取打开的多个窗口句柄
         windows = self.driver.window_handles
         # 切换到当前最新打开的窗口
@@ -53,7 +55,8 @@ class BmKsTest(MyTestCase):
 
         # 保姆快速注册
         self.driver.find_element_by_css_selector(
-            "body > div.section-product.width1200 > dl > dd > div.cont-serviceItems > table > tbody > tr > td.td-cont > ul > li.list.active").click()
+            "body > div.section-product.width1200 > dl > dd > div.cont-serviceItems > table > tbody > tr > td.td-cont >"
+            " ul > li.list.active").click()
 
         ##total-price
 
@@ -66,12 +69,15 @@ class BmKsTest(MyTestCase):
 
         self.driver.find_element_by_name("ownerContactPerson").send_keys("全大师")
         self.driver.find_element_by_css_selector(
-            "body > div.myOrder-wrap > div.section-myorder.width1200 > div > table:nth-child(2) > tbody > tr:nth-child(2) > td.td-2 > input").send_keys(
+            "body > div.myOrder-wrap > div.section-myorder.width1200 > div > table:nth-child(2) > tbody >"
+            " tr:nth-child(2) > td.td-2 > input").send_keys(
             "15624992498")
         self.driver.find_element_by_css_selector(
-            "body > div.myOrder-wrap > div.section-myorder.width1200 > div > table:nth-child(2) > tbody > tr:nth-child(3) > td.td-2 > input").clear()
+            "body > div.myOrder-wrap > div.section-myorder.width1200 > div > table:nth-child(2) > tbody >"
+            " tr:nth-child(3) > td.td-2 > input").clear()
         self.driver.find_element_by_css_selector(
-            "body > div.myOrder-wrap > div.section-myorder.width1200 > div > table:nth-child(2) > tbody > tr:nth-child(3) > td.td-2 > input").send_keys(
+            "body > div.myOrder-wrap > div.section-myorder.width1200 > div > table:nth-child(2) > tbody >"
+            " tr:nth-child(3) > td.td-2 > input").send_keys(
             "4564564@qq.com")
         self.driver.find_element_by_css_selector("#remark").send_keys("test")
 
@@ -82,18 +88,18 @@ class BmKsTest(MyTestCase):
 
         for i in self.driver.find_elements_by_css_selector("body > div.myOrder-wrap > div.section-myorder.width1200 > div > div > ul > li.row-sense > em > i"):
             print("总价:"+i.text)
-            ii=i.text
+            ii = i.text
 
-        self.assertIn(aa,ii)
+        self.assertIn(aa, ii)
         print("价格一致")
 
         self.driver.find_element_by_css_selector(
             "body > div.myOrder-wrap > div.section-myorder.width1200 > div > div > ul > li.row-step > a.btn-next.submitOrder").click()
         for o in self.driver.find_elements_by_class_name("payable"):
             print("订单提交成功，应付金额:"+o.text)
-            oo=o.text
+            oo = o.text
 
-        self.assertIn(oo,ii)
+        self.assertIn(oo, ii)
 
         print("测试通过")
 
