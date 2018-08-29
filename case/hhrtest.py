@@ -5,7 +5,7 @@ import time
 import logging
 
 from utils.mytestcase import MyTestCase
-from utils.logincookie import dengLuPage
+from utils.logincookie import DengLuPage
 from utils.random import unicode
 from utils.screenshort import get_screenshort
 
@@ -16,7 +16,7 @@ class HhrTest(MyTestCase):
 
     def test_sbddxg(self):
         """商标订单"""
-        dl = dengLuPage(self.driver)
+        dl = DengLuPage(self.driver)
         dl.dengLu()
         time.sleep(1)
 
@@ -111,7 +111,7 @@ class HhrTest(MyTestCase):
     def test_hhrsbzc(self):
 
         """合伙人商标注册"""
-        dl = dengLuPage(self.driver)
+        dl = DengLuPage(self.driver)
         dl.dengLu()
         time.sleep(1)
 
@@ -207,7 +207,7 @@ class HhrTest(MyTestCase):
     def test_hhrqdxd(self):
 
         """渠道下单单个商标注册"""
-        dl = dengLuPage(self.driver)
+        dl = DengLuPage(self.driver)
         dl.dengLu()
         time.sleep(1)
 

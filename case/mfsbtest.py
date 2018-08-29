@@ -4,7 +4,7 @@ from utils.random import unicode
 
 
 from utils.mytestcase import MyTestCase
-from utils.logincookie import dengLuPage
+from utils.logincookie import DengLuPage
 from utils.screenshort import get_screenshort
 
 
@@ -14,7 +14,7 @@ class MfSbTest(MyTestCase):
     def test_sbss(self):
         """商标搜索"""
 
-        dl = dengLuPage(self.driver)
+        dl = DengLuPage(self.driver)
         dl.dengLu()
         time.sleep(2)
         # ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
@@ -36,7 +36,7 @@ class MfSbTest(MyTestCase):
         #
         # self.driver.refresh()
 
-        #self.driver.find_element_by_css_selector("#qds-searchkey").send_keys("测试")
+        # self.driver.find_element_by_css_selector("#qds-searchkey").send_keys("测试")
         self.driver.find_element_by_css_selector("#serch-word").click()
         # 获取打开的多个窗口句柄
         windows = self.driver.window_handles
@@ -59,6 +59,3 @@ class MfSbTest(MyTestCase):
         get_screenshort(self.driver, "test_sbss.png")
 
         print("商标搜索测试通过")
-
-
-

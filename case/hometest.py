@@ -6,7 +6,7 @@ import random
 import logging
 
 from utils.mytestcase import MyTestCase
-from utils.logincookie import dengLuPage
+from utils.logincookie import DengLuPage
 from utils.random import unicode
 from utils.screenshort import get_screenshort
 
@@ -21,7 +21,7 @@ class HomeTest(MyTestCase):
         # logging.basicConfig(filename='../LOG/' + __name__ + '.log',
         #                     format='[%(asctime)s-%(filename)s-%(levelname)s: %(message)s]', level=logging.DEBUG,
         #                     filemode='a', datefmt='%Y-%m-%d%I:%M:%S %p')
-        dl = dengLuPage(self.driver)
+        dl = DengLuPage(self.driver)
 
         dl.dengLu()
         time.sleep(1)
@@ -112,7 +112,7 @@ class HomeTest(MyTestCase):
         # logging.basicConfig(filename='../LOG/' + __name__ + '.log',
         #                     format='[%(asctime)s-%(filename)s-%(levelname)s: %(message)s]', level=logging.DEBUG,
         #                     filemode='a', datefmt='%Y-%m-%d%I:%M:%S %p')
-        dl = dengLuPage(self.driver)
+        dl = DengLuPage(self.driver)
 
         dl.dengLu()
         time.sleep(1)
@@ -127,7 +127,7 @@ class HomeTest(MyTestCase):
         print(self.driver.title)
         time.sleep(1)
 
-        #self.driver.find_element_by_css_selector("#personalCenter2-leftNav > ul > li:nth-child(3) > ul > li.selected > a").click()
+        # self.driver.find_element_by_css_selector("#personalCenter2-leftNav > ul > li:nth-child(3) > ul > li.selected > a").click()
         self.driver.find_element_by_css_selector("#addAddress").click()
         ss=unicode()
         self.driver.find_element_by_css_selector("#add_Address > table > tbody > tr:nth-child(1) > td:nth-child(2) > input").send_keys("{}".format(ss))
@@ -155,7 +155,7 @@ class HomeTest(MyTestCase):
         # logging.basicConfig(filename='../LOG/' + __name__ + '.log',
         #                     format='[%(asctime)s-%(filename)s-%(levelname)s: %(message)s]', level=logging.DEBUG,
         #                     filemode='a', datefmt='%Y-%m-%d%I:%M:%S %p')
-        dl = dengLuPage(self.driver)
+        dl = DengLuPage(self.driver)
 
         dl.dengLu()
         time.sleep(1)
@@ -205,7 +205,7 @@ class HomeTest(MyTestCase):
         # logging.basicConfig(filename='../LOG/' + __name__ + '.log',
         #                     format='[%(asctime)s-%(filename)s-%(levelname)s: %(message)s]', level=logging.DEBUG,
         #                     filemode='a', datefmt='%Y-%m-%d%I:%M:%S %p')
-        dl = dengLuPage(self.driver)
+        dl = DengLuPage(self.driver)
 
         dl.dengLu()
         time.sleep(1)

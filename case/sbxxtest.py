@@ -10,7 +10,7 @@ import logging
 from selenium.webdriver import ActionChains
 
 from utils.mytestcase import MyTestCase
-from utils.logincookie import dengLuPage
+from utils.logincookie import DengLuPage
 from utils.screenshort import get_screenshort
 
 
@@ -20,7 +20,7 @@ class SbXxTest(MyTestCase):
     def test_sbzr(self):
         """商标转让测试"""
 
-        dl = dengLuPage(self.driver)
+        dl = DengLuPage(self.driver)
         dl.dengLu()
         time.sleep(2)
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
@@ -55,7 +55,7 @@ class SbXxTest(MyTestCase):
         get_screenshort(self.driver, "test_sbzr.png")
 
         for i in self.driver.find_elements_by_css_selector(
-                "body > div.section-myorder.width1200 > div > div > ul > li.row-sense > em > i"):
+                "body > div.myOrder-wrap > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.last-pay.personal-last-pay > ul > li.row-sense > em > i"):
             print("总价:" + i.text)
             ii = i.text
 
@@ -63,7 +63,7 @@ class SbXxTest(MyTestCase):
         print("价格一致")
 
         self.driver.find_element_by_css_selector(
-            "body > div.section-myorder.width1200 > div > div > ul > li.row-step > a.btn-next.submitOrder").click()
+            "body > div.myOrder-wrap > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.btns > a.btn-next.submitOrder").click()
 
         for o in self.driver.find_elements_by_class_name("payable"):
             print("订单提交成功，应付金额:" + o.text)
@@ -78,7 +78,7 @@ class SbXxTest(MyTestCase):
     def test_sbxz(self):
         """商标续展让测试"""
 
-        dl = dengLuPage(self.driver)
+        dl = DengLuPage(self.driver)
         dl.dengLu()
         time.sleep(2)
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
@@ -113,7 +113,7 @@ class SbXxTest(MyTestCase):
         get_screenshort(self.driver, "test_sbxz.png")
 
         for i in self.driver.find_elements_by_css_selector(
-                "body > div.section-myorder.width1200 > div > div > ul > li.row-sense > em > i"):
+                "body > div.myOrder-wrap > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.last-pay.personal-last-pay > ul > li.row-sense > em > i"):
             print("总价:" + i.text)
             ii = i.text
 
@@ -121,7 +121,7 @@ class SbXxTest(MyTestCase):
         print("价格一致")
 
         self.driver.find_element_by_css_selector(
-            "body > div.section-myorder.width1200 > div > div > ul > li.row-step > a.btn-next.submitOrder").click()
+            "body > div.myOrder-wrap > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.btns > a.btn-next.submitOrder").click()
 
         for o in self.driver.find_elements_by_class_name("payable"):
             print("订单提交成功，应付金额:" + o.text)
@@ -136,7 +136,7 @@ class SbXxTest(MyTestCase):
     def test_sbkz(self):
         """商标宽展测试"""
 
-        dl = dengLuPage(self.driver)
+        dl = DengLuPage(self.driver)
         dl.dengLu()
         time.sleep(2)
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
@@ -171,7 +171,7 @@ class SbXxTest(MyTestCase):
         get_screenshort(self.driver, "test_sbkz.png")
 
         for i in self.driver.find_elements_by_css_selector(
-                "body > div.section-myorder.width1200 > div > div > ul > li.row-sense > em > i"):
+                "body > div.myOrder-wrap > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.last-pay.personal-last-pay > ul > li.row-sense > em > i"):
             print("总价:" + i.text)
             ii = i.text
 
@@ -179,7 +179,7 @@ class SbXxTest(MyTestCase):
         print("价格一致")
 
         self.driver.find_element_by_css_selector(
-            "body > div.section-myorder.width1200 > div > div > ul > li.row-step > a.btn-next.submitOrder").click()
+            "body > div.myOrder-wrap > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.btns > a.btn-next.submitOrder").click()
 
         for o in self.driver.find_elements_by_class_name("payable"):
             print("订单提交成功，应付金额:" + o.text)
@@ -194,7 +194,7 @@ class SbXxTest(MyTestCase):
     def test_sbxk(self):
         """商标许可备案测试"""
 
-        dl = dengLuPage(self.driver)
+        dl = DengLuPage(self.driver)
         dl.dengLu()
         time.sleep(2)
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
@@ -229,7 +229,7 @@ class SbXxTest(MyTestCase):
         get_screenshort(self.driver, "test_sbxk.png")
 
         for i in self.driver.find_elements_by_css_selector(
-                "body > div.section-myorder.width1200 > div > div > ul > li.row-sense > em > i"):
+                "body > div.myOrder-wrap > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.last-pay.personal-last-pay > ul > li.row-sense > em > i"):
             print("总价:" + i.text)
             ii = i.text
 
@@ -237,7 +237,7 @@ class SbXxTest(MyTestCase):
         print("价格一致")
 
         self.driver.find_element_by_css_selector(
-            "body > div.section-myorder.width1200 > div > div > ul > li.row-step > a.btn-next.submitOrder").click()
+            "body > div.myOrder-wrap > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.btns > a.btn-next.submitOrder").click()
 
         for o in self.driver.find_elements_by_class_name("payable"):
             print("订单提交成功，应付金额:" + o.text)
@@ -252,7 +252,7 @@ class SbXxTest(MyTestCase):
     def test_sbbg(self):
         """商标变更测试"""
 
-        dl = dengLuPage(self.driver)
+        dl = DengLuPage(self.driver)
         dl.dengLu()
         time.sleep(2)
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
@@ -286,7 +286,7 @@ class SbXxTest(MyTestCase):
         get_screenshort(self.driver, "test_sbbg.png")
 
         for i in self.driver.find_elements_by_css_selector(
-                "body > div.section-myorder.width1200 > div > div > ul > li.row-sense > em > i"):
+                "body > div.myOrder-wrap > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.last-pay.personal-last-pay > ul > li.row-sense > em > i"):
             print("总价:" + i.text)
             ii = i.text
 
@@ -294,7 +294,7 @@ class SbXxTest(MyTestCase):
         print("价格一致")
 
         self.driver.find_element_by_css_selector(
-            "body > div.section-myorder.width1200 > div > div > ul > li.row-step > a.btn-next.submitOrder").click()
+            "body > div.myOrder-wrap > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.btns > a.btn-next.submitOrder").click()
 
         for o in self.driver.find_elements_by_class_name("payable"):
             print("订单提交成功，应付金额:" + o.text)

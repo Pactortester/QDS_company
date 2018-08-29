@@ -3,7 +3,7 @@ import re
 import time
 
 
-from utils.logincookie import dengLuPage
+from utils.logincookie import DengLuPage
 from utils.mytestcase import MyTestCase
 from utils.random import unicode
 
@@ -16,7 +16,7 @@ class SbNumTest(MyTestCase):
 
         """智能注册_自助商标跳转测试"""
 
-        dl = dengLuPage(self.driver)
+        dl = DengLuPage(self.driver)
         dl.dengLu()
         time.sleep(2)
         self.driver.find_element_by_css_selector("body > div.section-banner > div.public-navbar > div > ul > li:nth-child(1) > a").click()
@@ -109,7 +109,7 @@ class SbNumTest(MyTestCase):
     def test_number2(self):
         """智能注册_推荐商标跳转测试"""
 
-        dl = dengLuPage(self.driver)
+        dl = DengLuPage(self.driver)
         dl.dengLu()
         time.sleep(2)
         self.driver.find_element_by_css_selector(

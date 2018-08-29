@@ -2,13 +2,9 @@
 # coding=utf-8
 
 import time
-
-import logging
-
 from selenium.webdriver import ActionChains
-
 from utils.mytestcase import MyTestCase
-from utils.logincookie import dengLuPage
+from utils.logincookie import DengLuPage, DengLuPage
 from utils.random import unicode, patent
 from utils.screenshort import get_screenshort
 
@@ -19,7 +15,7 @@ class QtZlTest(MyTestCase):
     def test_zlbh_2(self):
         """实用新型专利驳回复审"""
 
-        dl = dengLuPage(self.driver)
+        dl = DengLuPage(self.driver)
         dl.dengLu()
         time.sleep(2)
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
@@ -54,7 +50,7 @@ class QtZlTest(MyTestCase):
         get_screenshort(self.driver, "test_zlbh_2.png")
 
         for i in self.driver.find_elements_by_css_selector(
-                "body > div.section-myorder.width1200 > div > div > ul > li.row-sense > em > i"):
+                "body > div.myOrder-wrap > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.last-pay.personal-last-pay > ul > li.row-sense > em > i"):
             print("总价:" + i.text)
             ii = i.text
 
@@ -62,7 +58,7 @@ class QtZlTest(MyTestCase):
         print("价格一致")
 
         self.driver.find_element_by_css_selector(
-            "body > div.section-myorder.width1200 > div > div > ul > li.row-step > a.btn-next.submitOrder").click()
+            "body > div.myOrder-wrap > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.btns > a.btn-next.submitOrder").click()
 
         for o in self.driver.find_elements_by_class_name("payable"):
             print("订单提交成功，应付金额:" + o.text)
@@ -77,7 +73,7 @@ class QtZlTest(MyTestCase):
     def test_zlbh_3(self):
         """产品外观设计专利驳回复审"""
 
-        dl = dengLuPage(self.driver)
+        dl = DengLuPage(self.driver)
         dl.dengLu()
         time.sleep(2)
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
@@ -112,7 +108,7 @@ class QtZlTest(MyTestCase):
         get_screenshort(self.driver, "test_zlbh_3.png")
 
         for i in self.driver.find_elements_by_css_selector(
-                "body > div.section-myorder.width1200 > div > div > ul > li.row-sense > em > i"):
+                "body > div.myOrder-wrap > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.last-pay.personal-last-pay > ul > li.row-sense > em > i"):
             print("总价:" + i.text)
             ii = i.text
 
@@ -120,7 +116,7 @@ class QtZlTest(MyTestCase):
         print("价格一致")
 
         self.driver.find_element_by_css_selector(
-            "body > div.section-myorder.width1200 > div > div > ul > li.row-step > a.btn-next.submitOrder").click()
+            "body > div.myOrder-wrap > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.btns > a.btn-next.submitOrder").click()
 
         for o in self.driver.find_elements_by_class_name("payable"):
             print("订单提交成功，应付金额:" + o.text)
@@ -135,7 +131,7 @@ class QtZlTest(MyTestCase):
     def test_zlxg_2(self):
         """实用新型专利无效宣告"""
 
-        dl = dengLuPage(self.driver)
+        dl = DengLuPage(self.driver)
         dl.dengLu()
         time.sleep(2)
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
@@ -171,7 +167,7 @@ class QtZlTest(MyTestCase):
         get_screenshort(self.driver, "test_zlxg_2.png")
 
         for i in self.driver.find_elements_by_css_selector(
-                "body > div.section-myorder.width1200 > div > div > ul > li.row-sense > em > i"):
+                "body > div.myOrder-wrap > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.last-pay.personal-last-pay > ul > li.row-sense > em > i"):
             print("总价:" + i.text)
             ii = i.text
 
@@ -179,7 +175,7 @@ class QtZlTest(MyTestCase):
         print("价格一致")
 
         self.driver.find_element_by_css_selector(
-            "body > div.section-myorder.width1200 > div > div > ul > li.row-step > a.btn-next.submitOrder").click()
+            "body > div.myOrder-wrap > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.btns > a.btn-next.submitOrder").click()
 
         for o in self.driver.find_elements_by_class_name("payable"):
             print("订单提交成功，应付金额:" + o.text)
@@ -194,7 +190,7 @@ class QtZlTest(MyTestCase):
     def test_zlxg_3(self):
         """产品外观设计专利无效宣告"""
 
-        dl = dengLuPage(self.driver)
+        dl = DengLuPage(self.driver)
         dl.dengLu()
         time.sleep(2)
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
@@ -230,7 +226,7 @@ class QtZlTest(MyTestCase):
         get_screenshort(self.driver, "test_zlxg_3.png")
 
         for i in self.driver.find_elements_by_css_selector(
-                "body > div.section-myorder.width1200 > div > div > ul > li.row-sense > em > i"):
+                "body > div.myOrder-wrap > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.last-pay.personal-last-pay > ul > li.row-sense > em > i"):
             print("总价:" + i.text)
             ii = i.text
 
@@ -238,7 +234,7 @@ class QtZlTest(MyTestCase):
         print("价格一致")
 
         self.driver.find_element_by_css_selector(
-            "body > div.section-myorder.width1200 > div > div > ul > li.row-step > a.btn-next.submitOrder").click()
+            "body > div.myOrder-wrap > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.btns > a.btn-next.submitOrder").click()
 
         for o in self.driver.find_elements_by_class_name("payable"):
             print("订单提交成功，应付金额:" + o.text)
@@ -253,7 +249,7 @@ class QtZlTest(MyTestCase):
     def test_zldb_2(self):
         """发明专利无效答辩测试"""
 
-        dl = dengLuPage(self.driver)
+        dl = DengLuPage(self.driver)
         dl.dengLu()
         time.sleep(2)
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
@@ -287,7 +283,7 @@ class QtZlTest(MyTestCase):
         get_screenshort(self.driver, "test_zldb_2.png")
 
         for i in self.driver.find_elements_by_css_selector(
-                "body > div.section-myorder.width1200 > div > div > ul > li.row-sense > em > i"):
+                "body > div.myOrder-wrap > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.last-pay.personal-last-pay > ul > li.row-sense > em > i"):
             print("总价:" + i.text)
             ii = i.text
 
@@ -295,7 +291,7 @@ class QtZlTest(MyTestCase):
         print("价格一致")
 
         self.driver.find_element_by_css_selector(
-            "body > div.section-myorder.width1200 > div > div > ul > li.row-step > a.btn-next.submitOrder").click()
+            "body > div.myOrder-wrap > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.btns > a.btn-next.submitOrder").click()
 
         for o in self.driver.find_elements_by_class_name("payable"):
             print("订单提交成功，应付金额:" + o.text)
@@ -310,7 +306,7 @@ class QtZlTest(MyTestCase):
     def test_zldb_3(self):
         """发明专利无效答辩测试"""
 
-        dl = dengLuPage(self.driver)
+        dl = DengLuPage(self.driver)
         dl.dengLu()
         time.sleep(2)
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
@@ -344,7 +340,7 @@ class QtZlTest(MyTestCase):
         get_screenshort(self.driver, "test_zldb_3.png")
 
         for i in self.driver.find_elements_by_css_selector(
-                "body > div.section-myorder.width1200 > div > div > ul > li.row-sense > em > i"):
+                "body > div.myOrder-wrap > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.last-pay.personal-last-pay > ul > li.row-sense > em > i"):
             print("总价:" + i.text)
             ii = i.text
 
@@ -352,7 +348,7 @@ class QtZlTest(MyTestCase):
         print("价格一致")
 
         self.driver.find_element_by_css_selector(
-            "body > div.section-myorder.width1200 > div > div > ul > li.row-step > a.btn-next.submitOrder").click()
+            "body > div.myOrder-wrap > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.btns > a.btn-next.submitOrder").click()
 
         for o in self.driver.find_elements_by_class_name("payable"):
             print("订单提交成功，应付金额:" + o.text)
@@ -367,7 +363,7 @@ class QtZlTest(MyTestCase):
     def test_nfjn_2(self):
         """实用新型专利年费缴纳"""
 
-        dl = dengLuPage(self.driver)
+        dl = DengLuPage(self.driver)
         dl.dengLu()
         time.sleep(2)
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
@@ -395,12 +391,12 @@ class QtZlTest(MyTestCase):
 
         self.driver.find_element_by_css_selector(
             "body > div.section-product.width1200 > dl > dd > div.cont-btnBuy > a.btn.btn-next.buynow").click()
-        # patent_no = patent()
-        # self.driver.find_element_by_name("patent_no").send_keys("ZL{}".format(patent_no))
-        # print("专利号:{}".format(patent_no))
-        # patent_name = unicode()
-        # self.driver.find_element_by_name("patent_name").send_keys("{}".format(patent_name))
-        # print("专利名称:{}".format(patent_name))
+        patent_no = patent()
+        self.driver.find_element_by_name("patent_no").send_keys("ZL{}".format(patent_no))
+        print("专利号:ZL{}".format(patent_no))
+        patent_name = unicode()
+        self.driver.find_element_by_name("patent_name").send_keys("{}".format(patent_name))
+        print("专利名称:{}".format(patent_name))
         self.driver.find_element_by_name("ownerContactPerson").send_keys("全大师")
         self.driver.find_element_by_name("ownerContactPhone").send_keys("15624992498")
         self.driver.find_element_by_name("contactMail").send_keys("145647@qq.com")
@@ -409,7 +405,7 @@ class QtZlTest(MyTestCase):
         get_screenshort(self.driver, "test_nfjn_2.png")
 
         for i in self.driver.find_elements_by_css_selector(
-                "body > div.section-myorder.width1200 > div > div > ul > li.row-sense > em > i"):
+                "body > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(8) > div.last-pay.personal-last-pay > ul > li.row-sense > em > i"):
             print("总价:" + i.text)
             ii = i.text
 
@@ -417,7 +413,7 @@ class QtZlTest(MyTestCase):
         print("价格一致")
 
         self.driver.find_element_by_css_selector(
-            "body > div.section-myorder.width1200 > div > div > ul > li.row-step > a.btn-next.submitOrder").click()
+            "body > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(8) > div.btns > a.btn-next.submitOrder").click()
 
         for o in self.driver.find_elements_by_class_name("payable"):
             print("订单提交成功，应付金额:" + o.text)
@@ -432,7 +428,7 @@ class QtZlTest(MyTestCase):
     def test_nfjn_3(self):
         """产品外观设计专利年费缴纳"""
 
-        dl = dengLuPage(self.driver)
+        dl = DengLuPage(self.driver)
         dl.dengLu()
         time.sleep(2)
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
@@ -462,12 +458,12 @@ class QtZlTest(MyTestCase):
 
         self.driver.find_element_by_css_selector(
             "body > div.section-product.width1200 > dl > dd > div.cont-btnBuy > a.btn.btn-next.buynow").click()
-        # patent_no = patent()
-        # self.driver.find_element_by_name("patent_no").send_keys("ZL{}".format(patent_no))
-        # print("专利号:{}".format(patent_no))
-        # patent_name = unicode()
-        # self.driver.find_element_by_name("patent_name").send_keys("{}".format(patent_name))
-        # print("专利名称:{}".format(patent_name))
+        patent_no = patent()
+        self.driver.find_element_by_name("patent_no").send_keys("ZL{}".format(patent_no))
+        print("专利号:ZL{}".format(patent_no))
+        patent_name = unicode()
+        self.driver.find_element_by_name("patent_name").send_keys("{}".format(patent_name))
+        print("专利名称:{}".format(patent_name))
         self.driver.find_element_by_name("ownerContactPerson").send_keys("全大师")
         self.driver.find_element_by_name("ownerContactPhone").send_keys("15624992498")
         self.driver.find_element_by_name("contactMail").send_keys("145647@qq.com")
@@ -476,17 +472,17 @@ class QtZlTest(MyTestCase):
         get_screenshort(self.driver, "test_nfjn_3.png")
 
         for i in self.driver.find_elements_by_css_selector(
-                "body > div.section-myorder.width1200 > div > div > ul > li.row-sense > em > i"):
+                "body > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(8) > div.last-pay.personal-last-pay > ul > li.row-sense > em > i"):
             print("总价:" + i.text)
             ii =i.text
 
-        # ii = float(self.driver.find_element_by_css_selector("body > div.section-myorder.width1200 > div > div > ul > li.row-sense > em > i").text)
+        # ii = float(self.driver.find_element_by_css_selector("body > div.myOrder-wrap > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.last-pay.personal-last-pay > ul > li.row-sense > em > i").text)
         # print("总价:" + str(ii))
         self.assertIn(aa, ii)
         print("价格一致")
 
         self.driver.find_element_by_css_selector(
-            "body > div.section-myorder.width1200 > div > div > ul > li.row-step > a.btn-next.submitOrder").click()
+            "body > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(8) > div.btns > a.btn-next.submitOrder").click()
 
         for o in self.driver.find_elements_by_class_name("payable"):
             print("订单提交成功，应付金额:" + o.text)
@@ -503,7 +499,7 @@ class QtZlTest(MyTestCase):
     def test_zlbg_2(self):
         """邮编地址变更测试"""
 
-        dl = dengLuPage(self.driver)
+        dl = DengLuPage(self.driver)
         dl.dengLu()
         time.sleep(2)
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
@@ -540,7 +536,7 @@ class QtZlTest(MyTestCase):
         get_screenshort(self.driver, "test_zlbg_2.png")
 
         for i in self.driver.find_elements_by_css_selector(
-                "body > div.section-myorder.width1200 > div > div > ul > li.row-sense > em > i"):
+                "body > div.myOrder-wrap > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.last-pay.personal-last-pay > ul > li.row-sense > em > i"):
             print("总价:" + i.text)
             ii = i.text
 
@@ -548,7 +544,7 @@ class QtZlTest(MyTestCase):
         print("价格一致")
 
         self.driver.find_element_by_css_selector(
-            "body > div.section-myorder.width1200 > div > div > ul > li.row-step > a.btn-next.submitOrder").click()
+            "body > div.myOrder-wrap > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.btns > a.btn-next.submitOrder").click()
 
         for o in self.driver.find_elements_by_class_name("payable"):
             print("订单提交成功，应付金额:" + o.text)
@@ -563,7 +559,7 @@ class QtZlTest(MyTestCase):
     def test_zlbg_3(self):
         """申请人变更测试"""
 
-        dl = dengLuPage(self.driver)
+        dl = DengLuPage(self.driver)
         dl.dengLu()
         time.sleep(2)
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
@@ -600,7 +596,7 @@ class QtZlTest(MyTestCase):
         get_screenshort(self.driver, "test_zlbg_3.png")
 
         for i in self.driver.find_elements_by_css_selector(
-                "body > div.section-myorder.width1200 > div > div > ul > li.row-sense > em > i"):
+                "body > div.myOrder-wrap > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.last-pay.personal-last-pay > ul > li.row-sense > em > i"):
             print("总价:" + i.text)
             ii = i.text
 
@@ -608,7 +604,7 @@ class QtZlTest(MyTestCase):
         print("价格一致")
 
         self.driver.find_element_by_css_selector(
-            "body > div.section-myorder.width1200 > div > div > ul > li.row-step > a.btn-next.submitOrder").click()
+            "body > div.myOrder-wrap > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.btns > a.btn-next.submitOrder").click()
 
         for o in self.driver.find_elements_by_class_name("payable"):
             print("订单提交成功，应付金额:" + o.text)
@@ -623,7 +619,7 @@ class QtZlTest(MyTestCase):
     def test_zlbg_4(self):
         """代理机构变更测试"""
 
-        dl = dengLuPage(self.driver)
+        dl = DengLuPage(self.driver)
         dl.dengLu()
         time.sleep(2)
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
@@ -660,7 +656,7 @@ class QtZlTest(MyTestCase):
         get_screenshort(self.driver, "test_zlbg_4.png")
 
         for i in self.driver.find_elements_by_css_selector(
-                "body > div.section-myorder.width1200 > div > div > ul > li.row-sense > em > i"):
+                "body > div.myOrder-wrap > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.last-pay.personal-last-pay > ul > li.row-sense > em > i"):
             print("总价:" + i.text)
             ii = i.text
 
@@ -668,7 +664,7 @@ class QtZlTest(MyTestCase):
         print("价格一致")
 
         self.driver.find_element_by_css_selector(
-            "body > div.section-myorder.width1200 > div > div > ul > li.row-step > a.btn-next.submitOrder").click()
+            "body > div.myOrder-wrap > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.btns > a.btn-next.submitOrder").click()
 
         for o in self.driver.find_elements_by_class_name("payable"):
             print("订单提交成功，应付金额:" + o.text)

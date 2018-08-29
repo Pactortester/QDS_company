@@ -1,7 +1,5 @@
 import random
 
-from idna import unichr
-
 chinses=[0x4e00,0x4e01,0x4e03,0x4e07,0x4e08,0x4e09,0x4e09,0x4e0a,
 0x4e0b,0x4e0d,0x4e0e,0x4e10,0x4e11,0x4e13,0x4e14,0x4e16,
 0x4e18,0x4e19,0x4e1a,0x4e1b,0x4e1c,0x4e1d,0x4e22,0x4e24,
@@ -1168,6 +1166,6 @@ def patent():
     # j = 12
     # # id = []
     # patent_no = ''.join(str(i) for i in random.sample(range(0, 9), j))  # sample(seq, n) 从序列seq中选择n个随机且独立的元素；
-    number = 12
-    patent_no = ''.join(str(random.choice(range(number))) for _ in range(number))
+    number = 10
+    patent_no = (''.join(str(random.choice(range(number))) for _ in range(number)))+(''.join(str(random.choice(range(2))) for _ in range(2)))
     return patent_no

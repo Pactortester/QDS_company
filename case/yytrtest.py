@@ -8,7 +8,7 @@ import logging
 from selenium.webdriver import ActionChains
 
 from utils.mytestcase import MyTestCase
-from utils.logincookie import dengLuPage
+from utils.logincookie import DengLuPage
 from utils.screenshort import get_screenshort
 
 
@@ -18,7 +18,7 @@ class YyTrTest(MyTestCase):
     def test_sbcs(self):
         """商标撤三测试"""
 
-        dl = dengLuPage(self.driver)
+        dl = DengLuPage(self.driver)
         dl.dengLu()
         time.sleep(2)
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
@@ -52,7 +52,7 @@ class YyTrTest(MyTestCase):
         get_screenshort(self.driver, "test_sbcs.png")
 
         for i in self.driver.find_elements_by_css_selector(
-                "body > div.section-myorder.width1200 > div > div > ul > li.row-sense > em > i"):
+                "body > div.myOrder-wrap > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.last-pay.personal-last-pay > ul > li.row-sense > em > i"):
             print("总价:" + i.text)
             ii = i.text
 
@@ -60,7 +60,7 @@ class YyTrTest(MyTestCase):
         print("价格一致")
 
         self.driver.find_element_by_css_selector(
-            "body > div.section-myorder.width1200 > div > div > ul > li.row-step > a.btn-next.submitOrder").click()
+            "body > div.myOrder-wrap > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.btns > a.btn-next.submitOrder").click()
 
         for o in self.driver.find_elements_by_class_name("payable"):
             print("订单提交成功，应付金额:" + o.text)
@@ -75,7 +75,7 @@ class YyTrTest(MyTestCase):
     def test_sbyy(self):
         """商标异议申请测试"""
 
-        dl = dengLuPage(self.driver)
+        dl = DengLuPage(self.driver)
         dl.dengLu()
         time.sleep(2)
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
@@ -110,7 +110,7 @@ class YyTrTest(MyTestCase):
         get_screenshort(self.driver, "test_sbyy.png")
 
         for i in self.driver.find_elements_by_css_selector(
-                "body > div.section-myorder.width1200 > div > div > ul > li.row-sense > em > i"):
+                "body > div.myOrder-wrap > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.last-pay.personal-last-pay > ul > li.row-sense > em > i"):
             print("总价:" + i.text)
             ii = i.text
 
@@ -118,7 +118,7 @@ class YyTrTest(MyTestCase):
         print("价格一致")
 
         self.driver.find_element_by_css_selector(
-            "body > div.section-myorder.width1200 > div > div > ul > li.row-step > a.btn-next.submitOrder").click()
+            "body > div.myOrder-wrap > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.btns > a.btn-next.submitOrder").click()
 
         for o in self.driver.find_elements_by_class_name("payable"):
             print("订单提交成功，应付金额:" + o.text)
@@ -133,7 +133,7 @@ class YyTrTest(MyTestCase):
     def test_sbwx(self):
         """商标无效宣告申请测试"""
 
-        dl = dengLuPage(self.driver)
+        dl = DengLuPage(self.driver)
         dl.dengLu()
         time.sleep(2)
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
@@ -168,7 +168,7 @@ class YyTrTest(MyTestCase):
         get_screenshort(self.driver, "test_sbwx.png")
 
         for i in self.driver.find_elements_by_css_selector(
-                "body > div.section-myorder.width1200 > div > div > ul > li.row-sense > em > i"):
+                "body > div.myOrder-wrap > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.last-pay.personal-last-pay > ul > li.row-sense > em > i"):
             print("总价:" + i.text)
             ii = i.text
 
@@ -176,7 +176,7 @@ class YyTrTest(MyTestCase):
         print("价格一致")
 
         self.driver.find_element_by_css_selector(
-            "body > div.section-myorder.width1200 > div > div > ul > li.row-step > a.btn-next.submitOrder").click()
+            "body > div.myOrder-wrap > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.btns > a.btn-next.submitOrder").click()
 
         for o in self.driver.find_elements_by_class_name("payable"):
             print("订单提交成功，应付金额:" + o.text)

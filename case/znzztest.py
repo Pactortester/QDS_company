@@ -7,7 +7,7 @@ import logging
 from selenium.webdriver import ActionChains
 
 from utils.mytestcase import MyTestCase
-from utils.logincookie import dengLuPage
+from utils.logincookie import DengLuPage
 from utils.random import unicode
 from utils.screenshort import get_screenshort
 
@@ -21,7 +21,7 @@ class ZnZzTest(MyTestCase):
         # logging.basicConfig(filename='../LOG/' + __name__ + '.log',
         #                     format='[%(asctime)s-%(filename)s-%(levelname)s:%(message)s]', level=logging.DEBUG,
         #                     filemode='a', datefmt='%Y-%m-%d%I:%M:%S %p')
-        dl = dengLuPage(self.driver)
+        dl = DengLuPage(self.driver)
         # 官方推荐有find_element(By.*(""))代替find_element_by_*("")
         # self.driver.find_element_by_id()
         # self.driver.find_element()
@@ -47,7 +47,7 @@ class ZnZzTest(MyTestCase):
 
         for a in self.driver.find_elements_by_css_selector("#total-price"):
             print("费用总计:"+a.text)
-            #aa=a.text
+            # aa=a.text
 
         self.driver.find_element_by_css_selector(
             "body > div.section-product.width1200 > dl > dd > div.cont-btnBuy > a.btn.btn-next.buynow").click()
@@ -171,7 +171,7 @@ class ZnZzTest(MyTestCase):
         # logging.basicConfig(filename='../LOG/' + __name__ + '.log',
         #                     format='[%(asctime)s-%(filename)s-%(levelname)s:%(message)s]', level=logging.DEBUG,
         #                     filemode='a', datefmt='%Y-%m-%d%I:%M:%S %p')
-        dl = dengLuPage(self.driver)
+        dl = DengLuPage(self.driver)
         # 官方推荐有find_element(By.*(""))代替find_element_by_*("")
         # self.driver.find_element_by_id()
         # self.driver.find_element()
