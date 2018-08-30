@@ -36,7 +36,9 @@ class FmZlTest(MyTestCase):
         time.sleep(2)
         self.assertIn("发明专利标准申请|专利申请|专利查询|权大师",self.driver.title)
         print(self.driver.title)
-        self.driver.find_element_by_css_selector("#slowItems > label.label.active").click()  #单个申请人减缓
+        self.driver.find_element_by_css_selector("#slowItems > label.label.active").click()  # 单个申请人减缓
+        print("服务类别:" + self.driver.find_element_by_css_selector("#serviceName > li.list.active").text + "_" + self.driver.find_element_by_css_selector("#slowItems > label.label.active").text)
+
         # self.driver.find_element_by_css_selector("#slowItems > label:nth-child(2) > input[type=\"checkbox\"]")  #多个申请人减缓
         # self.driver.find_element_by_css_selector("#slowItems > label:nth-child(3) > input[type=\"checkbox\"]")  #不减缓
 
@@ -101,6 +103,7 @@ class FmZlTest(MyTestCase):
         # self.driver.find_element_by_css_selector("#slowItems > label.label.active > input[type=\"checkbox\"]")  #单个申请人减缓
         self.driver.find_element_by_css_selector("#slowItems > label:nth-child(3)").click()  # 多个申请人减缓
         # self.driver.find_element_by_css_selector("#slowItems > label:nth-child(3) > input[type=\"checkbox\"]")  #不减缓
+        print("服务类别:" + self.driver.find_element_by_css_selector("#serviceName > li.list.active").text + "_" + self.driver.find_element_by_css_selector("#slowItems > label:nth-child(3)").text)
 
         self.driver.find_element_by_css_selector("#serviceName > li.list.active").click()
 
@@ -162,8 +165,8 @@ class FmZlTest(MyTestCase):
         print(self.driver.title)
         # self.driver.find_element_by_css_selector("#slowItems > label.label.active > input[type=\"checkbox\"]")  #单个申请人减缓
         # self.driver.find_element_by_css_selector("#slowItems > label:nth-child(2) > input[type=\"checkbox\"]")  #多个申请人减缓
-        self.driver.find_element_by_css_selector("#slowItems > label:nth-child(4)").click() # 不减缓
-
+        self.driver.find_element_by_css_selector("#slowItems > label:nth-child(4)").click()  # 不减缓
+        print("服务类别:" + self.driver.find_element_by_css_selector("#serviceName > li.list.active").text + "_" + self.driver.find_element_by_css_selector("#slowItems > label:nth-child(4)").text)
         self.driver.find_element_by_css_selector("#serviceName > li.list.active").click()
 
         for a in self.driver.find_elements_by_css_selector("#total-price"):
@@ -225,6 +228,7 @@ class FmZlTest(MyTestCase):
         self.driver.find_element_by_css_selector("#slowItems > label.label.active").click()  # 单个申请人减缓
         # self.driver.find_element_by_css_selector("#slowItems > label:nth-child(2) > input[type=\"checkbox\"]")  #多个申请人减缓
         # self.driver.find_element_by_css_selector("#slowItems > label:nth-child(3) > input[type=\"checkbox\"]")  #不减缓
+        print("服务类别:" + self.driver.find_element_by_css_selector("#serviceName > li.list.active").text + "_" + self.driver.find_element_by_css_selector("#slowItems > label.label.active").text)
 
         self.driver.find_element_by_css_selector("#serviceName > li.list.active").click()
 
@@ -285,8 +289,9 @@ class FmZlTest(MyTestCase):
         self.assertIn("发明专利担保申请|专利申请|专利查询|权大师", self.driver.title)
         print(self.driver.title)
         # self.driver.find_element_by_css_selector("#slowItems > label.label.active > input[type=\"checkbox\"]")  #单个申请人减缓
-        self.driver.find_element_by_css_selector("#slowItems > label:nth-child(2)").click()  # 多个申请人减缓
+        self.driver.find_element_by_css_selector("#slowItems > label:nth-child(3)").click()  # 多个申请人减缓
         # self.driver.find_element_by_css_selector("#slowItems > label:nth-child(3) > input[type=\"checkbox\"]")  #不减缓
+        print("服务类别:" + self.driver.find_element_by_css_selector("#serviceName > li.list.active").text + "_" + self.driver.find_element_by_css_selector("#slowItems > label:nth-child(3)").text)
 
         self.driver.find_element_by_css_selector("#serviceName > li.list.active").click()
 
@@ -349,7 +354,7 @@ class FmZlTest(MyTestCase):
         # self.driver.find_element_by_css_selector("#slowItems > label.label.active > input[type=\"checkbox\"]")  #单个申请人减缓
         # self.driver.find_element_by_css_selector("#slowItems > label:nth-child(2) > input[type=\"checkbox\"]")  #多个申请人减缓
         self.driver.find_element_by_css_selector("#slowItems > label:nth-child(4)").click()  # 不减缓
-
+        print("服务类别:" + self.driver.find_element_by_css_selector("#serviceName > li.list.active").text + "_" + self.driver.find_element_by_css_selector("#slowItems > label:nth-child(4)").text)
         self.driver.find_element_by_css_selector("#serviceName > li.list.active").click()
 
         for a in self.driver.find_elements_by_css_selector("#total-price"):
