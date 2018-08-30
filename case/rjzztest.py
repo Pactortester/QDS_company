@@ -35,14 +35,14 @@ class RjZzTest(MyTestCase):
             "body > div.section-banner > div.public-navbar > div > div > div > ul:nth-child(1) > li:nth-child(3) > div > dl:nth-child(1) > dd > a:nth-child(2)").click()
         time.sleep(2)
 
-        #print(self.driver.title)
+        # print(self.driver.title)
         self.assertIn("软件著作权登记-权大师",self.driver.title)
         print(self.driver.title)
         self.driver.find_element_by_css_selector("#serviceName > li.list.active").click()
 
 
-        #WebElement' object is not iterable
-        #element +  s  (解决)
+        # WebElement' object is not iterable
+        # element +  s  (解决)
 
         for c in self.driver.find_elements_by_xpath("//*[@id=\"total-price\"]"):
             print("费用总计:" + c.text)
@@ -57,7 +57,7 @@ class RjZzTest(MyTestCase):
         get_screenshort(self.driver, "rjzztest.png")
 
         for i in self.driver.find_elements_by_css_selector(
-                "body > div.myOrder-wrap > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.last-pay.personal-last-pay > ul > li.row-sense > em > i"):
+                "body > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.last-pay.personal-last-pay > ul > li.row-sense > em > i"):
             print("总价:" + i.text)
             ii = i.text
 
@@ -65,7 +65,7 @@ class RjZzTest(MyTestCase):
         print("价格一致")
 
         self.driver.find_element_by_css_selector(
-            "body > div.myOrder-wrap > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.btns > a.btn-next.submitOrder").click()
+            "body > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.btns > a.btn-next.submitOrder").click()
 
         for o in self.driver.find_elements_by_class_name("payable"):
             print("订单提交成功，应付金额:" + o.text)
@@ -119,7 +119,7 @@ class RjZzTest(MyTestCase):
         get_screenshort(self.driver, "test_rjzz_j.png")
 
         for i in self.driver.find_elements_by_css_selector(
-                "body > div.myOrder-wrap > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.last-pay.personal-last-pay > ul > li.row-sense > em > i"):
+                "body > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.last-pay.personal-last-pay > ul > li.row-sense > em > i"):
             print("总价:" + i.text)
             ii = i.text
 
@@ -127,7 +127,7 @@ class RjZzTest(MyTestCase):
         print("价格一致")
 
         self.driver.find_element_by_css_selector(
-            "body > div.myOrder-wrap > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.btns > a.btn-next.submitOrder").click()
+            "body > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.btns > a.btn-next.submitOrder").click()
 
         for o in self.driver.find_elements_by_class_name("payable"):
             print("订单提交成功，应付金额:" + o.text)

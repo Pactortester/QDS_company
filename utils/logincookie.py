@@ -8,7 +8,7 @@ class DengLuPage:
 
     cookie=({'name': 'QDS_COOKIE',
              # 'value': '116b79bb072221f47477b4c5980a685f0b4fa2d1',
-             'value': 'fafce34b93de56ac1bf12c9cd47b003215ef7074',#fafce34b93de56ac1bf12c9cd47b003215ef7074
+             'value': '2ff3a64d34981f806eb4503fa24f4a93d639b97b',#fafce34b93de56ac1bf12c9cd47b003215ef7074
               'Domain': '.quandashi.com'})
 
     def __init__(self, driver):

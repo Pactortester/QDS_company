@@ -53,7 +53,7 @@ class HwScTest(MyTestCase):
         get_screenshort(self.driver, "test_mdl.png")
 
         for i in self.driver.find_elements_by_css_selector(
-                "body > div.myOrder-wrap > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.last-pay.personal-last-pay > ul > li.row-sense > em > i"):
+                "body > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.last-pay.personal-last-pay > ul > li.row-sense > em > i"):
             print("总价:" + i.text)
             ii = i.text
 
@@ -61,7 +61,7 @@ class HwScTest(MyTestCase):
         print("价格一致")
 
         self.driver.find_element_by_css_selector(
-            "body > div.myOrder-wrap > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.btns > a.btn-next.submitOrder").click()
+            "body > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.btns > a.btn-next.submitOrder").click()
 
         for o in self.driver.find_elements_by_class_name("payable"):
             print("订单提交成功，应付金额:" + o.text)
@@ -110,7 +110,7 @@ class HwScTest(MyTestCase):
         get_screenshort(self.driver, "test_mg.png")
 
         for i in self.driver.find_elements_by_css_selector(
-                "body > div.myOrder-wrap > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.last-pay.personal-last-pay > ul > li.row-sense > em > i"):
+                "body > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.last-pay.personal-last-pay > ul > li.row-sense > em > i"):
             print("总价:" + i.text)
             ii = i.text
 
@@ -118,7 +118,7 @@ class HwScTest(MyTestCase):
         print("价格一致")
 
         self.driver.find_element_by_css_selector(
-            "body > div.myOrder-wrap > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.btns > a.btn-next.submitOrder").click()
+            "body > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.btns > a.btn-next.submitOrder").click()
 
         for o in self.driver.find_elements_by_class_name("payable"):
             print("订单提交成功，应付金额:" + o.text)
@@ -168,7 +168,7 @@ class HwScTest(MyTestCase):
         get_screenshort(self.driver, "test_om.png")
 
         for i in self.driver.find_elements_by_css_selector(
-                "body > div.myOrder-wrap > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.last-pay.personal-last-pay > ul > li.row-sense > em > i"):
+                "body > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.last-pay.personal-last-pay > ul > li.row-sense > em > i"):
             print("总价:" + i.text)
             ii = i.text
 
@@ -176,7 +176,7 @@ class HwScTest(MyTestCase):
         print("价格一致")
 
         self.driver.find_element_by_css_selector(
-            "body > div.myOrder-wrap > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.btns > a.btn-next.submitOrder").click()
+            "body > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.btns > a.btn-next.submitOrder").click()
 
         for o in self.driver.find_elements_by_class_name("payable"):
             print("订单提交成功，应付金额:" + o.text)
@@ -226,7 +226,7 @@ class HwScTest(MyTestCase):
         get_screenshort(self.driver, "test_rb.png")
 
         for i in self.driver.find_elements_by_css_selector(
-                "body > div.myOrder-wrap > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.last-pay.personal-last-pay > ul > li.row-sense > em > i"):
+                "body > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.last-pay.personal-last-pay > ul > li.row-sense > em > i"):
             print("总价:" + i.text)
             ii = i.text
 
@@ -234,7 +234,7 @@ class HwScTest(MyTestCase):
         print("价格一致")
 
         self.driver.find_element_by_css_selector(
-            "body > div.myOrder-wrap > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.btns > a.btn-next.submitOrder").click()
+            "body > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.btns > a.btn-next.submitOrder").click()
 
         for o in self.driver.find_elements_by_class_name("payable"):
             print("订单提交成功，应付金额:" + o.text)
@@ -284,7 +284,7 @@ class HwScTest(MyTestCase):
         get_screenshort(self.driver, "test_yd.png")
 
         for i in self.driver.find_elements_by_css_selector(
-                "body > div.myOrder-wrap > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.last-pay.personal-last-pay > ul > li.row-sense > em > i"):
+                "body > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.last-pay.personal-last-pay > ul > li.row-sense > em > i"):
             print("总价:" + i.text)
             ii = i.text
 
@@ -292,7 +292,7 @@ class HwScTest(MyTestCase):
         print("价格一致")
 
         self.driver.find_element_by_css_selector(
-            "body > div.myOrder-wrap > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.btns > a.btn-next.submitOrder").click()
+            "body > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.btns > a.btn-next.submitOrder").click()
 
         for o in self.driver.find_elements_by_class_name("payable"):
             print("订单提交成功，应付金额:" + o.text)
@@ -341,7 +341,7 @@ class HwScTest(MyTestCase):
         get_screenshort(self.driver, "test_xg.png")
 
         for i in self.driver.find_elements_by_css_selector(
-                "body > div.myOrder-wrap > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.last-pay.personal-last-pay > ul > li.row-sense > em > i"):
+                "body > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.last-pay.personal-last-pay > ul > li.row-sense > em > i"):
             print("总价:" + i.text)
             ii = i.text
 
@@ -349,7 +349,7 @@ class HwScTest(MyTestCase):
         print("价格一致")
 
         self.driver.find_element_by_css_selector(
-            "body > div.myOrder-wrap > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.btns > a.btn-next.submitOrder").click()
+            "body > div.section-myorder.orderinfo-wrap.width1200 > div:nth-child(6) > div.btns > a.btn-next.submitOrder").click()
 
         for o in self.driver.find_elements_by_class_name("payable"):
             print("订单提交成功，应付金额:" + o.text)
