@@ -59,7 +59,7 @@ class ZnZzTest(MyTestCase):
         self.driver.find_element_by_css_selector(
             "body > div.smartRegister-page.smartRegister3-page > div:nth-child(4) > div > table > tbody > tr.row-tuyang.show-create.show-create1 > td.td-content > div.zidongdong-create > ul > li > div.bottom.getBrandPic > a").click()
         self.driver.find_element_by_css_selector("#create-tuyang > label.label.checked").click()
-        time.sleep(5)
+        time.sleep(2)
 
         self.driver.find_element_by_css_selector(
             "body > div.smartRegister-page.smartRegister3-page > div:nth-child(14) > div.categoryInfo-wrap > div.c-row.row-way > div > a.btn-choice.active").click()
@@ -99,7 +99,7 @@ class ZnZzTest(MyTestCase):
             "body > div.smartRegister-page.smartRegister3-page > div.last-pay > ul > li.row-step > a").click()
 
         time.sleep(1)
-        #self.driver.execute_script("document.getElementByName('fname').length = 0;")
+        # self.driver.execute_script("document.getElementByName('fname').length = 0;")
 
         self.driver.find_element_by_css_selector(
             "body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base > div.applicant-form > table.table-1.table-applicant.table-type1.active > tbody.tbody-qiye > tr:nth-child(1) > td.td-content.contact-select-container > dl > dt > input").clear()
@@ -110,10 +110,10 @@ class ZnZzTest(MyTestCase):
         self.driver.find_element_by_css_selector("#ssq").click()
         self.driver.find_element_by_css_selector(
             "#companylistrative > div > div.d-dropdown > div.tab-content.active.tab-province > dl.item.item-a-g.clearfix > dd > span:nth-child(1)").click()
-        # driver.find_element_by_css_selector("#companylistrative > div > div.d-dropdown > div.tab-content.tab-city.active > dl.item.item-a-g.clearfix > dd > span.list.active").click()
+        time.sleep(2)
         self.driver.find_element_by_css_selector(
-            "#companylistrative > div > div.d-dropdown > div.tab-content.tab-city.active > dl.item.item-a-g.clearfix > dd > span:nth-child(1)").click()
-
+            "#companylistrative > div > div.d-dropdown > div.tab-content.tab-city.active > dl.item.item-a-g.clearfix > dd > span:nth-child({})".format(random.randint(1,5))).click()
+        time.sleep(2)
         # 解决弹框
         # self.driver.find_element_by_css_selector("body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base > div.applicant-form > table.table-1.table-applicant.table-type1.active > tbody.tbody-qiye > tr:nth-child(4) > td.td-title").click()
         # time.sleep(1)
