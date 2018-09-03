@@ -2,7 +2,7 @@
 <project version="4">
   <component name="DBNavigator.Project.DataEditorManager">
     <record-view-column-sorting-type value="BY_INDEX" />
-    <value-preview-text-wrapping value="true" />
+    <value-preview-text-wrapping value="false" />
     <value-preview-pinned value="false" />
   </component>
   <component name="DBNavigator.Project.DataExportManager">
@@ -23,12 +23,7 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
-    <loaded-nodes>
-      <connection connection-id="01711c9f-3e20-4daf-be40-31eb7ea1227d">
-        <schema name="db_brand" object-types="column, constraint, function, index, procedure, table, dataset trigger, view" />
-        <schema name="mysql" object-types="function, table, view" />
-      </connection>
-    </loaded-nodes>
+    <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="01711c9f-3e20-4daf-be40-31eb7ea1227d">
@@ -266,7 +261,7 @@ SELECT * FROM j_order_optimize ORDER BY fupdate_time DESC;]]></console>
           <description value="" />
           <database-type value="MYSQL" />
           <config-type value="BASIC" />
-          <database-version value="9999.0" />
+          <database-version value="5.6" />
           <driver-source value="BUILTIN" />
           <driver-library value="" />
           <driver value="" />

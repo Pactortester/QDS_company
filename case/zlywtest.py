@@ -161,12 +161,12 @@ class ZlYwTest(MyTestCase):
         self.assertIn("外观设计专利标准申请|专利申请|专利查询|权大师", self.driver.title)
         print(self.driver.title)
 
-        self.driver.find_element_by_css_selector("#slowItems > label:nth-child(3)").click()  # 多个申请人减缓
+        self.driver.find_element_by_css_selector("#slowItems > label:nth-child(2)").click()  # 多个申请人减缓
 
         self.driver.find_element_by_css_selector("#serviceName > li.list.active").click()  # 标准
         print("服务类别:" + self.driver.find_element_by_css_selector(
             "#serviceName > li.list.active").text + "_" + self.driver.find_element_by_css_selector(
-            "#slowItems > label:nth-child(3)").text)
+            "#slowItems > label:nth-child(2)").text)
         for a in self.driver.find_elements_by_css_selector("#total-price"):
             print("费用总计:" + a.text)
             aa = a.text
@@ -225,12 +225,12 @@ class ZlYwTest(MyTestCase):
         self.assertIn("外观设计专利标准申请|专利申请|专利查询|权大师", self.driver.title)
         print(self.driver.title)
 
-        self.driver.find_element_by_css_selector("#slowItems > label:nth-child(4)").click()  # 不减缓
+        self.driver.find_element_by_css_selector("#slowItems > label:nth-child(3)").click()  # 不减缓
 
         self.driver.find_element_by_css_selector("#serviceName > li.list.active").click()  # 标准
         print("服务类别:" + self.driver.find_element_by_css_selector(
             "#serviceName > li.list.active").text + "_" + self.driver.find_element_by_css_selector(
-            "#slowItems > label:nth-child(4)").text)
+            "#slowItems > label:nth-child(3)").text)
         for a in self.driver.find_elements_by_css_selector("#total-price"):
             print("费用总计:" + a.text)
             aa = a.text
@@ -357,11 +357,11 @@ class ZlYwTest(MyTestCase):
 
         self.driver.find_element_by_css_selector("#serviceName > li:nth-child(2)").click()  # 担保
         time.sleep(2)
-        self.driver.find_element_by_css_selector("#slowItems > label:nth-child(3)").click()  # 多个申请人减缓
+        self.driver.find_element_by_css_selector("#slowItems > label:nth-child(2)").click()  # 多个申请人减缓
 
         print("服务类别:" + self.driver.find_element_by_css_selector(
             "#serviceName > li:nth-child(2)").text + "_" + self.driver.find_element_by_css_selector(
-            "#slowItems > label:nth-child(3)").text)
+            "#slowItems > label:nth-child(2)").text)
 
         for a in self.driver.find_elements_by_css_selector("#total-price"):
             print("费用总计:" + a.text)
@@ -423,11 +423,11 @@ class ZlYwTest(MyTestCase):
 
         self.driver.find_element_by_css_selector("#serviceName > li:nth-child(2)").click()  # 担保
         time.sleep(2)
-        self.driver.find_element_by_css_selector("#slowItems > label:nth-child(4)").click()  # 不减缓
+        self.driver.find_element_by_css_selector("#slowItems > label:nth-child(3)").click()  # 不减缓
         time.sleep(2)
         print("服务类别:" + self.driver.find_element_by_css_selector(
             "#serviceName > li:nth-child(2)").text + "_" + self.driver.find_element_by_css_selector(
-            "#slowItems > label:nth-child(4)").text)
+            "#slowItems > label:nth-child(3)").text)
         for a in self.driver.find_elements_by_css_selector("#total-price"):
             print("费用总计:" + a.text)
             aa = a.text
@@ -487,7 +487,7 @@ class ZlYwTest(MyTestCase):
 
         self.driver.find_element_by_css_selector("#slowItems > label.label.active").click()  # 单个申请人减缓
 
-        self.driver.find_element_by_css_selector("#serviceName > li.list.active").click() # 标准
+        self.driver.find_element_by_css_selector("#serviceName > li.list.active").click()  # 标准
         print("服务类别:" + self.driver.find_element_by_css_selector(
             "#serviceName > li.list.active").text + "_" + self.driver.find_element_by_css_selector(
             "#slowItems > label.label.active").text)
@@ -548,12 +548,12 @@ class ZlYwTest(MyTestCase):
         self.assertIn("GUI及系列产品标准申请|专利申请|专利查询|权大师",self.driver.title)
         print(self.driver.title)
 
-        self.driver.find_element_by_css_selector("#slowItems > label:nth-child(3)").click()  # 多个申请人减缓
+        self.driver.find_element_by_css_selector("#slowItems > label:nth-child(2)").click()  # 多个申请人减缓
 
         self.driver.find_element_by_css_selector("#serviceName > li.list.active").click()  # 标准
         print("服务类别:" + self.driver.find_element_by_css_selector(
             "#serviceName > li.list.active").text + "_" + self.driver.find_element_by_css_selector(
-            "#slowItems > label:nth-child(3)").text)
+            "#slowItems > label:nth-child(2)").text)
         for a in self.driver.find_elements_by_css_selector("#total-price"):
             print("费用总计:"+a.text)
             aa = a.text
@@ -611,12 +611,12 @@ class ZlYwTest(MyTestCase):
         self.assertIn("GUI及系列产品标准申请|专利申请|专利查询|权大师",self.driver.title)
         print(self.driver.title)
 
-        self.driver.find_element_by_css_selector("#slowItems > label:nth-child(4)").click()  # 不减缓
+        self.driver.find_element_by_css_selector("#slowItems > label:nth-child(3)").click()  # 不减缓
 
-        self.driver.find_element_by_css_selector("#serviceName > li.list.active").click() # 标准
+        self.driver.find_element_by_css_selector("#serviceName > li.list.active").click()  # 标准
         print("服务类别:" + self.driver.find_element_by_css_selector(
             "#serviceName > li.list.active").text + "_" + self.driver.find_element_by_css_selector(
-            "#slowItems > label:nth-child(4)").text)
+            "#slowItems > label:nth-child(3)").text)
         for a in self.driver.find_elements_by_css_selector("#total-price"):
             print("费用总计:"+a.text)
             aa=a.text
@@ -739,10 +739,10 @@ class ZlYwTest(MyTestCase):
         print(self.driver.title)
         self.driver.find_element_by_css_selector("#serviceName > li:nth-child(2)").click()  # 担保
         time.sleep(2)
-        self.driver.find_element_by_css_selector("#slowItems > label:nth-child(3)").click()  # 多个申请人减缓
+        self.driver.find_element_by_css_selector("#slowItems > label:nth-child(2)").click()  # 多个申请人减缓
         print("服务类别:" + self.driver.find_element_by_css_selector(
             "#serviceName > li:nth-child(2)").text + "_" + self.driver.find_element_by_css_selector(
-            "#slowItems > label:nth-child(3)").text)
+            "#slowItems > label:nth-child(2)").text)
         for a in self.driver.find_elements_by_css_selector("#total-price"):
             print("费用总计:"+a.text)
             aa = a.text
@@ -802,11 +802,11 @@ class ZlYwTest(MyTestCase):
         self.driver.find_element_by_css_selector("#serviceName > li:nth-child(2)").click()  # 担保
         time.sleep(2)
 
-        self.driver.find_element_by_css_selector("#slowItems > label:nth-child(4)").click()  # 不减缓
+        self.driver.find_element_by_css_selector("#slowItems > label:nth-child(3)").click()  # 不减缓
 
         print("服务类别:" + self.driver.find_element_by_css_selector(
             "#serviceName > li:nth-child(2)").text + "_" + self.driver.find_element_by_css_selector(
-            "#slowItems > label:nth-child(4)").text)
+            "#slowItems > label:nth-child(3)").text)
 
         for a in self.driver.find_elements_by_css_selector("#total-price"):
             print("费用总计:"+a.text)
@@ -929,13 +929,13 @@ class ZlYwTest(MyTestCase):
         self.assertIn("实用新型专利标准申请|专利申请|专利查询|权大师", self.driver.title)
         print(self.driver.title)
         # self.driver.find_element_by_css_selector("#slowItems > label.label.active > input[type=\"checkbox\"]")  #单个申请人减缓
-        self.driver.find_element_by_css_selector("#slowItems > label:nth-child(3)").click()  # 多个申请人减缓
+        self.driver.find_element_by_css_selector("#slowItems > label:nth-child(2)").click()  # 多个申请人减缓
         # self.driver.find_element_by_css_selector("#slowItems > label:nth-child(3) > input[type=\"checkbox\"]")  #不减缓
 
         self.driver.find_element_by_css_selector("#serviceName > li.list.active").click()
         print("服务类别:" + self.driver.find_element_by_css_selector(
             "#serviceName > li.list.active").text + "_" + self.driver.find_element_by_css_selector(
-            "#slowItems > label:nth-child(3)").text)
+            "#slowItems > label:nth-child(2)").text)
         for a in self.driver.find_elements_by_css_selector("#total-price"):
             print("费用总计:" + a.text)
             aa = a.text
@@ -994,12 +994,12 @@ class ZlYwTest(MyTestCase):
         print(self.driver.title)
         # self.driver.find_element_by_css_selector("#slowItems > label.label.active > input[type=\"checkbox\"]")  #单个申请人减缓
         # self.driver.find_element_by_css_selector("#slowItems > label:nth-child(3) > input[type=\"checkbox\"]")  #多个申请人减缓
-        self.driver.find_element_by_css_selector("#slowItems > label:nth-child(4)").click()  # 不减缓
+        self.driver.find_element_by_css_selector("#slowItems > label:nth-child(3)").click()  # 不减缓
 
         self.driver.find_element_by_css_selector("#serviceName > li.list.active").click()
         print("服务类别:" + self.driver.find_element_by_css_selector(
             "#serviceName > li.list.active").text + "_" + self.driver.find_element_by_css_selector(
-            "#slowItems > label:nth-child(4)").text)
+            "#slowItems > label:nth-child(3)").text)
         for a in self.driver.find_elements_by_css_selector("#total-price"):
             print("费用总计:" + a.text)
             aa = a.text
@@ -1121,13 +1121,13 @@ class ZlYwTest(MyTestCase):
         self.assertIn("实用新型专利担保申请|专利申请|专利查询|权大师", self.driver.title)
         print(self.driver.title)
         # self.driver.find_element_by_css_selector("#slowItems > label.label.active > input[type=\"checkbox\"]")  #单个申请人减缓
-        self.driver.find_element_by_css_selector("#slowItems > label:nth-child(3)").click()  # 多个申请人减缓
+        self.driver.find_element_by_css_selector("#slowItems > label:nth-child(2)").click()  # 多个申请人减缓
         # self.driver.find_element_by_css_selector("#slowItems > label:nth-child(3) > input[type=\"checkbox\"]")  #不减缓
 
         self.driver.find_element_by_css_selector("#serviceName > li.list.active").click()
         print("服务类别:" + self.driver.find_element_by_css_selector(
             "#serviceName > li.list.active").text + "_" + self.driver.find_element_by_css_selector(
-            "#slowItems > label:nth-child(3)").text)
+            "#slowItems > label:nth-child(2)").text)
         for a in self.driver.find_elements_by_css_selector("#total-price"):
             print("费用总计:" + a.text)
             aa = a.text
@@ -1185,12 +1185,12 @@ class ZlYwTest(MyTestCase):
         print(self.driver.title)
         # self.driver.find_element_by_css_selector("#slowItems > label.label.active > input[type=\"checkbox\"]")  #单个申请人减缓
         # self.driver.find_element_by_css_selector("#slowItems > label:nth-child(3) > input[type=\"checkbox\"]")  #多个申请人减缓
-        self.driver.find_element_by_css_selector("#slowItems > label:nth-child(4)").click()  # 不减缓
+        self.driver.find_element_by_css_selector("#slowItems > label:nth-child(3)").click()  # 不减缓
 
         self.driver.find_element_by_css_selector("#serviceName > li.list.active").click()
         print("服务类别:" + self.driver.find_element_by_css_selector(
             "#serviceName > li.list.active").text + "_" + self.driver.find_element_by_css_selector(
-            "#slowItems > label:nth-child(4)").text)
+            "#slowItems > label:nth-child(3)").text)
         for a in self.driver.find_elements_by_css_selector("#total-price"):
             print("费用总计:" + a.text)
             aa = a.text

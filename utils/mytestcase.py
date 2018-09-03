@@ -3,7 +3,7 @@ import time
 
 from config.globalparam import driver_path
 from utils.log import Log
-from selenium import  webdriver
+from selenium import webdriver
 
 from utils.pyselenium import logger
 
@@ -19,7 +19,7 @@ class MyTestCase(unittest.TestCase):
     def setUp(self):
         self.logger = Log()
         self.logger.info('############################### START ###############################')
-        self.driver=webdriver.Chrome("C:\\Users\\Administrator\\AppData\Local\\Google\Chrome\\Application\\chromedriver.exe")
+        self.driver = webdriver.Chrome("C:\\Users\\Administrator\\AppData\Local\\Google\Chrome\\Application\\chromedriver.exe")
 
         # self.driver = webdriver.Chrome(driver_path+'\\'+'chromedriver.exe')
 
