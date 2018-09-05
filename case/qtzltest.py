@@ -520,7 +520,7 @@ class QtZlTest(MyTestCase):
         self.assertIn("专利著录项变更-权大师", self.driver.title)
         print(self.driver.title)
 
-        self.driver.find_element_by_css_selector("#slowItems > label:nth-child(3)").click()
+        self.driver.find_element_by_css_selector("#slowItems > label:nth-child(2)").click()
 
         for a in self.driver.find_elements_by_css_selector("#total-price"):
             print("费用总计:" + a.text)
@@ -580,7 +580,7 @@ class QtZlTest(MyTestCase):
         self.assertIn("专利著录项变更-权大师", self.driver.title)
         print(self.driver.title)
 
-        self.driver.find_element_by_css_selector("#slowItems > label:nth-child(4)").click()
+        self.driver.find_element_by_css_selector("#slowItems > label:nth-child(3)").click()
 
         for a in self.driver.find_elements_by_css_selector("#total-price"):
             print("费用总计:" + a.text)
@@ -640,7 +640,7 @@ class QtZlTest(MyTestCase):
         self.assertIn("专利著录项变更-权大师", self.driver.title)
         print(self.driver.title)
 
-        self.driver.find_element_by_css_selector("#slowItems > label:nth-child(5)").click()
+        self.driver.find_element_by_css_selector("#slowItems > label:nth-child(4)").click()
 
         for a in self.driver.find_elements_by_css_selector("#total-price"):
             print("费用总计:" + a.text)

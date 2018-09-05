@@ -8,6 +8,7 @@ from selenium.webdriver import ActionChains
 
 from utils.mytestcase import MyTestCase
 from utils.logincookie import DengLuPage
+from utils.random import unicode
 from utils.screenshort import get_screenshort
 
 
@@ -45,7 +46,7 @@ class BqYwTest(MyTestCase):
 
         self.driver.find_element_by_css_selector(
             "body > div.section-product.width1200 > dl > dd > div.cont-btnBuy > a.btn.btn-next.buynow").click()
-        self.driver.find_element_by_name("ownerContactPerson").send_keys("全大师")
+        self.driver.find_element_by_name("ownerContactPerson").send_keys("{}".format(unicode()))
         self.driver.find_element_by_name("ownerContactPhone").send_keys("15624992498")
         self.driver.find_element_by_name("contactMail").send_keys("145647@qq.com")
         self.driver.find_element_by_css_selector("#remark").send_keys(time.strftime("%Y-%m-%d_%H-%M-%S") + "测试订单")
@@ -102,7 +103,7 @@ class BqYwTest(MyTestCase):
 
         self.driver.find_element_by_css_selector(
             "body > div.section-product.width1200 > dl > dd > div.cont-btnBuy > a.btn.btn-next.buynow").click()
-        self.driver.find_element_by_name("ownerContactPerson").send_keys("全大师")
+        self.driver.find_element_by_name("ownerContactPerson").send_keys("{}".format(unicode()))
         self.driver.find_element_by_name("ownerContactPhone").send_keys("15624992498")
         self.driver.find_element_by_name("contactMail").send_keys("145647@qq.com")
         self.driver.find_element_by_css_selector("#remark").send_keys(time.strftime("%Y-%m-%d_%H-%M-%S") + "测试订单")
@@ -159,7 +160,7 @@ class BqYwTest(MyTestCase):
 
         self.driver.find_element_by_css_selector(
             "body > div.section-product.width1200 > dl > dd > div.cont-btnBuy > a.btn.btn-next.buynow").click()
-        self.driver.find_element_by_name("ownerContactPerson").send_keys("全大师")
+        self.driver.find_element_by_name("ownerContactPerson").send_keys("{}".format(unicode()))
         self.driver.find_element_by_name("ownerContactPhone").send_keys("15624992498")
         self.driver.find_element_by_name("contactMail").send_keys("145647@qq.com")
         self.driver.find_element_by_css_selector("#remark").send_keys(time.strftime("%Y-%m-%d_%H-%M-%S") + "测试订单")
@@ -216,7 +217,7 @@ class BqYwTest(MyTestCase):
 
         self.driver.find_element_by_css_selector(
             "body > div.section-product.width1200 > dl > dd > div.cont-btnBuy > a.btn.btn-next.buynow").click()
-        self.driver.find_element_by_name("ownerContactPerson").send_keys("全大师")
+        self.driver.find_element_by_name("ownerContactPerson").send_keys("{}".format(unicode()))
         self.driver.find_element_by_name("ownerContactPhone").send_keys("15624992498")
         self.driver.find_element_by_name("contactMail").send_keys("145647@qq.com")
         self.driver.find_element_by_css_selector("#remark").send_keys(time.strftime("%Y-%m-%d_%H-%M-%S") + "测试订单")
@@ -275,7 +276,7 @@ class BqYwTest(MyTestCase):
 
         self.driver.find_element_by_css_selector(
             "body > div.section-product.width1200 > dl > dd > div.cont-btnBuy > a.btn.btn-next.buynow").click()
-        self.driver.find_element_by_name("ownerContactPerson").send_keys("全大师")
+        self.driver.find_element_by_name("ownerContactPerson").send_keys("{}".format(unicode()))
         self.driver.find_element_by_name("ownerContactPhone").send_keys("15624992498")
         self.driver.find_element_by_name("contactMail").send_keys("145647@qq.com")
         self.driver.find_element_by_css_selector("#remark").send_keys(time.strftime("%Y-%m-%d_%H-%M-%S") + "测试订单")
@@ -333,7 +334,7 @@ class BqYwTest(MyTestCase):
 
         self.driver.find_element_by_css_selector(
             "body > div.section-product.width1200 > dl > dd > div.cont-btnBuy > a.btn.btn-next.buynow").click()
-        self.driver.find_element_by_name("ownerContactPerson").send_keys("全大师")
+        self.driver.find_element_by_name("ownerContactPerson").send_keys("{}".format(unicode()))
         self.driver.find_element_by_name("ownerContactPhone").send_keys("15624992498")
         self.driver.find_element_by_name("contactMail").send_keys("145647@qq.com")
         self.driver.find_element_by_css_selector("#remark").send_keys(time.strftime("%Y-%m-%d_%H-%M-%S") + "测试订单")
@@ -391,7 +392,7 @@ class BqYwTest(MyTestCase):
 
         self.driver.find_element_by_css_selector(
             "body > div.section-product.width1200 > dl > dd > div.cont-btnBuy > a.btn.btn-next.buynow").click()
-        self.driver.find_element_by_name("ownerContactPerson").send_keys("全大师")
+        self.driver.find_element_by_name("ownerContactPerson").send_keys("{}".format(unicode()))
         self.driver.find_element_by_name("ownerContactPhone").send_keys("15624992498")
         self.driver.find_element_by_name("contactMail").send_keys("145647@qq.com")
         self.driver.find_element_by_css_selector("#remark").send_keys(time.strftime("%Y-%m-%d_%H-%M-%S") + "测试订单")
