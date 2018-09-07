@@ -183,4 +183,3 @@ class SbNumTest(MyTestCase):
         self.assertIn(number2, number1)
 
         print("检索相似商标数量一致,测试通过！")
-
