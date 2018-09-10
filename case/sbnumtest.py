@@ -140,13 +140,13 @@ class SbNumTest(MyTestCase):
             "body > div.smartRegister-page.smartRegister3-page > div:nth-child(14) > div.categoryInfo-wrap > div.c-row.row-way > div > a:nth-child(1)").click()
 
         self.driver.find_element_by_css_selector("body > div.smartRegister-page.smartRegister3-page > div:nth-child(14) > div.categoryInfo-wrap > div.c-row.row-industry1 > div > select.myInput.znfirst").click()
-        fl=random.randint(2, 12)
+        fl = random.randint(2, 12)
         self.driver.find_element_by_css_selector("body > div.smartRegister-page.smartRegister3-page > div:nth-child(14) > div.categoryInfo-wrap > div.c-row.row-industry1 > div > select.myInput.znfirst > option:nth-child({})".format(fl)).click()
-        fenlei1=self.driver.find_element_by_css_selector("body > div.smartRegister-page.smartRegister3-page > div:nth-child(14) > div.categoryInfo-wrap > div.c-row.row-industry1 > div > select.myInput.znfirst > option:nth-child({})".format(fl)).text
+        fenlei1 = self.driver.find_element_by_css_selector("body > div.smartRegister-page.smartRegister3-page > div:nth-child(14) > div.categoryInfo-wrap > div.c-row.row-industry1 > div > select.myInput.znfirst > option:nth-child({})".format(fl)).text
 
         self.driver.find_element_by_css_selector("body > div.smartRegister-page.smartRegister3-page > div:nth-child(14) > div.categoryInfo-wrap > div.c-row.row-industry1 > div > select.myInput.znsecond").click()
         self.driver.find_element_by_css_selector("body > div.smartRegister-page.smartRegister3-page > div:nth-child(14) > div.categoryInfo-wrap > div.c-row.row-industry1 > div > select.myInput.znsecond > option:nth-child(2)").click()
-        fenlei2=self.driver.find_element_by_css_selector("body > div.smartRegister-page.smartRegister3-page > div:nth-child(14) > div.categoryInfo-wrap > div.c-row.row-industry1 > div > select.myInput.znsecond > option:nth-child(2)").text
+        fenlei2 = self.driver.find_element_by_css_selector("body > div.smartRegister-page.smartRegister3-page > div:nth-child(14) > div.categoryInfo-wrap > div.c-row.row-industry1 > div > select.myInput.znsecond > option:nth-child(2)").text
 
         print("选择所在领域："+fenlei1+"_"+fenlei2)
 

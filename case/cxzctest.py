@@ -8,6 +8,7 @@ from selenium.webdriver import ActionChains
 
 from utils.mytestcase import MyTestCase
 from utils.logincookie import DengLuPage
+from utils.random import unicode
 from utils.screenshort import get_screenshort
 
 

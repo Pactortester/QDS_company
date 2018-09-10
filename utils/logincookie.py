@@ -2,12 +2,12 @@ import time
 
 
 class DengLuPage:
-    # url = "https://pre-www.quandashi.com/"
-    url = "https://www.quandashi.com/"
+    url = "https://pre-www.quandashi.com/"
+    # url = "https://www.quandashi.com/"
 
 
     cookie = ({'name': 'QDS_COOKIE',
-             'value': 'a1cc4b9c3531d0a2b6829f82b37a2e818f3ef93b',
+             'value': 'f728edf7f66014c31b52596c24cd2772a8eaa5c1',
             'Domain': '.quandashi.com'})
 
     def __init__(self, driver):

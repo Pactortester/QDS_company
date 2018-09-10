@@ -117,7 +117,7 @@ class HhrTest(MyTestCase):
 
         self.driver.find_element_by_css_selector("#page-header > div.item-right > ul > li:nth-child(2) > a").click()
         time.sleep(1)
-        #新版提示
+        # 新版提示
         self.driver.find_element_by_xpath("//*[@id=\"personalCenter2-rightContainer\"]/div[1]/div/a").click()
         self.driver.find_element_by_css_selector("#personalCenter2-leftNav > ul > li:nth-child(2) > ul > li:nth-child(1) > a").click()
 
@@ -288,7 +288,63 @@ class HhrTest(MyTestCase):
         #self.assertIn(oo,ii)
         self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > div.section8 > div > a").click()
 
+    def test_hhrqyw(self):
 
+        """合伙人商全业务测试"""
+        dl = DengLuPage(self.driver)
+        dl.dengLu()
+        time.sleep(1)
 
+        self.driver.find_element_by_css_selector("#page-header > div.item-right > ul > li:nth-child(2) > a").click()
+        time.sleep(1)
+        # 新版提示
+        self.driver.find_element_by_xpath("//*[@id=\"personalCenter2-rightContainer\"]/div[1]/div/a").click()
+        self.driver.find_element_by_css_selector(
+            "#personalCenter2-leftNav > ul > li.menu.open > ul > li:nth-child(7) > a").click()
+        self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > form > ul > li:nth-child(1) > input[type=\"text\"]").send_keys(unicode())
+        self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > form > ul > li:nth-child(2) > input[type=\"text\"]").send_keys("15624992498")
+        self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > form > ul > li:nth-child(3) > input[type=\"text\"]").send_keys("145647@qq.com")
+        self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > form > ul > li:nth-child(4) > div > input").click()
+        time.sleep(2)
+        # lx = random.randint(2,4)
+        lx = 2
+        yw = self.driver.find_element_by_css_selector(
+            "#personalCenter2-rightContainer > div > form > ul > li:nth-child(4) > div > dl > dd:nth-child(2)").text
+        print(yw)
+        self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > form > ul > li:nth-child(4) > div > dl > dd:nth-child({})".format(lx)).click()
+        time.sleep(2)
+        self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > form > ul > li:nth-child(5) > div > input").click()
+        time.sleep(2)
+        xm = self.driver.find_element_by_css_selector(
+            "#personalCenter2-rightContainer > div > form > ul > li:nth-child(5) > div > dl > dd:nth-child(1)").text
+        print(xm)
+        self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > form > ul > li:nth-child(5) > div > dl > dd:nth-child(1)").click()
+        time.sleep(2)
 
+        print("业务需求:"+yw + "_" + xm)
+        price = self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > form > ul > li:nth-child(7) > div > input[type=\"text\"]").get_attribute("value")
+        print("订单价格:" + price)
 
+        """订单备注"""
+        self.driver.find_element_by_css_selector(
+            "#personalCenter2-rightContainer > div > form > ul > li:nth-child(8) > div > textarea").send_keys(
+            time.strftime("%Y-%m-%d_%H-%M-%S") + "测试订单")
+
+        get_screenshort(self.driver,"test_hhrqyw.png")
+        self.driver.find_element_by_css_selector("#saveOrder").click()
+        time.sleep(2)
+        self.driver.find_element_by_css_selector("#layui-layer1 > div.layui-layer-btn.layui-layer-btn- > a.layui-layer-btn0").click()
+
+        total = self.driver.find_element_by_css_selector("#total-price").text
+        print("订单提交成功，应付金额:" + total)
+        self.assertIn(price,total)
+        print("价格一致！")
+
+        self.driver.find_element_by_css_selector("#payways > ul:nth-child(1) > li > span").click()
+        self.driver.find_element_by_css_selector("#alisubmit").click()
+        orderurl = self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.paying-wrap.paying-sk-wrap.paying-sk-hhr > div.paying-sk-ewm > div.link > input").get_attribute("value")
+
+        print("订单链接:"+orderurl)
+        self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.paying-wrap.paying-sk-wrap.paying-sk-hhr > div.paying-sk-ewm > div.link > a").click()
+
+        print("订单已发送客户付款!")
