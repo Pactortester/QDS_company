@@ -247,7 +247,7 @@ class QtZlTest(MyTestCase):
         self.driver.find_element_by_css_selector("#alisubmit").click()
 
     def test_zldb_2(self):
-        """发明专利无效答辩测试"""
+        """实用新型专利无效答辩"""
 
         dl = DengLuPage(self.driver)
         dl.dengLu()
@@ -304,7 +304,7 @@ class QtZlTest(MyTestCase):
         self.driver.find_element_by_css_selector("#alisubmit").click()
 
     def test_zldb_3(self):
-        """发明专利无效答辩测试"""
+        """产品外观设计专利无效答辩"""
 
         dl = DengLuPage(self.driver)
         dl.dengLu()
