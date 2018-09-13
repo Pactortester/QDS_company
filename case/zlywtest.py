@@ -422,9 +422,9 @@ class ZlYwTest(MyTestCase):
         print(self.driver.title)
 
         self.driver.find_element_by_css_selector("#serviceName > li:nth-child(2)").click()  # 担保
-        time.sleep(2)
+        time.sleep(3)
         self.driver.find_element_by_css_selector("#slowItems > label:nth-child(3)").click()  # 不减缓
-        time.sleep(2)
+        time.sleep(3)
         print("服务类别:" + self.driver.find_element_by_css_selector(
             "#serviceName > li:nth-child(2)").text + "_" + self.driver.find_element_by_css_selector(
             "#slowItems > label:nth-child(3)").text)

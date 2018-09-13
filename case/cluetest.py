@@ -20,7 +20,7 @@ class ClueTest(MyTestCase):
         time.sleep(1)
         """新版首页"""
 
-        self.driver.execute_script("window.scrollBy(0,3000)")  # 滑动滚动条
+        self.driver.execute_script("window.scrollBy(0,1500)")  # 滑动滚动条
 
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector("#section-tools > div > ul > li:nth-child(2)")).perform()
 
@@ -31,7 +31,7 @@ class ClueTest(MyTestCase):
         print("开放平台咨询_弹框")
         self.driver.find_element_by_id("userName").send_keys(unicode())
         self.driver.find_element_by_id("userTel").send_keys("15624992498")
-        self.driver.find_element_by_id("userQue").send_keys(unicode()+unicode())
+        self.driver.find_element_by_id("userQue").send_keys(time.strftime("%Y-%m-%d_%H-%M-%S") + "测试线索")
 
         name = self.driver.find_element_by_id("userName").get_attribute("value")
         tel = self.driver.find_element_by_id("userTel").get_attribute("value")
@@ -65,6 +65,7 @@ class ClueTest(MyTestCase):
         # 切换到当前最新打开的窗口
         self.driver.switch_to.window(windows[-1])
 
+        time.sleep(2)
 
         self.driver.find_element_by_css_selector("#anchor03 > div > a").click()
         print("专利咨询_弹框")

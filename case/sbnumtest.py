@@ -28,11 +28,11 @@ class SbNumTest(MyTestCase):
 
         for a in self.driver.find_elements_by_css_selector("#total-price"):
             print("费用总计:"+a.text)
-            #aa=a.text
+            # aa=a.text
 
         self.driver.find_element_by_css_selector(
             "body > div.section-product.width1200 > dl > dd > div.cont-btnBuy > a.btn.btn-next.buynow").click()
-        sbmc=unicode()
+        sbmc = unicode()
         self.driver.find_element_by_css_selector(
             "body > div.smartRegister-page.smartRegister3-page > div:nth-child(4) > div > table > tbody > tr.row-name > td.td-content > input").send_keys(
             "{}".format(sbmc))

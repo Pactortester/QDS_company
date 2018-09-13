@@ -306,8 +306,8 @@ class HhrTest(MyTestCase):
         self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > form > ul > li:nth-child(3) > input[type=\"text\"]").send_keys("145647@qq.com")
         self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > form > ul > li:nth-child(4) > div > input").click()
         time.sleep(2)
-        # lx = random.randint(2,4)
-        lx = 2
+        lx = random.randint(2,4)
+        # lx = 2
         yw = self.driver.find_element_by_css_selector(
             "#personalCenter2-rightContainer > div > form > ul > li:nth-child(4) > div > dl > dd:nth-child(2)").text
         print(yw)
@@ -333,6 +333,7 @@ class HhrTest(MyTestCase):
         get_screenshort(self.driver,"test_hhrqyw.png")
         self.driver.find_element_by_css_selector("#saveOrder").click()
         time.sleep(2)
+
         self.driver.find_element_by_css_selector("#layui-layer1 > div.layui-layer-btn.layui-layer-btn- > a.layui-layer-btn0").click()
 
         total = self.driver.find_element_by_css_selector("#total-price").text

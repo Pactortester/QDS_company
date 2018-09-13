@@ -296,7 +296,7 @@ from selenium import webdriver
 # print(totalCount)
 from config.globalparam import report_path, img_path
 from utils.random import unicode, patent
-
+from selenium import webdriver
 print("包针雨我爱你！")
 s = unicode()
 a = len(s)
@@ -307,3 +307,7 @@ print(report_path)
 print(img_path)
 
 print(patent())
+
+
+driver = webdriver.Firefox()
+driver.get('https://blog.csdn.net/xm_csdn/article/details/72636381')

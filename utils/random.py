@@ -1154,10 +1154,9 @@ def unicode():
     b = chr(random.choice(chinses))
     c = chr(random.choice(chinses))
     d = chr(random.choice(chinses))
-    e = chr(random.choice(chinses))
     f = random.choice(english)
 
-    trademark = [a, f, a+b, f, a+b+c, a+b+c+d, f, a+b+c+d+e, f, f, f, f]
+    trademark = [a, f, a+b, f, a+b+c, a+b+c+d, f, f, f, f, f]
     return random.choice(trademark)
 
 
