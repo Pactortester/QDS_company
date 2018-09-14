@@ -297,6 +297,7 @@ from selenium import webdriver
 from config.globalparam import report_path, img_path
 from utils.random import unicode, patent
 from selenium import webdriver
+from emoji import emojize
 print("包针雨我爱你！")
 s = unicode()
 a = len(s)
@@ -309,5 +310,6 @@ print(img_path)
 print(patent())
 
 
-driver = webdriver.Firefox()
-driver.get('https://blog.csdn.net/xm_csdn/article/details/72636381')
+# driver = webdriver.Firefox()
+# driver.get('https://blog.csdn.net/xm_csdn/article/details/72636381')
+print(emojize(":thumbs_down:"))

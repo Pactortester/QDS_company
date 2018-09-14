@@ -309,7 +309,7 @@ class HhrTest(MyTestCase):
         lx = random.randint(2,4)
         # lx = 2
         yw = self.driver.find_element_by_css_selector(
-            "#personalCenter2-rightContainer > div > form > ul > li:nth-child(4) > div > dl > dd:nth-child(2)").text
+            "#personalCenter2-rightContainer > div > form > ul > li:nth-child(4) > div > dl > dd:nth-child({})".format(lx)).text
         print(yw)
         self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > form > ul > li:nth-child(4) > div > dl > dd:nth-child({})".format(lx)).click()
         time.sleep(2)
