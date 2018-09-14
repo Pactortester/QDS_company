@@ -164,7 +164,7 @@ class SbNumTest(MyTestCase):
 
         dl.refresh()
 
-        time.sleep(2)
+        time.sleep(3)
         #
         # self.driver.find_element_by_css_selector("body > div.page > div.search-help > div.tips.tips1 > a").click()
         # time.sleep(1)

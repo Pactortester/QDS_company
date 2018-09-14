@@ -285,7 +285,7 @@ class HhrTest(MyTestCase):
             print("订单提交成功，应付金额:"+o.text)
             oo=o.text
 
-        #self.assertIn(oo,ii)
+        # self.assertIn(oo,ii)
         self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > div.section8 > div > a").click()
 
     def test_hhrqyw(self):
