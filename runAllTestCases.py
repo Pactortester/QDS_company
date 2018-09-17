@@ -6,7 +6,7 @@ import unittest
 import time
 from email.mime.text import MIMEText
 
-#from config.HTMLTestRunner  import HTMLTestRunner
+# from config.HTMLTestRunner  import HTMLTestRunner
 import logging
 
 from config.HTMLTestReportCN import HTMLTestRunner
