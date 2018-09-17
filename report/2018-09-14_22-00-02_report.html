@@ -1,0 +1,3585 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>权大师测试报告</title>
+    <meta name="generator" content="HTMLTestRunner 1.2.0"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <script src="https://img.hcharts.cn/highcharts/highcharts.js"></script>
+    <script src="https://img.hcharts.cn/highcharts/modules/exporting.js"></script>
+    
+<style type="text/css" media="screen">
+body        { font-family: Microsoft YaHei;padding: 20px; font-size: 100%; }
+table       { font-size: 100%; }
+.table tbody tr td{
+            vertical-align: middle;
+        }
+
+/* -- heading ---------------------------------------------------------------------- */
+.heading .description, .attribute {
+    clear: both;
+}
+
+/* --- 失败和错误合集样式 -- Gelomen --- */
+.failCollection, .errorCollection {
+    width: 100px;
+    float: left;
+}
+#failCaseOl li {
+    color: red
+}
+#errorCaseOl li {
+    color: orange
+}
+
+/* --- 打开截图特效样式 -- Gelomen --- */
+.data-img{
+    cursor:pointer
+}
+
+.pic_looper{
+    width:100%;
+    height:100%;
+    position: fixed;
+    left: 0;
+    top:0;
+    opacity: 0.6;
+    background: #000;
+    display: none;
+    z-index: 100;
+}
+
+.pic_show{
+    width:100%;
+    position:fixed;
+    left:0;
+    top:0;
+    right:0;
+    bottom:0;
+    margin:auto;
+    text-align: center;
+    display: none;
+    z-index: 100;
+}
+
+.pic_box{
+    padding:10px;
+    width:90%;
+    height:90%;
+    margin:40px auto;
+    text-align: center;
+    overflow: hidden;
+}
+
+.pic_box img{
+    width: auto;
+    height: 100%;
+    -moz-box-shadow: 0px 0px 20px 0px #000;
+    -webkit-box-shadow: 0px 0px 20px 0px #000;
+    box-shadow: 0px 0px 20px 0px #000;
+}
+
+/* --- 饼状图div样式 -- Gelomen --- */
+#container {
+    width: 450px;
+    height: 300px;
+    float: left;
+}
+
+/* -- report ------------------------------------------------------------------------ */
+#total_row  { font-weight: bold; }
+.passCase   { color: #5cb85c; }
+.failCase   { color: #d9534f; font-weight: bold; }
+.errorCase  { color: #f0ad4e; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+.screenshot:link { text-decoration: none;color: deeppink; }
+.screenshot:visited { text-decoration: none;color: deeppink; }
+.screenshot:hover { text-decoration: none;color: darkcyan; }
+.screenshot:active { text-decoration: none;color: deeppink; }
+</style>
+
+</head>
+<body >
+<script language="javascript" type="text/javascript">
+
+    $(function(){
+        // 修改 失败 和 错误 用例里对应按钮的颜色ClassName为动态加载 -- Gelomen
+    	$("button").each(function () {
+    	    var text = $(this).text();
+    	    if(text == "失败"){
+    	        $(this).addClass("btn-danger")
+            }else if(text == "错误") {
+                $(this).addClass("btn-warning")
+            }
+        });
+
+        // 给失败和错误合集加样式 -- Gelomen
+        var p_attribute = $("p.attribute");
+        p_attribute.eq(4).addClass("failCollection");
+        p_attribute.eq(5).addClass("errorCollection");
+
+        // 打开截图，放大，点击任何位置可以关闭图片  -- Gelomen
+        $(".screenshot").click(function(){
+            var img = $(this).attr("img");
+            $('.pic_show img').attr('src', img);
+            $('.pic_looper').fadeIn(200);
+            $('.pic_show').fadeIn(200);
+
+            var browserHeight = $(window).height();
+            var pic_boxHeight = $(".pic_box").height();
+            var top = (browserHeight - pic_boxHeight)/2;
+            $('.pic_box').css("margin-top", top + "px")
+
+        });
+        $('.pic_looper, .pic_show').click(function(){
+            $('.pic_looper').fadeOut(200);
+            $('.pic_show').fadeOut(200)
+        });
+        
+        var browserWidth = $(window).width();
+        var margin_left = browserWidth/2 - 450;
+        if(margin_left <= 240){
+            $("#container").css("margin", "auto");
+        }else {
+            $("#container").css("margin-left", margin_left + "px");
+        }
+
+        $(window).resize(function(){
+            // 改变窗口大小时，自动改变图片与顶部的距离  -- Gelomen
+            var browserHeight = $(window).height();
+            var pic_boxHeight = $(".pic_box").height();
+            var top = (browserHeight - pic_boxHeight)/2;
+            $('.pic_box').css("margin-top", top + "px");
+
+
+            // 改变窗口大小时，自动改变饼图的边距  -- Gelomen
+            var browserWidth = $(window).width();
+            var margin_left = browserWidth/2 - 450;
+            if(margin_left <= 240){
+                $("#container").css("margin", "auto");
+            }else {
+                $("#container").css("margin-left", margin_left + "px");
+            }
+        });
+
+        // 距离顶部超过浏览器窗口一屏时，回到顶部按钮才出现  -- Gelomen
+        $(window).scroll(function(){
+            var browserHeight = $(window).height();
+            var top = $(window).scrollTop();
+            if(top >= browserHeight){
+                $("#toTop").css("display", "block")
+            }else {
+                $("#toTop").css("display", "none")
+            }
+        })
+        
+        // 增加回到顶部过程的动画，以看上去不会那么生硬  -- Gelomen
+        $("#toTop").click(function() {
+            $("html,body").animate({"scrollTop":0}, 700)
+        })
+        
+        // 增加饼状图  -- Gelomen
+        $('#container').highcharts({
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                spacing : [0, 0, 0, 0]
+            },
+            credits: {
+                enabled: false
+            },
+            navigation: {
+                buttonOptions: {
+                    enabled: false
+                }
+            },
+            title: {
+                floating:true,
+                text: '测试结果占比'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    colors: ['#81ca9d', '#f16d7e', '#fdc68c'],
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                        style: {
+                            color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                        }
+                    },
+                    point: {
+                        events: {
+                            mouseOver: function(e) {  // 鼠标滑过时动态更新标题
+                                chart.setTitle({
+                                    text: e.target.name+ '\t'+ e.target.y + ' 个'
+                                });
+                            }
+                        }
+                    }
+                }
+            },
+            series: [{
+                type: 'pie',
+                innerSize: '80%',
+                name: '比例',
+                data: [
+                    ['通过', 82],
+                    {
+                        name: '失败',
+                        y: 0,
+                        sliced: true,
+                        selected: true
+                    },
+                    ['错误', 7]
+                ]
+            }]
+        }, function(c) {
+            // 环形图圆心
+            var centerY = c.series[0].center[1],
+                titleHeight = parseInt(c.title.styles.fontSize);
+            c.setTitle({
+                y:centerY + titleHeight/2
+            });
+            chart = c;
+        });
+        
+        // 查看 失败 和 错误 合集链接文字切换  -- Gelomen
+        $(".showDetail").click(function () {
+            if($(this).html() == "点击查看"){
+                $(this).html("点击收起")
+            }else {
+                $(this).html("点击查看")
+            }
+        })
+    });
+    
+    
+output_list = Array();
+
+/*level 调整增加只显示通过用例的分类 --Findyou / 修复筛选显示bug --Gelomen
+0:Summary //all hiddenRow
+1:Failed  //pt&et hiddenRow, ft none
+2:Pass    //pt none, ft&et hiddenRow
+3:Error   //pt&ft hiddenRow, et none
+4:All     //all none
+*/
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level == 2 || level == 0 || level == 3) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+                // 切换筛选时只显示预览   -- Gelomen
+                $("div[id^='div_ft']").attr("class", "collapse");
+                $("div[id^='div_et']").attr("class", "collapse");
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level == 1 || level == 0 || level == 3) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+                // 切换筛选时只显示预览   -- Gelomen
+                $("div[id^='div_ft']").attr("class", "collapse");
+                $("div[id^='div_et']").attr("class", "collapse");
+            }
+        }
+        if (id.substr(0,2) == 'et') {
+            if (level == 1 || level == 0 || level == 2) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+                // 切换筛选时只显示预览   -- Gelomen
+                $("div[id^='div_ft']").attr("class", "collapse");
+                $("div[id^='div_et']").attr("class", "collapse");
+            }
+        }
+    }
+
+    //加入【详细】切换文字变化 --Findyou
+    detail_class=document.getElementsByClassName('detail');
+	//console.log(detail_class.length)
+	if (level == 3) {
+		for (var i = 0; i < detail_class.length; i++){
+			detail_class[i].innerHTML="收起"
+		}
+	}
+	else{
+			for (var i = 0; i < detail_class.length; i++){
+			detail_class[i].innerHTML="详细"
+		}
+	}
+}
+
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        //ID修改 点 为 下划线 -Findyou
+        tid0 = 't' + cid.substr(1) + '_' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+            if (!tr) {
+                tid = 'e' + tid0;
+                tr = document.getElementById(tid);
+            }
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        //修改点击无法收起的BUG，加入【详细】切换文字变化 --Findyou
+        if (toHide) {
+            document.getElementById(tid).className = 'hiddenRow';
+            document.getElementById(cid).innerText = "详细"
+        }
+        else {
+            document.getElementById(tid).className = '';
+            document.getElementById(cid).innerText = "收起"
+        }
+    }
+}
+
+function html_escape(s) {
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+</script>
+<div class='pic_looper'></div> <div class='pic_show'><div class='pic_box'><img src=''/></div> </div>
+<div class='heading'>
+<div style="width: 650px; float: left;">
+    <h1 style="font-family: Microsoft YaHei">权大师测试报告</h1>
+    <p class='attribute'><strong>测试人员 : </strong> lijiawei</p>
+<p class='attribute'><strong>开始时间 : </strong> 2018-09-14 22:00:02</p>
+<p class='attribute'><strong>合计耗时 : </strong> 0:51:14.624027</p>
+<p class='attribute'><strong>测试结果 : </strong> 共 89，通过 82，错误 7，通过率 = 92.13%</p>
+<p class='attribute'><strong>失败用例合集 : </strong> <ol style='float: left;'>无</ol></p>
+<p class='attribute'><strong>错误用例合集 : </strong> <div class='panel-default' style='float: left;'><a class='showDetail' data-toggle='collapse' href='#errorCaseOl' style='text-decoration: none;'>点击查看</a></div><ol id='errorCaseOl' class='collapse' style='float: left;'><li>test_rjbg (bqywtest.BqYwTest)</li><li>test_rjzr (bqywtest.BqYwTest)</li><li>test_sbddxg (hhrtest.HhrTest)</li><li>test_ddzx (hometest.HomeTest)</li><li>test_fpsq (hometest.HomeTest)</li><li>test_gwyj (hometest.HomeTest)</li><li>test_znzz_1 (znzztest.ZnZzTest)</li></ol></p>
+
+    <p class='description'>Environment ：win10 chrome</p>
+</div>
+<div id="container"></div>
+</div>
+
+
+
+<div style="width: 500px; clear: both;">
+<p id='show_detail_line'>
+<a class="btn btn-primary" href='javascript:showCase(0)'>概要{ 92.13% }</a>
+<a class="btn btn-success" href='javascript:showCase(2)'>通过{ 82 }</a>
+<a class="btn btn-danger" href='javascript:showCase(1)'>失败{ 0 }</a>
+<a class="btn btn-warning" href='javascript:showCase(3)'>错误{ 7 }</a>
+<a class="btn btn-info" href='javascript:showCase(4)'>所有{ 89 }</a>
+</p>
+</div>
+<table id='result_table' class="table table-condensed table-bordered table-hover">
+<colgroup>
+<col align='left' style="width: 300px;"/>
+<col align='right' style="width: 300px;"/>
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' style="width: 200px;"/>
+</colgroup>
+<tr id='header_row' class="text-center success" style="font-weight: bold;font-size: 14px;">
+    <td>用例集/测试用例</td>
+    <td>说明</td>
+    <td>总计</td>
+    <td>通过</td>
+    <td>失败</td>
+    <td>错误</td>
+    <td>耗时</td>
+    <td>详细</td>
+</tr>
+
+<tr class='passClass warning'>
+    <td>BmKsTest</td>
+    <td>保姆注册测试集</td>
+    <td class="text-center">1</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center">30.56秒</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c1',1)" class="detail" id='c1'>详细</a></td>
+</tr>
+
+    <tr id='pt1_1' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_bmks</div></td>
+        <td style="vertical-align: middle">保姆快速注册</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt1_1' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_1'>通过</button>
+        <div id='div_pt1_1' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt1_1' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt1_1'>通过</button>
+        <div id='div_pt1_1' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt1_1: 2018-09-14 22:00:02,950 - root - INFO - ############################### START ###############################
+保姆快速注册-权大师
+费用总计:600.00
+总价:600.00
+价格一致
+订单提交成功，应付金额:600.00
+测试通过
+2018-09-14 22:00:33,489 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+<tr class='errorClass warning'>
+    <td>BqYwTest</td>
+    <td>版权业务测试集</td>
+    <td class="text-center">7</td>
+    <td class="text-center">5</td>
+    <td class="text-center">0</td>
+    <td class="text-center">2</td>
+    <td class="text-center">274.43秒</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c2',7)" class="detail" id='c2'>详细</a></td>
+</tr>
+
+    <tr id='pt2_1' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_msdj</div></td>
+        <td style="vertical-align: middle">美术作品版权登记加急测试</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt2_1' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt2_1'>通过</button>
+        <div id='div_pt2_1' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt2_1' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt2_1'>通过</button>
+        <div id='div_pt2_1' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt2_1: 2018-09-14 22:00:33,508 - root - INFO - ############################### START ###############################
+美术作品版权登记加急-权大师
+费用总计:2299.00
+总价:2299.00
+价格一致
+订单提交成功，应付金额:2299.00
+测试通过
+2018-09-14 22:01:05,297 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='pt2_2' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_mszp</div></td>
+        <td style="vertical-align: middle">美术作品版权登记测试</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt2_2' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt2_2'>通过</button>
+        <div id='div_pt2_2' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt2_2' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt2_2'>通过</button>
+        <div id='div_pt2_2' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt2_2: 2018-09-14 22:01:05,316 - root - INFO - ############################### START ###############################
+美术作品版权登记-权大师
+费用总计:799.00
+总价:799.00
+价格一致
+订单提交成功，应付金额:799.00
+测试通过
+2018-09-14 22:01:37,641 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='et2_3' class='none'>
+        <td class='errorCase' style="vertical-align: middle"><div class='testcase'>test_rjbg</div></td>
+        <td style="vertical-align: middle">软件著作权变更测试</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_et2_3' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_et2_3'>错误</button>
+        <div id='div_et2_3' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_et2_3' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_et2_3'>错误</button>
+        <div id='div_et2_3' class="collapse in">
+        <pre style="text-align:auto">
+        
+et2_3: 2018-09-14 22:01:37,660 - root - INFO - ############################### START ###############################
+软件著作权变更-权大师
+费用总计:799.00
+总价:799.00
+价格一致
+2018-09-14 22:02:36,122 - root - INFO - ###############################  End  ###############################
+Traceback (most recent call last):
+  File "G:\QDS_company\case\bqywtest.py", line 301, in test_rjbg
+    self.assertIn(oo, ii)
+UnboundLocalError: local variable 'oo' referenced before assignment
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='errorCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='pt2_4' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_rjbz</div></td>
+        <td style="vertical-align: middle">软件著作权补证测试</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt2_4' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt2_4'>通过</button>
+        <div id='div_pt2_4' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt2_4' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt2_4'>通过</button>
+        <div id='div_pt2_4' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt2_4: 2018-09-14 22:02:36,138 - root - INFO - ############################### START ###############################
+软件著作权补证-权大师
+费用总计:799.00
+总价:799.00
+价格一致
+订单提交成功，应付金额:799.00
+测试通过
+2018-09-14 22:03:06,611 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='et2_5' class='none'>
+        <td class='errorCase' style="vertical-align: middle"><div class='testcase'>test_rjzr</div></td>
+        <td style="vertical-align: middle">软件著作权转让测试</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_et2_5' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_et2_5'>错误</button>
+        <div id='div_et2_5' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_et2_5' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_et2_5'>错误</button>
+        <div id='div_et2_5' class="collapse in">
+        <pre style="text-align:auto">
+        
+et2_5: 2018-09-14 22:03:06,635 - root - INFO - ############################### START ###############################
+软件著作权转让-权大师
+费用总计:799.00
+总价:799.00
+价格一致
+2018-09-14 22:04:05,096 - root - INFO - ###############################  End  ###############################
+Traceback (most recent call last):
+  File "G:\QDS_company\case\bqywtest.py", line 417, in test_rjzr
+    self.assertIn(oo, ii)
+UnboundLocalError: local variable 'oo' referenced before assignment
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='errorCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='pt2_6' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_wzdj</div></td>
+        <td style="vertical-align: middle">文字作品版权登记加急测试</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt2_6' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt2_6'>通过</button>
+        <div id='div_pt2_6' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt2_6' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt2_6'>通过</button>
+        <div id='div_pt2_6' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt2_6: 2018-09-14 22:04:05,123 - root - INFO - ############################### START ###############################
+文字作品版权登记加急-权大师
+费用总计:2299.00
+总价:2299.00
+价格一致
+订单提交成功，应付金额:2299.00
+测试通过
+2018-09-14 22:04:36,866 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='pt2_7' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_wzzp</div></td>
+        <td style="vertical-align: middle">文字作品版权登记测试</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt2_7' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt2_7'>通过</button>
+        <div id='div_pt2_7' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt2_7' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt2_7'>通过</button>
+        <div id='div_pt2_7' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt2_7: 2018-09-14 22:04:36,885 - root - INFO - ############################### START ###############################
+文字作品版权登记-权大师
+费用总计:799.00
+总价:799.00
+价格一致
+订单提交成功，应付金额:799.00
+测试通过
+2018-09-14 22:05:07,925 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+<tr class='passClass warning'>
+    <td>ClueTest</td>
+    <td>线索源测试集</td>
+    <td class="text-center">2</td>
+    <td class="text-center">2</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center">44.47秒</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c3',2)" class="detail" id='c3'>详细</a></td>
+</tr>
+
+    <tr id='pt3_1' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_clue1</div></td>
+        <td style="vertical-align: middle">开放平台线索测试</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt3_1' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt3_1'>通过</button>
+        <div id='div_pt3_1' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt3_1' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt3_1'>通过</button>
+        <div id='div_pt3_1' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt3_1: 2018-09-14 22:05:07,944 - root - INFO - ############################### START ###############################
+开放平台咨询_弹框
+姓名:mDimitri
+电话:15624992498
+问题:2018-09-14_22-05-21测试线索
+线索录入成功!
+2018-09-14 22:05:29,033 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='pt3_2' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_clue2</div></td>
+        <td style="vertical-align: middle">专利二级页线索测试</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt3_2' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt3_2'>通过</button>
+        <div id='div_pt3_2' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt3_2' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt3_2'>通过</button>
+        <div id='div_pt3_2' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt3_2: 2018-09-14 22:05:29,051 - root - INFO - ############################### START ###############################
+专利咨询_弹框
+姓名:mBuck
+电话:15624992498
+问题:2018-09-14_22-05-44测试线索
+线索录入成功!
+2018-09-14 22:05:52,390 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+<tr class='passClass warning'>
+    <td>CxZcTest</td>
+    <td>查询注册测试集</td>
+    <td class="text-center">2</td>
+    <td class="text-center">2</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center">56.71秒</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c4',2)" class="detail" id='c4'>详细</a></td>
+</tr>
+
+    <tr id='pt4_1' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_gnsb</div></td>
+        <td style="vertical-align: middle">国内商标查询测试</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt4_1' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt4_1'>通过</button>
+        <div id='div_pt4_1' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt4_1' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt4_1'>通过</button>
+        <div id='div_pt4_1' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt4_1: 2018-09-14 22:05:52,410 - root - INFO - ############################### START ###############################
+国内商标查询（报告）-国内商标查询报告-权大师
+费用总计:99.00
+总价:99.00
+价格一致
+订单提交成功，应付金额:99.00
+测试通过
+2018-09-14 22:06:21,945 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='pt4_2' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_mfsb</div></td>
+        <td style="vertical-align: middle">免费商标查询测试</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt4_2' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt4_2'>通过</button>
+        <div id='div_pt4_2' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt4_2' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt4_2'>通过</button>
+        <div id='div_pt4_2' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt4_2: 2018-09-14 22:06:21,965 - root - INFO - ############################### START ###############################
+注册商标查询_中国商标查询_权大师官网
+2018-09-14 22:06:49,101 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+<tr class='passClass warning'>
+    <td>DbWyTest</td>
+    <td>担保无忧测试集</td>
+    <td class="text-center">1</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center">28.69秒</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c5',1)" class="detail" id='c5'>详细</a></td>
+</tr>
+
+    <tr id='pt5_1' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_dbwy</div></td>
+        <td style="vertical-align: middle">担保无忧测试</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt5_1' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt5_1'>通过</button>
+        <div id='div_pt5_1' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt5_1' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt5_1'>通过</button>
+        <div id='div_pt5_1' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt5_1: 2018-09-14 22:06:49,122 - root - INFO - ############################### START ###############################
+担保无忧注册-权大师
+费用总计:5280.00
+总价:5280.00
+价格一致
+订单提交成功，应付金额:5280.00
+测试通过
+2018-09-14 22:07:17,794 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+<tr class='passClass warning'>
+    <td>FmZlTest</td>
+    <td>发明专利测试集</td>
+    <td class="text-center">6</td>
+    <td class="text-center">6</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center">203.52秒</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c6',6)" class="detail" id='c6'>详细</a></td>
+</tr>
+
+    <tr id='pt6_1' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_fmzlbz_1</div></td>
+        <td style="vertical-align: middle">标准型-单个申请人减缓</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt6_1' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt6_1'>通过</button>
+        <div id='div_pt6_1' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt6_1' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt6_1'>通过</button>
+        <div id='div_pt6_1' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt6_1: 2018-09-14 22:07:17,813 - root - INFO - ############################### START ###############################
+发明专利标准申请|专利申请|专利查询|权大师
+服务类别:发明专利标准申请_单个申请人减缓
+费用总计:4559.00
+总价:4559.00
+价格一致
+订单提交成功，应付金额:4559.00
+测试通过
+2018-09-14 22:07:54,066 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='pt6_2' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_fmzlbz_2</div></td>
+        <td style="vertical-align: middle">标准型-多个申请人减缓</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt6_2' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt6_2'>通过</button>
+        <div id='div_pt6_2' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt6_2' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt6_2'>通过</button>
+        <div id='div_pt6_2' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt6_2: 2018-09-14 22:07:54,086 - root - INFO - ############################### START ###############################
+发明专利标准申请|专利申请|专利查询|权大师
+服务类别:发明专利标准申请_多个申请人减缓
+费用总计:5069.00
+总价:5069.00
+价格一致
+订单提交成功，应付金额:5069.00
+测试通过
+2018-09-14 22:08:28,222 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='pt6_3' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_fmzlbz_3</div></td>
+        <td style="vertical-align: middle">标准型-不减缓</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt6_3' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt6_3'>通过</button>
+        <div id='div_pt6_3' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt6_3' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt6_3'>通过</button>
+        <div id='div_pt6_3' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt6_3: 2018-09-14 22:08:28,242 - root - INFO - ############################### START ###############################
+发明专利标准申请|专利申请|专利查询|权大师
+服务类别:发明专利标准申请_不减缓
+费用总计:7449.00
+总价:7449.00
+价格一致
+订单提交成功，应付金额:7449.00
+测试通过
+2018-09-14 22:09:02,101 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='pt6_4' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_fmzldb_1</div></td>
+        <td style="vertical-align: middle">担保型-单个申请人减缓</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt6_4' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt6_4'>通过</button>
+        <div id='div_pt6_4' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt6_4' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt6_4'>通过</button>
+        <div id='div_pt6_4' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt6_4: 2018-09-14 22:09:02,116 - root - INFO - ############################### START ###############################
+发明专利担保申请|专利申请|专利查询|权大师
+服务类别:发明专利担保申请_单个申请人减缓
+费用总计:9559.00
+总价:9559.00
+价格一致
+订单提交成功，应付金额:9559.00
+测试通过
+2018-09-14 22:09:34,198 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='pt6_5' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_fmzldb_2</div></td>
+        <td style="vertical-align: middle">担保型-多个申请人减缓</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt6_5' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt6_5'>通过</button>
+        <div id='div_pt6_5' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt6_5' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt6_5'>通过</button>
+        <div id='div_pt6_5' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt6_5: 2018-09-14 22:09:34,208 - root - INFO - ############################### START ###############################
+发明专利担保申请|专利申请|专利查询|权大师
+服务类别:发明专利担保申请_多个申请人减缓
+费用总计:10069.00
+总价:10069.00
+价格一致
+订单提交成功，应付金额:10069.00
+测试通过
+2018-09-14 22:10:07,895 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='pt6_6' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_fmzldb_3</div></td>
+        <td style="vertical-align: middle">担保型-不减缓</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt6_6' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt6_6'>通过</button>
+        <div id='div_pt6_6' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt6_6' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt6_6'>通过</button>
+        <div id='div_pt6_6' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt6_6: 2018-09-14 22:10:07,907 - root - INFO - ############################### START ###############################
+发明专利担保申请|专利申请|专利查询|权大师
+服务类别:发明专利担保申请_不减缓
+费用总计:12449.00
+总价:12449.00
+价格一致
+订单提交成功，应付金额:12449.00
+测试通过
+2018-09-14 22:10:41,316 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+<tr class='errorClass warning'>
+    <td>HhrTest</td>
+    <td>合伙人个人中心测试集</td>
+    <td class="text-center">4</td>
+    <td class="text-center">3</td>
+    <td class="text-center">0</td>
+    <td class="text-center">1</td>
+    <td class="text-center">164.44秒</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c7',4)" class="detail" id='c7'>详细</a></td>
+</tr>
+
+    <tr id='pt7_1' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_hhrqdxd</div></td>
+        <td style="vertical-align: middle">渠道下单单个商标注册</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt7_1' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt7_1'>通过</button>
+        <div id='div_pt7_1' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt7_1' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt7_1'>通过</button>
+        <div id='div_pt7_1' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt7_1: 2018-09-14 22:10:41,334 - root - INFO - ############################### START ###############################
+商标名称:mShiloh
+商标名称填写成功!
+选择了第38类商标分类
+申请人信息填写成功!
+订单提交成功，应付金额:321.00
+2018-09-14 22:11:09,684 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='pt7_2' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_hhrqyw</div></td>
+        <td style="vertical-align: middle">合伙人商全业务测试</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt7_2' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt7_2'>通过</button>
+        <div id='div_pt7_2' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt7_2' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt7_2'>通过</button>
+        <div id='div_pt7_2' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt7_2: 2018-09-14 22:11:09,695 - root - INFO - ############################### START ###############################
+商标业务
+商标变更
+业务需求:商标业务_商标变更
+订单价格:1250
+订单提交成功，应付金额:1250.00
+价格一致！
+订单链接:http://h5.quandashi.com/hhr/qyw/qywOrderDetail.html?userId=6c556e516368465564593054544269434566744f47513d3d&amp;OrderNoe=784652304d613069636159754a3261515a37586942673d3d&amp;corderType=0&amp;wxPay=1
+订单已发送客户付款!
+2018-09-14 22:11:47,026 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='pt7_3' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_hhrsbzc</div></td>
+        <td style="vertical-align: middle">合伙人商标注册</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt7_3' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt7_3'>通过</button>
+        <div id='div_pt7_3' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt7_3' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt7_3'>通过</button>
+        <div id='div_pt7_3' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt7_3: 2018-09-14 22:11:47,045 - root - INFO - ############################### START ###############################
+商标名称：mKlaus
+商标名称填写成功!
+选择了第6类商标分类
+总价:600.00
+申请人信息填写成功!
+联系人信息填写成功!
+订单提交成功，应付金额:600.00
+价格一致
+合伙人订单下单成功!
+订单已发送客户付款!
+2018-09-14 22:12:30,643 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='et7_4' class='none'>
+        <td class='errorCase' style="vertical-align: middle"><div class='testcase'>test_sbddxg</div></td>
+        <td style="vertical-align: middle">商标订单</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_et7_4' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_et7_4'>错误</button>
+        <div id='div_et7_4' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_et7_4' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_et7_4'>错误</button>
+        <div id='div_et7_4' class="collapse in">
+        <pre style="text-align:auto">
+        
+et7_4: 2018-09-14 22:12:30,662 - root - INFO - ############################### START ###############################
+2018-09-14 22:13:25,667 - root - INFO - ###############################  End  ###############################
+Traceback (most recent call last):
+  File "G:\QDS_company\case\hhrtest.py", line 35, in test_sbddxg
+    self.driver.find_element_by_css_selector("#personalCenter2-rightContainer &gt; div.order-page &gt; div.tabsPanel &gt; div &gt; div &gt; table &gt; tbody &gt; tr:nth-child(2) &gt; td:nth-child(9) &gt; div.td-handle &gt; a").click()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 597, in find_element_by_css_selector
+    return self.find_element(by=By.CSS_SELECTOR, value=css_selector)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 966, in find_element
+    'value': value})['value']
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 320, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"#personalCenter2-rightContainer &gt; div.order-page &gt; div.tabsPanel &gt; div &gt; div &gt; table &gt; tbody &gt; tr:nth-child(2) &gt; td:nth-child(9) &gt; div.td-handle &gt; a"}
+  (Session info: chrome=69.0.3497.92)
+  (Driver info: chromedriver=2.40.565498 (ea082db3280dd6843ebfb08a625e3eb905c4f5ab),platform=Windows NT 10.0.17134 x86_64)
+
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='errorCase' style="vertical-align: middle"></td>
+    </tr>
+    
+<tr class='errorClass warning'>
+    <td>HomeTest</td>
+    <td>个人中心测试集</td>
+    <td class="text-center">4</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">3</td>
+    <td class="text-center">187.61秒</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c8',4)" class="detail" id='c8'>详细</a></td>
+</tr>
+
+    <tr id='et8_1' class='none'>
+        <td class='errorCase' style="vertical-align: middle"><div class='testcase'>test_ddzx</div></td>
+        <td style="vertical-align: middle">订单中心</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_et8_1' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_et8_1'>错误</button>
+        <div id='div_et8_1' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_et8_1' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_et8_1'>错误</button>
+        <div id='div_et8_1' class="collapse in">
+        <pre style="text-align:auto">
+        
+et8_1: 2018-09-14 22:13:25,766 - root - INFO - ############################### START ###############################
+权大师_我的商标
+2018-09-14 22:14:20,279 - root - INFO - ###############################  End  ###############################
+Traceback (most recent call last):
+  File "G:\QDS_company\case\hometest.py", line 47, in test_ddzx
+    self.driver.find_element_by_css_selector("#personalCenter2-rightContainer &gt; div.order-detail-page &gt; div:nth-child(4) &gt; h2 &gt; a").click()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 597, in find_element_by_css_selector
+    return self.find_element(by=By.CSS_SELECTOR, value=css_selector)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 966, in find_element
+    'value': value})['value']
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 320, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"#personalCenter2-rightContainer &gt; div.order-detail-page &gt; div:nth-child(4) &gt; h2 &gt; a"}
+  (Session info: chrome=69.0.3497.92)
+  (Driver info: chromedriver=2.40.565498 (ea082db3280dd6843ebfb08a625e3eb905c4f5ab),platform=Windows NT 10.0.17134 x86_64)
+
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='errorCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='pt8_2' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_dzgl</div></td>
+        <td style="vertical-align: middle">发票地址管理</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt8_2' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt8_2'>通过</button>
+        <div id='div_pt8_2' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt8_2' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt8_2'>通过</button>
+        <div id='div_pt8_2' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt8_2: 2018-09-14 22:14:20,356 - root - INFO - ############################### START ###############################
+权大师_邮寄地址管理
+收件人名称:芳柠
+收件人地址:北京市昌平区mLawrence街道
+添加邮寄地址成功！
+测试通过！
+2018-09-14 22:14:45,297 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='et8_3' class='none'>
+        <td class='errorCase' style="vertical-align: middle"><div class='testcase'>test_fpsq</div></td>
+        <td style="vertical-align: middle">发票申请</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_et8_3' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_et8_3'>错误</button>
+        <div id='div_et8_3' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_et8_3' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_et8_3'>错误</button>
+        <div id='div_et8_3' class="collapse in">
+        <pre style="text-align:auto">
+        
+et8_3: 2018-09-14 22:14:45,303 - root - INFO - ############################### START ###############################
+权大师_我的发票申请
+2018-09-14 22:15:39,730 - root - INFO - ###############################  End  ###############################
+Traceback (most recent call last):
+  File "G:\QDS_company\case\hometest.py", line 178, in test_fpsq
+    self.driver.find_element_by_css_selector("#personalCenter2-rightContainer &gt; div.order-page.p-invoice-content &gt; div.tabsPanel &gt; div &gt; div.section1 &gt; table &gt; tbody &gt; tr &gt; td:nth-child(8) &gt; div &gt; a").click()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 597, in find_element_by_css_selector
+    return self.find_element(by=By.CSS_SELECTOR, value=css_selector)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 966, in find_element
+    'value': value})['value']
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 320, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"#personalCenter2-rightContainer &gt; div.order-page.p-invoice-content &gt; div.tabsPanel &gt; div &gt; div.section1 &gt; table &gt; tbody &gt; tr &gt; td:nth-child(8) &gt; div &gt; a"}
+  (Session info: chrome=69.0.3497.92)
+  (Driver info: chromedriver=2.40.565498 (ea082db3280dd6843ebfb08a625e3eb905c4f5ab),platform=Windows NT 10.0.17134 x86_64)
+
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='errorCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='et8_4' class='none'>
+        <td class='errorCase' style="vertical-align: middle"><div class='testcase'>test_gwyj</div></td>
+        <td style="vertical-align: middle">官文邮寄</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_et8_4' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_et8_4'>错误</button>
+        <div id='div_et8_4' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_et8_4' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_et8_4'>错误</button>
+        <div id='div_et8_4' class="collapse in">
+        <pre style="text-align:auto">
+        
+et8_4: 2018-09-14 22:15:39,751 - root - INFO - ############################### START ###############################
+权大师_官文待申请
+2018-09-14 22:16:33,365 - root - INFO - ###############################  End  ###############################
+Traceback (most recent call last):
+  File "G:\QDS_company\case\hometest.py", line 228, in test_gwyj
+    self.driver.find_element_by_css_selector("#personalCenter2-rightContainer &gt; div.person-postofficial.order-page &gt; div.official-doc-wrap &gt; table &gt; tbody &gt; tr:nth-child(2) &gt; td:nth-child(1) &gt; span").click()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 597, in find_element_by_css_selector
+    return self.find_element(by=By.CSS_SELECTOR, value=css_selector)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 966, in find_element
+    'value': value})['value']
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 320, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"#personalCenter2-rightContainer &gt; div.person-postofficial.order-page &gt; div.official-doc-wrap &gt; table &gt; tbody &gt; tr:nth-child(2) &gt; td:nth-child(1) &gt; span"}
+  (Session info: chrome=69.0.3497.92)
+  (Driver info: chromedriver=2.40.565498 (ea082db3280dd6843ebfb08a625e3eb905c4f5ab),platform=Windows NT 10.0.17134 x86_64)
+
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='errorCase' style="vertical-align: middle"></td>
+    </tr>
+    
+<tr class='passClass warning'>
+    <td>HwGsTest</td>
+    <td>海外高速测试集</td>
+    <td class="text-center">2</td>
+    <td class="text-center">2</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center">88.19秒</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c9',2)" class="detail" id='c9'>详细</a></td>
+</tr>
+
+    <tr id='pt9_1' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_hwgs_1</div></td>
+        <td style="vertical-align: middle">海外高速测试</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt9_1' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt9_1'>通过</button>
+        <div id='div_pt9_1' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt9_1' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt9_1'>通过</button>
+        <div id='div_pt9_1' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt9_1: 2018-09-14 22:16:33,380 - root - INFO - ############################### START ###############################
+海外公司智能注册-权大师
+费用总计:600.00
+商标名称：mDakota
+选择了第38类商标分类！
+总价:600.00
+价格一致
+订单提交成功，应付金额:600.00
+测试通过
+2018-09-14 22:17:14,836 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='pt9_2' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_hwgs_2</div></td>
+        <td style="vertical-align: middle">海外高速_自然人测试</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt9_2' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt9_2'>通过</button>
+        <div id='div_pt9_2' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt9_2' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt9_2'>通过</button>
+        <div id='div_pt9_2' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt9_2: 2018-09-14 22:17:14,855 - root - INFO - ############################### START ###############################
+海外公司智能注册-权大师
+费用总计:600.00
+商标名称：mNickolas
+选择了第5类商标分类！
+总价:600.00
+价格一致
+订单提交成功，应付金额:600.00
+测试通过
+2018-09-14 22:18:01,551 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+<tr class='passClass warning'>
+    <td>HwScTest</td>
+    <td>海外市场测试集</td>
+    <td class="text-center">6</td>
+    <td class="text-center">6</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center">180.7秒</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c10',6)" class="detail" id='c10'>详细</a></td>
+</tr>
+
+    <tr id='pt10_1' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_mdl</div></td>
+        <td style="vertical-align: middle">马德里商标注册测试</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt10_1' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt10_1'>通过</button>
+        <div id='div_pt10_1' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt10_1' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt10_1'>通过</button>
+        <div id='div_pt10_1' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt10_1: 2018-09-14 22:18:01,571 - root - INFO - ############################### START ###############################
+马德里商标注册
+费用总计:6600.00
+总价:6600.00
+价格一致
+订单提交成功，应付金额:6600.00
+测试通过
+2018-09-14 22:18:31,472 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='pt10_2' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_mg</div></td>
+        <td style="vertical-align: middle">美国商标注册测试</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt10_2' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt10_2'>通过</button>
+        <div id='div_pt10_2' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt10_2' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt10_2'>通过</button>
+        <div id='div_pt10_2' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt10_2: 2018-09-14 22:18:31,492 - root - INFO - ############################### START ###############################
+美国商标注册-权大师
+费用总计:5799.00
+总价:5799.00
+价格一致
+订单提交成功，应付金额:5799.00
+测试通过
+2018-09-14 22:19:01,569 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='pt10_3' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_om</div></td>
+        <td style="vertical-align: middle">欧盟商标注册测试</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt10_3' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt10_3'>通过</button>
+        <div id='div_pt10_3' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt10_3' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt10_3'>通过</button>
+        <div id='div_pt10_3' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt10_3: 2018-09-14 22:19:01,581 - root - INFO - ############################### START ###############################
+欧盟商标注册-权大师
+费用总计:11499.00
+总价:11499.00
+价格一致
+订单提交成功，应付金额:11499.00
+测试通过
+2018-09-14 22:19:31,628 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='pt10_4' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_rb</div></td>
+        <td style="vertical-align: middle">日本商标注册测试</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt10_4' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt10_4'>通过</button>
+        <div id='div_pt10_4' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt10_4' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt10_4'>通过</button>
+        <div id='div_pt10_4' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt10_4: 2018-09-14 22:19:31,649 - root - INFO - ############################### START ###############################
+日本商标注册-权大师
+费用总计:6899.00
+总价:6899.00
+价格一致
+订单提交成功，应付金额:6899.00
+测试通过
+2018-09-14 22:20:01,551 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='pt10_5' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_xg</div></td>
+        <td style="vertical-align: middle">香港商标注册测试</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt10_5' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt10_5'>通过</button>
+        <div id='div_pt10_5' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt10_5' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt10_5'>通过</button>
+        <div id='div_pt10_5' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt10_5: 2018-09-14 22:20:01,574 - root - INFO - ############################### START ###############################
+香港商标注册-权大师
+费用总计:3299.00
+总价:3299.00
+价格一致
+订单提交成功，应付金额:3299.00
+测试通过
+2018-09-14 22:20:32,526 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='pt10_6' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_yd</div></td>
+        <td style="vertical-align: middle">印度商标注册测试</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt10_6' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt10_6'>通过</button>
+        <div id='div_pt10_6' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt10_6' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt10_6'>通过</button>
+        <div id='div_pt10_6' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt10_6: 2018-09-14 22:20:32,543 - root - INFO - ############################### START ###############################
+印度商标注册-权大师
+费用总计:4699.00
+总价:4699.00
+价格一致
+订单提交成功，应付金额:4699.00
+测试通过
+2018-09-14 22:21:02,251 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+<tr class='passClass warning'>
+    <td>MfSbTest</td>
+    <td>商标搜索查询测试集</td>
+    <td class="text-center">1</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center">27.06秒</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c11',1)" class="detail" id='c11'>详细</a></td>
+</tr>
+
+    <tr id='pt11_1' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_sbss</div></td>
+        <td style="vertical-align: middle">商标搜索</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt11_1' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt11_1'>通过</button>
+        <div id='div_pt11_1' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt11_1' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt11_1'>通过</button>
+        <div id='div_pt11_1' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt11_1: 2018-09-14 22:21:02,271 - root - INFO - ############################### START ###############################
+注册商标查询_中国商标查询_权大师官网
+搜索商标名称：估腔
+估腔_全球更好用的商标搜索_权大师
+商标搜索测试通过
+2018-09-14 22:21:29,316 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+<tr class='passClass warning'>
+    <td>QtZlTest</td>
+    <td>专利补充测试集</td>
+    <td class="text-center">11</td>
+    <td class="text-center">11</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center">377.23秒</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c12',11)" class="detail" id='c12'>详细</a></td>
+</tr>
+
+    <tr id='pt12_1' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_nfjn_2</div></td>
+        <td style="vertical-align: middle">实用新型专利年费缴纳</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt12_1' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt12_1'>通过</button>
+        <div id='div_pt12_1' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt12_1' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt12_1'>通过</button>
+        <div id='div_pt12_1' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt12_1: 2018-09-14 22:21:29,335 - root - INFO - ############################### START ###############################
+发明专利年费缴纳-权大师
+费用总计:1100.00
+专利号:ZL270589850801
+专利名称:fCarmel
+总价:1100.00
+价格一致
+订单提交成功，应付金额:1100.00
+测试通过
+2018-09-14 22:22:03,750 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='pt12_2' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_nfjn_3</div></td>
+        <td style="vertical-align: middle">产品外观设计专利年费缴纳</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt12_2' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt12_2'>通过</button>
+        <div id='div_pt12_2' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt12_2' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt12_2'>通过</button>
+        <div id='div_pt12_2' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt12_2: 2018-09-14 22:22:03,761 - root - INFO - ############################### START ###############################
+发明专利年费缴纳-权大师
+费用总计:800.00
+专利号:ZL088060538111
+专利名称:伙霸脑拖
+总价:800.00
+价格一致
+订单提交成功，应付金额:800.00
+测试通过
+2018-09-14 22:22:40,745 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='pt12_3' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_zlbg_2</div></td>
+        <td style="vertical-align: middle">邮编地址变更测试</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt12_3' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt12_3'>通过</button>
+        <div id='div_pt12_3' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt12_3' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt12_3'>通过</button>
+        <div id='div_pt12_3' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt12_3: 2018-09-14 22:22:40,752 - root - INFO - ############################### START ###############################
+专利著录项变更-权大师
+费用总计:500.00
+总价:500.00
+价格一致
+订单提交成功，应付金额:500.00
+测试通过
+2018-09-14 22:23:12,728 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='pt12_4' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_zlbg_3</div></td>
+        <td style="vertical-align: middle">申请人变更测试</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt12_4' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt12_4'>通过</button>
+        <div id='div_pt12_4' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt12_4' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt12_4'>通过</button>
+        <div id='div_pt12_4' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt12_4: 2018-09-14 22:23:12,748 - root - INFO - ############################### START ###############################
+专利著录项变更-权大师
+费用总计:700.00
+总价:700.00
+价格一致
+订单提交成功，应付金额:700.00
+测试通过
+2018-09-14 22:23:45,108 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='pt12_5' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_zlbg_4</div></td>
+        <td style="vertical-align: middle">代理机构变更测试</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt12_5' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt12_5'>通过</button>
+        <div id='div_pt12_5' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt12_5' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt12_5'>通过</button>
+        <div id='div_pt12_5' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt12_5: 2018-09-14 22:23:45,128 - root - INFO - ############################### START ###############################
+专利著录项变更-权大师
+费用总计:500.00
+总价:500.00
+价格一致
+订单提交成功，应付金额:500.00
+测试通过
+2018-09-14 22:24:17,135 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='pt12_6' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_zlbh_2</div></td>
+        <td style="vertical-align: middle">实用新型专利驳回复审</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt12_6' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt12_6'>通过</button>
+        <div id='div_pt12_6' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt12_6' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt12_6'>通过</button>
+        <div id='div_pt12_6' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt12_6: 2018-09-14 22:24:17,150 - root - INFO - ############################### START ###############################
+发明专利驳回复审_权大师
+费用总计:5299.00
+总价:5299.00
+价格一致
+订单提交成功，应付金额:5299.00
+测试通过
+2018-09-14 22:24:52,482 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='pt12_7' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_zlbh_3</div></td>
+        <td style="vertical-align: middle">产品外观设计专利驳回复审</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt12_7' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt12_7'>通过</button>
+        <div id='div_pt12_7' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt12_7' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt12_7'>通过</button>
+        <div id='div_pt12_7' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt12_7: 2018-09-14 22:24:52,509 - root - INFO - ############################### START ###############################
+发明专利驳回复审_权大师
+费用总计:5299.00
+总价:5299.00
+价格一致
+订单提交成功，应付金额:5299.00
+测试通过
+2018-09-14 22:25:27,291 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='pt12_8' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_zldb_2</div></td>
+        <td style="vertical-align: middle">实用新型专利无效答辩</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt12_8' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt12_8'>通过</button>
+        <div id='div_pt12_8' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt12_8' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt12_8'>通过</button>
+        <div id='div_pt12_8' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt12_8: 2018-09-14 22:25:27,310 - root - INFO - ############################### START ###############################
+发明专利无效答辩_权大师
+费用总计:19999.00
+总价:19999.00
+价格一致
+订单提交成功，应付金额:19999.00
+测试通过
+2018-09-14 22:26:00,962 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='pt12_9' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_zldb_3</div></td>
+        <td style="vertical-align: middle">产品外观设计专利无效答辩</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt12_9' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt12_9'>通过</button>
+        <div id='div_pt12_9' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt12_9' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt12_9'>通过</button>
+        <div id='div_pt12_9' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt12_9: 2018-09-14 22:26:00,972 - root - INFO - ############################### START ###############################
+发明专利无效答辩_权大师
+费用总计:16999.00
+总价:16999.00
+价格一致
+订单提交成功，应付金额:16999.00
+测试通过
+2018-09-14 22:26:36,880 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='pt12_10' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_zlxg_2</div></td>
+        <td style="vertical-align: middle">实用新型专利无效宣告</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt12_10' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt12_10'>通过</button>
+        <div id='div_pt12_10' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt12_10' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt12_10'>通过</button>
+        <div id='div_pt12_10' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt12_10: 2018-09-14 22:26:36,899 - root - INFO - ############################### START ###############################
+发明专利无效宣告_权大师
+费用总计:21499.00
+总价:21499.00
+价格一致
+订单提交成功，应付金额:21499.00
+测试通过
+2018-09-14 22:27:11,324 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='pt12_11' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_zlxg_3</div></td>
+        <td style="vertical-align: middle">产品外观设计专利无效宣告</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt12_11' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt12_11'>通过</button>
+        <div id='div_pt12_11' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt12_11' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt12_11'>通过</button>
+        <div id='div_pt12_11' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt12_11: 2018-09-14 22:27:11,330 - root - INFO - ############################### START ###############################
+发明专利无效宣告_权大师
+费用总计:21499.00
+总价:21499.00
+价格一致
+订单提交成功，应付金额:21499.00
+测试通过
+2018-09-14 22:27:46,540 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+<tr class='passClass warning'>
+    <td>RjZzTest</td>
+    <td>软件著作权测试集</td>
+    <td class="text-center">2</td>
+    <td class="text-center">2</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center">66.37秒</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c13',2)" class="detail" id='c13'>详细</a></td>
+</tr>
+
+    <tr id='pt13_1' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_rjzz</div></td>
+        <td style="vertical-align: middle">软件著作权登记加急</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt13_1' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt13_1'>通过</button>
+        <div id='div_pt13_1' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt13_1' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt13_1'>通过</button>
+        <div id='div_pt13_1' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt13_1: 2018-09-14 22:27:46,559 - root - INFO - ############################### START ###############################
+软件著作权登记-权大师
+费用总计:799.00
+总价:799.00
+价格一致
+订单提交成功，应付金额:799.00
+测试通过
+2018-09-14 22:28:20,263 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='pt13_2' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_rjzz_j</div></td>
+        <td style="vertical-align: middle">软件著作权登记</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt13_2' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt13_2'>通过</button>
+        <div id='div_pt13_2' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt13_2' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt13_2'>通过</button>
+        <div id='div_pt13_2' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt13_2: 2018-09-14 22:28:20,271 - root - INFO - ############################### START ###############################
+软件著作权登记加急-权大师
+费用总计:7999.00
+总价:7999.00
+价格一致
+订单提交成功，应付金额:7999.00
+测试通过
+2018-09-14 22:28:52,919 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+<tr class='passClass warning'>
+    <td>SbNumTest</td>
+    <td>相似商标个数测试集</td>
+    <td class="text-center">2</td>
+    <td class="text-center">2</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center">82.57秒</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c14',2)" class="detail" id='c14'>详细</a></td>
+</tr>
+
+    <tr id='pt14_1' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_number1</div></td>
+        <td style="vertical-align: middle">智能注册_自助商标跳转测试</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt14_1' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt14_1'>通过</button>
+        <div id='div_pt14_1' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt14_1' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt14_1'>通过</button>
+        <div id='div_pt14_1' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt14_1: 2018-09-14 22:28:52,933 - root - INFO - ############################### START ###############################
+智能商标注册-权大师
+费用总计:300.00
+商标名称：fImogen
+选择了第40类商标分类!
+已为您检索到4条近似商标
+4
+权大师为您找到相关结果4个
+检索相似商标数量一致,测试通过！
+2018-09-14 22:29:36,383 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='pt14_2' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_number2</div></td>
+        <td style="vertical-align: middle">智能注册_推荐商标跳转测试</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt14_2' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt14_2'>通过</button>
+        <div id='div_pt14_2' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt14_2' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt14_2'>通过</button>
+        <div id='div_pt14_2' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt14_2: 2018-09-14 22:29:36,392 - root - INFO - ############################### START ###############################
+智能商标注册-权大师
+费用总计:300.00
+商标名称：巍
+选择所在领域：房产建材|房产.建筑.物管等_装饰装潢
+已为您检索到4条近似商标
+4
+权大师为您找到相关结果4个
+检索相似商标数量一致,测试通过！
+2018-09-14 22:30:15,481 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+<tr class='passClass warning'>
+    <td>SbXxTest</td>
+    <td>商标信息测试集</td>
+    <td class="text-center">5</td>
+    <td class="text-center">5</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center">155.29秒</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c15',5)" class="detail" id='c15'>详细</a></td>
+</tr>
+
+    <tr id='pt15_1' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_sbbg</div></td>
+        <td style="vertical-align: middle">商标变更测试</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt15_1' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt15_1'>通过</button>
+        <div id='div_pt15_1' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt15_1' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt15_1'>通过</button>
+        <div id='div_pt15_1' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt15_1: 2018-09-14 22:30:15,500 - root - INFO - ############################### START ###############################
+商标变更-权大师
+费用总计:1249.00
+总价:1249.00
+价格一致
+订单提交成功，应付金额:1249.00
+测试通过
+2018-09-14 22:30:46,841 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='pt15_2' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_sbkz</div></td>
+        <td style="vertical-align: middle">商标宽展测试</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt15_2' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt15_2'>通过</button>
+        <div id='div_pt15_2' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt15_2' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt15_2'>通过</button>
+        <div id='div_pt15_2' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt15_2: 2018-09-14 22:30:46,865 - root - INFO - ############################### START ###############################
+商标宽展-权大师
+费用总计:2249.00
+总价:2249.00
+价格一致
+订单提交成功，应付金额:2249.00
+测试通过
+2018-09-14 22:31:18,941 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='pt15_3' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_sbxk</div></td>
+        <td style="vertical-align: middle">商标许可备案测试</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt15_3' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt15_3'>通过</button>
+        <div id='div_pt15_3' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt15_3' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt15_3'>通过</button>
+        <div id='div_pt15_3' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt15_3: 2018-09-14 22:31:18,961 - root - INFO - ############################### START ###############################
+商标许可备案-权大师
+费用总计:749.00
+总价:749.00
+价格一致
+订单提交成功，应付金额:749.00
+测试通过
+2018-09-14 22:31:49,155 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='pt15_4' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_sbxz</div></td>
+        <td style="vertical-align: middle">商标续展让测试</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt15_4' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt15_4'>通过</button>
+        <div id='div_pt15_4' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt15_4' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt15_4'>通过</button>
+        <div id='div_pt15_4' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt15_4: 2018-09-14 22:31:49,182 - root - INFO - ############################### START ###############################
+商标续展-权大师
+费用总计:1999.00
+总价:1999.00
+价格一致
+订单提交成功，应付金额:1999.00
+测试通过
+2018-09-14 22:32:19,912 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='pt15_5' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_sbzr</div></td>
+        <td style="vertical-align: middle">商标转让测试</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt15_5' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt15_5'>通过</button>
+        <div id='div_pt15_5' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt15_5' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt15_5'>通过</button>
+        <div id='div_pt15_5' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt15_5: 2018-09-14 22:32:19,932 - root - INFO - ############################### START ###############################
+商标转让-权大师
+费用总计:1499.00
+总价:1499.00
+价格一致
+订单提交成功，应付金额:1499.00
+测试通过
+2018-09-14 22:32:50,766 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+<tr class='passClass warning'>
+    <td>WebSiTest</td>
+    <td>相似商标个数测试集</td>
+    <td class="text-center">1</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center">23.28秒</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c16',1)" class="detail" id='c16'>详细</a></td>
+</tr>
+
+    <tr id='pt16_1' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_number1</div></td>
+        <td style="vertical-align: middle">网站地图测试</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt16_1' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt16_1'>通过</button>
+        <div id='div_pt16_1' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt16_1' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt16_1'>通过</button>
+        <div id='div_pt16_1' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt16_1: 2018-09-14 22:32:50,785 - root - INFO - ############################### START ###############################
+获取本页所有链接:
+https://www.quandashi.com/
+https://www.quandashi.com/home/index
+https://www.quandashi.com/home/agent-index
+javascript:void(0);
+javascript:void(0);
+https://www.quandashi.com/home/index
+https://www.quandashi.com/personal-setting/account-security
+https://www.quandashi.com/member/logout
+https://www.quandashi.com/
+https://www.quandashi.com/sb
+https://www.quandashi.com/#
+javascript:;
+https://so.quandashi.com/
+https://www.quandashi.com/sb/gnsbcx
+javascript:;
+https://www.quandashi.com/sb/bmkszc/4
+https://www.quandashi.com/sb/dbwyzc/4
+https://www.quandashi.com/sb/znzzzc/4
+https://www.quandashi.com/sb/hwgsznzc/4
+javascript:;
+https://www.quandashi.com/sb/sbbhfs
+https://www.quandashi.com/sb/sbyydb
+https://www.quandashi.com/sb/sbcsdb
+javascript:;
+https://www.quandashi.com/sb/sbcssq
+https://www.quandashi.com/sb/sbyysq
+https://www.quandashi.com/sb/sbwxxgsq
+javascript:;
+https://www.quandashi.com/sb/sbzr
+https://www.quandashi.com/sb/sbxz
+https://www.quandashi.com/sb/sbkz
+https://www.quandashi.com/sb/sbxkba
+https://www.quandashi.com/sb/sbbg
+javascript:;
+https://www.quandashi.com/sb/mdl
+https://www.quandashi.com/sb/mgsbzc
+https://www.quandashi.com/sb/omsbzc
+https://www.quandashi.com/sb/rbsbzc
+https://www.quandashi.com/sb/ydsbzc
+https://www.quandashi.com/sb/xgsbzc
+https://www.quandashi.com/zl
+javascript:;
+https://www.quandashi.com/third-order/trade-mark/335.html
+javascript:;
+https://www.quandashi.com/third-order/trade-mark/667.html
+https://www.quandashi.com/third-order/trade-mark/668.html
+javascript:;
+https://www.quandashi.com/third-order/trade-mark/671.html
+https://www.quandashi.com/third-order/trade-mark/673.html
+javascript:;
+https://www.quandashi.com/third-order/trade-mark/669.html
+https://www.quandashi.com/third-order/trade-mark/670.html
+javascript:;
+https://www.quandashi.com/third-order/trade-mark/14.html
+https://www.quandashi.com/third-order/trade-mark/15.html
+https://www.quandashi.com/third-order/trade-mark/40.html
+javascript:;
+https://www.quandashi.com/third-order/trade-mark/42.html
+https://www.quandashi.com/third-order/trade-mark/446.html
+https://www.quandashi.com/bq
+javascript:;
+https://www.quandashi.com/third-order/trade-mark/120.html
+https://www.quandashi.com/third-order/trade-mark/19.html
+javascript:;
+https://www.quandashi.com/third-order/trade-mark/20.html
+https://www.quandashi.com/third-order/trade-mark/121.html
+https://www.quandashi.com/third-order/trade-mark/308.html
+https://www.quandashi.com/third-order/trade-mark/309.html
+javascript:;
+https://www.quandashi.com/third-order/trade-mark/21.html
+https://www.quandashi.com/third-order/trade-mark/22.html
+https://www.quandashi.com/third-order/trade-mark/23.html
+https://www.quandashi.com/zhuanti/hhr.html
+javascript:;
+https://www.quandashi.com/#
+None
+https://www.quandashi.com/sb/bmkszc/4
+javascript:;
+https://www.quandashi.com/zhuanti/hhr.html
+javascript:void (0)
+https://www.quandashi.com/#
+https://www.quandashi.com//home/index
+https://www.quandashi.com/home/agent-index
+https://www.quandashi.com//personal-setting/account-security
+https://www.quandashi.com//member/logout
+https://www.quandashi.com/sb
+https://www.quandashi.com/#
+javascript:;
+https://so.quandashi.com/
+https://www.quandashi.com/sb/gnsbcx
+javascript:;
+https://www.quandashi.com/sb/bmkszc/4
+https://www.quandashi.com/sb/dbwyzc/4
+https://www.quandashi.com/sb/znzzzc/4
+https://www.quandashi.com/sb/hwgsznzc/4
+javascript:;
+https://www.quandashi.com/sb/sbbhfs
+https://www.quandashi.com/sb/sbyydb
+https://www.quandashi.com/sb/sbcsdb
+javascript:;
+https://www.quandashi.com/sb/sbcssq
+https://www.quandashi.com/sb/sbyysq
+https://www.quandashi.com/sb/sbwxxgsq
+javascript:;
+https://www.quandashi.com/sb/sbzr
+https://www.quandashi.com/sb/sbxz
+https://www.quandashi.com/sb/sbkz
+https://www.quandashi.com/sb/sbxkba
+https://www.quandashi.com/sb/sbbg
+javascript:;
+https://www.quandashi.com/sb/mdl
+https://www.quandashi.com/sb/mgsbzc
+https://www.quandashi.com/sb/omsbzc
+https://www.quandashi.com/sb/rbsbzc
+https://www.quandashi.com/sb/ydsbzc
+https://www.quandashi.com/sb/xgsbzc
+https://www.quandashi.com/zl
+javascript:;
+https://www.quandashi.com/third-order/trade-mark/335.html
+javascript:;
+https://www.quandashi.com/third-order/trade-mark/667.html
+https://www.quandashi.com/third-order/trade-mark/668.html
+javascript:;
+https://www.quandashi.com/third-order/trade-mark/671.html
+https://www.quandashi.com/third-order/trade-mark/673.html
+javascript:;
+https://www.quandashi.com/third-order/trade-mark/669.html
+https://www.quandashi.com/third-order/trade-mark/670.html
+javascript:;
+https://www.quandashi.com/third-order/trade-mark/14.html
+https://www.quandashi.com/third-order/trade-mark/15.html
+https://www.quandashi.com/third-order/trade-mark/40.html
+javascript:;
+https://www.quandashi.com/third-order/trade-mark/42.html
+https://www.quandashi.com/third-order/trade-mark/446.html
+https://www.quandashi.com/bq
+javascript:;
+https://www.quandashi.com/third-order/trade-mark/120.html
+https://www.quandashi.com/third-order/trade-mark/19.html
+javascript:;
+https://www.quandashi.com/third-order/trade-mark/20.html
+https://www.quandashi.com/third-order/trade-mark/121.html
+https://www.quandashi.com/third-order/trade-mark/308.html
+https://www.quandashi.com/third-order/trade-mark/309.html
+javascript:;
+https://www.quandashi.com/third-order/trade-mark/21.html
+https://www.quandashi.com/third-order/trade-mark/22.html
+https://www.quandashi.com/third-order/trade-mark/23.html
+https://www.quandashi.com/zhuanti/hhr.html
+javascript:;
+https://www.quandashi.com/#
+None
+https://www.quandashi.com/sb/bmkszc/4
+javascript:;
+https://www.quandashi.com/zhuanti/hhr.html
+https://www.quandashi.com/zhuanti/hhr
+https://www.quandashi.com/#
+https://so.quandashi.com/search/notice/index
+https://www.quandashi.com/sb
+https://www.quandashi.com/sb
+https://www.quandashi.com/sb
+https://www.quandashi.com/sb
+https://www.quandashi.com/zl
+https://www.quandashi.com/zl
+https://www.quandashi.com/zl
+https://www.quandashi.com/zl
+https://www.quandashi.com/zl
+https://www.quandashi.com/bq
+https://www.quandashi.com/bq
+https://www.quandashi.com/bq
+https://www.quandashi.com/bq
+javascript:;
+https://www.quandashi.com/brand-order/basemsg/PC1003/0.html
+javascript:;
+None
+javascript:;
+https://so.quandashi.com/index/nisi.html
+https://www.quandashi.com/news/newdetail/12812.html
+https://www.quandashi.com/news/newdetail/12812.html
+https://www.quandashi.com/news/newdetail/12811.html
+https://www.quandashi.com/news/newdetail/12798.html
+https://www.quandashi.com/news/industry?type=28
+https://www.quandashi.com/news/newdetail/12853.html
+https://www.quandashi.com/news/newdetail/12853.html
+https://www.quandashi.com/news/newdetail/12852.html
+https://www.quandashi.com/news/newdetail/12851.html
+https://www.quandashi.com/news/index.html
+https://www.quandashi.com/question/detail/8.html
+https://www.quandashi.com/question/detail/8.html
+https://www.quandashi.com/question/detail/2.html
+https://www.quandashi.com/question/detail/2.html
+https://www.quandashi.com/question/detail/22.html
+https://www.quandashi.com/question/detail/22.html
+https://www.quandashi.com/question/index.html
+http://www.sipo.gov.cn/
+http://www.sipop.cn/gate/index.html
+http://www.ciptc.org.cn/
+http://www.zgc.gov.cn/
+http://www.elht.com/Business/53.aspx
+http://www.sipac.gov.cn/
+http://www.qixin.com/
+https://www.tencent.com/
+https://www.baidu.com/
+http://www.haier.com/cn/
+http://www.ofo.so/#/
+http://www.pku.edu.cn/
+http://www.kingdee.com/
+https://www.quandashi.com/index/about/1.html
+https://www.quandashi.com/index/about/2.html
+https://www.quandashi.com/index/about/3.html
+https://www.quandashi.com/index/about/5.html
+https://www.quandashi.com/index/about/8.html
+https://www.quandashi.com/index/about/11.html
+https://www.quandashi.com/site-map/index
+https://v.pinpaibao.com.cn/authenticate/cert/?site=www.quandashi.com&amp;at=business
+https://www.quandashi.com/#
+https://www.quandashi.com/#
+https://www.quandashi.com/#
+https://www.quandashi.com/#
+https://www.quandashi.com/
+http://www.ipr123.com/
+http://www.64365.com/zscq/
+http://www.maidianla.com/
+http://www.epbiao.com/
+http://www.chatm.com/
+http://www.cmsbw.cn/
+http://www.toolmall.com/
+http://www.2898.com/
+http://www.shangbiao.com/
+http://www.jdsb.cn/
+https://www.quandashi.com/
+http://ipr.zbj.com/
+http://china.findlaw.cn/shenzhen
+http://shandong.chinawutong.com/
+http://www.ipvip.cn/
+http://www.maizhi.com/
+http://zhidao.zhiguagua.com/
+https://www.lawxp.com/
+https://www.quandashi.com/ztlist/shangbiao.html
+https://www.quandashi.com/ztlist/zhuanli.html
+https://www.quandashi.com/ztlist/banquan.html
+https://www.quandashi.com/ztlist/qita.html
+javascript:void(0)
+javascript:void(0)
+javascript:void(0)
+javascript:void(0)
+https://www.quandashi.com/#
+https://www.quandashi.com/zhuanti/hhr
+https://www.quandashi.com/#
+https://so.quandashi.com/
+https://www.quandashi.com/brand-order/basemsg/PC10003/0.html
+https://so.quandashi.com/index/nisi
+https://www.quandashi.com/brand-monitor/index
+https://www.quandashi.com/brandmanage/index
+https://so.quandashi.com/search/notice/index
+javascript:void(0)
+javascript:void(0)
+https://so.quandashi.com/shangbiao/
+https://so.quandashi.com/
+None
+2018-09-14 22:33:14,049 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+<tr class='passClass warning'>
+    <td>YyTrTest</td>
+    <td>异议他人商标测试集</td>
+    <td class="text-center">3</td>
+    <td class="text-center">3</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center">102.89秒</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c17',3)" class="detail" id='c17'>详细</a></td>
+</tr>
+
+    <tr id='pt17_1' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_sbcs</div></td>
+        <td style="vertical-align: middle">商标撤三测试</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt17_1' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt17_1'>通过</button>
+        <div id='div_pt17_1' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt17_1' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt17_1'>通过</button>
+        <div id='div_pt17_1' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt17_1: 2018-09-14 22:33:14,068 - root - INFO - ############################### START ###############################
+商标撤三申请-权大师
+费用总计:1499.00
+总价:1499.00
+价格一致
+订单提交成功，应付金额:1499.00
+测试通过
+2018-09-14 22:33:45,392 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='pt17_2' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_sbwx</div></td>
+        <td style="vertical-align: middle">商标无效宣告申请测试</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt17_2' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt17_2'>通过</button>
+        <div id='div_pt17_2' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt17_2' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt17_2'>通过</button>
+        <div id='div_pt17_2' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt17_2: 2018-09-14 22:33:45,411 - root - INFO - ############################### START ###############################
+商标无效宣告申请_流程_商标无效宣告费用_权大师
+费用总计:3750.00
+总价:3750.00
+价格一致
+订单提交成功，应付金额:3750.00
+测试通过
+2018-09-14 22:34:16,980 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='pt17_3' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_sbyy</div></td>
+        <td style="vertical-align: middle">商标异议申请测试</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt17_3' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt17_3'>通过</button>
+        <div id='div_pt17_3' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt17_3' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt17_3'>通过</button>
+        <div id='div_pt17_3' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt17_3: 2018-09-14 22:34:16,990 - root - INFO - ############################### START ###############################
+商标异议申请_商标异议申请流程_商标异议收费标准_权大师
+费用总计:3500.00
+总价:3500.00
+价格一致
+订单提交成功，应付金额:3500.00
+测试通过
+2018-09-14 22:34:56,931 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+<tr class='passClass warning'>
+    <td>ZaHjTest</td>
+    <td>遇到障碍如何化解测试集</td>
+    <td class="text-center">3</td>
+    <td class="text-center">3</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center">90.8秒</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c18',3)" class="detail" id='c18'>详细</a></td>
+</tr>
+
+    <tr id='pt18_1' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_sbbh</div></td>
+        <td style="vertical-align: middle">商标驳回测试</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt18_1' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt18_1'>通过</button>
+        <div id='div_pt18_1' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt18_1' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt18_1'>通过</button>
+        <div id='div_pt18_1' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt18_1: 2018-09-14 22:34:56,957 - root - INFO - ############################### START ###############################
+商标驳回复审-权大师
+费用总计:2749.00
+总价:2749.00
+价格一致
+订单提交成功，应付金额:2749.00
+测试通过
+2018-09-14 22:35:27,190 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='pt18_2' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_sbcsdb</div></td>
+        <td style="vertical-align: middle">商标撤三答辩测试</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt18_2' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt18_2'>通过</button>
+        <div id='div_pt18_2' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt18_2' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt18_2'>通过</button>
+        <div id='div_pt18_2' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt18_2: 2018-09-14 22:35:27,210 - root - INFO - ############################### START ###############################
+商标撤三答辩-权大师
+费用总计:2999.00
+总价:2999.00
+价格一致
+订单提交成功，应付金额:2999.00
+测试通过
+2018-09-14 22:35:57,409 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='pt18_3' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_sbdb</div></td>
+        <td style="vertical-align: middle">商标异议答辩测试</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt18_3' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt18_3'>通过</button>
+        <div id='div_pt18_3' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt18_3' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt18_3'>通过</button>
+        <div id='div_pt18_3' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt18_3: 2018-09-14 22:35:57,428 - root - INFO - ############################### START ###############################
+商标异议答辩-权大师
+费用总计:2999.00
+总价:2999.00
+价格一致
+订单提交成功，应付金额:2999.00
+测试通过
+2018-09-14 22:36:27,745 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+<tr class='passClass warning'>
+    <td>ZlYwTest</td>
+    <td>专利业务测试集</td>
+    <td class="text-center">24</td>
+    <td class="text-center">24</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center">783.87秒</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c19',24)" class="detail" id='c19'>详细</a></td>
+</tr>
+
+    <tr id='pt19_1' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_cpwgbz_1</div></td>
+        <td style="vertical-align: middle">产品外观标准_单个申请人减缓测试</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt19_1' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt19_1'>通过</button>
+        <div id='div_pt19_1' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt19_1' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt19_1'>通过</button>
+        <div id='div_pt19_1' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt19_1: 2018-09-14 22:36:27,757 - root - INFO - ############################### START ###############################
+外观设计专利标准申请|专利申请|专利查询|权大师
+服务类别:单一外观设计标准申请_单个申请人减缓
+费用总计:874.00
+总价:874.00
+价格一致
+订单提交成功，应付金额:874.00
+测试通过
+2018-09-14 22:37:01,184 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='pt19_2' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_cpwgbz_2</div></td>
+        <td style="vertical-align: middle">产品外观标准_多个申请人减缓测试</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt19_2' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt19_2'>通过</button>
+        <div id='div_pt19_2' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt19_2' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt19_2'>通过</button>
+        <div id='div_pt19_2' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt19_2: 2018-09-14 22:37:01,207 - root - INFO - ############################### START ###############################
+外观设计专利标准申请|专利申请|专利查询|权大师
+服务类别:单一外观设计标准申请_多个申请人减缓
+费用总计:949.00
+总价:949.00
+价格一致
+订单提交成功，应付金额:949.00
+测试通过
+2018-09-14 22:37:34,203 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='pt19_3' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_cpwgbz_3</div></td>
+        <td style="vertical-align: middle">产品外观标准_不减缓测试</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt19_3' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt19_3'>通过</button>
+        <div id='div_pt19_3' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt19_3' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt19_3'>通过</button>
+        <div id='div_pt19_3' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt19_3: 2018-09-14 22:37:34,221 - root - INFO - ############################### START ###############################
+外观设计专利标准申请|专利申请|专利查询|权大师
+服务类别:单一外观设计标准申请_不减缓
+费用总计:1299.00
+总价:1299.00
+价格一致
+订单提交成功，应付金额:1299.00
+测试通过
+2018-09-14 22:38:09,325 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='pt19_4' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_cpwgdb_1</div></td>
+        <td style="vertical-align: middle">产品外观担保_单个申请人减缓测试</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt19_4' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt19_4'>通过</button>
+        <div id='div_pt19_4' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt19_4' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt19_4'>通过</button>
+        <div id='div_pt19_4' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt19_4: 2018-09-14 22:38:09,345 - root - INFO - ############################### START ###############################
+外观设计专利标准申请|专利申请|专利查询|权大师
+服务类别:单一外观设计担保申请_单个申请人减缓
+费用总计:1274.00
+总价:1274.00
+价格一致
+订单提交成功，应付金额:1274.00
+测试通过
+2018-09-14 22:38:44,464 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='pt19_5' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_cpwgdb_2</div></td>
+        <td style="vertical-align: middle">产品外观担保_多个申请人减缓测试</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt19_5' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt19_5'>通过</button>
+        <div id='div_pt19_5' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt19_5' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt19_5'>通过</button>
+        <div id='div_pt19_5' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt19_5: 2018-09-14 22:38:44,483 - root - INFO - ############################### START ###############################
+外观设计专利标准申请|专利申请|专利查询|权大师
+服务类别:单一外观设计担保申请_多个申请人减缓
+费用总计:1349.00
+总价:1349.00
+价格一致
+订单提交成功，应付金额:1349.00
+测试通过
+2018-09-14 22:39:20,388 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='pt19_6' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_cpwgdb_3</div></td>
+        <td style="vertical-align: middle">产品外观担保_不减缓测试</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt19_6' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt19_6'>通过</button>
+        <div id='div_pt19_6' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt19_6' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt19_6'>通过</button>
+        <div id='div_pt19_6' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt19_6: 2018-09-14 22:39:20,409 - root - INFO - ############################### START ###############################
+外观设计专利标准申请|专利申请|专利查询|权大师
+服务类别:单一外观设计担保申请_不减缓
+费用总计:1699.00
+总价:1699.00
+价格一致
+订单提交成功，应付金额:1699.00
+测试通过
+2018-09-14 22:39:59,492 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='pt19_7' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_guibz_1</div></td>
+        <td style="vertical-align: middle">GUI标准_单个申请人减缓</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt19_7' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt19_7'>通过</button>
+        <div id='div_pt19_7' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt19_7' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt19_7'>通过</button>
+        <div id='div_pt19_7' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt19_7: 2018-09-14 22:39:59,514 - root - INFO - ############################### START ###############################
+GUI及系列产品标准申请|专利申请|专利查询|权大师
+服务类别:GUI及系列产品标准申请_单个申请人减缓
+费用总计:1574.00
+总价:1574.00
+价格一致
+订单提交成功，应付金额:1574.00
+测试通过
+2018-09-14 22:40:31,022 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='pt19_8' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_guibz_2</div></td>
+        <td style="vertical-align: middle">GUI标准_多个申请人减缓</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt19_8' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt19_8'>通过</button>
+        <div id='div_pt19_8' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt19_8' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt19_8'>通过</button>
+        <div id='div_pt19_8' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt19_8: 2018-09-14 22:40:31,034 - root - INFO - ############################### START ###############################
+GUI及系列产品标准申请|专利申请|专利查询|权大师
+服务类别:GUI及系列产品标准申请_多个申请人减缓
+费用总计:1649.00
+总价:1649.00
+价格一致
+订单提交成功，应付金额:1649.00
+测试通过
+2018-09-14 22:41:08,178 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='pt19_9' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_guibz_3</div></td>
+        <td style="vertical-align: middle">GUI标准_不减缓</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt19_9' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt19_9'>通过</button>
+        <div id='div_pt19_9' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt19_9' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt19_9'>通过</button>
+        <div id='div_pt19_9' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt19_9: 2018-09-14 22:41:08,187 - root - INFO - ############################### START ###############################
+GUI及系列产品标准申请|专利申请|专利查询|权大师
+服务类别:GUI及系列产品标准申请_不减缓
+费用总计:1999.00
+总价:1999.00
+价格一致
+订单提交成功，应付金额:1999.00
+测试通过
+2018-09-14 22:41:39,259 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='pt19_10' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_guidb_1</div></td>
+        <td style="vertical-align: middle">GUI担保_单个申请人减缓</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt19_10' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt19_10'>通过</button>
+        <div id='div_pt19_10' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt19_10' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt19_10'>通过</button>
+        <div id='div_pt19_10' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt19_10: 2018-09-14 22:41:39,265 - root - INFO - ############################### START ###############################
+GUI及系列产品标准申请|专利申请|专利查询|权大师
+服务类别:GUI及系列产品担保申请_单个申请人减缓
+费用总计:1974.00
+总价:1974.00
+价格一致
+订单提交成功，应付金额:1974.00
+测试通过
+2018-09-14 22:42:12,505 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='pt19_11' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_guidb_2</div></td>
+        <td style="vertical-align: middle">GUI担保_多个申请人减缓</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt19_11' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt19_11'>通过</button>
+        <div id='div_pt19_11' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt19_11' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt19_11'>通过</button>
+        <div id='div_pt19_11' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt19_11: 2018-09-14 22:42:12,526 - root - INFO - ############################### START ###############################
+GUI及系列产品标准申请|专利申请|专利查询|权大师
+服务类别:GUI及系列产品担保申请_多个申请人减缓
+费用总计:2049.00
+总价:2049.00
+价格一致
+订单提交成功，应付金额:2049.00
+测试通过
+2018-09-14 22:42:45,530 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='pt19_12' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_guidb_3</div></td>
+        <td style="vertical-align: middle">GUI担保_不减缓</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt19_12' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt19_12'>通过</button>
+        <div id='div_pt19_12' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt19_12' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt19_12'>通过</button>
+        <div id='div_pt19_12' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt19_12: 2018-09-14 22:42:45,549 - root - INFO - ############################### START ###############################
+GUI及系列产品标准申请|专利申请|专利查询|权大师
+服务类别:GUI及系列产品担保申请_不减缓
+费用总计:2399.00
+总价:2399.00
+价格一致
+订单提交成功，应付金额:2399.00
+测试通过
+2018-09-14 22:43:18,294 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='pt19_13' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_nfjn</div></td>
+        <td style="vertical-align: middle">年费缴纳测试</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt19_13' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt19_13'>通过</button>
+        <div id='div_pt19_13' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt19_13' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt19_13'>通过</button>
+        <div id='div_pt19_13' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt19_13: 2018-09-14 22:43:18,307 - root - INFO - ############################### START ###############################
+发明专利年费缴纳-权大师
+费用总计:1100.00
+专利号:ZL618006776400
+专利名称:mJerry
+总价:1100.00
+价格一致
+订单提交成功，应付金额:1100.00
+测试通过
+2018-09-14 22:43:48,594 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='pt19_14' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_syzlbz_1</div></td>
+        <td style="vertical-align: middle">标准型-单个申请人减缓</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt19_14' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt19_14'>通过</button>
+        <div id='div_pt19_14' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt19_14' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt19_14'>通过</button>
+        <div id='div_pt19_14' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt19_14: 2018-09-14 22:43:48,613 - root - INFO - ############################### START ###############################
+实用新型专利标准申请|专利申请|专利查询|权大师
+服务类别:实用新型专利标准申请_单个申请人减缓
+费用总计:2574.00
+总价:2574.00
+价格一致
+订单提交成功，应付金额:2574.00
+测试通过
+2018-09-14 22:44:19,119 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='pt19_15' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_syzlbz_2</div></td>
+        <td style="vertical-align: middle">标准型-多个申请人减缓</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt19_15' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt19_15'>通过</button>
+        <div id='div_pt19_15' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt19_15' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt19_15'>通过</button>
+        <div id='div_pt19_15' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt19_15: 2018-09-14 22:44:19,137 - root - INFO - ############################### START ###############################
+实用新型专利标准申请|专利申请|专利查询|权大师
+服务类别:实用新型专利标准申请_多个申请人减缓
+费用总计:2649.00
+总价:2649.00
+价格一致
+订单提交成功，应付金额:2649.00
+测试通过
+2018-09-14 22:44:49,976 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='pt19_16' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_syzlbz_3</div></td>
+        <td style="vertical-align: middle">标准型-不减缓</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt19_16' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt19_16'>通过</button>
+        <div id='div_pt19_16' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt19_16' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt19_16'>通过</button>
+        <div id='div_pt19_16' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt19_16: 2018-09-14 22:44:50,000 - root - INFO - ############################### START ###############################
+实用新型专利标准申请|专利申请|专利查询|权大师
+服务类别:实用新型专利标准申请_不减缓
+费用总计:2999.00
+总价:2999.00
+价格一致
+订单提交成功，应付金额:2999.00
+测试通过
+2018-09-14 22:45:21,753 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='pt19_17' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_syzldb_1</div></td>
+        <td style="vertical-align: middle">担保型-单个申请人减缓</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt19_17' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt19_17'>通过</button>
+        <div id='div_pt19_17' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt19_17' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt19_17'>通过</button>
+        <div id='div_pt19_17' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt19_17: 2018-09-14 22:45:21,772 - root - INFO - ############################### START ###############################
+实用新型专利担保申请|专利申请|专利查询|权大师
+服务类别:实用新型专利担保申请_单个申请人减缓
+费用总计:3574.00
+总价:3574.00
+价格一致
+订单提交成功，应付金额:3574.00
+测试通过
+2018-09-14 22:45:52,753 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='pt19_18' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_syzldb_2</div></td>
+        <td style="vertical-align: middle">担保型-多个申请人减缓</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt19_18' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt19_18'>通过</button>
+        <div id='div_pt19_18' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt19_18' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt19_18'>通过</button>
+        <div id='div_pt19_18' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt19_18: 2018-09-14 22:45:52,768 - root - INFO - ############################### START ###############################
+实用新型专利担保申请|专利申请|专利查询|权大师
+服务类别:实用新型专利担保申请_多个申请人减缓
+费用总计:3649.00
+总价:3649.00
+价格一致
+订单提交成功，应付金额:3649.00
+测试通过
+2018-09-14 22:46:25,606 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='pt19_19' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_syzldb_3</div></td>
+        <td style="vertical-align: middle">担保型-不减缓</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt19_19' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt19_19'>通过</button>
+        <div id='div_pt19_19' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt19_19' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt19_19'>通过</button>
+        <div id='div_pt19_19' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt19_19: 2018-09-14 22:46:25,634 - root - INFO - ############################### START ###############################
+实用新型专利担保申请|专利申请|专利查询|权大师
+服务类别:实用新型专利担保申请_不减缓
+费用总计:3999.00
+总价:3999.00
+价格一致
+订单提交成功，应付金额:3999.00
+测试通过
+2018-09-14 22:46:56,800 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='pt19_20' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_zlbg</div></td>
+        <td style="vertical-align: middle">专利著录项变更测试</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt19_20' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt19_20'>通过</button>
+        <div id='div_pt19_20' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt19_20' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt19_20'>通过</button>
+        <div id='div_pt19_20' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt19_20: 2018-09-14 22:46:56,824 - root - INFO - ############################### START ###############################
+专利著录项变更-权大师
+费用总计:700.00
+总价:700.00
+价格一致
+订单提交成功，应付金额:700.00
+测试通过
+2018-09-14 22:47:27,745 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='pt19_21' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_zlbh</div></td>
+        <td style="vertical-align: middle">专利驳回复审测试</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt19_21' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt19_21'>通过</button>
+        <div id='div_pt19_21' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt19_21' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt19_21'>通过</button>
+        <div id='div_pt19_21' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt19_21: 2018-09-14 22:47:27,768 - root - INFO - ############################### START ###############################
+发明专利驳回复审_权大师
+费用总计:10999.00
+总价:10999.00
+价格一致
+订单提交成功，应付金额:10999.00
+测试通过
+2018-09-14 22:48:00,087 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='pt19_22' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_zldb</div></td>
+        <td style="vertical-align: middle">发明专利无效答辩测试</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt19_22' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt19_22'>通过</button>
+        <div id='div_pt19_22' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt19_22' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt19_22'>通过</button>
+        <div id='div_pt19_22' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt19_22: 2018-09-14 22:48:00,099 - root - INFO - ############################### START ###############################
+发明专利无效答辩_权大师
+费用总计:24999.00
+总价:24999.00
+价格一致
+订单提交成功，应付金额:24999.00
+测试通过
+2018-09-14 22:48:31,070 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='pt19_23' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_zljs</div></td>
+        <td style="vertical-align: middle">专利查新检索（报告）测试</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt19_23' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt19_23'>通过</button>
+        <div id='div_pt19_23' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt19_23' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt19_23'>通过</button>
+        <div id='div_pt19_23' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt19_23: 2018-09-14 22:48:31,098 - root - INFO - ############################### START ###############################
+专利查新检索（报告）_权大师
+费用总计:599.00
+总价:599.00
+价格一致
+订单提交成功，应付金额:599.00
+测试通过
+2018-09-14 22:49:00,875 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='pt19_24' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_zlxg</div></td>
+        <td style="vertical-align: middle">专利无效宣告测试</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt19_24' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt19_24'>通过</button>
+        <div id='div_pt19_24' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt19_24' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt19_24'>通过</button>
+        <div id='div_pt19_24' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt19_24: 2018-09-14 22:49:00,893 - root - INFO - ############################### START ###############################
+发明专利无效宣告_权大师
+费用总计:32999.00
+总价:32999.00
+价格一致
+订单提交成功，应付金额:32999.00
+测试通过
+2018-09-14 22:49:31,623 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+<tr class='errorClass warning'>
+    <td>ZnZzTest</td>
+    <td>智能注册测试集</td>
+    <td class="text-center">2</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">1</td>
+    <td class="text-center">105.93秒</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c20',2)" class="detail" id='c20'>详细</a></td>
+</tr>
+
+    <tr id='et20_1' class='none'>
+        <td class='errorCase' style="vertical-align: middle"><div class='testcase'>test_znzz_1</div></td>
+        <td style="vertical-align: middle">智能注册_企业测试</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_et20_1' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_et20_1'>错误</button>
+        <div id='div_et20_1' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_et20_1' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_et20_1'>错误</button>
+        <div id='div_et20_1' class="collapse in">
+        <pre style="text-align:auto">
+        
+et20_1: 2018-09-14 22:49:31,643 - root - INFO - ############################### START ###############################
+智能商标注册-权大师
+费用总计:300.00
+商标名称：fLacie
+2018-09-14 22:50:35,453 - root - INFO - ###############################  End  ###############################
+Traceback (most recent call last):
+  File "G:\QDS_company\case\znzztest.py", line 93, in test_znzz_1
+    "#section-selfchoice &gt; div.group-left &gt; ul &gt; li.list.open &gt; div:nth-child(2) &gt; dl &gt; dt:nth-child(10) &gt; span").click()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 597, in find_element_by_css_selector
+    return self.find_element(by=By.CSS_SELECTOR, value=css_selector)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 966, in find_element
+    'value': value})['value']
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 320, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"#section-selfchoice &gt; div.group-left &gt; ul &gt; li.list.open &gt; div:nth-child(2) &gt; dl &gt; dt:nth-child(10) &gt; span"}
+  (Session info: chrome=69.0.3497.92)
+  (Driver info: chromedriver=2.40.565498 (ea082db3280dd6843ebfb08a625e3eb905c4f5ab),platform=Windows NT 10.0.17134 x86_64)
+
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='errorCase' style="vertical-align: middle"></td>
+    </tr>
+    
+    <tr id='pt20_2' class='hiddenRow'>
+        <td class='passCase' style="vertical-align: middle"><div class='testcase'>test_znzz_2</div></td>
+        <td style="vertical-align: middle">智能注册_个体测试</td>
+        <td colspan='5' align='center'>
+        <!--默认收起错误信息 -Findyou
+        <button id='btn_pt20_2' type="button"  class="btn btn-xs collapsed" data-toggle="collapse" data-target='#div_pt20_2'>通过</button>
+        <div id='div_pt20_2' class="collapse">  -->
+
+        <!-- 默认展开错误信息 -Findyou /  修复失败按钮的颜色 -- Gelomen -->
+        <button id='btn_pt20_2' type="button"  class="btn btn-xs" data-toggle="collapse" data-target='#div_pt20_2'>通过</button>
+        <div id='div_pt20_2' class="collapse in">
+        <pre style="text-align:auto">
+        
+pt20_2: 2018-09-14 22:50:35,526 - root - INFO - ############################### START ###############################
+智能商标注册-权大师
+费用总计:300.00
+商标名称：是
+选择了第2类商标分类!
+总价:321.00
+订单提交成功，应付金额:321.00
+测试通过
+2018-09-14 22:51:17,555 - root - INFO - ###############################  End  ###############################
+
+
+        </pre>
+        </div>
+        </td>
+        <td class='passCase' style="vertical-align: middle"></td>
+    </tr>
+    
+<tr id='total_row' class="text-center active">
+    <td colspan='2'>总计</td>
+    <td>89</td>
+    <td>82</td>
+    <td>0</td>
+    <td>7</td>
+    <td>3074.61秒</td>
+    <td>通过率：92.13%</td>
+</tr>
+</table>
+
+<div id='ending'>&nbsp;</div>
+    <div id="toTop" style=" position:fixed;right:50px; bottom:30px; width:20px; height:20px;cursor:pointer; display: none">
+    <a><span class="glyphicon glyphicon-eject" style = "font-size:30px;" aria-hidden="true">
+    </span></a></div>
+    
+
+</body>
+</html>
