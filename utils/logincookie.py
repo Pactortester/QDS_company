@@ -26,3 +26,4 @@ class DengLuPage:
 
         self.driver.add_cookie(self.cookie)
         self.driver.refresh()
+        time.sleep(1)
