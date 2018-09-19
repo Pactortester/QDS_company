@@ -14,7 +14,7 @@ from utils.screenshort import get_screenshort
 
 
 class ZaHjTest(MyTestCase):
-    """遇到障碍如何化解测试集"""
+    """障碍化解测试集"""
 
     def test_sbbh(self):
         """商标驳回测试"""

@@ -9,7 +9,7 @@ from utils.mytestcase import MyTestCase
 
 
 class WebSiTest(MyTestCase):
-    """相似商标个数测试集"""
+    """网站地图测试集"""
     def test_number1(self):
 
         """网站地图测试"""

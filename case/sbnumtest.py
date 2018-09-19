@@ -75,7 +75,7 @@ class SbNumTest(MyTestCase):
 
         print("选择了第{}类商标分类!".format(suiji))
 
-        zf=self.driver.find_element_by_css_selector("#section-selfchoice > div.group-right > div > div > h4 > div.header-left > a:nth-child(2) > span").text
+        zf = self.driver.find_element_by_css_selector("#section-selfchoice > div.group-right > div > div > h4 > div.header-left > a:nth-child(2) > span").text
         print(zf)
         number1 = re.sub("\D", "", zf)
         print(number1)
@@ -98,7 +98,7 @@ class SbNumTest(MyTestCase):
         # self.driver.find_element_by_css_selector("body > div.page > div.search-help > div.tips.tips4 > a").click()
         # time.sleep(1)
 
-        number2=self.driver.find_element_by_css_selector("#searchList > div.page-content.w-center > div.page-content-left > div.search-top > i").text
+        number2 = self.driver.find_element_by_css_selector("#searchList > div.page-content.w-center > div.page-content-left > div.search-top > i").text
 
         print("权大师为您找到相关结果{}个".format(number2))
 

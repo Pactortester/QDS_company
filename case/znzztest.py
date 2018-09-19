@@ -149,7 +149,7 @@ class ZnZzTest(MyTestCase):
         for i in self.driver.find_elements_by_css_selector("body > div.smartRegister-page > div.orderinfo-wrap > div.last-pay.personal-last-pay > ul > li.row-sense > em > i"):
 
             print("总价:"+i.text)
-            ii=i.text
+            ii = i.text
 
         # self.assertIn(aa,ii)
         # print("测试通过")
@@ -157,7 +157,7 @@ class ZnZzTest(MyTestCase):
         self.driver.find_element_by_css_selector("body > div.smartRegister-page > div.orderinfo-wrap > div.last-pay.personal-last-pay > div > a").click()
         for o in self.driver.find_elements_by_class_name("payable"):
             print("订单提交成功，应付金额:"+o.text)
-            oo=o.text
+            oo = o.text
 
         self.assertIn(oo,ii)
 
@@ -201,7 +201,7 @@ class ZnZzTest(MyTestCase):
 
         self.driver.find_element_by_css_selector(
             "body > div.section-product.width1200 > dl > dd > div.cont-btnBuy > a.btn.btn-next.buynow").click()
-        ss=unicode()
+        ss = unicode()
         self.driver.find_element_by_css_selector(
             "body > div.smartRegister-page.smartRegister3-page > div:nth-child(4) > div > table > tbody > tr.row-name > td.td-content > input").send_keys(
             "{}".format(ss))
@@ -242,7 +242,7 @@ class ZnZzTest(MyTestCase):
         self.driver.find_element_by_css_selector(
             "#section-selfchoice > div.group-left > ul > li.list.open > div:nth-child(2) > dl > dt:nth-child(10) > span").click()
 
-        print("选择了第2类商标分类!")
+        print("选择了第{}类商标分类!".format(suiji))
 
 
         self.driver.find_element_by_css_selector(

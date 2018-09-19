@@ -1,5 +1,7 @@
-
+import re
 import time
+
+
 from utils.random import unicode
 
 
@@ -80,10 +82,13 @@ class MfSbTest(MyTestCase):
         print("商标名称:" + brand1)
         self.driver.find_element_by_css_selector("#noticeList > div > div.page-form > ul:nth-child(1) > li:nth-child(2) > label:nth-child(1) > span").click()
         lx1 = self.driver.find_element_by_css_selector("#noticeList > div > div.page-form > ul:nth-child(1) > li:nth-child(2) > label:nth-child(1) > span").text
-        print("搜索类型:" + lx1)
+        print("搜索类型:" + str(lx1))
         self.driver.find_element_by_css_selector("#noticeList > div > div.page-form > div > a").click()
-        number = self.driver.find_element_by_css_selector("#noticeList > div > div.page-form > div > span").text
-        print(number)
+        time.sleep(2)
+        js = "return document.getElementsByClassName(\"search-num\")[0].innerText;"
+        ss = self.driver.execute_script(js)
+        print(str(ss))
+
         time.sleep(2)
         get_screenshort(self.driver,"test_csgg_1.png")
         self.driver.refresh()
@@ -100,8 +105,10 @@ class MfSbTest(MyTestCase):
             "#noticeList > div > div.page-form > ul:nth-child(1) > li:nth-child(2) > label:nth-child(2)").text
         print("搜索类型:" + lx2)
         self.driver.find_element_by_css_selector("#noticeList > div > div.page-form > div > a").click()
-        number = self.driver.find_element_by_css_selector("#noticeList > div > div.page-form > div > span").text
-        print(number)
+        time.sleep(2)
+        js = "return document.getElementsByClassName(\"search-num\")[0].innerText;"
+        ss = self.driver.execute_script(js)
+        print(str(ss))
         time.sleep(2)
         get_screenshort(self.driver, "test_csgg_2.png")
         self.driver.refresh()
@@ -117,7 +124,9 @@ class MfSbTest(MyTestCase):
             "#noticeList > div > div.page-form > ul:nth-child(1) > li:nth-child(2) > label:nth-child(3) > span").text
         print("搜索类型:" + lx3)
         self.driver.find_element_by_css_selector("#noticeList > div > div.page-form > div > a").click()
-        number = self.driver.find_element_by_css_selector("#noticeList > div > div.page-form > div > span").text
-        print(number)
+        time.sleep(2)
+        js = "return document.getElementsByClassName(\"search-num\")[0].innerText;"
+        ss = self.driver.execute_script(js)
+        print(str(ss))
         time.sleep(2)
         get_screenshort(self.driver, "test_csgg_3.png")
