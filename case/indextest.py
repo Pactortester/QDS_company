@@ -120,6 +120,10 @@ class IndexTest(MyTestCase):
         time.sleep(2)
         ActionChains(self.driver).release()
 
+        self.assertIn("商品分类详情_商标类似商品和服务区分表基于尼斯分类第十版2016", self.driver.title)
+        print(self.driver.title)
+        print(self.driver.current_url)
+
         lb = self.driver.find_element_by_css_selector("#niceDetail > div.page-content.w-center > div > div.nice-right > div.nice-first-info.open > h2").text
 
         print(lb)
@@ -161,7 +165,7 @@ class IndexTest(MyTestCase):
         time.sleep(1)
 
         self.driver.execute_script("window.scrollBy(0,4500)")  # 滑动滚动条
-
+        time.sleep(2)
         self.driver.find_element_by_css_selector("#section-news > div > ul > li.col-know > div > a").click()
         # 获取打开的多个窗口句柄
         windows = self.driver.window_handles
@@ -180,7 +184,7 @@ class IndexTest(MyTestCase):
         time.sleep(1)
 
         self.driver.execute_script("window.scrollBy(0,4500)")  # 滑动滚动条
-
+        time.sleep(2)
         self.driver.find_element_by_css_selector("#section-news > div > ul > li:nth-child(1) > div.row2 > a").click()
         # 获取打开的多个窗口句柄
         windows = self.driver.window_handles
@@ -199,9 +203,22 @@ class IndexTest(MyTestCase):
         time.sleep(1)
 
         self.driver.execute_script("window.scrollBy(0,4500)")  # 滑动滚动条
-
+        time.sleep(2)
         self.driver.find_element_by_css_selector("#section-news > div > ul > li.col-industry.col-information > div.row2 > a").click()
 
         time.sleep(2)
         self.assertIn("更前沿的商标,专利,版权资讯,更快更准确的把握行业信息_权大师", self.driver.title)
         print(self.driver.title)
+
+    def test_data(self):
+        """数据搜索测试"""
+        dl = DengLuPage(self.driver)
+        dl.dengLu()
+        time.sleep(1)
+        tip = self.driver.find_element_by_css_selector("body > div.section-hotservice > ul > li.col-2 > a > h3").text
+        data = self.driver.find_element_by_css_selector("body > div.section-hotservice > ul > li.col-2 > a > div.row2 > strong").text
+        user = self.driver.find_element_by_css_selector("body > div.section-hotservice > ul > li.col-2 > a > div.row3 > strong").text
+
+        print(str(tip))
+        print("数据搜索:" + str(data))
+        print("服务用户:" + str(user))

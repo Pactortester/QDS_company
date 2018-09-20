@@ -1160,7 +1160,18 @@ def unicode():
     return random.choice(trademark)
 
 
-def patent():
+def patent_name():
+
+    a = chr(random.choice(chinses))
+    b = chr(random.choice(chinses))
+    c = chr(random.choice(chinses))
+    d = chr(random.choice(chinses))
+
+    trademark = [a,  a+b,  a+b+c, a+b+c+d]
+    return random.choice(trademark)
+
+
+def patent_number():
 
     # j = 12
     # # id = []

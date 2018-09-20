@@ -124,7 +124,7 @@ class HhrTest(MyTestCase):
         """填写商标信息"""
 
         self.driver.find_element_by_css_selector("#selectBrandType > label.label.checked").click()
-        ss=unicode()
+        ss = unicode()
         self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > div.order-form-page > div > div:nth-child(1) > div.brandInfo-wrap > div > table > tbody > tr.row-name > td.td-content > input").send_keys("{}".format(ss))
         print("商标名称：{}".format(ss))
         self.driver.find_element_by_css_selector("#create-tuyang > label.label.checked").click()
@@ -290,7 +290,7 @@ class HhrTest(MyTestCase):
 
     def test_hhrqyw(self):
 
-        """合伙人商全业务测试"""
+        """合伙人全业务测试"""
         dl = DengLuPage(self.driver)
         dl.dengLu()
         time.sleep(1)

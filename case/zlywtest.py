@@ -5,7 +5,7 @@ from selenium.webdriver import ActionChains
 from utils.mytestcase import MyTestCase
 from utils.logincookie import DengLuPage
 from utils.screenshort import get_screenshort
-from utils.random import unicode, patent
+from utils.random import unicode, patent_number
 
 
 class ZlYwTest(MyTestCase):
@@ -1543,7 +1543,7 @@ class ZlYwTest(MyTestCase):
 
         self.driver.find_element_by_css_selector(
             "body > div.section-product.width1200 > dl > dd > div.cont-btnBuy > a.btn.btn-next.buynow").click()
-        patent_no = patent()
+        patent_no = patent_number()
         self.driver.find_element_by_name("patent_no").send_keys("ZL{}".format(patent_no))
         print("专利号:ZL{}".format(patent_no))
         patent_name = unicode()

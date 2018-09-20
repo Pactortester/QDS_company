@@ -3,6 +3,7 @@ import time
 
 class DengLuPage:
     # url = "https://pre-www.quandashi.com/"
+    # 7a1bfe107b64262afcec4226789783fa597e0347  5788ec58d3deadd6e9242efb47d456b01ededa3c
     url = "https://www.quandashi.com/"
 
 
