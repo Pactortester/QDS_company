@@ -15,7 +15,7 @@ class WebSiTest(MyTestCase):
         """网站地图测试"""
 
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
         self.driver.find_element_by_css_selector("body > div.footer-wrap > div > ul.items-2 > li:nth-child(7) > a").click()
         print("获取本页所有链接:")

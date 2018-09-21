@@ -23,12 +23,12 @@ def get_xls_to_dict(xlsname, sheetname):
 	# for i in range(0,table.nrows):
 	# 	dataresult.append(table.row_values(i))
 	dataresult = [table.row_values(i) for i in range(0, table.nrows)]
-	#将list转化成dict
+	# 将list转化成dict
 	# for i in range(1,len(dataresult)):
 	# 	temp = dict(zip(dataresult[0],dataresult[i]))
 	# 	result.append(temp)
 
-	result = [ dict(zip(dataresult[0], dataresult[i])) for i in range(1, len(dataresult))]
+	result = [dict(zip(dataresult[0], dataresult[i])) for i in range(1, len(dataresult))]
 	return result
 
 
@@ -58,9 +58,7 @@ def get_xls_to_list(excelname, sheetname):
 	return result
 
 
-if __name__=='__main__':
+if __name__ == '__main__':
     res = get_xls_to_list('addressParse.xlsx','Sheet1')
     res = get_xls_to_dict('admin_single_order.xlsx','ordermsg')
     print(res)
-
-

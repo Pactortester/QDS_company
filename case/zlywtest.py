@@ -15,7 +15,7 @@ class ZlYwTest(MyTestCase):
         """专利查新检索（报告）测试"""
 
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
             "body > div.section-banner > div.public-navbar > div > div > h3 > span")).perform()
@@ -75,7 +75,7 @@ class ZlYwTest(MyTestCase):
         """产品外观标准_单个申请人减缓测试"""
 
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
             "body > div.section-banner > div.public-navbar > div > div > h3 > span")).perform()
@@ -141,7 +141,7 @@ class ZlYwTest(MyTestCase):
         """产品外观标准_多个申请人减缓测试"""
 
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
             "body > div.section-banner > div.public-navbar > div > div > h3 > span")).perform()
@@ -205,7 +205,7 @@ class ZlYwTest(MyTestCase):
         """产品外观标准_不减缓测试"""
 
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
             "body > div.section-banner > div.public-navbar > div > div > h3 > span")).perform()
@@ -269,7 +269,7 @@ class ZlYwTest(MyTestCase):
         """产品外观担保_单个申请人减缓测试"""
 
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
             "body > div.section-banner > div.public-navbar > div > div > h3 > span")).perform()
@@ -335,7 +335,7 @@ class ZlYwTest(MyTestCase):
         """产品外观担保_多个申请人减缓测试"""
 
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
             "body > div.section-banner > div.public-navbar > div > div > h3 > span")).perform()
@@ -401,7 +401,7 @@ class ZlYwTest(MyTestCase):
         """产品外观担保_不减缓测试"""
 
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
             "body > div.section-banner > div.public-navbar > div > div > h3 > span")).perform()
@@ -466,7 +466,7 @@ class ZlYwTest(MyTestCase):
         """GUI标准_单个申请人减缓"""
 
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
             "body > div.section-banner > div.public-navbar > div > div > h3 > span")).perform()
@@ -529,7 +529,7 @@ class ZlYwTest(MyTestCase):
         """GUI标准_多个申请人减缓"""
 
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
             "body > div.section-banner > div.public-navbar > div > div > h3 > span")).perform()
@@ -592,7 +592,7 @@ class ZlYwTest(MyTestCase):
         """GUI标准_不减缓"""
 
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
             "body > div.section-banner > div.public-navbar > div > div > h3 > span")).perform()
@@ -655,7 +655,7 @@ class ZlYwTest(MyTestCase):
         """GUI担保_单个申请人减缓"""
 
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
             "body > div.section-banner > div.public-navbar > div > div > h3 > span")).perform()
@@ -719,7 +719,7 @@ class ZlYwTest(MyTestCase):
         """GUI担保_多个申请人减缓"""
 
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
             "body > div.section-banner > div.public-navbar > div > div > h3 > span")).perform()
@@ -781,7 +781,7 @@ class ZlYwTest(MyTestCase):
         """GUI担保_不减缓"""
 
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
             "body > div.section-banner > div.public-navbar > div > div > h3 > span")).perform()
@@ -849,7 +849,7 @@ class ZlYwTest(MyTestCase):
         #                     format='[%(asctime)s-%(filename)s-%(levelname)s: %(message)s]', level=logging.DEBUG,
         #                     filemode='a', datefmt='%Y-%m-%d%I:%M:%S %p')
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
 
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
@@ -913,7 +913,7 @@ class ZlYwTest(MyTestCase):
         #                     format='[%(asctime)s-%(filename)s-%(levelname)s: %(message)s]', level=logging.DEBUG,
         #                     filemode='a', datefmt='%Y-%m-%d%I:%M:%S %p')
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
 
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
@@ -977,7 +977,7 @@ class ZlYwTest(MyTestCase):
         #                     format='[%(asctime)s-%(filename)s-%(levelname)s: %(message)s]', level=logging.DEBUG,
         #                     filemode='a', datefmt='%Y-%m-%d%I:%M:%S %p')
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
 
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
@@ -1041,7 +1041,7 @@ class ZlYwTest(MyTestCase):
         #                     format='[%(asctime)s-%(filename)s-%(levelname)s: %(message)s]', level=logging.DEBUG,
         #                     filemode='a', datefmt='%Y-%m-%d%I:%M:%S %p')
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
 
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
@@ -1105,7 +1105,7 @@ class ZlYwTest(MyTestCase):
         #                     format='[%(asctime)s-%(filename)s-%(levelname)s: %(message)s]', level=logging.DEBUG,
         #                     filemode='a', datefmt='%Y-%m-%d%I:%M:%S %p')
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
 
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
@@ -1168,7 +1168,7 @@ class ZlYwTest(MyTestCase):
         #                     format='[%(asctime)s-%(filename)s-%(levelname)s: %(message)s]', level=logging.DEBUG,
         #                     filemode='a', datefmt='%Y-%m-%d%I:%M:%S %p')
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
 
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
@@ -1229,7 +1229,7 @@ class ZlYwTest(MyTestCase):
     #     """实用新型专利基础版"""
     #
     #     dl = DengLuPage(self.driver)
-    #     dl.dengLu()
+    #     dl.login()
     #     time.sleep(2)
     #     ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
     #         "body > div.section-banner > div.public-navbar > div > div > h3 > span")).perform()
@@ -1287,7 +1287,7 @@ class ZlYwTest(MyTestCase):
     #     """实用新型专利卓越版"""
     #
     #     dl = DengLuPage(self.driver)
-    #     dl.dengLu()
+    #     dl.login()
     #     time.sleep(2)
     #     ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
     #         "body > div.section-banner > div.public-navbar > div > div > h3 > span")).perform()
@@ -1345,7 +1345,7 @@ class ZlYwTest(MyTestCase):
         """专利驳回复审测试"""
 
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
             "body > div.section-banner > div.public-navbar > div > div > h3 > span")).perform()
@@ -1402,7 +1402,7 @@ class ZlYwTest(MyTestCase):
         """ 专利无效宣告测试"""
 
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
             "body > div.section-banner > div.public-navbar > div > div > h3 > span")).perform()
@@ -1460,7 +1460,7 @@ class ZlYwTest(MyTestCase):
         """发明专利无效答辩测试"""
 
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
             "body > div.section-banner > div.public-navbar > div > div > h3 > span")).perform()
@@ -1517,7 +1517,7 @@ class ZlYwTest(MyTestCase):
         """年费缴纳测试"""
 
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
             "body > div.section-banner > div.public-navbar > div > div > h3 > span")).perform()
@@ -1581,7 +1581,7 @@ class ZlYwTest(MyTestCase):
         """专利著录项变更测试"""
 
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
             "body > div.section-banner > div.public-navbar > div > div > h3 > span")).perform()

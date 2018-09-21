@@ -20,7 +20,7 @@ class ZaHjTest(MyTestCase):
         """商标驳回测试"""
 
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
             "body > div.section-banner > div.public-navbar > div > div > h3 > span")).perform()
@@ -77,7 +77,7 @@ class ZaHjTest(MyTestCase):
         """商标异议答辩测试"""
 
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
             "body > div.section-banner > div.public-navbar > div > div > h3 > span")).perform()
@@ -134,7 +134,7 @@ class ZaHjTest(MyTestCase):
         """ 商标撤三答辩测试"""
 
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
             "body > div.section-banner > div.public-navbar > div > div > h3 > span")).perform()

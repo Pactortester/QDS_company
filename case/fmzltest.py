@@ -22,7 +22,7 @@ class FmZlTest(MyTestCase):
         #                     format='[%(asctime)s-%(filename)s-%(levelname)s: %(message)s]', level=logging.DEBUG,
         #                     filemode='a', datefmt='%Y-%m-%d%I:%M:%S %p')
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
 
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
@@ -86,7 +86,7 @@ class FmZlTest(MyTestCase):
         #                     format='[%(asctime)s-%(filename)s-%(levelname)s: %(message)s]', level=logging.DEBUG,
         #                     filemode='a', datefmt='%Y-%m-%d%I:%M:%S %p')
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
 
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
@@ -149,7 +149,7 @@ class FmZlTest(MyTestCase):
         #                     format='[%(asctime)s-%(filename)s-%(levelname)s: %(message)s]', level=logging.DEBUG,
         #                     filemode='a', datefmt='%Y-%m-%d%I:%M:%S %p')
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
 
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
@@ -211,7 +211,7 @@ class FmZlTest(MyTestCase):
         #                     format='[%(asctime)s-%(filename)s-%(levelname)s: %(message)s]', level=logging.DEBUG,
         #                     filemode='a', datefmt='%Y-%m-%d%I:%M:%S %p')
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
 
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
@@ -274,7 +274,7 @@ class FmZlTest(MyTestCase):
         #                     format='[%(asctime)s-%(filename)s-%(levelname)s: %(message)s]', level=logging.DEBUG,
         #                     filemode='a', datefmt='%Y-%m-%d%I:%M:%S %p')
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
 
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
@@ -337,7 +337,7 @@ class FmZlTest(MyTestCase):
         #                     format='[%(asctime)s-%(filename)s-%(levelname)s: %(message)s]', level=logging.DEBUG,
         #                     filemode='a', datefmt='%Y-%m-%d%I:%M:%S %p')
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
 
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(

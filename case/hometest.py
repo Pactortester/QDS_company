@@ -23,7 +23,7 @@ class HomeTest(MyTestCase):
         #                     filemode='a', datefmt='%Y-%m-%d%I:%M:%S %p')
         dl = DengLuPage(self.driver)
 
-        dl.dengLu()
+        dl.login()
         time.sleep(1)
 
         self.driver.find_element_by_css_selector("#page-header > div.item-right > ul > li:nth-child(1) > a").click()
@@ -114,7 +114,7 @@ class HomeTest(MyTestCase):
         #                     filemode='a', datefmt='%Y-%m-%d%I:%M:%S %p')
         dl = DengLuPage(self.driver)
 
-        dl.dengLu()
+        dl.login()
         time.sleep(1)
 
         self.driver.find_element_by_css_selector("#page-header > div.item-right > ul > li:nth-child(1) > a").click()
@@ -157,7 +157,7 @@ class HomeTest(MyTestCase):
         #                     filemode='a', datefmt='%Y-%m-%d%I:%M:%S %p')
         dl = DengLuPage(self.driver)
 
-        dl.dengLu()
+        dl.login()
         time.sleep(1)
 
         self.driver.find_element_by_css_selector("#page-header > div.item-right > ul > li:nth-child(1) > a").click()
@@ -207,7 +207,7 @@ class HomeTest(MyTestCase):
         #                     filemode='a', datefmt='%Y-%m-%d%I:%M:%S %p')
         dl = DengLuPage(self.driver)
 
-        dl.dengLu()
+        dl.login()
         time.sleep(1)
 
         self.driver.find_element_by_css_selector("#page-header > div.item-right > ul > li:nth-child(1) > a").click()

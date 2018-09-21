@@ -9,18 +9,18 @@ from utils.screenshort import get_screenshort
 
 
 class ClueTest(MyTestCase):
-    """线索源测试集"""
+    """线索来源测试集"""
 
     def test_clue1(self):
 
         """开放平台线索测试"""
         dl = DengLuPage(self.driver)
 
-        dl.dengLu()
+        dl.login()
         time.sleep(1)
         """新版首页"""
 
-        self.driver.execute_script("window.scrollBy(0,1500)")  # 滑动滚动条
+        self.driver.execute_script("window.scrollBy(0,1000)")  # 滑动滚动条
 
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector("#section-tools > div > ul > li:nth-child(2)")).perform()
 
@@ -49,7 +49,7 @@ class ClueTest(MyTestCase):
         """专利二级页线索测试"""
         dl = DengLuPage(self.driver)
 
-        dl.dengLu()
+        dl.login()
         time.sleep(1)
         """新版首页"""
 

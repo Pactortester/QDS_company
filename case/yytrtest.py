@@ -14,7 +14,7 @@ from utils.screenshort import get_screenshort
 
 
 class YyTrTest(MyTestCase):
-    """异议他人商标测试集"""
+    """异议商标测试集"""
 
     def test_sbcs(self):
         """商标撤三测试"""

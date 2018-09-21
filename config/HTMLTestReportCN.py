@@ -1344,7 +1344,7 @@ class TestProgram(unittest.TestProgram):
 main = TestProgram
 
 ##############################################################################
-# Executing this module from the command line
+# Executing this module from the command line                                #
 ##############################################################################
 
 if __name__ == "__main__":

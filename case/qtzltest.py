@@ -16,7 +16,7 @@ class QtZlTest(MyTestCase):
         """实用新型专利驳回复审"""
 
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
             "body > div.section-banner > div.public-navbar > div > div > h3 > span")).perform()
@@ -74,7 +74,7 @@ class QtZlTest(MyTestCase):
         """产品外观设计专利驳回复审"""
 
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
             "body > div.section-banner > div.public-navbar > div > div > h3 > span")).perform()
@@ -132,7 +132,7 @@ class QtZlTest(MyTestCase):
         """实用新型专利无效宣告"""
 
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
             "body > div.section-banner > div.public-navbar > div > div > h3 > span")).perform()
@@ -191,7 +191,7 @@ class QtZlTest(MyTestCase):
         """产品外观设计专利无效宣告"""
 
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
             "body > div.section-banner > div.public-navbar > div > div > h3 > span")).perform()
@@ -250,7 +250,7 @@ class QtZlTest(MyTestCase):
         """实用新型专利无效答辩"""
 
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
             "body > div.section-banner > div.public-navbar > div > div > h3 > span")).perform()
@@ -307,7 +307,7 @@ class QtZlTest(MyTestCase):
         """产品外观设计专利无效答辩"""
 
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
             "body > div.section-banner > div.public-navbar > div > div > h3 > span")).perform()
@@ -364,7 +364,7 @@ class QtZlTest(MyTestCase):
         """实用新型专利年费缴纳"""
 
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
             "body > div.section-banner > div.public-navbar > div > div > h3 > span")).perform()
@@ -429,7 +429,7 @@ class QtZlTest(MyTestCase):
         """产品外观设计专利年费缴纳"""
 
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
             "body > div.section-banner > div.public-navbar > div > div > h3 > span")).perform()
@@ -500,7 +500,7 @@ class QtZlTest(MyTestCase):
         """邮编地址变更测试"""
 
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
             "body > div.section-banner > div.public-navbar > div > div > h3 > span")).perform()
@@ -560,7 +560,7 @@ class QtZlTest(MyTestCase):
         """申请人变更测试"""
 
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
             "body > div.section-banner > div.public-navbar > div > div > h3 > span")).perform()
@@ -620,7 +620,7 @@ class QtZlTest(MyTestCase):
         """代理机构变更测试"""
 
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
             "body > div.section-banner > div.public-navbar > div > div > h3 > span")).perform()

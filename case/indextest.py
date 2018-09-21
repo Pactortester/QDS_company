@@ -16,7 +16,7 @@ class IndexTest(MyTestCase):
         """商标二级页测试"""
 
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
         self.driver.find_element_by_css_selector("#section-hotservice > div > dl:nth-child(2) > dt > a.more").click()
         # 获取打开的多个窗口句柄
@@ -32,7 +32,7 @@ class IndexTest(MyTestCase):
         """版权二级页测试"""
 
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
         self.driver.find_element_by_css_selector("#section-hotservice > div > dl:nth-child(4) > dt > a.more").click()
         # 获取打开的多个窗口句柄
@@ -48,7 +48,7 @@ class IndexTest(MyTestCase):
         """专利二级页测试"""
 
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
         self.driver.find_element_by_css_selector("#section-hotservice > div > dl.body2 > dt > a.more").click()
         # 获取打开的多个窗口句柄
@@ -64,10 +64,10 @@ class IndexTest(MyTestCase):
         """商品分类搜索测试"""
         dl = DengLuPage(self.driver)
 
-        dl.dengLu()
+        dl.login()
         time.sleep(1)
 
-        self.driver.execute_script("window.scrollBy(0,1500)")  # 滑动滚动条
+        self.driver.execute_script("window.scrollBy(0,1200)")  # 滑动滚动条
 
         ActionChains(self.driver).move_to_element(
             self.driver.find_element_by_css_selector("#section-tools > div > ul > li:nth-child(3)")).perform()
@@ -90,10 +90,10 @@ class IndexTest(MyTestCase):
         """商品分类点击测试"""
         dl = DengLuPage(self.driver)
 
-        dl.dengLu()
+        dl.login()
         time.sleep(1)
 
-        self.driver.execute_script("window.scrollBy(0,1500)")  # 滑动滚动条
+        self.driver.execute_script("window.scrollBy(0,1200)")  # 滑动滚动条
 
         ActionChains(self.driver).move_to_element(
             self.driver.find_element_by_css_selector("#section-tools > div > ul > li:nth-child(3)")).perform()
@@ -141,7 +141,7 @@ class IndexTest(MyTestCase):
         """智能注册系统测试"""
         dl = DengLuPage(self.driver)
 
-        dl.dengLu()
+        dl.login()
         time.sleep(1)
 
         self.driver.execute_script("window.scrollBy(0,1500)")  # 滑动滚动条
@@ -161,10 +161,10 @@ class IndexTest(MyTestCase):
         """权知道测试"""
         dl = DengLuPage(self.driver)
 
-        dl.dengLu()
+        dl.login()
         time.sleep(1)
 
-        self.driver.execute_script("window.scrollBy(0,4500)")  # 滑动滚动条
+        self.driver.execute_script("window.scrollBy(0,3500)")  # 滑动滚动条
         time.sleep(2)
         self.driver.find_element_by_css_selector("#section-news > div > ul > li.col-know > div > a").click()
         # 获取打开的多个窗口句柄
@@ -180,10 +180,10 @@ class IndexTest(MyTestCase):
         """行业透视测试"""
         dl = DengLuPage(self.driver)
 
-        dl.dengLu()
+        dl.login()
         time.sleep(1)
 
-        self.driver.execute_script("window.scrollBy(0,4500)")  # 滑动滚动条
+        self.driver.execute_script("window.scrollBy(0,3500)")  # 滑动滚动条
         time.sleep(2)
         self.driver.find_element_by_css_selector("#section-news > div > ul > li:nth-child(1) > div.row2 > a").click()
         # 获取打开的多个窗口句柄
@@ -199,13 +199,16 @@ class IndexTest(MyTestCase):
         """权资讯测试"""
         dl = DengLuPage(self.driver)
 
-        dl.dengLu()
+        dl.login()
         time.sleep(1)
 
-        self.driver.execute_script("window.scrollBy(0,4500)")  # 滑动滚动条
+        self.driver.execute_script("window.scrollBy(0,3500)")  # 滑动滚动条
         time.sleep(2)
         self.driver.find_element_by_css_selector("#section-news > div > ul > li.col-industry.col-information > div.row2 > a").click()
-
+        # 获取打开的多个窗口句柄
+        windows = self.driver.window_handles
+        # 切换到当前最新打开的窗口
+        self.driver.switch_to.window(windows[-1])
         time.sleep(2)
         self.assertIn("更前沿的商标,专利,版权资讯,更快更准确的把握行业信息_权大师", self.driver.title)
         print(self.driver.title)
@@ -213,7 +216,7 @@ class IndexTest(MyTestCase):
     def test_data(self):
         """数据搜索测试"""
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(1)
         tip = self.driver.find_element_by_css_selector("body > div.section-hotservice > ul > li.col-2 > a > h3").text
         data = self.driver.find_element_by_css_selector("body > div.section-hotservice > ul > li.col-2 > a > div.row2 > strong").text

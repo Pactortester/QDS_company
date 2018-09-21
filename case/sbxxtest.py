@@ -22,7 +22,7 @@ class SbXxTest(MyTestCase):
         """商标转让测试"""
 
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
             "body > div.section-banner > div.public-navbar > div > div > h3 > span")).perform()
@@ -80,7 +80,7 @@ class SbXxTest(MyTestCase):
         """商标续展让测试"""
 
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
             "body > div.section-banner > div.public-navbar > div > div > h3 > span")).perform()
@@ -138,7 +138,7 @@ class SbXxTest(MyTestCase):
         """商标宽展测试"""
 
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
             "body > div.section-banner > div.public-navbar > div > div > h3 > span")).perform()
@@ -196,7 +196,7 @@ class SbXxTest(MyTestCase):
         """商标许可备案测试"""
 
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
             "body > div.section-banner > div.public-navbar > div > div > h3 > span")).perform()
@@ -254,7 +254,7 @@ class SbXxTest(MyTestCase):
         """商标变更测试"""
 
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
             "body > div.section-banner > div.public-navbar > div > div > h3 > span")).perform()

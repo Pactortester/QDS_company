@@ -20,7 +20,7 @@ class HwScTest(MyTestCase):
         """马德里商标注册测试"""
 
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
             "body > div.section-banner > div.public-navbar > div > div > h3 > span")).perform()
@@ -78,7 +78,7 @@ class HwScTest(MyTestCase):
         """美国商标注册测试"""
 
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
             "body > div.section-banner > div.public-navbar > div > div > h3 > span")).perform()
@@ -135,7 +135,7 @@ class HwScTest(MyTestCase):
         """欧盟商标注册测试"""
 
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
             "body > div.section-banner > div.public-navbar > div > div > h3 > span")).perform()
@@ -193,7 +193,7 @@ class HwScTest(MyTestCase):
         """日本商标注册测试"""
 
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
             "body > div.section-banner > div.public-navbar > div > div > h3 > span")).perform()
@@ -251,7 +251,7 @@ class HwScTest(MyTestCase):
         """印度商标注册测试"""
 
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
             "body > div.section-banner > div.public-navbar > div > div > h3 > span")).perform()
@@ -309,7 +309,7 @@ class HwScTest(MyTestCase):
         """香港商标注册测试"""
 
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
             "body > div.section-banner > div.public-navbar > div > div > h3 > span")).perform()

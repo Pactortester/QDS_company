@@ -11,7 +11,7 @@ class SubjectTest(MyTestCase):
         """合伙人计划测试"""
 
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
         self.driver.find_element_by_css_selector("body > div.section-hotservice > ul > li:nth-child(1) > a > img").click()
         # 获取打开的多个窗口句柄
@@ -36,7 +36,7 @@ class SubjectTest(MyTestCase):
         """悬浮导航测试"""
 
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
         self.driver.find_element_by_css_selector(
             "body > div.public-fixrightbar > ul > li.list.list-ad").click()

@@ -14,7 +14,7 @@ from utils.screenshort import get_screenshort
 
 
 class RjZzTest(MyTestCase):
-    """软件著作权测试集"""
+    """软件著作测试集"""
 
     def test_rjzz(self):
         """软件著作权登记加急"""
@@ -23,7 +23,7 @@ class RjZzTest(MyTestCase):
         #                     format='[%(asctime)s-%(filename)s-%(levelname)s: %(message)s]', level=logging.DEBUG,
         #                     filemode='a', datefmt='%Y-%m-%d%I:%M:%S %p')
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
 
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
@@ -85,7 +85,7 @@ class RjZzTest(MyTestCase):
         #                     format='[%(asctime)s-%(filename)s-%(levelname)s: %(message)s]', level=logging.DEBUG,
         #                     filemode='a', datefmt='%Y-%m-%d%I:%M:%S %p')
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
             "body > div.section-banner > div.public-navbar > div > div > h3 > span")).perform()

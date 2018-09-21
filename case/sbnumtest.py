@@ -10,18 +10,18 @@ from utils.random import unicode
 
 class SbNumTest(MyTestCase):
 
-    """相似商标个数测试集"""
+    """智能推荐测试集"""
 
     def test_number1(self):
 
         """智能注册_自助商标跳转测试"""
 
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
         self.driver.find_element_by_css_selector("body > div.section-banner > div.public-navbar > div > ul > li:nth-child(1) > a").click()
         time.sleep(1)
-        self.assertIn("保姆快速注册-权大师", self.driver.title)
+        self.assertIn("商标申请|商标注册查询|商标注册流程及费用-权大师", self.driver.title)
         print("智能商标注册-权大师")
         self.driver.find_element_by_css_selector(
             "body > div.section-product.width1200 > dl > dd > div.cont-serviceItems > table > tbody > tr > td.td-cont > ul > li:nth-child(3)").click()
@@ -110,12 +110,12 @@ class SbNumTest(MyTestCase):
         """智能注册_推荐商标跳转测试"""
 
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
         self.driver.find_element_by_css_selector(
             "body > div.section-banner > div.public-navbar > div > ul > li:nth-child(1) > a").click()
         time.sleep(1)
-        self.assertIn("保姆快速注册-权大师", self.driver.title)
+        self.assertIn("商标申请|商标注册查询|商标注册流程及费用-权大师", self.driver.title)
         print("智能商标注册-权大师")
         self.driver.find_element_by_css_selector(
             "body > div.section-product.width1200 > dl > dd > div.cont-serviceItems > table > tbody > tr > td.td-cont > ul > li:nth-child(3)").click()

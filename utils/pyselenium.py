@@ -14,6 +14,7 @@ success = "SUCCESS   "
 fail = "FAIL   "
 logger = Log()
 
+
 class PySelenium(object):
     """
         pyselenium framework for the main class, the original

@@ -27,7 +27,7 @@ class BmKsTest(MyTestCase):
         # 官方推荐有find_element(By.*(""))代替find_element_by_*("")
         # self.driver.find_element_by_id()
         # self.driver.find_element()
-        dl.dengLu()
+        dl.login()
         time.sleep(1)
         # self.driver.find_element_by_css_selector("#com-navbar > div > ul > li:nth-child(1) > a").click()
         """新版首页"""
@@ -51,7 +51,7 @@ class BmKsTest(MyTestCase):
         time.sleep(3)
 
 
-        self.assertIn("保姆快速注册-权大师",self.driver.title)
+        self.assertIn("商标申请|商标注册查询|商标注册流程及费用-权大师",self.driver.title)
         print(self.driver.title)
 
         # 保姆快速注册

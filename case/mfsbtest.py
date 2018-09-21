@@ -15,7 +15,7 @@ class MfSbTest(MyTestCase):
     def test_sbss(self):
         """商标搜索测试"""
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
         self.driver.find_element_by_css_selector("#serch-word").click()
         # 获取打开的多个窗口句柄
@@ -38,7 +38,7 @@ class MfSbTest(MyTestCase):
         """初审公告测试"""
 
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
         self.driver.find_element_by_css_selector("body > div.section-hotservice > ul > li:nth-child(3) > a > img").click()
         # 获取打开的多个窗口句柄
@@ -57,7 +57,7 @@ class MfSbTest(MyTestCase):
         print("搜索类型:" + str(lx1))
         time.sleep(2)
         self.driver.find_element_by_css_selector("#noticeList > div > div.page-form > div > a").click()
-        time.sleep(2)
+        time.sleep(5)
         js = "return document.getElementsByClassName(\"search-num\")[0].innerText;"
         ss = self.driver.execute_script(js)
         print(str(ss))
@@ -79,7 +79,7 @@ class MfSbTest(MyTestCase):
         print("搜索类型:" + lx2)
         time.sleep(2)
         self.driver.find_element_by_css_selector("#noticeList > div > div.page-form > div > a").click()
-        time.sleep(2)
+        time.sleep(5)
         js = "return document.getElementsByClassName(\"search-num\")[0].innerText;"
         ss = self.driver.execute_script(js)
         print(str(ss))
@@ -99,7 +99,7 @@ class MfSbTest(MyTestCase):
         print("搜索类型:" + lx3)
         time.sleep(2)
         self.driver.find_element_by_css_selector("#noticeList > div > div.page-form > div > a").click()
-        time.sleep(2)
+        time.sleep(5)
         js = "return document.getElementsByClassName(\"search-num\")[0].innerText;"
         ss = self.driver.execute_script(js)
         print(str(ss))
@@ -109,7 +109,7 @@ class MfSbTest(MyTestCase):
     def test_zlss(self):
         """专利搜索测试"""
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
         self.driver.find_element_by_css_selector("#qds-search-common > li:nth-child(2)").click()
         zl = patent_name()
@@ -134,7 +134,7 @@ class MfSbTest(MyTestCase):
     def test_qyss(self):
         """企业搜索测试"""
         dl = DengLuPage(self.driver)
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
         self.driver.find_element_by_css_selector("#qds-search-common > li:nth-child(3)").click()
         company = unicode()

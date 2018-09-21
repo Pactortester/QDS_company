@@ -22,7 +22,7 @@ class CxZcTest(MyTestCase):
         # 官方推荐有find_element(By.*(""))代替find_element_by_*("")
         # self.driver.find_element_by_id()
         # self.driver.find_element()
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
             "body > div.section-banner > div.public-navbar > div > div > h3 > span")).perform()
@@ -51,7 +51,7 @@ class CxZcTest(MyTestCase):
         # 官方推荐有find_element(By.*(""))代替find_element_by_*("")
         # self.driver.find_element_by_id()
         # self.driver.find_element()
-        dl.dengLu()
+        dl.login()
         time.sleep(2)
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
             "body > div.section-banner > div.public-navbar > div > div > h3 > span")).perform()
