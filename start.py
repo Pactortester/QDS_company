@@ -1,5 +1,6 @@
 import random
 import re
+import time
 
 from selenium import webdriver
 
@@ -294,21 +295,49 @@ from selenium import webdriver
 # totalCount = re.sub("\D","",totalCount)
 #
 # print(totalCount)
-from config.globalparam import report_path, img_path
-from utils.random import unicode, patent
+# from config.globalparam import report_path, img_path
+# from utils.random import unicode, patent_number
+# from selenium import webdriver
+#
+# print("包针雨我爱你！")
+# s = unicode()
+# a = len(s)
+# print(a)
+# print(s)
+#
+# print(report_path)
+# print(img_path)
+#
+# print(patent_number())
+#
+#
+# driver = webdriver.PhantomJS()
+# driver.get('https://blog.csdn.net/xm_csdn/article/details/72636381')
 from selenium import webdriver
 
-print("包针雨我爱你！")
-s = unicode()
-a = len(s)
-print(a)
-print(s)
-
-print(report_path)
-print(img_path)
-
-print(patent())
+from selenium.webdriver.chrome.options import Options
+import unittest
+from utils.screenshort import get_screenshort
 
 
-driver = webdriver.PhantomJS()
-driver.get('https://blog.csdn.net/xm_csdn/article/details/72636381')
+class test(unittest.TestCase):
+
+    def test_bd(self):
+        chrome_options = Options()
+        chrome_options.add_argument('--headless')
+        driver = webdriver.Chrome(chrome_options=chrome_options)
+        driver.get("http://www.baidu.com")
+        driver.set_window_size(1920, 1080)
+        time.sleep(2)
+        print(driver.get_window_position())
+        print(driver.get_window_size())
+        print(driver.get_window_rect())
+
+        get_screenshort(driver, "test.png")
+
+        time.sleep(10)
+        driver.close()
+
+
+if __name__ == "__main__":
+    unittest.main()

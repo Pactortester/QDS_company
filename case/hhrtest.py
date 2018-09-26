@@ -203,7 +203,10 @@ class HhrTest(MyTestCase):
 
         get_screenshort(self.driver,"test_hhrsbzc.png")
 
-        self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.paying-wrap.paying-sk-wrap > div.paying-sk-button > a.button.send").click()
+        pay_url = self.driver.find_element_by_class_name("pay_url").get_attribute("value")
+        print("订单链接:" + pay_url)
+
+        self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.paying-wrap.paying-sk-wrap > div.paying-sk-ewm > div.link > ul > li:nth-child(2) > a").click()
 
         print("订单已发送客户付款!")
 

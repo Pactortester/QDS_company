@@ -120,7 +120,7 @@ class MfSbTest(MyTestCase):
         windows = self.driver.window_handles
         # 切换到当前最新打开的窗口
         self.driver.switch_to.window(windows[-1])
-        time.sleep(2)
+        time.sleep(10)
         self.assertIn("注册专利查询_中国专利查询系统_让知识产生财富_权大师",self.driver.title)
         print(self.driver.title)
         num = self.driver.find_element_by_css_selector("body > div.patentSearchList-wrap.searchList-wrap > div.sort-condition.songti > div > div.s-left > dl > dt").text

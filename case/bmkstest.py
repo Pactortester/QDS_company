@@ -28,7 +28,7 @@ class BmKsTest(MyTestCase):
         # self.driver.find_element_by_id()
         # self.driver.find_element()
         dl.login()
-        time.sleep(1)
+        time.sleep(2)
         # self.driver.find_element_by_css_selector("#com-navbar > div > ul > li:nth-child(1) > a").click()
         """新版首页"""
         # self.driver.find_element_by_css_selector("body > div.section-banner > div.public-navbar > div > ul > li:nth-child(1) > a").click()
@@ -44,12 +44,11 @@ class BmKsTest(MyTestCase):
         self.driver.find_element_by_css_selector(
             "body > div.section-banner > div.public-navbar > div > div > div > ul:nth-child(1) > li:nth-child(1) > div"
             " > dl:nth-child(3) > dd > a:nth-child(1)").click()
+        time.sleep(3)
         # 获取打开的多个窗口句柄
         windows = self.driver.window_handles
         # 切换到当前最新打开的窗口
         self.driver.switch_to.window(windows[-1])
-        time.sleep(3)
-
 
         self.assertIn("商标申请|商标注册查询|商标注册流程及费用-权大师",self.driver.title)
         print(self.driver.title)

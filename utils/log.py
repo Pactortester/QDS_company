@@ -1,12 +1,13 @@
-#coding=utf-8
+# coding=utf-8
 
 import logging
 import time
 import os
-#readconfig.pyfrom config import globalparam
 from config import globalparam
 
 log_path = globalparam.log_path
+
+
 class Log:
     def __init__(self):
         self.logname = os.path.join(log_path, '{0}.log'.format(time.strftime('%Y-%m-%d')))

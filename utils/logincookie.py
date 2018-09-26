@@ -6,7 +6,7 @@ class DengLuPage:
     url = "https://www.quandashi.com/"
 
     cookie = ({'name': 'QDS_COOKIE',
-             'value': '5788ec58d3deadd6e9242efb47d456b01ededa3c',
+             'value': '1519311da381740acb14415226dc47108b1a2155',
             'Domain': '.quandashi.com'})
 
     def __init__(self, driver):
