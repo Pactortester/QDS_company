@@ -5,7 +5,7 @@ from utils.logincookie import DengLuPage
 
 
 class SubjectTest(MyTestCase):
-    """合伙人专题测试集"""
+    """合伙专题测试集"""
 
     def test_hhrzt(self):
         """合伙人计划测试"""

@@ -12,7 +12,7 @@ from utils.screenshort import get_screenshort
 
 class HhrTest(MyTestCase):
 
-    """合伙人中心测试集"""
+    """合伙中心测试集"""
 
     def test_sbddxg(self):
         """商标订单"""
