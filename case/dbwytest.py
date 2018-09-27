@@ -40,7 +40,7 @@ class DbWyTest(MyTestCase):
         # 切换到当前最新打开的窗口
         self.driver.switch_to.window(windows[-1])
         time.sleep(3)
-        self.assertIn("担保无忧注册-权大师", self.driver.title)
+        self.assertIn("商标担保注册|商标注册费用|商标申请流程-权大师", self.driver.title)
         print(self.driver.title)
         # abwy注册
         self.driver.find_element_by_css_selector(

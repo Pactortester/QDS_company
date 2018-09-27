@@ -6,7 +6,7 @@ import hashlib
 # 待加密信息
 
 
-str = input('请输入待加密信息：')
+str = input('请输入待加密信息 ：')
 
 # 创建md5对象
 hl = hashlib.md5()

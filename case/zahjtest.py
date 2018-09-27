@@ -36,7 +36,7 @@ class ZaHjTest(MyTestCase):
         windows = self.driver.window_handles
         # 切换到当前最新打开的窗口
         self.driver.switch_to.window(windows[-1])
-        self.assertIn("商标驳回复审-权大师",self.driver.title)
+        self.assertIn("商标驳回复审办理流程|商标注册被驳回需要哪些材料-权大师",self.driver.title)
         print(self.driver.title)
 
         for a in self.driver.find_elements_by_css_selector("#total-price"):
@@ -93,7 +93,7 @@ class ZaHjTest(MyTestCase):
         windows = self.driver.window_handles
         # 切换到当前最新打开的窗口
         self.driver.switch_to.window(windows[-1])
-        self.assertIn("商标异议答辩-权大师",self.driver.title)
+        self.assertIn("商标答辩|商标异议答辩流程|商标异议答辩要多少钱-权大师",self.driver.title)
         print(self.driver.title)
 
         for a in self.driver.find_elements_by_css_selector("#total-price"):
@@ -150,7 +150,7 @@ class ZaHjTest(MyTestCase):
         windows = self.driver.window_handles
         # 切换到当前最新打开的窗口
         self.driver.switch_to.window(windows[-1])
-        self.assertIn("商标撤三答辩-权大师",self.driver.title)
+        self.assertIn("商标撤三答辩|商标撤三答辩费用|撤三答辩成功率-权大师",self.driver.title)
         print(self.driver.title)
 
         for a in self.driver.find_elements_by_css_selector("#total-price"):

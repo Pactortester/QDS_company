@@ -40,7 +40,7 @@ class HwGsTest(MyTestCase):
         # 切换到当前最新打开的窗口
         self.driver.switch_to.window(windows[-1])
         time.sleep(3)
-        self.assertIn("海外公司智能注册-权大师", self.driver.title)
+        self.assertIn("海外商标注册|国际商标注册|商标注册流程|商标注册代理-权大师", self.driver.title)
         print(self.driver.title)
         self.driver.find_element_by_css_selector(
             "body > div.section-product.width1200 > dl > dd > div.cont-serviceItems > table > tbody > tr > td.td-cont > ul > li:nth-child(4)").click()
@@ -175,7 +175,7 @@ class HwGsTest(MyTestCase):
         # 切换到当前最新打开的窗口
         self.driver.switch_to.window(windows[-1])
         time.sleep(3)
-        self.assertIn("海外公司智能注册-权大师", self.driver.title)
+        self.assertIn("海外商标注册|国际商标注册|商标注册流程|商标注册代理-权大师", self.driver.title)
         print(self.driver.title)
         self.driver.find_element_by_css_selector(
             "body > div.section-product.width1200 > dl > dd > div.cont-serviceItems > table > tbody > tr > td.td-cont > ul > li:nth-child(4)").click()

@@ -1,7 +1,8 @@
-#coding=utf-8
+# coding=utf-8
 
 import configparser
 import codecs
+
 
 class ReadConfig:
     """
@@ -33,4 +34,3 @@ class ReadConfig:
         :return:E:/Python-Project/UItestframework
         """
         return self.cf.get(env,name)
-

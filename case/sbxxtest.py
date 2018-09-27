@@ -39,7 +39,7 @@ class SbXxTest(MyTestCase):
         windows = self.driver.window_handles
         # 切换到当前最新打开的窗口
         self.driver.switch_to.window(windows[-1])
-        self.assertIn("商标转让-权大师",self.driver.title)
+        self.assertIn("商标转让|商标转让流程|转让一个商标多少钱-权大师",self.driver.title)
         print(self.driver.title)
 
         for a in self.driver.find_elements_by_css_selector("#total-price"):
@@ -97,7 +97,7 @@ class SbXxTest(MyTestCase):
         windows = self.driver.window_handles
         # 切换到当前最新打开的窗口
         self.driver.switch_to.window(windows[-1])
-        self.assertIn("商标续展-权大师",self.driver.title)
+        self.assertIn("商标续费|商标续展|商标续展多少钱-权大师",self.driver.title)
         print(self.driver.title)
 
         for a in self.driver.find_elements_by_css_selector("#total-price"):
@@ -155,7 +155,7 @@ class SbXxTest(MyTestCase):
         windows = self.driver.window_handles
         # 切换到当前最新打开的窗口
         self.driver.switch_to.window(windows[-1])
-        self.assertIn("商标宽展-权大师",self.driver.title)
+        self.assertIn("商标宽展|商标宽展流程|商标宽展多少钱-权大师",self.driver.title)
         print(self.driver.title)
 
         for a in self.driver.find_elements_by_css_selector("#total-price"):
@@ -213,7 +213,7 @@ class SbXxTest(MyTestCase):
         windows = self.driver.window_handles
         # 切换到当前最新打开的窗口
         self.driver.switch_to.window(windows[-1])
-        self.assertIn("商标许可备案-权大师",self.driver.title)
+        self.assertIn("商标许可备案|商标许可备案流程|商标许可备案多少钱-权大师",self.driver.title)
         print(self.driver.title)
 
         for a in self.driver.find_elements_by_css_selector("#total-price"):
@@ -270,7 +270,7 @@ class SbXxTest(MyTestCase):
         windows = self.driver.window_handles
         # 切换到当前最新打开的窗口
         self.driver.switch_to.window(windows[-1])
-        self.assertIn("商标变更-权大师",self.driver.title)
+        self.assertIn("商标变更|商标变更流程|商标变更多少钱-权大师",self.driver.title)
         print(self.driver.title)
 
         for a in self.driver.find_elements_by_css_selector("#total-price"):

@@ -36,7 +36,7 @@ class YyTrTest(MyTestCase):
         windows = self.driver.window_handles
         # 切换到当前最新打开的窗口
         self.driver.switch_to.window(windows[-1])
-        self.assertIn("商标撤三申请-权大师",self.driver.title)
+        self.assertIn("商标撤三申请|商标撤三复审|商标撤三申请流程及费用-权大师",self.driver.title)
         print(self.driver.title)
 
         for a in self.driver.find_elements_by_css_selector("#total-price"):
@@ -93,7 +93,7 @@ class YyTrTest(MyTestCase):
         windows = self.driver.window_handles
         # 切换到当前最新打开的窗口
         self.driver.switch_to.window(windows[-1])
-        self.assertIn("商标异议申请_商标异议申请流程_商标异议收费标准_权大师", self.driver.title)
+        self.assertIn("商标异议申请|商标异议申请流程|商标异议收费标准-权大师", self.driver.title)
         # 商标异议申请_商标异议申请流程_商标异议收费标准_权大师
         print(self.driver.title)
 
@@ -151,7 +151,7 @@ class YyTrTest(MyTestCase):
         windows = self.driver.window_handles
         # 切换到当前最新打开的窗口
         self.driver.switch_to.window(windows[-1])
-        self.assertIn("商标无效宣告申请_流程_商标无效宣告费用_权大师", self.driver.title)
+        self.assertIn("商标无效宣告申请|商标无效宣告的流程及费用/多少钱-权大师", self.driver.title)
         # 商标无效宣告申请_流程_商标无效宣告费用_权大师
         print(self.driver.title)
 

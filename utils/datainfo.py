@@ -59,6 +59,7 @@ def get_xls_to_list(excelname, sheetname):
 
 
 if __name__ == '__main__':
-    res = get_xls_to_list('addressParse.xlsx','Sheet1')
-    res = get_xls_to_dict('admin_single_order.xlsx','ordermsg')
+
+    res = get_xls_to_list('addressParse.xlsx', 'Sheet1')
+    res = get_xls_to_dict('admin_single_order.xlsx', 'ordermsg')
     print(res)
