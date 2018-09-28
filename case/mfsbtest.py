@@ -56,6 +56,9 @@ class MfSbTest(MyTestCase):
         lx1 = self.driver.find_element_by_css_selector("#noticeList > div > div.page-form > ul:nth-child(1) > li:nth-child(2) > label:nth-child(1) > span").text
         print("搜索类型:" + str(lx1))
         time.sleep(2)
+        self.driver.set_window_size(1920,1080)
+        time.sleep(2)
+        get_screenshort(self.driver,"test.png")
         self.driver.find_element_by_css_selector("#noticeList > div > div.page-form > div > a").click()
         time.sleep(5)
         js = "return document.getElementsByClassName(\"search-num\")[0].innerText;"

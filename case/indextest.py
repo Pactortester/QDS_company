@@ -165,6 +165,7 @@ class IndexTest(MyTestCase):
         time.sleep(1)
 
         self.driver.execute_script("window.scrollBy(0,3500)")  # 滑动滚动条
+        get_screenshort(self.driver,"test.png")
         time.sleep(2)
         self.driver.find_element_by_css_selector("#section-news > div > ul > li.col-know > div > a").click()
         # 获取打开的多个窗口句柄
@@ -184,6 +185,7 @@ class IndexTest(MyTestCase):
         time.sleep(1)
 
         self.driver.execute_script("window.scrollBy(0,3500)")  # 滑动滚动条
+        get_screenshort(self.driver, "test.png")
         time.sleep(2)
         self.driver.find_element_by_css_selector("#section-news > div > ul > li:nth-child(1) > div.row2 > a").click()
         # 获取打开的多个窗口句柄

@@ -38,7 +38,7 @@ class CxZcTest(MyTestCase):
         windows = self.driver.window_handles
         # 切换到当前最新打开的窗口
         self.driver.switch_to.window(windows[-1])
-        self.assertIn("国内商标查询|国内商标查询报告|中国商标查询网-权大师",self.driver.title)
+        self.assertIn("注册商标查询_中国商标查询_权大师官网",self.driver.title)
         print(self.driver.title)
 
 
