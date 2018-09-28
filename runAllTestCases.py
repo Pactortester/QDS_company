@@ -93,7 +93,8 @@ class SendMail:
             self.sendTo = recver
 
 
-    def __get_report(self):
+    @staticmethod
+    def __get_report():
         """获取最新测试报告"""
         dirs = os.listdir(reportPath)
         dirs.sort()
@@ -137,9 +138,6 @@ class SendMail:
 
 if __name__ == "__main__":
     suite = unittest.defaultTestLoader.discover(case_path, "*test.py")
-    # suite = unittest.defaultTestLoader.discover("G:\\QDS_company\\case\\", "*test.py")
-    # unittest.TextTestRunner().run(suite)
-    # path = os.path.dirname(__file__)
     now = time.strftime("%Y-%m-%d_%H-%M-%S")
     path = report_path + "\\" + now + "_report.html"
     with open(path, 'wb') as file:

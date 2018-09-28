@@ -1,6 +1,5 @@
 import unittest
 import time
-
 from config.globalparam import driver_path
 from utils.log import Log
 from selenium import webdriver
@@ -10,7 +9,7 @@ from utils.pyselenium import logger
 
 class MyTestCase(unittest.TestCase):
     """
-    The base class is for all testcase.
+    The base class is for all test case. This is a father .
     """
     success = "SUCCESS   "
     fail = "FAIL   "
@@ -22,7 +21,6 @@ class MyTestCase(unittest.TestCase):
         chrome_options = Options()
         chrome_options.add_argument('--headless')
         self.driver = webdriver.Chrome(options=chrome_options,executable_path=driver_path + "\\" + "chromedriver.exe")
-        # self.driver = webdriver.Chrome(options=chrome_options,executable_path="C:\\Users\\Administrator\\AppData\Local\\Google\Chrome\\Application\\chromedriver.exe")
         self.driver.maximize_window()
         self.driver.set_window_size(1920,1080)
         self.driver.implicitly_wait(30)

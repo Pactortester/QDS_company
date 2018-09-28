@@ -313,6 +313,11 @@ from selenium import webdriver
 #
 # driver = webdriver.PhantomJS()
 # driver.get('https://blog.csdn.net/xm_csdn/article/details/72636381')
+
+# suite = unittest.defaultTestLoader.discover("G:\\QDS_company\\case\\", "*test.py")
+# unittest.TextTestRunner().run(suite)
+# path = os.path.dirname(__file__)
+
 from selenium import webdriver
 
 from selenium.webdriver.chrome.options import Options
