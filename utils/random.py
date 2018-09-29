@@ -1179,3 +1179,10 @@ def patent_number():
     number = 10
     patent_no = (''.join(str(random.choice(range(number))) for _ in range(number)))+(''.join(str(random.choice(range(2))) for _ in range(2)))
     return patent_no
+
+
+def request_number():
+
+    number = 8
+    request_no = (''.join(str(random.choice(range(number))) for _ in range(number)))+(''.join(str(random.choice(range(2))) for _ in range(2)))
+    return request_no
