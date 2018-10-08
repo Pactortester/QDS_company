@@ -96,7 +96,7 @@ class TradeTest(MyTestCase):
         windows = self.driver.window_handles
         # 切换到当前最新打开的窗口
         self.driver.switch_to.window(windows[-1])
-        time.sleep(2)
+        time.sleep(5)
         name_1 = self.driver.find_element_by_css_selector("#app > div > div.brandDetailMsgBox > div.brandMsgBox > div.brandMsg > dl > dt").text
         print(name_1)
         self.assertIn(str(name_1),str(name))
@@ -108,7 +108,7 @@ class TradeTest(MyTestCase):
         # self.assertIn(price_1,price)
         info_1 = self.driver.find_element_by_css_selector("#app > div > div.shoppingCarBox > div.totalMoney > div > p").text
         print(str(info_1))
-        self.driver.find_element_by_css_selector("#app > div > div.shoppingCarBox > div.userMsg > div > dl:nth-child(1) > dd > input[type=\"text\"]").send_keys(unicode())
+        self.driver.find_element_by_css_selector("#app > div > div.shoppingCarBox > div.userMsg > div > dl:nth-child(1) > dd > input[type=\"text\"]").send_keys(patent_name())
         self.driver.find_element_by_css_selector("#app > div > div.shoppingCarBox > div.userMsg > div > dl:nth-child(2) > dd > input[type=\"text\"]").send_keys("15624992498")
         self.driver.find_element_by_css_selector("#app > div > div.shoppingCarBox > div.userMsg > div > dl:nth-child(3) > dd > input[type=\"text\"]").clear()
         self.driver.find_element_by_css_selector("#app > div > div.shoppingCarBox > div.userMsg > div > dl:nth-child(3) > dd > input[type=\"text\"]").send_keys("1456470138@qq.com")
@@ -203,7 +203,8 @@ class TradeTest(MyTestCase):
         dl.refresh()
         time.sleep(2)
         self.driver.find_element_by_css_selector("#app > div > div.header-wrap.clearfix > div.header-right.clearfix > p.favoriteEnter.favoAct").click()
-
+        brand = self.driver.find_element_by_css_selector("#app > div > div > div.collectionFolderSwiper > ul > li > div.itemInner > div > b").text
+        print("商标名称:" + brand)
         self.driver.find_element_by_css_selector("#app > div > div > div.collectionFolderSwiper > ul > li > div.itemInner > div > p > a:nth-child(2)").click()
         alert = self.driver.switch_to.alert
         print("弹框信息:" + alert.text)
@@ -233,12 +234,13 @@ class TradeTest(MyTestCase):
 
         self.driver.find_element_by_css_selector(
             "#app > div > div.header-wrap.clearfix > div.header-right.clearfix > p.shoppingCartEnter").click()
+        time.sleep(3)
 
         # 商标
         name_1 = self.driver.find_element_by_css_selector("#app > div > div.shoppingCarBox > table > tr:nth-child(2) > td:nth-child(3)").text
         print(name_1)
 
-        self.assertIn(name_1, name)
+        self.assertIn(str(name_1), str(name))
 
         print("商标收藏成功,测试通过!")
 
@@ -252,6 +254,8 @@ class TradeTest(MyTestCase):
         time.sleep(2)
         self.driver.find_element_by_css_selector("#app > div > div.header-wrap.clearfix > div.header-right.clearfix > p.shoppingCartEnter").click()
 
+        brand = self.driver.find_element_by_css_selector("#app > div > div.shoppingCarBox > table > tr:nth-child(2) > td:nth-child(3)").text
+        print("商标名称:" + brand)
         self.driver.find_element_by_css_selector("#app > div > div.shoppingCarBox > table > tr:nth-child(2) > td:nth-child(8) > a").click()
         alert = self.driver.switch_to.alert
         print("弹框信息:" + alert.text)
