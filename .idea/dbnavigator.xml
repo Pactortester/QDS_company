@@ -23,7 +23,11 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
-    <loaded-nodes />
+    <loaded-nodes>
+      <connection connection-id="01711c9f-3e20-4daf-be40-31eb7ea1227d">
+        <schema name="db_brand" object-types="column, constraint, function, index, procedure, table, dataset trigger, view" />
+      </connection>
+    </loaded-nodes>
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="01711c9f-3e20-4daf-be40-31eb7ea1227d">
@@ -153,6 +157,7 @@ SELECT * FROM j_order_optimize ORDER BY fupdate_time DESC;]]></console>
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
     <filter-list connection-id="01711c9f-3e20-4daf-be40-31eb7ea1227d" dataset="db_brand.j_send_optimize" active-filter-id="" />
+    <filter-list connection-id="01711c9f-3e20-4daf-be40-31eb7ea1227d" dataset="db_brand.j_clue_source" active-filter-id="" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />
