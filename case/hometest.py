@@ -243,5 +243,3 @@ class HomeTest(MyTestCase):
         get_screenshort(self.driver,"test_gwyj.png")
         print("官文邮寄成功！")
         print("测试通过！")
-
-

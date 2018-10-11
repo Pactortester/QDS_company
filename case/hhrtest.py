@@ -119,7 +119,7 @@ class HhrTest(MyTestCase):
         time.sleep(1)
         # 新版提示
         self.driver.find_element_by_xpath("//*[@id=\"personalCenter2-rightContainer\"]/div[1]/div/a").click()
-        self.driver.find_element_by_css_selector("#personalCenter2-leftNav > ul > li:nth-child(2) > ul > li:nth-child(1) > a").click()
+        self.driver.find_element_by_link_text("商标注册").click()
 
         """填写商标信息"""
 
@@ -221,7 +221,7 @@ class HhrTest(MyTestCase):
         time.sleep(1)
         # 新版提示
         self.driver.find_element_by_xpath("//*[@id=\"personalCenter2-rightContainer\"]/div[1]/div/a").click()
-        self.driver.find_element_by_css_selector("#personalCenter2-leftNav > ul > li:nth-child(2) > ul > li:nth-child(2) > a").click()
+        self.driver.find_element_by_link_text("渠道下单").click()
 
         """填写渠道账号"""
         self.driver.find_element_by_xpath("//*[@id=\"personalCenter2-rightContainer\"]/div/div[1]/div[2]/div[1]/dl/dt/input").clear()
@@ -234,7 +234,7 @@ class HhrTest(MyTestCase):
         """填写商标信息"""
 
         self.driver.find_element_by_xpath("//*[@id=\"selectBrandType\"]/label[1]").click()
-        ss=unicode()
+        ss = unicode()
         self.driver.find_element_by_name("brandName").send_keys("{}".format(ss))
         self.driver.find_element_by_xpath("//*[@id=\"create-tuyang\"]/label[2]").click()
         self.driver.find_element_by_xpath("//*[@id=\"personalCenter2-rightContainer\"]/div/div[1]/div[3]/div[1]/div[1]/table/tbody/tr[4]/td[2]/div[3]/ul/li/div[2]/a").click()
@@ -302,8 +302,7 @@ class HhrTest(MyTestCase):
         time.sleep(1)
         # 新版提示
         self.driver.find_element_by_xpath("//*[@id=\"personalCenter2-rightContainer\"]/div[1]/div/a").click()
-        self.driver.find_element_by_css_selector(
-            "#personalCenter2-leftNav > ul > li.menu.open > ul > li:nth-child(7) > a").click()
+        self.driver.find_element_by_link_text("其他业务").click()
         self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > form > ul > li:nth-child(1) > input[type=\"text\"]").send_keys(unicode())
         self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > form > ul > li:nth-child(2) > input[type=\"text\"]").send_keys("15624992498")
         self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > form > ul > li:nth-child(3) > input[type=\"text\"]").send_keys("145647@qq.com")
@@ -353,7 +352,7 @@ class HhrTest(MyTestCase):
 
         print("订单已发送客户付款!")
 
-    def test_calc(self):
+    def test_calc_1(self):
 
         """全业务计算器测试"""
         dl = DengLuPage(self.driver)
@@ -364,7 +363,8 @@ class HhrTest(MyTestCase):
         time.sleep(1)
         # 新版提示
         self.driver.find_element_by_xpath("//*[@id=\"personalCenter2-rightContainer\"]/div[1]/div/a").click()
-        self.driver.find_element_by_css_selector("body > div.public-fixrightbar > a").click()
+        # self.driver.find_element_by_css_selector("body > div.public-fixrightbar > ul > li.list.fixright-calc.income_calc").click()
+        self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.home-page.userInfo > div.article1.home-page-top.clearfix > div.article-bottom-link > ul > li.income_calc > a > img").click()
         time.sleep(2)
         self.driver.find_element_by_css_selector("#calculateModal > div > div.step.income-calc-box > div.modal-body > form > ul > li:nth-child(1) > div > input").click()
         lx = random.randint(1, 3)
@@ -402,7 +402,63 @@ class HhrTest(MyTestCase):
         lastincome = self.driver.find_element_by_css_selector("#calculateModal > div > div.step.income-detail-box > div.income-detail-bottom > span > strong").text
         print("最后收益:" + str(lastincome))
 
-        get_screenshort(self.driver,"test_calc.png")
+        get_screenshort(self.driver,"test_calc_1.png")
+
+        self.assertIn(str(income),str(lastincome))
+
+        print("收益一致,测试通过!")
+
+    def test_calc_2(self):
+
+        """右侧计算器测试"""
+        dl = DengLuPage(self.driver)
+        dl.login()
+        time.sleep(1)
+
+        self.driver.find_element_by_css_selector("#page-header > div.item-right > ul > li:nth-child(2) > a").click()
+        time.sleep(1)
+        # 新版提示
+        self.driver.find_element_by_xpath("//*[@id=\"personalCenter2-rightContainer\"]/div[1]/div/a").click()
+        self.driver.find_element_by_css_selector("body > div.public-fixrightbar > ul > li.list.fixright-calc.income_calc").click()
+
+        time.sleep(2)
+        self.driver.find_element_by_css_selector("#calculateModal > div > div.step.income-calc-box > div.modal-body > form > ul > li:nth-child(1) > div > input").click()
+        lx = random.randint(1, 3)
+        yw = self.driver.find_element_by_css_selector("#calculateModal > div > div.step.income-calc-box > div.modal-body > form > ul > li:nth-child(1) > div > dl > dd:nth-child({})".format(lx)).text
+        print("业务类型:" + str(yw))
+        self.driver.find_element_by_css_selector("#calculateModal > div > div.step.income-calc-box > div.modal-body > form > ul > li:nth-child(1) > div > dl > dd:nth-child({})".format(lx)).click()
+        time.sleep(2)
+        self.driver.find_element_by_css_selector("#calculateModal > div > div.step.income-calc-box > div.modal-body > form > ul > li:nth-child(2) > div > input").click()
+        xm = self.driver.find_element_by_css_selector("#calculateModal > div > div.step.income-calc-box > div.modal-body > form > ul > li:nth-child(2) > div > dl > dd:nth-child(2)").text
+
+        self.driver.find_element_by_css_selector("#calculateModal > div > div.step.income-calc-box > div.modal-body > form > ul > li:nth-child(2) > div > dl > dd:nth-child(2)").click()
+        print("服务项目:" + str(xm))
+
+        self.driver.find_element_by_css_selector("#calculateModal > div > div.step.income-calc-box > div.modal-button > a.button.calculate").click()
+        time.sleep(2)
+        income = self.driver.find_element_by_css_selector("#calculateModal > div > div.step.income-calc-box > div.modal-body > form > ul > li:nth-child(6) > strong").text
+
+        print("您的收益:" + str(income))
+
+        self.driver.find_element_by_css_selector("#calculateModal > div > div.step.income-calc-box > div.modal-button > a.button.button-white.income_detail_btn").click()
+        time.sleep(2)
+
+
+        num = self.driver.find_element_by_css_selector(
+            "#calculateModal > div > div.step.income-detail-box > div.modal-body > table > tbody > tr:nth-child(4) > td.td-content.incomeNum").text
+        print("案件数量:" + str(num))
+        price = self.driver.find_element_by_css_selector(
+            "#calculateModal > div > div.step.income-detail-box > div.modal-body > table > tbody > tr:nth-child(3) > td.td-content.serviceCharge").text
+        print("案件服务费:" + str(price))
+        official = self.driver.find_element_by_css_selector(
+            "#calculateModal > div > div.step.income-detail-box > div.modal-body > table > tbody > tr:nth-child(5) > td.td-content.officialCharge").text
+        print("案件官费:" + str(official))
+
+
+        lastincome = self.driver.find_element_by_css_selector("#calculateModal > div > div.step.income-detail-box > div.income-detail-bottom > span > strong").text
+        print("最后收益:" + str(lastincome))
+
+        get_screenshort(self.driver,"test_calc_2.png")
 
         self.assertIn(str(income),str(lastincome))
 

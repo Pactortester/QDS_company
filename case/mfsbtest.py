@@ -1,9 +1,7 @@
+import random
 import re
 import time
-
-
 from utils.random import patent_name, unicode
-
 from utils.mytestcase import MyTestCase
 from utils.logincookie import DengLuPage
 from utils.screenshort import get_screenshort
@@ -33,6 +31,51 @@ class MfSbTest(MyTestCase):
         print(self.driver.title)
         get_screenshort(self.driver, "test_sbss.png")
         print("商标搜索测试通过")
+
+    def test_sbrs_1(self):
+        """商标热搜测试"""
+        dl = DengLuPage(self.driver)
+        dl.login()
+        time.sleep(2)
+        rs1 = self.driver.find_element_by_css_selector("body > div.section-banner > div.public-search > div > dl > dt > span.hot-search-item").text
+        print("热搜商标_1:" + str(rs1).replace("\n", " "))
+        self.driver.find_element_by_css_selector("body > div.section-banner > div.public-search > div > dl > dd").click()
+        time.sleep(2)
+        rs2 = self.driver.find_element_by_css_selector("body > div.section-banner > div.public-search > div > dl > dt > span.hot-search-item").text
+        print("热搜商标_2:" + str(rs2).replace("\n", " "))
+        self.driver.find_element_by_css_selector("body > div.section-banner > div.public-search > div > dl > dd").click()
+        time.sleep(2)
+        rs3 = self.driver.find_element_by_css_selector("body > div.section-banner > div.public-search > div > dl > dt > span.hot-search-item").text
+        print("热搜商标_3:" + str(rs3).replace("\n", " "))
+        get_screenshort(self.driver,"test_sbrs.png")
+        print("热搜正常,测试通过!")
+
+    def test_sbrs_2(self):
+        """热搜跳转测试"""
+        dl = DengLuPage(self.driver)
+        dl.login()
+        time.sleep(2)
+        rs = self.driver.find_element_by_css_selector("body > div.section-banner > div.public-search > div > dl > dt > span.hot-search-item").text
+        print("热搜商标:" + str(rs).replace("\n", " "))
+        hot = random.randint(1,6)
+        name = self.driver.find_element_by_css_selector("body > div.section-banner > div.public-search > div > dl > dt > span.hot-search-item > span:nth-child({})".format(hot)).text
+        print("商标名称:" + name)
+        self.driver.find_element_by_css_selector("body > div.section-banner > div.public-search > div > dl > dt > span.hot-search-item > span:nth-child({})".format(hot)).click()
+
+        windows = self.driver.window_handles
+        self.driver.switch_to.window(windows[-1])
+
+        print(self.driver.title)
+        dl.refresh()
+        number = self.driver.find_element_by_css_selector("#searchList > div.page-content.w-center > div.page-content-left > div.search-top").text
+        print(str(number))
+        brand = self.driver.find_element_by_css_selector("#searchList > div.page-content.w-center > div.page-content-left > ul > li:nth-child(1) > div.result-href > div.brand-info > a > h2").text
+        print("商标名称:" + brand)
+        info = self.driver.find_element_by_css_selector("#searchList > div.page-content.w-center > div.page-content-left > ul > li:nth-child(1) > div.result-href > div.brand-info > div > ul").text
+        print(str(info))
+
+        get_screenshort(self.driver,"test_sbrs_2.png")
+        print("热搜跳转正常,测试通过!")
 
     def test_csgg(self):
         """初审公告测试"""
