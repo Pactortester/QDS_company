@@ -66,6 +66,7 @@ class ClueTest(MyTestCase):
         self.driver.switch_to.window(windows[-1])
 
         time.sleep(2)
+        self.driver.set_window_size(1920, 1080)
 
         self.driver.find_element_by_css_selector("#anchor03 > div > a").click()
         print("专利咨询_弹框")

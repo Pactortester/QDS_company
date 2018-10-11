@@ -1,6 +1,3 @@
-#
-
-
 # coding=utf-8
 
 import time
@@ -39,12 +36,14 @@ class SbXxTest(MyTestCase):
         windows = self.driver.window_handles
         # 切换到当前最新打开的窗口
         self.driver.switch_to.window(windows[-1])
+        time.sleep(2)
+        self.driver.set_window_size(1920, 1080)
         self.assertIn("商标转让|商标转让流程|转让一个商标多少钱-权大师",self.driver.title)
         print(self.driver.title)
 
         for a in self.driver.find_elements_by_css_selector("#total-price"):
             print("费用总计:"+a.text)
-            aa=a.text
+            aa = a.text
 
         self.driver.find_element_by_css_selector(
             "body > div.section-product.width1200 > dl > dd > div.cont-btnBuy > a.btn.btn-next.buynow").click()
@@ -97,12 +96,14 @@ class SbXxTest(MyTestCase):
         windows = self.driver.window_handles
         # 切换到当前最新打开的窗口
         self.driver.switch_to.window(windows[-1])
+        time.sleep(2)
+        self.driver.set_window_size(1920, 1080)
         self.assertIn("商标续费|商标续展|商标续展多少钱-权大师",self.driver.title)
         print(self.driver.title)
 
         for a in self.driver.find_elements_by_css_selector("#total-price"):
             print("费用总计:"+a.text)
-            aa=a.text
+            aa = a.text
 
         self.driver.find_element_by_css_selector(
             "body > div.section-product.width1200 > dl > dd > div.cont-btnBuy > a.btn.btn-next.buynow").click()
@@ -155,12 +156,14 @@ class SbXxTest(MyTestCase):
         windows = self.driver.window_handles
         # 切换到当前最新打开的窗口
         self.driver.switch_to.window(windows[-1])
+        time.sleep(2)
+        self.driver.set_window_size(1920, 1080)
         self.assertIn("商标宽展|商标宽展流程|商标宽展多少钱-权大师",self.driver.title)
         print(self.driver.title)
 
         for a in self.driver.find_elements_by_css_selector("#total-price"):
             print("费用总计:"+a.text)
-            aa=a.text
+            aa = a.text
 
         self.driver.find_element_by_css_selector(
             "body > div.section-product.width1200 > dl > dd > div.cont-btnBuy > a.btn.btn-next.buynow").click()
@@ -213,12 +216,14 @@ class SbXxTest(MyTestCase):
         windows = self.driver.window_handles
         # 切换到当前最新打开的窗口
         self.driver.switch_to.window(windows[-1])
+        time.sleep(2)
+        self.driver.set_window_size(1920, 1080)
         self.assertIn("商标许可备案|商标许可备案流程|商标许可备案多少钱-权大师",self.driver.title)
         print(self.driver.title)
 
         for a in self.driver.find_elements_by_css_selector("#total-price"):
             print("费用总计:"+a.text)
-            aa=a.text
+            aa = a.text
 
         self.driver.find_element_by_css_selector(
             "body > div.section-product.width1200 > dl > dd > div.cont-btnBuy > a.btn.btn-next.buynow").click()
@@ -270,12 +275,14 @@ class SbXxTest(MyTestCase):
         windows = self.driver.window_handles
         # 切换到当前最新打开的窗口
         self.driver.switch_to.window(windows[-1])
+        time.sleep(2)
+        self.driver.set_window_size(1920, 1080)
         self.assertIn("商标变更|商标变更流程|商标变更多少钱-权大师",self.driver.title)
         print(self.driver.title)
 
         for a in self.driver.find_elements_by_css_selector("#total-price"):
             print("费用总计:"+a.text)
-            aa=a.text
+            aa = a.text
 
         self.driver.find_element_by_css_selector(
             "body > div.section-product.width1200 > dl > dd > div.cont-btnBuy > a.btn.btn-next.buynow").click()

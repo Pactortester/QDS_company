@@ -39,7 +39,8 @@ class ZnZzTest(MyTestCase):
         windows = self.driver.window_handles
         # 切换到当前最新打开的窗口
         self.driver.switch_to.window(windows[-1])
-        time.sleep(3)
+        time.sleep(2)
+        self.driver.set_window_size(1920, 1080)
         self.assertIn("商标智能注册|商标注册查询|商标注册网-权大师", self.driver.title)
         print(self.driver.title)
         self.driver.find_element_by_css_selector(
@@ -189,7 +190,8 @@ class ZnZzTest(MyTestCase):
         windows = self.driver.window_handles
         # 切换到当前最新打开的窗口
         self.driver.switch_to.window(windows[-1])
-        time.sleep(3)
+        time.sleep(2)
+        self.driver.set_window_size(1920, 1080)
         self.assertIn("商标智能注册|商标注册查询|商标注册网-权大师", self.driver.title)
         print(self.driver.title)
         self.driver.find_element_by_css_selector(

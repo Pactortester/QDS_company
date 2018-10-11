@@ -37,7 +37,9 @@ class HwScTest(MyTestCase):
         windows = self.driver.window_handles
         # 切换到当前最新打开的窗口
         self.driver.switch_to.window(windows[-1])
-        self.assertIn("马德里商标注册", self.driver.title)
+        time.sleep(2)
+        self.driver.set_window_size(1920, 1080)
+        self.assertIn(self.driver.title,"马德里商标注册")
         print(self.driver.title)
 
         for a in self.driver.find_elements_by_css_selector("#total-price"):
@@ -94,7 +96,9 @@ class HwScTest(MyTestCase):
         windows = self.driver.window_handles
         # 切换到当前最新打开的窗口
         self.driver.switch_to.window(windows[-1])
-        self.assertIn("美国商标注册",self.driver.title)
+        time.sleep(2)
+        self.driver.set_window_size(1920, 1080)
+        self.assertIn(self.driver.title,"美国商标注册-权大师")
         print(self.driver.title)
 
         for a in self.driver.find_elements_by_css_selector("#total-price"):
@@ -152,12 +156,14 @@ class HwScTest(MyTestCase):
         windows = self.driver.window_handles
         # 切换到当前最新打开的窗口
         self.driver.switch_to.window(windows[-1])
-        self.assertIn("欧盟商标注册",self.driver.title)
+        time.sleep(2)
+        self.driver.set_window_size(1920, 1080)
+        self.assertIn(self.driver.title,"欧盟商标注册-权大师")
         print(self.driver.title)
 
         for a in self.driver.find_elements_by_css_selector("#total-price"):
             print("费用总计:"+a.text)
-            aa=a.text
+            aa = a.text
 
         self.driver.find_element_by_css_selector(
             "body > div.section-product.width1200 > dl > dd > div.cont-btnBuy > a.btn.btn-next.buynow").click()
@@ -210,12 +216,14 @@ class HwScTest(MyTestCase):
         windows = self.driver.window_handles
         # 切换到当前最新打开的窗口
         self.driver.switch_to.window(windows[-1])
-        self.assertIn("日本商标注册",self.driver.title)
+        time.sleep(2)
+        self.driver.set_window_size(1920, 1080)
+        self.assertIn(self.driver.title,"日本商标注册-权大师")
         print(self.driver.title)
 
         for a in self.driver.find_elements_by_css_selector("#total-price"):
             print("费用总计:"+a.text)
-            aa=a.text
+            aa = a.text
 
         self.driver.find_element_by_css_selector(
             "body > div.section-product.width1200 > dl > dd > div.cont-btnBuy > a.btn.btn-next.buynow").click()
@@ -268,12 +276,14 @@ class HwScTest(MyTestCase):
         windows = self.driver.window_handles
         # 切换到当前最新打开的窗口
         self.driver.switch_to.window(windows[-1])
-        self.assertIn("印度商标注册",self.driver.title)
+        time.sleep(2)
+        self.driver.set_window_size(1920, 1080)
+        self.assertIn(self.driver.title,"印度商标注册-权大师")
         print(self.driver.title)
 
         for a in self.driver.find_elements_by_css_selector("#total-price"):
             print("费用总计:"+a.text)
-            aa=a.text
+            aa = a.text
 
         self.driver.find_element_by_css_selector(
             "body > div.section-product.width1200 > dl > dd > div.cont-btnBuy > a.btn.btn-next.buynow").click()
@@ -325,7 +335,9 @@ class HwScTest(MyTestCase):
         windows = self.driver.window_handles
         # 切换到当前最新打开的窗口
         self.driver.switch_to.window(windows[-1])
-        self.assertIn("香港商标注册",self.driver.title)
+        time.sleep(2)
+        self.driver.set_window_size(1920, 1080)
+        self.assertIn(self.driver.title,"香港商标注册-权大师")
         print(self.driver.title)
 
         for a in self.driver.find_elements_by_css_selector("#total-price"):

@@ -67,12 +67,14 @@ class CxZcTest(MyTestCase):
         windows = self.driver.window_handles
         # 切换到当前最新打开的窗口
         self.driver.switch_to.window(windows[-1])
+        time.sleep(2)
+        self.driver.set_window_size(1920, 1080)
         self.assertIn("国内商标查询|国内商标查询报告|中国商标查询网-权大师",self.driver.title)
         print(self.driver.title)
 
         for a in self.driver.find_elements_by_css_selector("#total-price"):
             print("费用总计:"+a.text)
-            aa=a.text
+            aa = a.text
 
         self.driver.find_element_by_css_selector(
             "body > div.section-product.width1200 > dl > dd > div.cont-btnBuy > a.btn.btn-next.buynow").click()

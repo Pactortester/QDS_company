@@ -20,6 +20,8 @@ class MfSbTest(MyTestCase):
         windows = self.driver.window_handles
         # 切换到当前最新打开的窗口
         self.driver.switch_to.window(windows[-1])
+        time.sleep(2)
+        self.driver.set_window_size(1920, 1080)
         self.assertIn("注册商标查询_中国商标查询_权大师官网", self.driver.title)
         print(self.driver.title)
         dl.refresh()
@@ -64,7 +66,8 @@ class MfSbTest(MyTestCase):
 
         windows = self.driver.window_handles
         self.driver.switch_to.window(windows[-1])
-
+        time.sleep(2)
+        self.driver.set_window_size(1920, 1080)
         print(self.driver.title)
         dl.refresh()
         number = self.driver.find_element_by_css_selector("#searchList > div.page-content.w-center > div.page-content-left > div.search-top").text
@@ -89,6 +92,7 @@ class MfSbTest(MyTestCase):
         # 切换到当前最新打开的窗口
         self.driver.switch_to.window(windows[-1])
         time.sleep(2)
+        self.driver.set_window_size(1920, 1080)
         self.assertIn("初审公告搜索", self.driver.title)
         print(self.driver.title)
         dl.refresh()
@@ -98,8 +102,6 @@ class MfSbTest(MyTestCase):
         self.driver.find_element_by_css_selector("#noticeList > div > div.page-form > ul:nth-child(1) > li:nth-child(2) > label:nth-child(1) > span").click()
         lx1 = self.driver.find_element_by_css_selector("#noticeList > div > div.page-form > ul:nth-child(1) > li:nth-child(2) > label:nth-child(1) > span").text
         print("搜索类型:" + str(lx1))
-        time.sleep(2)
-        self.driver.set_window_size(1920,1080)
         time.sleep(2)
         get_screenshort(self.driver,"test.png")
         self.driver.find_element_by_css_selector("#noticeList > div > div.page-form > div > a").click()
@@ -166,7 +168,9 @@ class MfSbTest(MyTestCase):
         windows = self.driver.window_handles
         # 切换到当前最新打开的窗口
         self.driver.switch_to.window(windows[-1])
-        time.sleep(10)
+        time.sleep(2)
+        self.driver.set_window_size(1920, 1080)
+        time.sleep(2)
         self.assertIn("注册专利查询_中国专利查询系统_让知识产生财富_权大师",self.driver.title)
         print(self.driver.title)
         num = self.driver.find_element_by_css_selector("body > div.patentSearchList-wrap.searchList-wrap > div.sort-condition.songti > div > div.s-left > dl > dt").text

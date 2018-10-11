@@ -20,12 +20,15 @@ class MonitorTest(MyTestCase):
         self.driver.find_element_by_link_text("智能工具").click()
         time.sleep(2)
         self.driver.find_element_by_link_text("商标监控").click()
+        get_screenshort(self.driver,"test.png")
 
         windows = self.driver.window_handles
         self.driver.switch_to.window(windows[-1])
-
+        time.sleep(2)
+        self.driver.set_window_size(1920, 1080)
         self.assertIn("商标监控首页_权大师",self.driver.title)
         print(self.driver.title)
+        get_screenshort(self.driver, "test.png")
 
         self.driver.find_element_by_css_selector("body > div.brandMonitor-wrap > div > div.wrap > ul > li:nth-child(1) > a > i").click()
         brand = unicode()
@@ -49,6 +52,7 @@ class MonitorTest(MyTestCase):
         time.sleep(1)
 
         info = self.driver.find_element_by_css_selector("body > div.brandMonitor-wrap > div > div > div.myPanel-bodyer.brandMonitor-all > div > table > tbody > tr:nth-child(1)").text
+        get_screenshort(self.driver,"test_monitor_1.png")
         print("监控信息" + str(info))
         print("信息无误,测试通过!")
 
@@ -63,7 +67,8 @@ class MonitorTest(MyTestCase):
 
         windows = self.driver.window_handles
         self.driver.switch_to.window(windows[-1])
-
+        time.sleep(2)
+        self.driver.set_window_size(1920, 1080)
         self.assertIn("商标监控首页_权大师",self.driver.title)
         print(self.driver.title)
 
@@ -99,6 +104,7 @@ class MonitorTest(MyTestCase):
         time.sleep(1)
 
         info = self.driver.find_element_by_css_selector("body > div.brandMonitor-wrap > div > div > div.myPanel-bodyer.brandMonitor-all > div > table > tbody > tr:nth-child(1)").text
+        get_screenshort(self.driver, "test_monitor_2.png")
         print("监控信息" + str(info))
         print("信息无误,测试通过!")
 
@@ -113,7 +119,8 @@ class MonitorTest(MyTestCase):
 
         windows = self.driver.window_handles
         self.driver.switch_to.window(windows[-1])
-
+        time.sleep(2)
+        self.driver.set_window_size(1920, 1080)
         self.assertIn("商标监控首页_权大师",self.driver.title)
         print(self.driver.title)
 
@@ -143,6 +150,7 @@ class MonitorTest(MyTestCase):
         time.sleep(1)
 
         info = self.driver.find_element_by_css_selector("body > div.brandMonitor-wrap > div > div > div.myPanel-bodyer.brandMonitor-all > div > table > tbody > tr:nth-child(1)").text
+        get_screenshort(self.driver, "test_monitor_3.png")
         print("监控信息" + str(info))
         print("信息无误,测试通过!")
 
@@ -157,7 +165,8 @@ class MonitorTest(MyTestCase):
 
         windows = self.driver.window_handles
         self.driver.switch_to.window(windows[-1])
-
+        time.sleep(2)
+        self.driver.set_window_size(1920, 1080)
         self.assertIn("商标监控首页_权大师",self.driver.title)
         print(self.driver.title)
 
@@ -175,6 +184,7 @@ class MonitorTest(MyTestCase):
         time.sleep(1)
 
         info = self.driver.find_element_by_css_selector("body > div.brandMonitor-wrap > div > div > div.myPanel-bodyer.brandMonitor-all > div > table > tbody > tr:nth-child(1)").text
+        get_screenshort(self.driver, "test_monitor_4.png")
         print("监控信息" + str(info))
 
         print("信息无误,测试通过!")
@@ -190,7 +200,8 @@ class MonitorTest(MyTestCase):
 
         windows = self.driver.window_handles
         self.driver.switch_to.window(windows[-1])
-
+        time.sleep(2)
+        self.driver.set_window_size(1920, 1080)
         self.assertIn("商标监控首页_权大师",self.driver.title)
         print(self.driver.title)
 
@@ -203,5 +214,6 @@ class MonitorTest(MyTestCase):
         self.driver.find_element_by_css_selector("#addSuccessModal > div > div > table > tbody > tr.tr-2 > td > div > a.mybtn.mybtn-inverse.btn-sure").click()
         time.sleep(2)
         txt = self.driver.find_element_by_css_selector("body > div.brandMonitor-wrap > div > div > div.myPanel-bodyer.brandMonitor-all > div > table > tbody > tr > td").text
+        get_screenshort(self.driver, "test_monitor_delete.png")
         print(str(txt))
         print("删除监控任务成功,测试通过！")
