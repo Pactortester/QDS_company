@@ -12,7 +12,7 @@ class DengLuPage:
     url_pre = "https://pre-www.quandashi.com/"
 
     cookie_pre = ({'name': 'QDS_COOKIE',
-               'value': '5c3eab596416bb19835bebe7cbde7a8819af7b32',
+               'value': '5ba05f2a218365ebf34451d7e213a0e441684852',
                'Domain': '.quandashi.com'})
 
     def __init__(self, driver):

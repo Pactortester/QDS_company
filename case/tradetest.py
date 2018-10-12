@@ -21,13 +21,14 @@ class TradeTest(MyTestCase):
         time.sleep(2)
         trade = unicode()
         self.driver.find_element_by_css_selector("#app > div > div.brandMarketBox > div.brandSearchBox > div > div > input[type=\"text\"]").send_keys(trade)
-        print(trade)
+        print("商标名称:" + trade)
         self.driver.find_element_by_css_selector("#app > div > div.brandMarketBox > div.brandSearchBox > div > div > a").click()
         time.sleep(2)
         number = self.driver.find_element_by_css_selector("#app > div > div.brandMarketBox > div.searchCriteriaBox > dl.CompreRanking > dd:nth-child(3) > span").text
+        number1 = int(number)
         print("为您找到" + str(number)+"个商标")
         time.sleep(1)
-        if int(number) == 0:
+        if int(number1) == 0:
             print("查无:" + str(trade) + "商标,发布求购需求!")
             self.driver.find_element_by_css_selector(
                 "#app > div > div.brandMarketBox > div.brandSearchBox > p.postWant").click()
@@ -288,3 +289,99 @@ class TradeTest(MyTestCase):
         print("￥1.00")
         self.assertIn(price,"￥1.00")
         print("推荐商标提交成功!")
+
+    def test_trade_10(self):
+        """筛选商标测试"""
+
+        dl = DengLuPage(self.driver)
+        self.driver.get("http://pre-brand-trade.quandashi.com/#/")
+        time.sleep(1)
+        dl.refresh_pre()
+        time.sleep(2)
+
+        self.driver.find_element_by_css_selector(
+            "#app > div > div.brandMarketBox > div.searchCriteriaBox > dl.brandType.chooseType > dd.openBrandType.openBrandTypeOpen").click()
+
+
+        lb1 = random.randint(1, 45)
+        brand = self.driver.find_element_by_css_selector(
+            "#app > div > div.brandMarketBox > div.searchCriteriaBox > dl.brandType.chooseType > dd:nth-child(2) > p > a:nth-child({})".format(
+                lb1)).text
+        self.driver.find_element_by_css_selector(
+            "#app > div > div.brandMarketBox > div.searchCriteriaBox > dl.brandType.chooseType > dd:nth-child(2) > p > a:nth-child({})".format(
+                lb1)).click()
+        print("商标类别:" + brand)
+
+
+        lb2 = random.randint(2, 7)
+        price = self.driver.find_element_by_css_selector(
+            "#app > div > div.brandMarketBox > div.searchCriteriaBox > dl.brandPrice.chooseType > dd:nth-child(2) > a:nth-child({})".format(
+                lb2)).text
+        self.driver.find_element_by_css_selector(
+            "#app > div > div.brandMarketBox > div.searchCriteriaBox > dl.brandPrice.chooseType > dd:nth-child(2) > a:nth-child({})".format(
+                lb2)).click()
+        print("商标价格:" + price)
+
+        jg = [2,3,5,6,7,8,9]
+        lb3 = random.choice(jg)
+        structure = self.driver.find_element_by_css_selector(
+            "#app > div > div.brandMarketBox > div.searchCriteriaBox > dl.brandStructure.chooseType > dd > a:nth-child({})".format(
+                lb3)).text
+        self.driver.find_element_by_css_selector(
+            "#app > div > div.brandMarketBox > div.searchCriteriaBox > dl.brandStructure.chooseType > dd > a:nth-child({})".format(
+                lb3)).click()
+        print("商标结构:" + structure)
+
+
+        lb4 = random.randint(2,6)
+        num = self.driver.find_element_by_css_selector(
+            "#app > div > div.brandMarketBox > div.searchCriteriaBox > dl.brandWordNum.chooseType > dd > a:nth-child({})".format(
+                lb4)).text
+        self.driver.find_element_by_css_selector(
+            "#app > div > div.brandMarketBox > div.searchCriteriaBox > dl.brandWordNum.chooseType > dd > a:nth-child({})".format(
+                lb4)).click()
+        print("商标字数:" + num)
+
+        get_screenshort(self.driver,"test_trade_10.png")
+        result = self.driver.find_element_by_css_selector("#app > div > div.brandMarketBox > div.searchCriteriaBox > dl.CompreRanking > dd:nth-child(3)").text
+        print(result)
+        number = self.driver.find_element_by_css_selector("#app > div > div.brandMarketBox > div.searchCriteriaBox > dl.CompreRanking > dd:nth-child(3) > span").text
+        number1 = int(number)
+        print(number1)
+        if number1 == 0:
+            print("没有相关可出售商标，您可以发布求购需求!")
+        else:
+            print(self.driver.find_element_by_css_selector("#app > div > div.brandMarketBox > ul > li:nth-child(1) > div").text)
+
+        selected = self.driver.find_element_by_css_selector("#app > div > div.brandMarketBox > div.searchCriteriaBox > dl.SelectedConditions > dd").text
+        print("已选条件:" + str(selected).replace("\n"," "))
+        print("筛选商标测试通过!")
+
+    def test_trade_11(self):
+        """价格区间测试"""
+
+        dl = DengLuPage(self.driver)
+        self.driver.get("http://pre-brand-trade.quandashi.com/#/")
+        time.sleep(1)
+        dl.refresh_pre()
+        time.sleep(2)
+        low = random.randint(1,5000)
+        high = random.randint(5000,50000)
+        self.driver.find_element_by_css_selector("#app > div > div.brandMarketBox > div.searchCriteriaBox > dl.brandPrice.chooseType > dd.inputNum > input[type=\"text\"]:nth-child(1)").send_keys(low)
+        self.driver.find_element_by_css_selector("#app > div > div.brandMarketBox > div.searchCriteriaBox > dl.brandPrice.chooseType > dd.inputNum > input[type=\"text\"]:nth-child(3)").send_keys(high)
+        print("价格区间:" + str(low) + "_" + str(high))
+
+        get_screenshort(self.driver,"test_trade_11.png")
+        result = self.driver.find_element_by_css_selector("#app > div > div.brandMarketBox > div.searchCriteriaBox > dl.CompreRanking > dd:nth-child(3)").text
+        print(result)
+        number = self.driver.find_element_by_css_selector("#app > div > div.brandMarketBox > div.searchCriteriaBox > dl.CompreRanking > dd:nth-child(3) > span").text
+        number1 = int(number)
+        print(number1)
+        if number1 == 0:
+            print("没有相关可出售商标，您可以发布求购需求!")
+        else:
+            print(self.driver.find_element_by_css_selector("#app > div > div.brandMarketBox > ul > li:nth-child(1) > div").text)
+
+        selected = self.driver.find_element_by_css_selector("#app > div > div.brandMarketBox > div.searchCriteriaBox > dl.SelectedConditions > dd").text
+        print("已选条件:" + str(selected).replace("\n"," "))
+        print("筛选商标测试通过!")

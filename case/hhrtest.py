@@ -108,7 +108,7 @@ class HhrTest(MyTestCase):
 
         print("测试通过!")
 
-    def test_hhrsbzc(self):
+    def test_hhr_order(self):
 
         """合伙人商标注册"""
         dl = DengLuPage(self.driver)
@@ -201,7 +201,103 @@ class HhrTest(MyTestCase):
 
         print("合伙人订单下单成功!")
 
-        get_screenshort(self.driver,"test_hhrsbzc.png")
+        get_screenshort(self.driver,"test_hhr_order.png")
+
+        pay_url = self.driver.find_element_by_class_name("pay_url").get_attribute("value")
+        print("订单链接:" + pay_url)
+
+        self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.paying-wrap.paying-sk-wrap > div.paying-sk-ewm > div.link > ul > li:nth-child(2) > a").click()
+
+        print("订单已发送客户付款!")
+
+    def test_hhr_historical(self):
+
+        """合伙人历史订单"""
+        dl = DengLuPage(self.driver)
+        dl.login()
+        time.sleep(1)
+
+        self.driver.find_element_by_css_selector("#page-header > div.item-right > ul > li:nth-child(2) > a").click()
+        time.sleep(1)
+        # 新版提示
+        self.driver.find_element_by_xpath("//*[@id=\"personalCenter2-rightContainer\"]/div[1]/div/a").click()
+        self.driver.find_element_by_link_text("商标注册").click()
+
+        """填写商标信息"""
+
+        self.driver.find_element_by_css_selector("#selectBrandType > label.label.checked").click()
+        ss = unicode()
+        self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > div.order-form-page > div > div:nth-child(1) > div.brandInfo-wrap > div > table > tbody > tr.row-name > td.td-content > input").send_keys("{}".format(ss))
+        print("商标名称：{}".format(ss))
+        self.driver.find_element_by_css_selector("#create-tuyang > label.label.checked").click()
+        self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > div.order-form-page > div > div:nth-child(1) > div.brandInfo-wrap > div > table > tbody > tr.row-tuyang.show-create.show-create1 > td.td-content > div.zidongdong-create > ul > li > div.bottom.getBrandPic > a").click()
+
+        print("商标名称填写成功!")
+
+        self.driver.execute_script("window.scrollBy(0,500)")  # 滑动滚动条
+
+        """商标类别导入历史订单"""
+
+        self.driver.find_element_by_css_selector("#section-selfchoice > div.group-right > h3 > div > div > a").click()
+        time.sleep(2)
+        info = self.driver.find_element_by_css_selector("#history_order > li:nth-child(1) > h2").text
+        print("导入历史订单信息:" + info)
+        self.driver.find_element_by_css_selector("#history_order > li:nth-child(1) > h2").click()
+        self.driver.find_element_by_css_selector("#history-order > div.modal-button > a").click()
+        time.sleep(2)
+
+
+        for i in self.driver.find_elements_by_css_selector("#personalCenter2-rightContainer > div > div.order-form-page > div > div.order-detail-box.order-categories > div.order-categories-total > span.span-total > strong > i"):
+            print("总价:"+i.text)
+            ii = i.text
+
+        """申请人信息"""
+        self.driver.find_element_by_xpath("//*[@id=\"personalCenter2-rightContainer\"]/div/div[1]/div/div[3]/div/table/thead/tr[1]/td[2]/a[1]").click()
+        self.driver.find_element_by_xpath("//*[@id=\"overseastype\"]/label[1]").click()
+        self.driver.find_element_by_xpath("//*[@id=\"personalCenter2-rightContainer\"]/div/div[1]/div/div[3]/div/div/div/div/table[1]/tbody[1]/tr[1]/td[2]/dl/dt/input").send_keys("文思海辉技术有限公司{}".format(random.randint(1,1000)))
+        self.driver.find_element_by_xpath("//*[@id=\"ssq\"]").click()
+        time.sleep(2)
+        self.driver.find_element_by_xpath("//*[@id=\"companylistrative\"]/div/div[2]/div[1]/dl[1]/dd/span[1]").click()
+        time.sleep(2)
+        self.driver.find_element_by_xpath("//*[@id=\"companylistrative\"]/div/div[2]/div[2]/dl[2]/dd/span[1]").click()
+        time.sleep(1)
+
+        print("申请人信息填写成功!")
+
+
+        """客户联系人信息"""
+        self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > div.order-form-page > div > div.order-detail-box.contact-box > ul > li:nth-child(1) > input").send_keys("dalao")
+        self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > div.order-form-page > div > div.order-detail-box.contact-box > ul > li:nth-child(2) > input").send_keys("15624992488")
+        self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > div.order-form-page > div > div.order-detail-box.contact-box > ul > li:nth-child(3) > input").send_keys("1456470136@qq.com")
+
+        print("联系人信息填写成功!")
+
+
+        """订单备注"""
+        self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > div.order-form-page > div > div.order-detail-box.message-box > ul > li > textarea").send_keys(time.strftime("%Y-%m-%d_%H-%M-%S")+"测试订单")
+
+        # self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > div.order-form-page > div > div:nth-child(7) > div > a.mybtn.mybtn-inverse.mybtn-lg.saveAll").click()
+
+
+        self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > div.order-form-page > div > div:nth-child(7) > div > a:nth-child(2)").click()
+
+        time.sleep(2)
+
+        for o in self.driver.find_elements_by_class_name("payable"):
+            print("订单提交成功，应付金额:"+o.text)
+            oo = o.text
+
+        time.sleep(2)
+        self.assertIn(oo,ii)
+
+        self.driver.find_element_by_css_selector("#payways > ul:nth-child(1) > li").click()
+        self.driver.find_element_by_css_selector("#alisubmit").click()
+
+        print("价格一致")
+
+        print("合伙人订单下单成功!")
+
+        get_screenshort(self.driver,"test_hhr_historical.png")
 
         pay_url = self.driver.find_element_by_class_name("pay_url").get_attribute("value")
         print("订单链接:" + pay_url)

@@ -118,8 +118,7 @@ class SendMail:
         # html附件
         att1 = MIMEText(mailbody, 'base64', 'gb2312')
         att1["Content-Type"] = 'application/octet-stream'
-        att1["Content-Disposition"] = 'attachment; filename="QDS_TestReport.html"'
-        # 这里的filename可以任意写，写什么名字，邮件中显示什么名字
+        att1["Content-Disposition"] = 'attachment; filename="QDS_TestReport.html"'  # 这里的filename可以任意写，写什么名字，邮件中显示什么名字
         self.msg.attach(att1)
 
     def send(self):
