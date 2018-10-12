@@ -17,7 +17,7 @@ class TradeTest(MyTestCase):
         dl = DengLuPage(self.driver)
         self.driver.get("http://pre-brand-trade.quandashi.com/#/")
         time.sleep(1)
-        dl.refresh()
+        dl.refresh_pre()
         time.sleep(2)
         trade = unicode()
         self.driver.find_element_by_css_selector("#app > div > div.brandMarketBox > div.brandSearchBox > div > div > input[type=\"text\"]").send_keys(trade)
@@ -83,7 +83,7 @@ class TradeTest(MyTestCase):
         dl = DengLuPage(self.driver)
         self.driver.get("http://pre-brand-trade.quandashi.com/#/")
         time.sleep(1)
-        dl.refresh()
+        dl.refresh_pre()
         time.sleep(2)
         brand = random.randint(1,36)
         name = self.driver.find_element_by_css_selector("#app > div > div.brandMarketBox > ul > li:nth-child({}) > div > b".format(brand)).text
@@ -138,7 +138,7 @@ class TradeTest(MyTestCase):
         dl = DengLuPage(self.driver)
         self.driver.get("http://pre-brand-trade.quandashi.com/#/")
         time.sleep(1)
-        dl.refresh()
+        dl.refresh_pre()
         time.sleep(2)
         brand = random.randint(1, 36)
         name = self.driver.find_element_by_css_selector(
@@ -168,7 +168,7 @@ class TradeTest(MyTestCase):
         dl = DengLuPage(self.driver)
         self.driver.get("http://pre-brand-trade.quandashi.com/#/")
         time.sleep(1)
-        dl.refresh()
+        dl.refresh_pre()
         time.sleep(2)
         brand = random.randint(1, 36)
         name = self.driver.find_element_by_css_selector(
@@ -200,7 +200,7 @@ class TradeTest(MyTestCase):
         dl = DengLuPage(self.driver)
         self.driver.get("http://pre-brand-trade.quandashi.com/#/")
         time.sleep(1)
-        dl.refresh()
+        dl.refresh_pre()
         time.sleep(2)
         self.driver.find_element_by_css_selector("#app > div > div.header-wrap.clearfix > div.header-right.clearfix > p.favoriteEnter.favoAct").click()
         brand = self.driver.find_element_by_css_selector("#app > div > div > div.collectionFolderSwiper > ul > li > div.itemInner > div > b").text
@@ -218,7 +218,7 @@ class TradeTest(MyTestCase):
         dl = DengLuPage(self.driver)
         self.driver.get("http://pre-brand-trade.quandashi.com/#/")
         time.sleep(1)
-        dl.refresh()
+        dl.refresh_pre()
         time.sleep(2)
         brand = random.randint(1, 36)
         name = self.driver.find_element_by_css_selector(
@@ -250,7 +250,7 @@ class TradeTest(MyTestCase):
         dl = DengLuPage(self.driver)
         self.driver.get("http://pre-brand-trade.quandashi.com/#/")
         time.sleep(1)
-        dl.refresh()
+        dl.refresh_pre()
         time.sleep(2)
         self.driver.find_element_by_css_selector("#app > div > div.header-wrap.clearfix > div.header-right.clearfix > p.shoppingCartEnter").click()
 
@@ -269,7 +269,7 @@ class TradeTest(MyTestCase):
         dl = DengLuPage(self.driver)
         self.driver.get("http://pre-brand-trade.quandashi.com/#/")
         time.sleep(1)
-        dl.refresh()
+        dl.refresh_pre()
         time.sleep(2)
         self.driver.find_element_by_css_selector("#app > div > div.header-wrap.clearfix > div.header-left > p > a:nth-child(2)").click()
         time.sleep(2)

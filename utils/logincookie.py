@@ -2,12 +2,18 @@ import time
 
 
 class DengLuPage:
-    url = "https://pre-www.quandashi.com/"
-    # url = "https://www.quandashi.com/"
+
+    url = "https://www.quandashi.com/"
 
     cookie = ({'name': 'QDS_COOKIE',
-             'value': '09fa389e018f4992584c66b6594e661efb771014',
+             'value': '1dcb2f2d3a36b86b9c977d966dd9a4eceeb545f7',
             'Domain': '.quandashi.com'})
+
+    url_pre = "https://pre-www.quandashi.com/"
+
+    cookie_pre = ({'name': 'QDS_COOKIE',
+               'value': '5c3eab596416bb19835bebe7cbde7a8819af7b32',
+               'Domain': '.quandashi.com'})
 
     def __init__(self, driver):
         self.driver = driver
@@ -22,7 +28,21 @@ class DengLuPage:
         time.sleep(1)
 
     def refresh(self):
-
         self.driver.add_cookie(self.cookie)
+        self.driver.refresh()
+        time.sleep(1)
+
+
+    def open_page_pre(self):
+        self.driver.get(self.url_pre)
+
+    def login_pre(self):
+        self.open_page()
+        self.driver.add_cookie(self.cookie_pre)
+        self.driver.refresh()
+        time.sleep(1)
+
+    def refresh_pre(self):
+        self.driver.add_cookie(self.cookie_pre)
         self.driver.refresh()
         time.sleep(1)
