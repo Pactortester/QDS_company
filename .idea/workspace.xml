@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4045b1ed-0b5c-43da-8b53-9fbc7a687bac" name="Default Changelist" comment="8.31修改pycharm测试提交">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case/hhrtest.py" beforeDir="false" afterPath="$PROJECT_DIR$/case/hhrtest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case/hwgstest.py" beforeDir="false" afterPath="$PROJECT_DIR$/case/hwgstest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case/tradetest.py" beforeDir="false" afterPath="$PROJECT_DIR$/case/tradetest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case/znzztest.py" beforeDir="false" afterPath="$PROJECT_DIR$/case/znzztest.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/log/2018-10-12.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/2018-10-12.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runAllTestCases.py" beforeDir="false" afterPath="$PROJECT_DIR$/runAllTestCases.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/logincookie.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/logincookie.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,7 +35,7 @@
           <entry key="chinese" value="2" />
           <entry key="csv" value="3" />
           <entry key="gitattributes" value="1" />
-          <entry key="html" value="86" />
+          <entry key="html" value="87" />
           <entry key="ini" value="5" />
           <entry key="log" value="4" />
           <entry key="md" value="4" />
@@ -56,7 +49,7 @@
           <entry key="Bat" value="7" />
           <entry key="CSV" value="2" />
           <entry key="DBN-SQL" value="1" />
-          <entry key="HTML" value="86" />
+          <entry key="HTML" value="87" />
           <entry key="Image" value="97" />
           <entry key="Ini" value="5" />
           <entry key="Log" value="4" />
@@ -138,20 +131,29 @@
         <entry file="file://$PROJECT_DIR$/report/2018-10-12_16-55-26_report.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="176">
-              <caret line="11" column="82" lean-forward="true" selection-start-line="11" selection-start-column="82" selection-end-line="11" selection-end-column="82" />
+              <caret line="11" column="82" selection-start-line="11" selection-start-column="82" selection-end-line="11" selection-end-column="82" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/case/mfsbtest.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="227">
+              <caret line="71" column="20" selection-start-line="71" selection-start-column="20" selection-end-line="71" selection-end-column="20" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+                <element signature="e#4040#7616#0" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/case/mfsbtest.py">
+        <entry file="file://$PROJECT_DIR$/report/2018-10-14_22-00-58_report.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="69" column="47" lean-forward="true" selection-start-line="69" selection-start-column="47" selection-end-line="69" selection-end-column="47" />
-              <folding>
-                <element signature="e#0#13#0" expanded="true" />
-                <element signature="e#4040#7616#0" />
-              </folding>
+            <state relative-caret-position="240">
+              <caret line="15" column="32" lean-forward="true" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -332,6 +334,11 @@
               <item name="QDS_company" type="b2602c69:ProjectViewProjectNode" />
               <item name="QDS_company" type="462c0819:PsiDirectoryNode" />
               <item name="image" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="QDS_company" type="b2602c69:ProjectViewProjectNode" />
+              <item name="QDS_company" type="462c0819:PsiDirectoryNode" />
+              <item name="report" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -542,6 +549,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" sideWeight="0.50287354" side_tool="true" weight="0.18976545" />
       <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49712643" visible="true" weight="0.18496802" />
@@ -608,9 +616,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="8.31修改pycharm测试提交" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/image/2018-10-11_14-11-59_test.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/image/2018-10-11_14-21-23_test_mszp.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -934,18 +939,25 @@
     <entry file="file://$PROJECT_DIR$/report/2018-10-12_16-55-26_report.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
-          <caret line="11" column="82" lean-forward="true" selection-start-line="11" selection-start-column="82" selection-end-line="11" selection-end-column="82" />
+          <caret line="11" column="82" selection-start-line="11" selection-start-column="82" selection-end-line="11" selection-end-column="82" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/case/mfsbtest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="69" column="47" lean-forward="true" selection-start-line="69" selection-start-column="47" selection-end-line="69" selection-end-column="47" />
+        <state relative-caret-position="227">
+          <caret line="71" column="20" selection-start-line="71" selection-start-column="20" selection-end-line="71" selection-end-column="20" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
             <element signature="e#4040#7616#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/report/2018-10-14_22-00-58_report.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="15" column="32" lean-forward="true" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
         </state>
       </provider>
     </entry>
