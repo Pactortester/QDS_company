@@ -1,8 +1,8 @@
-import random
-import re
-import time
-
-from selenium import webdriver
+# import random
+# import re
+# import time
+#
+# from selenium import webdriver
 
 # import re
 # import random
@@ -324,88 +324,69 @@ from selenium.webdriver.chrome.options import Options
 import unittest
 from utils.screenshort import get_screenshort
 
+#
+# class test(unittest.TestCase):
+#
+#     def test_bd(self):
+#         chrome_options = Options()
+#         chrome_options.add_argument('--headless')
+#         driver = webdriver.Chrome(options=chrome_options)
+#         driver.get("http://www.baidu.com")
+#         driver.set_window_size(1920, 1080)
+#         time.sleep(2)
+#         print(driver.get_window_position())
+#         print(driver.get_window_size())
+#         print(driver.get_window_rect())
+#
+#         get_screenshort(driver, "test.png")
+#
+#         time.sleep(10)
+#         driver.close()
+#
+#
+# if __name__ == "__main__":
+#     unittest.main()
 
-class test(unittest.TestCase):
+#
+# 不愿染是与非 怎料事与愿违
+# 心中的花枯萎 时光它去不回
+# 回忆辗转来回 痛不过这心扉
+# 愿只愿余生无悔 随花香远飞
+#
 
-    def test_bd(self):
-        chrome_options = Options()
-        chrome_options.add_argument('--headless')
-        driver = webdriver.Chrome(options=chrome_options)
-        driver.get("http://www.baidu.com")
-        driver.set_window_size(1920, 1080)
-        time.sleep(2)
-        print(driver.get_window_position())
-        print(driver.get_window_size())
-        print(driver.get_window_rect())
+# !/usr/bin/env python
+# encoding: utf-8
+'''
+1、读取指定目录下的所有文件
+2、读取文件，正则匹配出需要的内容，获取文件名
+3、打开此文件(可以选择打开可以选择复制到别的地方去)
+'''
+import os.path
+import re
 
-        get_screenshort(driver, "test.png")
 
-        time.sleep(10)
-        driver.close()
+def eachfile(filepath):
+    pathdir = os.listdir(filepath)
+    for allDir in pathdir:
+        child = os.path.join('%s\%s' % (filepath, allDir))
+        if os.path.isfile(child):
+            readfile(child)
+            # print(child)
+            continue
+        eachfile(child)
+
+
+def readfile(filenames):
+    fopen = open(filenames, 'r')  # r 代表read
+    fileread = fopen.read()
+    fopen.close()
+    t = re.search(r'title', fileread)  # 寻找的内容
+    if t:
+        print("匹配到的文件是:"+filenames)
+        arr.append(filenames)
 
 
 if __name__ == "__main__":
-    unittest.main()
-
-
-# 流浪 - 半阳
-# 词：张子杨
-# 曲：张子杨
-# 编曲：吕小毅
-# 制作人：尤起胜
-# 混音：张鸣利
-# 和声编写：毛一鹏@尤起胜音乐工作室
-# 监制：曲肖冰工作室
-# 制作公司：Hikoon Music
-# 小时候
-# 那一双大手牵着温柔的对我讲
-# 长大以后要去流浪
-# 一定会看得到远方
-# 我的行囊
-# 背上那沉重的梦想是未来的方向
-# 青春骄纵特别狂妄
-# 为自由爱上或迷茫
-# 听过很多流行歌
-# 半步成诗的玫瑰破碎后妄想去追
-# 流不同的泪 垂涎回忆的美
-# 离开是一种韵味
-# 尝过喝醉的感觉也问过自己的心
-# 到底是什么 想要的她是谁
-# 夕阳笑着去流浪
-# 月亮寂寞在路上
-# 遇到谁家的姑娘
-# 半生洒脱装肩上
-# 谁的地久配天长
-# 独爱情歌和海浪
-# 人生走的太漫长
-# 流浪到岁月枯黄
-# 小时候
-# 那一双 大手牵着温柔的对我讲
-# 长大以后要去流浪
-# 一定会看得到远方
-# 我的行囊
-# 背上那 沉重的梦想是未来的方向
-# 青春骄纵特别狂妄
-# 为自由爱上或迷茫
-# 听过很多流行歌
-# 半步成诗的玫瑰破碎后妄想去追
-# 流不同的泪 垂涎回忆的美
-# 离开是一种韵味
-# 尝过喝醉的感觉也问过自己的心
-# 到底是什么 想要的她是谁
-# 夕阳笑着去流浪
-# 月亮寂寞在路上
-# 遇到谁家的姑娘
-# 半生洒脱装肩上
-# 谁的地久配天长
-# 独爱情歌和海浪
-# 人生走的太漫长
-# 流浪到岁月枯黄
-# 夕阳笑着去流浪
-# 月亮寂寞在路上
-# 遇到谁家的姑娘
-# 半生洒脱装肩上
-# 谁的地久配天长
-# 独爱情歌和海浪
-# 人生走的太漫长
-# 流浪到岁月枯黄
+    filenames = 'D:\\10.15'  # 目标文件夹
+    arr = []
+    eachfile(filenames)
