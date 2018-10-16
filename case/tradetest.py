@@ -97,7 +97,9 @@ class TradeTest(MyTestCase):
         windows = self.driver.window_handles
         # 切换到当前最新打开的窗口
         self.driver.switch_to.window(windows[-1])
-        time.sleep(5)
+        time.sleep(2)
+        self.driver.set_window_size(1920, 1080)
+        time.sleep(2)
         name_1 = self.driver.find_element_by_css_selector("#app > div > div.brandDetailMsgBox > div.brandMsgBox > div.brandMsg > dl > dt").text
         print(name_1)
         self.assertIn(str(name_1),str(name))
@@ -125,6 +127,7 @@ class TradeTest(MyTestCase):
                 self.driver.switch_to.window(handle)
 
         time.sleep(2)
+        self.driver.set_window_size(1920, 1080)
         print(self.driver.current_url)
 
         info_2 = self.driver.find_element_by_css_selector("#app > div > div.paymentBox > div.orderMsgBox > dl > dt > b").text
