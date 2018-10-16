@@ -356,37 +356,37 @@ from utils.screenshort import get_screenshort
 
 # !/usr/bin/env python
 # encoding: utf-8
-'''
-1、读取指定目录下的所有文件
-2、读取文件，正则匹配出需要的内容，获取文件名
-3、打开此文件(可以选择打开可以选择复制到别的地方去)
-'''
-import os.path
-import re
-
-
-def eachfile(filepath):
-    pathdir = os.listdir(filepath)
-    for allDir in pathdir:
-        child = os.path.join('%s\%s' % (filepath, allDir))
-        if os.path.isfile(child):
-            readfile(child)
-            # print(child)
-            continue
-        eachfile(child)
-
-
-def readfile(filenames):
-    fopen = open(filenames, 'r')  # r 代表read
-    fileread = fopen.read()
-    fopen.close()
-    t = re.search(r'title', fileread)  # 寻找的内容
-    if t:
-        print("匹配到的文件是:"+filenames)
-        arr.append(filenames)
-
-
-if __name__ == "__main__":
-    filenames = 'D:\\10.15'  # 目标文件夹
-    arr = []
-    eachfile(filenames)
+# '''
+# 1、读取指定目录下的所有文件
+# 2、读取文件，正则匹配出需要的内容，获取文件名
+# 3、打开此文件(可以选择打开可以选择复制到别的地方去)
+# '''
+# import os.path
+# import re
+#
+#
+# def eachfile(filepath):
+#     pathdir = os.listdir(filepath)
+#     for allDir in pathdir:
+#         child = os.path.join('%s\%s' % (filepath, allDir))
+#         if os.path.isfile(child):
+#             readfile(child)
+#             # print(child)
+#             continue
+#         eachfile(child)
+#
+#
+# def readfile(filenames):
+#     fopen = open(filenames, 'r')  # r 代表read
+#     fileread = fopen.read()
+#     fopen.close()
+#     t = re.search(r'title', fileread)  # 寻找的内容
+#     if t:
+#         print("匹配到的文件是:"+filenames)
+#         arr.append(filenames)
+#
+#
+# if __name__ == "__main__":
+#     filenames = 'D:\\10.15'  # 目标文件夹
+#     arr = []
+#     eachfile(filenames)
