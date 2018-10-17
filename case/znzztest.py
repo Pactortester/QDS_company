@@ -309,7 +309,7 @@ class ZnZzTest(MyTestCase):
 
         self.driver.find_element_by_css_selector("#alisubmit").click()
 
-    def _znzz_3(self):
+    def test_znzz_3(self):
         """智能注册_企业测试_历史订单"""
 
         # logging.basicConfig(filename='../LOG/' + __name__ + '.log',
@@ -362,9 +362,11 @@ class ZnZzTest(MyTestCase):
         """商标类别导入历史订单"""
         self.driver.find_element_by_css_selector("#section-selfchoice > div.group-right > h3 > div > div > a").click()
         time.sleep(2)
-        info = self.driver.find_element_by_css_selector("#history_order > li:nth-child(1) > h2").text
+        history_number = random.randint(1,10)
+        info = self.driver.find_element_by_css_selector("#history_order > li:nth-child({}) > h2".format(history_number)).text
         print("导入历史订单信息:" + info)
-        self.driver.find_element_by_css_selector("#history_order > li:nth-child(1) > h2").click()
+        self.driver.find_element_by_css_selector("#history_order > li:nth-child({}) > h2".format(history_number)).click()
+        time.sleep(2)
         self.driver.find_element_by_css_selector("#history-order > div.modal-button > a").click()
         time.sleep(2)
 
@@ -439,7 +441,7 @@ class ZnZzTest(MyTestCase):
 
         self.driver.find_element_by_css_selector("#alisubmit").click()
 
-    def _znzz_4(self):
+    def test_znzz_4(self):
         """智能注册_个体测试_历史订单"""
 
         # logging.basicConfig(filename='../LOG/' + __name__ + '.log',
@@ -489,13 +491,14 @@ class ZnZzTest(MyTestCase):
         self.driver.find_element_by_css_selector(
             "body > div.smartRegister-page.smartRegister3-page > div:nth-child(14) > div.categoryInfo-wrap > div.c-row.row-way > div > a.btn-choice.active").click()
 
-
         """商标类别导入历史订单"""
         self.driver.find_element_by_css_selector("#section-selfchoice > div.group-right > h3 > div > div > a").click()
         time.sleep(2)
-        info = self.driver.find_element_by_css_selector("#history_order > li:nth-child(1) > h2").text
+        history_number = random.randint(1, 10)
+        info = self.driver.find_element_by_css_selector("#history_order > li:nth-child({}) > h2".format(history_number)).text
         print("导入历史订单信息:" + info)
-        self.driver.find_element_by_css_selector("#history_order > li:nth-child(1) > h2").click()
+        self.driver.find_element_by_css_selector("#history_order > li:nth-child({}) > h2".format(history_number)).click()
+        time.sleep(2)
         self.driver.find_element_by_css_selector("#history-order > div.modal-button > a").click()
         time.sleep(2)
 

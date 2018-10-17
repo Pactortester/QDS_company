@@ -277,7 +277,7 @@ class HwGsTest(MyTestCase):
         print("测试通过")
         self.driver.find_element_by_css_selector("#alisubmit").click()
 
-    def _hwgs_3(self):
+    def test_hwgs_3(self):
         """海外高速_企业_历史订单测试"""
 
         # logging.basicConfig(filename='../LOG/' + __name__ + '.log',
@@ -329,11 +329,14 @@ class HwGsTest(MyTestCase):
         """商标类别导入历史订单"""
         self.driver.find_element_by_css_selector("#section-selfchoice > div.group-right > h3 > div > div > a").click()
         time.sleep(2)
-        info = self.driver.find_element_by_css_selector("#history_order > li:nth-child(1) > h2").text
+        history_number = random.randint(1,10)
+        info = self.driver.find_element_by_css_selector("#history_order > li:nth-child({}) > h2".format(history_number)).text
         print("导入历史订单信息:" + info)
-        self.driver.find_element_by_css_selector("#history_order > li:nth-child(1) > h2").click()
+        self.driver.find_element_by_css_selector("#history_order > li:nth-child({}) > h2".format(history_number)).click()
+        time.sleep(2)
         self.driver.find_element_by_css_selector("#history-order > div.modal-button > a").click()
         time.sleep(2)
+
 
         self.driver.find_element_by_css_selector(
             "body > div.smartRegister-page.smartRegister3-page > div.last-pay > ul > li.row-step > a").click()
@@ -379,7 +382,7 @@ class HwGsTest(MyTestCase):
 
 
 
-        get_screenshort(self.driver, "test_hwgs_1.png")
+        get_screenshort(self.driver, "test_hwgs_3.png")
         for i in self.driver.find_elements_by_css_selector("body > div.smartRegister-page > div.orderinfo-wrap > div.last-pay.personal-last-pay > ul > li.row-sense > em > i"):
             print("总价:"+i.text)
             ii = i.text
@@ -397,7 +400,7 @@ class HwGsTest(MyTestCase):
         print("测试通过")
         self.driver.find_element_by_css_selector("#alisubmit").click()
 
-    def _hwgs_4(self):
+    def test_hwgs_4(self):
         """海外高速_自然人_历史订单测试"""
 
         # logging.basicConfig(filename='../LOG/' + __name__ + '.log',
@@ -448,11 +451,14 @@ class HwGsTest(MyTestCase):
         """商标类别导入历史订单"""
         self.driver.find_element_by_css_selector("#section-selfchoice > div.group-right > h3 > div > div > a").click()
         time.sleep(2)
-        info = self.driver.find_element_by_css_selector("#history_order > li:nth-child(1) > h2").text
+        history_number = random.randint(1,10)
+        info = self.driver.find_element_by_css_selector("#history_order > li:nth-child({}) > h2".format(history_number)).text
         print("导入历史订单信息:" + info)
-        self.driver.find_element_by_css_selector("#history_order > li:nth-child(1) > h2").click()
+        self.driver.find_element_by_css_selector("#history_order > li:nth-child({}) > h2".format(history_number)).click()
+        time.sleep(2)
         self.driver.find_element_by_css_selector("#history-order > div.modal-button > a").click()
         time.sleep(2)
+
 
         self.driver.find_element_by_css_selector(
             "body > div.smartRegister-page.smartRegister3-page > div.last-pay > ul > li.row-step > a").click()
@@ -486,7 +492,7 @@ class HwGsTest(MyTestCase):
 
 
 
-        get_screenshort(self.driver, "test_hwgs_2.png")
+        get_screenshort(self.driver, "test_hwgs_4.png")
         for i in self.driver.find_elements_by_css_selector("body > div.smartRegister-page > div.orderinfo-wrap > div.last-pay.personal-last-pay > ul > li.row-sense > em > i"):
             print("总价:"+i.text)
             ii = i.text

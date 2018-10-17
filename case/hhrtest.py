@@ -237,14 +237,16 @@ class HhrTest(MyTestCase):
         self.driver.execute_script("window.scrollBy(0,500)")  # 滑动滚动条
 
         """商标类别导入历史订单"""
-
         self.driver.find_element_by_css_selector("#section-selfchoice > div.group-right > h3 > div > div > a").click()
         time.sleep(2)
-        info = self.driver.find_element_by_css_selector("#history_order > li:nth-child(1) > h2").text
+        history_number = random.randint(1,10)
+        info = self.driver.find_element_by_css_selector("#history_order > li:nth-child({}) > h2".format(history_number)).text
         print("导入历史订单信息:" + info)
-        self.driver.find_element_by_css_selector("#history_order > li:nth-child(1) > h2").click()
+        self.driver.find_element_by_css_selector("#history_order > li:nth-child({}) > h2".format(history_number)).click()
+        time.sleep(2)
         self.driver.find_element_by_css_selector("#history-order > div.modal-button > a").click()
         time.sleep(2)
+
 
 
         for i in self.driver.find_elements_by_css_selector("#personalCenter2-rightContainer > div > div.order-form-page > div > div.order-detail-box.order-categories > div.order-categories-total > span.span-total > strong > i"):
@@ -459,7 +461,7 @@ class HhrTest(MyTestCase):
         time.sleep(1)
         # 新版提示
         self.driver.find_element_by_xpath("//*[@id=\"personalCenter2-rightContainer\"]/div[1]/div/a").click()
-        # self.driver.find_element_by_css_selector("body > div.public-fixrightbar > ul > li.list.fixright-calc.income_calc").click()
+
         self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.home-page.userInfo > div.article1.home-page-top.clearfix > div.article-bottom-link > ul > li.income_calc > a > img").click()
         time.sleep(2)
         self.driver.find_element_by_css_selector("#calculateModal > div > div.step.income-calc-box > div.modal-body > form > ul > li:nth-child(1) > div > input").click()
