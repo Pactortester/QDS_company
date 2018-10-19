@@ -425,9 +425,12 @@ class HhrTest(MyTestCase):
         price = self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > form > ul > li:nth-child(7) > div > input[type=\"text\"]").get_attribute("value")
         print("订单价格:" + price)
 
+        income = self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > form > ul > li:nth-child(8) > strong > span").text
+        print("收益预估:" + str(income))
+
         """订单备注"""
         self.driver.find_element_by_css_selector(
-            "#personalCenter2-rightContainer > div > form > ul > li:nth-child(8) > div > textarea").send_keys(
+            "#personalCenter2-rightContainer > div > form > ul > li:nth-child(9) > div > textarea").send_keys(
             time.strftime("%Y-%m-%d_%H-%M-%S") + "测试订单")
 
         get_screenshort(self.driver,"test_hhrqyw.png")
