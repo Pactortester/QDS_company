@@ -135,8 +135,10 @@ class HhrTest(MyTestCase):
         self.driver.execute_script("window.scrollBy(0,500)")  # 滑动滚动条
 
         """商标类别"""
-        suiji=random.randint(1,46)
+        suiji = random.randint(1,46)
+        time.sleep(2)
         self.driver.find_element_by_css_selector("#section-selfchoice > div.group-left > ul > li:nth-child({}) > span".format(suiji)).click()
+        time.sleep(2)
         self.driver.find_element_by_css_selector("#section-selfchoice > div.group-left > ul > li.list.open > div:nth-child(2) > span").click()
         self.driver.find_element_by_css_selector("#section-selfchoice > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(1) > span").click()
         self.driver.find_element_by_css_selector("#section-selfchoice > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(2) > span").click()

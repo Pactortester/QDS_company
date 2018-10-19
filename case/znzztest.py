@@ -66,9 +66,10 @@ class ZnZzTest(MyTestCase):
             "body > div.smartRegister-page.smartRegister3-page > div:nth-child(14) > div.categoryInfo-wrap > div.c-row.row-way > div > a.btn-choice.active").click()
 
         suiji = random.randint(2, 46)
-
+        time.sleep(2)
         self.driver.find_element_by_css_selector(
             "#section-selfchoice > div.group-left > ul > li:nth-child({}) > span".format(suiji)).click()
+        time.sleep(2)
         self.driver.find_element_by_css_selector(
             "#section-selfchoice > div.group-left > ul > li.list.open > div:nth-child(2) > span").click()
 
@@ -217,9 +218,10 @@ class ZnZzTest(MyTestCase):
             "body > div.smartRegister-page.smartRegister3-page > div:nth-child(14) > div.categoryInfo-wrap > div.c-row.row-way > div > a.btn-choice.active").click()
 
         suiji = random.randint(2, 46)
-
+        time.sleep(2)
         self.driver.find_element_by_css_selector(
             "#section-selfchoice > div.group-left > ul > li:nth-child({}) > span".format(suiji)).click()
+        time.sleep(2)
         self.driver.find_element_by_css_selector(
             "#section-selfchoice > div.group-left > ul > li.list.open > div:nth-child(2) > span").click()
 

@@ -63,9 +63,11 @@ class HwGsTest(MyTestCase):
 
         self.driver.find_element_by_css_selector(
             "body > div.smartRegister-page.smartRegister3-page > div:nth-child(14) > div.categoryInfo-wrap > div.c-row.row-way > div > a.btn-choice.active").click()
-        suiji=random.randint(2,46)
+        suiji = random.randint(2,46)
+        time.sleep(2)
         self.driver.find_element_by_css_selector(
             "#section-selfchoice > div.group-left > ul > li:nth-child({}) > span".format(suiji)).click()
+        time.sleep(2)
         self.driver.find_element_by_css_selector(
             "#section-selfchoice > div.group-left > ul > li.list.open > div:nth-child(2) > span").click()
         self.driver.find_element_by_css_selector(
@@ -183,10 +185,10 @@ class HwGsTest(MyTestCase):
             "body > div.section-product.width1200 > dl > dd > div.cont-serviceItems > table > tbody > tr > td.td-cont > ul > li:nth-child(4)").click()
         for a in self.driver.find_elements_by_css_selector("#total-price"):
             print("费用总计:"+a.text)
-            aa=a.text
+            aa = a.text
         self.driver.find_element_by_css_selector(
             "body > div.section-product.width1200 > dl > dd > div.cont-btnBuy > a.btn.btn-next.buynow").click()
-        ss=unicode()
+        ss = unicode()
         self.driver.find_element_by_css_selector(
             "body > div.smartRegister-page.smartRegister3-page > div:nth-child(4) > div > table > tbody > tr.row-name > td.td-content > input").send_keys(
             "{}".format(ss))
@@ -198,9 +200,11 @@ class HwGsTest(MyTestCase):
 
         self.driver.find_element_by_css_selector(
             "body > div.smartRegister-page.smartRegister3-page > div:nth-child(14) > div.categoryInfo-wrap > div.c-row.row-way > div > a.btn-choice.active").click()
-        suiji=random.randint(2,46)
+        suiji = random.randint(2,46)
+        time.sleep(2)
         self.driver.find_element_by_css_selector(
             "#section-selfchoice > div.group-left > ul > li:nth-child({}) > span".format(suiji)).click()
+        time.sleep(2)
         self.driver.find_element_by_css_selector(
             "#section-selfchoice > div.group-left > ul > li.list.open > div:nth-child(2) > span").click()
         time.sleep(1)
