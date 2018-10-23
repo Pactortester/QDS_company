@@ -61,7 +61,7 @@ class PySelenium(object):
             self.my_print("{0} Start a new browser: {1}, Spend {2} seconds".format(success,browser,time.time()-t1))
         except Exception:
             raise NameError("Not found {0} browser,You can enter 'ie','ff',"
-                            "'chrome','RChrome','RIe' or 'RFirefox'.".format( browser))
+                            "'chrome','RChrome','RIe' or 'RFirefox'.".format(browser))
 
     def my_print(self,msg):
         logger.info(msg)

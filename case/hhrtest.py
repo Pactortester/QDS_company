@@ -4,6 +4,8 @@ import time
 
 import logging
 
+from selenium.webdriver.common.by import By
+
 from utils.mytestcase import MyTestCase
 from utils.logincookie import DengLuPage
 from utils.random import unicode
@@ -566,3 +568,46 @@ class HhrTest(MyTestCase):
         self.assertIn(str(income),str(lastincome))
 
         print("收益一致,测试通过!")
+
+    def test_clue(self):
+
+        """合伙人客户线索"""
+        dl = DengLuPage(self.driver)
+        dl.login()
+        time.sleep(1)
+
+        self.driver.find_element_by_css_selector("#page-header > div.item-right > ul > li:nth-child(2) > a").click()
+        time.sleep(1)
+        # 新版提示
+        self.driver.find_element_by_xpath("//*[@id=\"personalCenter2-rightContainer\"]/div[1]/div/a").click()
+        self.driver.find_element_by_link_text("系统派单").click()
+
+        windows = self.driver.window_handles
+        self.driver.switch_to.window(windows[-1])
+        time.sleep(2)
+        self.driver.set_window_size(1920, 1080)
+        try:
+            self.driver.find_element(By.CSS_SELECTOR,"#personalCenter2-rightContainer > div.nav > a")
+            a = True
+        except:
+            a = False
+        if a is True:
+            print("当前无线索,点击申请!")
+            self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.nav > a").click()
+            time.sleep(2)
+            number = random.randint(1,10)
+            clue = self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > table > tbody > tr:nth-child({})".format(number)).text
+            print(str(clue).replace("\n", " "))
+            self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > table > tbody > tr:nth-child({}) > td:nth-child(8) > a".format(number + 1)).click()
+
+
+        elif a is False:
+            print("线索存在!")
+            time.sleep(2)
+            number = random.randint(1, 10)
+            clue = self.driver.find_element_by_css_selector(
+                "#personalCenter2-rightContainer > div > table > tbody > tr:nth-child({})".format(number)).text
+            print(str(clue).replace("\n"," "))
+            self.driver.find_element_by_css_selector(
+                "#personalCenter2-rightContainer > div > table > tbody > tr:nth-child({}) > td:nth-child(8) > a".format(
+                    number + 1)).click()
