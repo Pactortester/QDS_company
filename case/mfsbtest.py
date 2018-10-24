@@ -199,3 +199,19 @@ class MfSbTest(MyTestCase):
         # self.assertIn("注册专利查询_中国专利查询系统_让知识产生财富_权大师", self.driver.title)
         print(self.driver.title)
         print(self.driver.current_url)
+
+    def test_jcjs(self):
+        """交叉检索测试"""
+        dl = DengLuPage(self.driver)
+        dl.login()
+        time.sleep(2)
+        self.driver.find_element_by_css_selector("#serch-word").click()
+        # 获取打开的多个窗口句柄
+        windows = self.driver.window_handles
+        # 切换到当前最新打开的窗口
+        self.driver.switch_to.window(windows[-1])
+        time.sleep(2)
+        self.driver.set_window_size(1920, 1080)
+        self.assertIn("注册商标查询_中国商标查询_权大师官网", self.driver.title)
+        print(self.driver.title)
+        dl.refresh()

@@ -1,7 +1,6 @@
 # coding=utf-8
 import random
 import time
-from selenium.webdriver import ActionChains
 from utils.mytestcase import MyTestCase
 from utils.logincookie import DengLuPage
 from utils.random import unicode, request_number, patent_name
@@ -12,7 +11,7 @@ class TradeTest(MyTestCase):
     """商标交易测试集"""
 
     def test_trade_1(self):
-        """求购需求测试"""
+        """首页查询测试"""
 
         dl = DengLuPage(self.driver)
 
@@ -70,14 +69,15 @@ class TradeTest(MyTestCase):
                 "#app > div > div.postNeedsBox > div > ul.priceBox.commonBox > li:nth-child({})".format(ys)).text
 
             print("商标预算:" + str(budget))
-
+            self.driver.execute_script("window.scrollBy(0,3500)")  # 滑动滚动条
             self.driver.find_element_by_css_selector(
-                "#app > div > div.postNeedsBox > div > p:nth-child(10) > input[type=\"text\"]").send_keys(unicode())
+                "#app > div > div.postNeedsBox > div > p:nth-child(10) > input[type=\"text\"]").send_keys(patent_name())
             self.driver.find_element_by_css_selector(
                 "#app > div > div.postNeedsBox > div > p:nth-child(12) > input[type=\"text\"]").send_keys("15624992498")
+
+            need = "有带“{}”的商标,文艺骚气有逼格,欢迎推荐!".format(unicode())
             self.driver.find_element_by_css_selector(
-                "#app > div > div.postNeedsBox > div > p:nth-child(14) > textarea").send_keys(
-                time.strftime("%Y-%m-%d_%H-%M-%S") + "测试订单")
+                "#app > div > div.postNeedsBox > div > p:nth-child(14) > textarea").send_keys(need)
             get_screenshort(self.driver, "test_trade_1.png")
 
             self.driver.find_element_by_css_selector("#app > div > div.postNeedsBox > div > a").click()
@@ -467,3 +467,66 @@ class TradeTest(MyTestCase):
         selected = self.driver.find_element_by_css_selector("#app > div > div.brandMarketBox > div.searchCriteriaBox > dl.SelectedConditions > dd").text
         print("已选条件:" + str(selected).replace("\n"," "))
         print("筛选商标测试通过!")
+
+    def test_trade_12(self):
+        """求购需求测试"""
+
+        dl = DengLuPage(self.driver)
+
+        dl.login()
+        self.driver.find_element_by_css_selector("body > div.section-banner > div.public-navbar > div > ul > li:nth-child(4) > a").click()
+
+        windows = self.driver.window_handles
+        self.driver.switch_to.window(windows[-1])
+        time.sleep(2)
+        dl.refresh()
+        self.driver.set_window_size(1920, 1080)
+        self.assertIn("商标交易_商标转让_商标买卖_商标交易网-权大师", self.driver.title)
+        print(self.driver.title)
+
+        self.driver.find_element_by_css_selector(
+            "#app > div > div.brandMarketBox > div.brandSearchBox > p.postWant").click()
+        fl = random.randint(1, 45)
+        self.driver.find_element_by_css_selector(
+            "#app > div > div.postNeedsBox > div > div > ul > li:nth-child({})".format(fl)).click()
+        print("选择" + str(fl) + "商标类别")
+
+        jg = random.randint(2, 9)
+        self.driver.find_element_by_css_selector(
+            "#app > div > div.postNeedsBox > div > ul.structureBox.commonBox > li:nth-child({})".format(jg)).click()
+        structure = self.driver.find_element_by_css_selector(
+            "#app > div > div.postNeedsBox > div > ul.structureBox.commonBox > li:nth-child({})".format(jg)).text
+
+        print("商标结构:" + str(structure))
+
+        zs = random.randint(2, 6)
+
+        self.driver.find_element_by_css_selector(
+            "#app > div > div.postNeedsBox > div > ul.wordNumBox.commonBox > li:nth-child({})".format(zs)).click()
+        words = self.driver.find_element_by_css_selector(
+            "#app > div > div.postNeedsBox > div > ul.wordNumBox.commonBox > li:nth-child({})".format(zs)).text
+
+        print("商标字数:" + str(words))
+
+        ys = random.randint(2, 7)
+
+        self.driver.find_element_by_css_selector(
+            "#app > div > div.postNeedsBox > div > ul.priceBox.commonBox > li:nth-child({})".format(ys)).click()
+        budget = self.driver.find_element_by_css_selector(
+            "#app > div > div.postNeedsBox > div > ul.priceBox.commonBox > li:nth-child({})".format(ys)).text
+
+        print("商标预算:" + str(budget))
+        self.driver.execute_script("window.scrollBy(0,3500)")  # 滑动滚动条
+
+        self.driver.find_element_by_css_selector(
+            "#app > div > div.postNeedsBox > div > p:nth-child(10) > input[type=\"text\"]").send_keys(patent_name())
+        self.driver.find_element_by_css_selector(
+            "#app > div > div.postNeedsBox > div > p:nth-child(12) > input[type=\"text\"]").send_keys("15624992498")
+
+        need = "有带“{}”或“{}”的商标,欢迎推荐!".format(unicode(),patent_name())
+        self.driver.find_element_by_css_selector(
+            "#app > div > div.postNeedsBox > div > p:nth-child(14) > textarea").send_keys(need)
+        get_screenshort(self.driver, "test_trade_1.png")
+
+        self.driver.find_element_by_css_selector("#app > div > div.postNeedsBox > div > a").click()
+        print("需求已发布!")
