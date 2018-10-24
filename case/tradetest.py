@@ -15,10 +15,18 @@ class TradeTest(MyTestCase):
         """求购需求测试"""
 
         dl = DengLuPage(self.driver)
-        self.driver.get("http://pre-brand-trade.quandashi.com/#/")
-        time.sleep(1)
-        dl.refresh_pre()
+
+        dl.login()
+        self.driver.find_element_by_css_selector("body > div.section-banner > div.public-navbar > div > ul > li:nth-child(4) > a").click()
+
+        windows = self.driver.window_handles
+        self.driver.switch_to.window(windows[-1])
         time.sleep(2)
+        dl.refresh()
+        self.driver.set_window_size(1920, 1080)
+        self.assertIn("商标交易_商标转让_商标买卖_商标交易网-权大师",self.driver.title)
+        print(self.driver.title)
+
         trade = unicode()
         self.driver.find_element_by_css_selector("#app > div > div.brandMarketBox > div.brandSearchBox > div > div > input[type=\"text\"]").send_keys(trade)
         print("商标名称:" + trade)
@@ -82,10 +90,17 @@ class TradeTest(MyTestCase):
         """购买商标测试"""
 
         dl = DengLuPage(self.driver)
-        self.driver.get("http://pre-brand-trade.quandashi.com/#/")
-        time.sleep(1)
-        dl.refresh_pre()
+        dl.login()
+        self.driver.find_element_by_css_selector("body > div.section-banner > div.public-navbar > div > ul > li:nth-child(4) > a").click()
+
+        windows = self.driver.window_handles
+        self.driver.switch_to.window(windows[-1])
         time.sleep(2)
+        dl.refresh()
+        self.driver.set_window_size(1920, 1080)
+        self.assertIn("商标交易_商标转让_商标买卖_商标交易网-权大师", self.driver.title)
+        print(self.driver.title)
+
         brand = random.randint(1,36)
         name = self.driver.find_element_by_css_selector("#app > div > div.brandMarketBox > ul > li:nth-child({}) > div > b".format(brand)).text
         price = self.driver.find_element_by_css_selector("#app > div > div.brandMarketBox > ul > li:nth-child({}) > div > i".format(brand)).text
@@ -117,7 +132,7 @@ class TradeTest(MyTestCase):
         self.driver.find_element_by_css_selector("#app > div > div.shoppingCarBox > div.userMsg > div > dl:nth-child(3) > dd > input[type=\"text\"]").send_keys("1456470138@qq.com")
         get_screenshort(self.driver,"test_trade_2.png")
         self.driver.find_element_by_css_selector("#app > div > div.shoppingCarBox > div.totalMoney > div > a").click()
-        time.sleep(2)
+        time.sleep(4)
 
         # 二次切换窗口
         current_window = self.driver.current_window_handle
@@ -140,10 +155,18 @@ class TradeTest(MyTestCase):
         """提交报价测试"""
 
         dl = DengLuPage(self.driver)
-        self.driver.get("http://pre-brand-trade.quandashi.com/#/")
-        time.sleep(1)
-        dl.refresh_pre()
+
+        dl.login()
+        self.driver.find_element_by_css_selector("body > div.section-banner > div.public-navbar > div > ul > li:nth-child(4) > a").click()
+
+        windows = self.driver.window_handles
+        self.driver.switch_to.window(windows[-1])
         time.sleep(2)
+        dl.refresh()
+        self.driver.set_window_size(1920, 1080)
+        self.assertIn("商标交易_商标转让_商标买卖_商标交易网-权大师", self.driver.title)
+        print(self.driver.title)
+
         brand = random.randint(1, 36)
         name = self.driver.find_element_by_css_selector(
             "#app > div > div.brandMarketBox > ul > li:nth-child({}) > div > b".format(brand)).text
@@ -170,10 +193,18 @@ class TradeTest(MyTestCase):
         """点击收藏测试"""
 
         dl = DengLuPage(self.driver)
-        self.driver.get("http://pre-brand-trade.quandashi.com/#/")
-        time.sleep(1)
-        dl.refresh_pre()
+
+        dl.login()
+        self.driver.find_element_by_css_selector("body > div.section-banner > div.public-navbar > div > ul > li:nth-child(4) > a").click()
+
+        windows = self.driver.window_handles
+        self.driver.switch_to.window(windows[-1])
         time.sleep(2)
+        dl.refresh()
+        self.driver.set_window_size(1920, 1080)
+        self.assertIn("商标交易_商标转让_商标买卖_商标交易网-权大师", self.driver.title)
+        print(self.driver.title)
+
         brand = random.randint(1, 36)
         name = self.driver.find_element_by_css_selector(
             "#app > div > div.brandMarketBox > ul > li:nth-child({}) > div > b".format(brand)).text
@@ -202,11 +233,20 @@ class TradeTest(MyTestCase):
         """删除收藏测试"""
 
         dl = DengLuPage(self.driver)
-        self.driver.get("http://pre-brand-trade.quandashi.com/#/")
-        time.sleep(1)
-        dl.refresh_pre()
+
+        dl.login()
+        self.driver.find_element_by_css_selector("body > div.section-banner > div.public-navbar > div > ul > li:nth-child(4) > a").click()
+
+        windows = self.driver.window_handles
+        self.driver.switch_to.window(windows[-1])
         time.sleep(2)
+        dl.refresh()
+        self.driver.set_window_size(1920, 1080)
+        self.assertIn("商标交易_商标转让_商标买卖_商标交易网-权大师", self.driver.title)
+        print(self.driver.title)
+
         self.driver.find_element_by_css_selector("#app > div > div.header-wrap.clearfix > div.header-right.clearfix > p.favoriteEnter.favoAct").click()
+        time.sleep(1)
         brand = self.driver.find_element_by_css_selector("#app > div > div > div.collectionFolderSwiper > ul > li > div.itemInner > div > b").text
         print("商标名称:" + brand)
         self.driver.find_element_by_css_selector("#app > div > div > div.collectionFolderSwiper > ul > li > div.itemInner > div > p > a:nth-child(2)").click()
@@ -220,10 +260,18 @@ class TradeTest(MyTestCase):
         """添加购物车测试"""
 
         dl = DengLuPage(self.driver)
-        self.driver.get("http://pre-brand-trade.quandashi.com/#/")
-        time.sleep(1)
-        dl.refresh_pre()
+
+        dl.login()
+        self.driver.find_element_by_css_selector("body > div.section-banner > div.public-navbar > div > ul > li:nth-child(4) > a").click()
+
+        windows = self.driver.window_handles
+        self.driver.switch_to.window(windows[-1])
         time.sleep(2)
+        dl.refresh()
+        self.driver.set_window_size(1920, 1080)
+        self.assertIn("商标交易_商标转让_商标买卖_商标交易网-权大师", self.driver.title)
+        print(self.driver.title)
+
         brand = random.randint(1, 36)
         name = self.driver.find_element_by_css_selector(
             "#app > div > div.brandMarketBox > ul > li:nth-child({}) > div > b".format(brand)).text
@@ -252,10 +300,18 @@ class TradeTest(MyTestCase):
         """删除购物车测试"""
 
         dl = DengLuPage(self.driver)
-        self.driver.get("http://pre-brand-trade.quandashi.com/#/")
-        time.sleep(1)
-        dl.refresh_pre()
+
+        dl.login()
+        self.driver.find_element_by_css_selector("body > div.section-banner > div.public-navbar > div > ul > li:nth-child(4) > a").click()
+
+        windows = self.driver.window_handles
+        self.driver.switch_to.window(windows[-1])
         time.sleep(2)
+        dl.refresh()
+        self.driver.set_window_size(1920, 1080)
+        self.assertIn("商标交易_商标转让_商标买卖_商标交易网-权大师", self.driver.title)
+        print(self.driver.title)
+
         self.driver.find_element_by_css_selector("#app > div > div.header-wrap.clearfix > div.header-right.clearfix > p.shoppingCartEnter").click()
 
         brand = self.driver.find_element_by_css_selector("#app > div > div.shoppingCarBox > table > tr:nth-child(2) > td:nth-child(3)").text
@@ -271,10 +327,18 @@ class TradeTest(MyTestCase):
         """推荐商标测试"""
 
         dl = DengLuPage(self.driver)
-        self.driver.get("http://pre-brand-trade.quandashi.com/#/")
-        time.sleep(1)
-        dl.refresh_pre()
+
+        dl.login()
+        self.driver.find_element_by_css_selector("body > div.section-banner > div.public-navbar > div > ul > li:nth-child(4) > a").click()
+
+        windows = self.driver.window_handles
+        self.driver.switch_to.window(windows[-1])
         time.sleep(2)
+        dl.refresh()
+        self.driver.set_window_size(1920, 1080)
+        self.assertIn("商标交易_商标转让_商标买卖_商标交易网-权大师", self.driver.title)
+        print(self.driver.title)
+
         self.driver.find_element_by_css_selector("#app > div > div.header-wrap.clearfix > div.header-left > p > a:nth-child(2)").click()
         time.sleep(2)
         self.driver.find_element_by_css_selector("#app > div > div.purchaseDemandBox.clearfix > ul > li:nth-child(1) > p.recBrand > a > img").click()
@@ -297,10 +361,17 @@ class TradeTest(MyTestCase):
         """筛选商标测试"""
 
         dl = DengLuPage(self.driver)
-        self.driver.get("http://pre-brand-trade.quandashi.com/#/")
-        time.sleep(1)
-        dl.refresh_pre()
+
+        dl.login()
+        self.driver.find_element_by_css_selector("body > div.section-banner > div.public-navbar > div > ul > li:nth-child(4) > a").click()
+
+        windows = self.driver.window_handles
+        self.driver.switch_to.window(windows[-1])
         time.sleep(2)
+        dl.refresh()
+        self.driver.set_window_size(1920, 1080)
+        self.assertIn("商标交易_商标转让_商标买卖_商标交易网-权大师", self.driver.title)
+        print(self.driver.title)
 
         self.driver.find_element_by_css_selector(
             "#app > div > div.brandMarketBox > div.searchCriteriaBox > dl.brandType.chooseType > dd.openBrandType.openBrandTypeOpen").click()
@@ -364,10 +435,18 @@ class TradeTest(MyTestCase):
         """价格区间测试"""
 
         dl = DengLuPage(self.driver)
-        self.driver.get("http://pre-brand-trade.quandashi.com/#/")
-        time.sleep(1)
-        dl.refresh_pre()
+
+        dl.login()
+        self.driver.find_element_by_css_selector("body > div.section-banner > div.public-navbar > div > ul > li:nth-child(4) > a").click()
+
+        windows = self.driver.window_handles
+        self.driver.switch_to.window(windows[-1])
         time.sleep(2)
+        dl.refresh()
+        self.driver.set_window_size(1920, 1080)
+        self.assertIn("商标交易_商标转让_商标买卖_商标交易网-权大师", self.driver.title)
+        print(self.driver.title)
+
         low = random.randint(1,5000)
         high = random.randint(5000,50000)
         self.driver.find_element_by_css_selector("#app > div > div.brandMarketBox > div.searchCriteriaBox > dl.brandPrice.chooseType > dd.inputNum > input[type=\"text\"]:nth-child(1)").send_keys(low)

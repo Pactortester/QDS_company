@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4045b1ed-0b5c-43da-8b53-9fbc7a687bac" name="Default Changelist" comment="8.31修改pycharm测试提交">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/case/cluetest.py" beforeDir="false" afterPath="$PROJECT_DIR$/case/cluetest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case/hhrtest.py" beforeDir="false" afterPath="$PROJECT_DIR$/case/hhrtest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/logincookie.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/logincookie.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/mytestcase.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/mytestcase.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/pyselenium.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/pyselenium.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/case/tradetest.py" beforeDir="false" afterPath="$PROJECT_DIR$/case/tradetest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/2018-10-23.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/2018-10-23.log" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,12 +39,12 @@
           <entry key="chinese" value="2" />
           <entry key="csv" value="3" />
           <entry key="gitattributes" value="1" />
-          <entry key="html" value="102" />
+          <entry key="html" value="103" />
           <entry key="ini" value="5" />
           <entry key="log" value="5" />
           <entry key="md" value="4" />
           <entry key="png" value="120" />
-          <entry key="py" value="521" />
+          <entry key="py" value="522" />
           <entry key="sql" value="1" />
         </counts>
       </usages-collector>
@@ -56,13 +53,13 @@
           <entry key="Bat" value="8" />
           <entry key="CSV" value="2" />
           <entry key="DBN-SQL" value="1" />
-          <entry key="HTML" value="102" />
+          <entry key="HTML" value="103" />
           <entry key="Image" value="120" />
           <entry key="Ini" value="5" />
           <entry key="Log" value="5" />
           <entry key="Markdown" value="4" />
           <entry key="PLAIN_TEXT" value="4" />
-          <entry key="Python" value="521" />
+          <entry key="Python" value="522" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -73,7 +70,7 @@
           <entry key="dummy" value="1" />
           <entry key="html" value="16" />
           <entry key="md" value="118" />
-          <entry key="py" value="9073" />
+          <entry key="py" value="9140" />
           <entry key="txt" value="21" />
         </counts>
       </usages-collector>
@@ -84,7 +81,7 @@
           <entry key="HTML" value="16" />
           <entry key="Markdown" value="118" />
           <entry key="PLAIN_TEXT" value="22" />
-          <entry key="Python" value="9106" />
+          <entry key="Python" value="9173" />
         </counts>
       </usages-collector>
     </session>
@@ -94,11 +91,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/case/hhrtest.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="571" column="24" selection-start-line="571" selection-start-column="24" selection-end-line="571" selection-end-column="24" />
+            <state relative-caret-position="1024">
+              <caret line="613" selection-start-line="613" selection-end-line="613" />
               <folding>
                 <element signature="e#302#7449#0" />
                 <element signature="e#7490#14271#0" />
@@ -107,7 +104,6 @@
                 <element signature="e#25635#29441#0" />
                 <element signature="e#29479#32961#0" />
                 <element signature="e#32999#36398#0" />
-                <element signature="e#36479#38385#0" />
               </folding>
             </state>
           </provider>
@@ -138,7 +134,7 @@
         <entry file="file://$PROJECT_DIR$/case/cluetest.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="224">
-              <caret line="164" column="24" lean-forward="true" selection-start-line="164" selection-start-column="24" selection-end-line="164" selection-end-column="24" />
+              <caret line="127" column="25" selection-start-line="127" selection-start-column="25" selection-end-line="127" selection-end-column="25" />
               <folding>
                 <element signature="e#316#1496#0" />
                 <element signature="e#1533#3165#0" />
@@ -149,11 +145,32 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/case/tradetest.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="352">
+              <caret line="448" lean-forward="true" selection-start-line="448" selection-end-line="448" />
+              <folding>
+                <element signature="e#15#28#0" expanded="true" />
+                <element signature="e#360#3941#0" />
+                <element signature="e#3776#7333#0" />
+                <element signature="e#7371#9064#0" />
+                <element signature="e#9102#10795#0" />
+                <element signature="e#10833#11644#0" />
+                <element signature="e#11682#13067#0" />
+                <element signature="e#13105#13890#0" />
+                <element signature="e#13928#15475#0" />
+                <element signature="e#15514#18854#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/case/bmkstest.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="71" column="84" selection-start-line="71" selection-start-column="73" selection-end-line="71" selection-end-column="84" />
+            <state relative-caret-position="253">
+              <caret line="52" column="47" lean-forward="true" selection-start-line="47" selection-start-column="8" selection-end-line="52" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -163,15 +180,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="208">
               <caret line="13" column="38" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/report/2018-10-22_12-00-01_report.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="11" column="82" selection-start-line="11" selection-start-column="82" selection-end-line="11" selection-end-column="82" />
             </state>
           </provider>
         </entry>
@@ -189,10 +197,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/report/2018-10-23_22-00-00_report.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="64">
+              <caret line="4" column="26" lean-forward="true" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/report/2018-10-23_12-00-00_report.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="208">
-              <caret line="13" column="38" lean-forward="true" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
+              <caret line="13" column="38" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -320,18 +337,18 @@
         <option value="$PROJECT_DIR$/case/hwsctest.py" />
         <option value="$USER_HOME$/Documents/WeChat Files/ljw1456470136/Files/register.py" />
         <option value="$PROJECT_DIR$/runAllTestCases.py" />
-        <option value="$PROJECT_DIR$/case/tradetest.py" />
         <option value="$PROJECT_DIR$/start.py" />
         <option value="$PROJECT_DIR$/case/test.py" />
         <option value="$PROJECT_DIR$/case/mfsbtest.py" />
         <option value="$PROJECT_DIR$/case/znzztest.py" />
         <option value="$PROJECT_DIR$/case/hwgstest.py" />
         <option value="$PROJECT_DIR$/utils/pyselenium.py" />
-        <option value="$PROJECT_DIR$/utils/mytestcase.py" />
         <option value="$PROJECT_DIR$/utils/logincookie.py" />
         <option value="$PROJECT_DIR$/case/bmkstest.py" />
-        <option value="$PROJECT_DIR$/case/cluetest.py" />
         <option value="$PROJECT_DIR$/case/hhrtest.py" />
+        <option value="$PROJECT_DIR$/utils/mytestcase.py" />
+        <option value="$PROJECT_DIR$/case/cluetest.py" />
+        <option value="$PROJECT_DIR$/case/tradetest.py" />
       </list>
     </option>
   </component>
@@ -380,6 +397,11 @@
             <path>
               <item name="QDS_company" type="b2602c69:ProjectViewProjectNode" />
               <item name="QDS_company" type="462c0819:PsiDirectoryNode" />
+              <item name="report" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="QDS_company" type="b2602c69:ProjectViewProjectNode" />
+              <item name="QDS_company" type="462c0819:PsiDirectoryNode" />
               <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -423,49 +445,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests for cluetest.ClueTest.test_clue4">
-    <configuration name="Unittests for cluetest.ClueTest.test_clue3" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-      <module name="QDS_company" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/case" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;cluetest.ClueTest.test_clue3&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Unittests for cluetest.ClueTest.test_clue4" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-      <module name="QDS_company" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/case" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;cluetest.ClueTest.test_clue4&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Unittests for hhrtest.HhrTest.test_clue" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-      <module name="QDS_company" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/case" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;hhrtest.HhrTest.test_clue&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python tests.Unittests for tradetest.TradeTest.test_trade_11">
     <configuration name="Unittests for indextest.IndexTest.test_know" type="tests" factoryName="Unittests" nameIsGenerated="true">
       <module name="QDS_company" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -478,20 +458,6 @@
       <option name="_new_pattern" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
       <option name="_new_target" value="&quot;indextest.IndexTest.test_know&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Unittests for tradetest.TradeTest.test_trade_10" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-      <module name="QDS_company" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/case" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;tradetest.TradeTest.test_trade_10&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
@@ -509,21 +475,77 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
+    <configuration name="Unittests for tradetest.TradeTest.test_trade_3" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="QDS_company" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/case" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;tradetest.TradeTest.test_trade_3&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unittests for tradetest.TradeTest.test_trade_4" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="QDS_company" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/case" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;tradetest.TradeTest.test_trade_4&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unittests for tradetest.TradeTest.test_trade_5" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="QDS_company" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/case" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;tradetest.TradeTest.test_trade_5&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unittests for tradetest.TradeTest.test_trade_6" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="QDS_company" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/case" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;tradetest.TradeTest.test_trade_6&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Python tests.Unittests for indextest.IndexTest.test_know" />
-      <item itemvalue="Python tests.Unittests for hhrtest.HhrTest.test_clue" />
-      <item itemvalue="Python tests.Unittests for tradetest.TradeTest.test_trade_10" />
+      <item itemvalue="Python tests.Unittests for tradetest.TradeTest.test_trade_3" />
+      <item itemvalue="Python tests.Unittests for tradetest.TradeTest.test_trade_4" />
+      <item itemvalue="Python tests.Unittests for tradetest.TradeTest.test_trade_5" />
+      <item itemvalue="Python tests.Unittests for tradetest.TradeTest.test_trade_6" />
       <item itemvalue="Python tests.Unittests for tradetest.TradeTest.test_trade_11" />
-      <item itemvalue="Python tests.Unittests for cluetest.ClueTest.test_clue3" />
-      <item itemvalue="Python tests.Unittests for cluetest.ClueTest.test_clue4" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.Unittests for cluetest.ClueTest.test_clue4" />
-        <item itemvalue="Python tests.Unittests for cluetest.ClueTest.test_clue3" />
         <item itemvalue="Python tests.Unittests for tradetest.TradeTest.test_trade_11" />
-        <item itemvalue="Python tests.Unittests for tradetest.TradeTest.test_trade_10" />
-        <item itemvalue="Python tests.Unittests for hhrtest.HhrTest.test_clue" />
+        <item itemvalue="Python tests.Unittests for tradetest.TradeTest.test_trade_6" />
+        <item itemvalue="Python tests.Unittests for tradetest.TradeTest.test_trade_5" />
+        <item itemvalue="Python tests.Unittests for tradetest.TradeTest.test_trade_4" />
+        <item itemvalue="Python tests.Unittests for tradetest.TradeTest.test_trade_3" />
       </list>
     </recent_temporary>
   </component>
@@ -549,35 +571,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_for_hhrtest_HhrTest_test_clue - 2018.10.22 at 14h 26m 35s.xml">
-      <configuration name="Unittests for hhrtest.HhrTest.test_clue" configurationId="tests" />
+    <history-entry file="Unittests_for_tradetest_TradeTest_test_trade_1 - 2018.10.24 at 08h 32m 20s.xml">
+      <configuration name="Unittests for tradetest.TradeTest.test_trade_1" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_tradetest_TradeTest_test_trade_10 - 2018.10.23 at 16h 02m 46s.xml">
-      <configuration name="Unittests for tradetest.TradeTest.test_trade_10" configurationId="tests" />
+    <history-entry file="Unittests_for_tradetest_TradeTest_test_trade_1 - 2018.10.24 at 08h 33m 14s.xml">
+      <configuration name="Unittests for tradetest.TradeTest.test_trade_1" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_tradetest_TradeTest_test_trade_11 - 2018.10.23 at 16h 05m 45s.xml">
-      <configuration name="Unittests for tradetest.TradeTest.test_trade_11" configurationId="tests" />
+    <history-entry file="Unittests_for_tradetest_TradeTest_test_trade_2 - 2018.10.24 at 08h 37m 17s.xml">
+      <configuration name="Unittests for tradetest.TradeTest.test_trade_2" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_cluetest_ClueTest_test_clue3 - 2018.10.23 at 16h 56m 58s.xml">
-      <configuration name="Unittests for cluetest.ClueTest.test_clue3" configurationId="tests" />
+    <history-entry file="Unittests_for_tradetest_TradeTest_test_trade_2 - 2018.10.24 at 08h 39m 26s.xml">
+      <configuration name="Unittests for tradetest.TradeTest.test_trade_2" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_cluetest_ClueTest_test_clue3 - 2018.10.23 at 16h 58m 06s.xml">
-      <configuration name="Unittests for cluetest.ClueTest.test_clue3" configurationId="tests" />
+    <history-entry file="Unittests_for_tradetest_TradeTest_test_trade_2 - 2018.10.24 at 08h 40m 20s.xml">
+      <configuration name="Unittests for tradetest.TradeTest.test_trade_2" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_cluetest_ClueTest_test_clue3 - 2018.10.23 at 16h 59m 04s.xml">
-      <configuration name="Unittests for cluetest.ClueTest.test_clue3" configurationId="tests" />
+    <history-entry file="Unittests_for_tradetest_TradeTest_test_trade_3 - 2018.10.24 at 08h 41m 26s.xml">
+      <configuration name="Unittests for tradetest.TradeTest.test_trade_3" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_cluetest_ClueTest_test_clue3 - 2018.10.23 at 17h 02m 58s.xml">
-      <configuration name="Unittests for cluetest.ClueTest.test_clue3" configurationId="tests" />
+    <history-entry file="Unittests_for_tradetest_TradeTest_test_trade_4 - 2018.10.24 at 08h 42m 13s.xml">
+      <configuration name="Unittests for tradetest.TradeTest.test_trade_4" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_cluetest_ClueTest_test_clue3 - 2018.10.23 at 17h 06m 45s.xml">
-      <configuration name="Unittests for cluetest.ClueTest.test_clue3" configurationId="tests" />
+    <history-entry file="Unittests_for_tradetest_TradeTest_test_trade_5 - 2018.10.24 at 08h 42m 54s.xml">
+      <configuration name="Unittests for tradetest.TradeTest.test_trade_5" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_cluetest_ClueTest_test_clue4 - 2018.10.23 at 17h 10m 59s.xml">
-      <configuration name="Unittests for cluetest.ClueTest.test_clue4" configurationId="tests" />
+    <history-entry file="Unittests_for_tradetest_TradeTest_test_trade_5 - 2018.10.24 at 08h 43m 39s.xml">
+      <configuration name="Unittests for tradetest.TradeTest.test_trade_5" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_cluetest_ClueTest_test_clue4 - 2018.10.23 at 17h 12m 55s.xml">
-      <configuration name="Unittests for cluetest.ClueTest.test_clue4" configurationId="tests" />
+    <history-entry file="Unittests_for_tradetest_TradeTest_test_trade_6 - 2018.10.24 at 08h 45m 48s.xml">
+      <configuration name="Unittests for tradetest.TradeTest.test_trade_6" configurationId="tests" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -658,13 +680,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="8.31修改pycharm测试提交" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/report/2018-10-14_22-00-58_report.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1648">
-          <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/report/2018-10-15_12-00-55_report.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-736">
@@ -919,7 +934,7 @@
     <entry file="file://$PROJECT_DIR$/report/2018-10-23_12-00-00_report.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
-          <caret line="13" column="38" lean-forward="true" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
+          <caret line="13" column="38" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
         </state>
       </provider>
     </entry>
@@ -949,14 +964,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/case/tradetest.py">
+    <entry file="file://$PROJECT_DIR$/report/2018-10-23_22-00-00_report.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="370" column="36" lean-forward="true" selection-start-line="370" selection-start-column="36" selection-end-line="370" selection-end-column="36" />
-          <folding>
-            <element signature="e#15#28#0" expanded="true" />
-            <element signature="e#360#3738#0" />
-          </folding>
+        <state relative-caret-position="64">
+          <caret line="4" column="26" lean-forward="true" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
         </state>
       </provider>
     </entry>
@@ -970,17 +981,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/case/bmkstest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="71" column="84" selection-start-line="71" selection-start-column="73" selection-end-line="71" selection-end-column="84" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/case/cluetest.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
-          <caret line="164" column="24" lean-forward="true" selection-start-line="164" selection-start-column="24" selection-end-line="164" selection-end-column="24" />
+          <caret line="127" column="25" selection-start-line="127" selection-start-column="25" selection-end-line="127" selection-end-column="25" />
           <folding>
             <element signature="e#316#1496#0" />
             <element signature="e#1533#3165#0" />
@@ -992,8 +996,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/case/hhrtest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="571" column="24" selection-start-line="571" selection-start-column="24" selection-end-line="571" selection-end-column="24" />
+        <state relative-caret-position="1024">
+          <caret line="613" selection-start-line="613" selection-end-line="613" />
           <folding>
             <element signature="e#302#7449#0" />
             <element signature="e#7490#14271#0" />
@@ -1002,7 +1006,32 @@
             <element signature="e#25635#29441#0" />
             <element signature="e#29479#32961#0" />
             <element signature="e#32999#36398#0" />
-            <element signature="e#36479#38385#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/case/bmkstest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="52" column="47" lean-forward="true" selection-start-line="47" selection-start-column="8" selection-end-line="52" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/case/tradetest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="448" lean-forward="true" selection-start-line="448" selection-end-line="448" />
+          <folding>
+            <element signature="e#15#28#0" expanded="true" />
+            <element signature="e#360#3941#0" />
+            <element signature="e#3776#7333#0" />
+            <element signature="e#7371#9064#0" />
+            <element signature="e#9102#10795#0" />
+            <element signature="e#10833#11644#0" />
+            <element signature="e#11682#13067#0" />
+            <element signature="e#13105#13890#0" />
+            <element signature="e#13928#15475#0" />
+            <element signature="e#15514#18854#0" />
           </folding>
         </state>
       </provider>
