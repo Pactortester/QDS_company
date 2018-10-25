@@ -317,6 +317,7 @@
 # suite = unittest.defaultTestLoader.discover("G:\\QDS_company\\case\\", "*test.py")
 # unittest.TextTestRunner().run(suite)
 # path = os.path.dirname(__file__)
+import random
 
 from selenium import webdriver
 
@@ -390,3 +391,7 @@ from utils.screenshort import get_screenshort
 #     filenames = 'D:\\10.15'  # 目标文件夹
 #     arr = []
 #     eachfile(filenames)
+
+from utils.datachoice import xz
+
+print(xz("驰名商标.txt"))

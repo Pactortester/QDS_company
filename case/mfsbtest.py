@@ -84,13 +84,9 @@ class MfSbTest(MyTestCase):
         """初审公告测试"""
 
         dl = DengLuPage(self.driver)
-        dl.login()
         time.sleep(2)
-        self.driver.find_element_by_css_selector("body > div.section-hotservice > ul > li:nth-child(3) > a > img").click()
-        # 获取打开的多个窗口句柄
-        windows = self.driver.window_handles
-        # 切换到当前最新打开的窗口
-        self.driver.switch_to.window(windows[-1])
+        self.driver.get("https://so.quandashi.com/search/notice/index")
+        dl.refresh()
         time.sleep(2)
         self.driver.set_window_size(1920, 1080)
         self.assertIn("初审公告搜索", self.driver.title)
@@ -203,15 +199,23 @@ class MfSbTest(MyTestCase):
     def test_jcjs(self):
         """交叉检索测试"""
         dl = DengLuPage(self.driver)
-        dl.login()
+        self.driver.get("https://pre-so.quandashi.com/")
+        dl.refresh_pre()
         time.sleep(2)
-        self.driver.find_element_by_css_selector("#serch-word").click()
-        # 获取打开的多个窗口句柄
-        windows = self.driver.window_handles
-        # 切换到当前最新打开的窗口
-        self.driver.switch_to.window(windows[-1])
-        time.sleep(2)
-        self.driver.set_window_size(1920, 1080)
-        self.assertIn("注册商标查询_中国商标查询_权大师官网", self.driver.title)
-        print(self.driver.title)
+
+    def test_hot_trade(self):
+        """热门商标出售测试"""
+        dl = DengLuPage(self.driver)
+        self.driver.get("https://so.quandashi.com/")
         dl.refresh()
+        time.sleep(2)
+        self.driver.find_element_by_css_selector("body > div.page > div.page-index > div.page-index-form.search > div > input.input.search-text").send_keys(unicode())
+        self.driver.find_element_by_css_selector("#btnSearchkey").click()
+        time.sleep(3)
+
+        trade = self.driver.find_element_by_css_selector("#searchList > div.page-content.w-center > div.page-content-right > div > ul > li:nth-child(1) > div.hot-brand-detail").text
+        print("热门商标信息:" + str(trade).replace("\n"," "))
+
+        self.driver.find_element_by_css_selector("#searchList > div.page-content.w-center > div.page-content-right > div > ul > li:nth-child(1) > div.hot-brand-detail > a").click()
+        get_screenshort(self.driver,"test_hot_trade.png")
+        print("热门商标信息正常测试通过!")
