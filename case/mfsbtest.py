@@ -202,6 +202,63 @@ class MfSbTest(MyTestCase):
         self.driver.get("https://pre-so.quandashi.com/")
         dl.refresh_pre()
         time.sleep(2)
+        brand = unicode()
+        self.driver.find_element_by_name("key").send_keys(brand)
+        self.driver.find_element_by_id("btnSearchkey").click()
+        time.sleep(3)
+
+        # html = self.driver.execute_script("return document.documentElement.outerHTML")
+        # print(str(html))
+
+
+        """交叉检索"""
+        self.driver.find_element_by_class_name("cross-search").click()
+        classify = random.randint(1,45)
+        time.sleep(2)
+
+        dl = self.driver.find_element_by_css_selector("#section-selfchoice > div.group-left > ul > li:nth-child({})".format(classify)).text
+        print(str(dl))
+        self.driver.find_element_by_css_selector("#section-selfchoice > div.group-left > ul > li:nth-child({})".format(classify)).click()
+        time.sleep(2)
+
+        zl = self.driver.find_element_by_css_selector("#section-selfchoice > div.group-left > ul > li.list.open > div:nth-child(2) > span").text
+        print(str(zl))
+        self.driver.find_element_by_css_selector("#section-selfchoice > div.group-left > ul > li.list.open > div:nth-child(2) > span").click()
+        time.sleep(2)
+
+        xl = self.driver.find_element_by_css_selector("#section-selfchoice > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(1) > span").text
+        print(str(xl))
+        self.driver.find_element_by_css_selector("#section-selfchoice > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(1) > span").click()
+        time.sleep(2)
+
+        # ol = self.driver.find_element_by_css_selector("#section-selfchoice > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(1) > span").text
+        # print(str(ol))
+        # self.driver.find_element_by_css_selector("#section-selfchoice > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(1) > span").click()
+
+
+        info = self.driver.find_element_by_class_name("cross-range-list").text
+        print(str(info).replace("\n"," "))
+
+        self.driver.find_element_by_css_selector("#searchList > div.page-form.w-center > div.w_category_modal > div > div.btns > a").click()
+
+        """已选条件"""
+
+        select = self.driver.find_element_by_class_name("selected-category").text
+        print(str(select).replace("\n"," "))
+
+
+        result = self.driver.find_element_by_css_selector("#searchList > div.page-content.w-center > div.page-content-left > div.search-top > i").text
+        print(result)
+        time.sleep(2)
+        if int(result) == 0:
+            print("亲，未检测到您关注的商标，请换个词试试~ 不过您可以就~{}~提起商标申请哦".format(brand))
+        else:
+            # 搜索结果
+            jg = self.driver.find_element_by_css_selector("#searchList > div.page-content.w-center > div.page-content-left > div.search-top").text
+            print(jg)
+            # 第一个商标信息
+            jg1 = self.driver.find_element_by_css_selector("#searchList > div.page-content.w-center > div.page-content-left > ul > li:nth-child(1) > div.result-href > div.brand-info > div > ul").text
+            print(str(jg1).replace("\n", " "))
 
     def test_hot_trade(self):
         """热门商标出售测试"""
@@ -209,8 +266,8 @@ class MfSbTest(MyTestCase):
         self.driver.get("https://so.quandashi.com/")
         dl.refresh()
         time.sleep(2)
-        self.driver.find_element_by_css_selector("body > div.page > div.page-index > div.page-index-form.search > div > input.input.search-text").send_keys(unicode())
-        self.driver.find_element_by_css_selector("#btnSearchkey").click()
+        self.driver.find_element_by_name("key").send_keys(unicode())
+        self.driver.find_element_by_id("btnSearchkey").click()
         time.sleep(3)
 
         trade = self.driver.find_element_by_css_selector("#searchList > div.page-content.w-center > div.page-content-right > div > ul > li:nth-child(1) > div.hot-brand-detail").text
@@ -219,3 +276,46 @@ class MfSbTest(MyTestCase):
         self.driver.find_element_by_css_selector("#searchList > div.page-content.w-center > div.page-content-right > div > ul > li:nth-child(1) > div.hot-brand-detail > a").click()
         get_screenshort(self.driver,"test_hot_trade.png")
         print("热门商标信息正常测试通过!")
+
+    def test_try(self):
+        """尝试注册测试"""
+        dl = DengLuPage(self.driver)
+        self.driver.get("https://so.quandashi.com/")
+        dl.refresh()
+        time.sleep(2)
+        brand = unicode()
+        self.driver.find_element_by_name("key").send_keys(brand)
+        self.driver.find_element_by_id("btnSearchkey").click()
+        time.sleep(3)
+
+        result = self.driver.find_element_by_css_selector(
+            "#searchList > div.page-content.w-center > div.page-content-left > div.search-top > i").text
+        print(result)
+        time.sleep(2)
+
+        if int(result) == 0:
+            print("亲，未检测到您关注的商标，请换个词试试~ 不过您可以就~{}~提起商标申请哦".format(brand))
+
+            wsq = self.driver.find_element_by_css_selector(
+                "#searchList > div.page-form.w-center > div.no-result-category > div.no-result-category-box > a:nth-child(1)").text
+            print(str(wsq))
+            self.driver.find_element_by_css_selector(
+                "#searchList > div.page-form.w-center > div.no-result-category > div.no-result-category-box > a:nth-child(1)").click()
+
+            windows = self.driver.window_handles
+            self.driver.switch_to.window(windows[-1])
+            time.sleep(2)
+            self.driver.set_window_size(1920, 1080)
+            print(self.driver.current_url)
+            get_screenshort(self.driver, "test_try.png")
+
+        else:
+            # 搜索结果
+            jg = self.driver.find_element_by_css_selector(
+                "#searchList > div.page-content.w-center > div.page-content-left > div.search-top").text
+            print(jg)
+
+            # 第一个商标信息
+            jg1 = self.driver.find_element_by_css_selector(
+                "#searchList > div.page-content.w-center > div.page-content-left > ul > li:nth-child(1) > div.result-href > div.brand-info > div > ul").text
+            print(str(jg1).replace("\n", " "))

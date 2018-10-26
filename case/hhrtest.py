@@ -595,10 +595,10 @@ class HhrTest(MyTestCase):
             print("当前无线索,点击申请!")
             self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.nav > a").click()
             time.sleep(2)
-            number = random.randint(1,10)
-            clue = self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > table > tbody > tr:nth-child({})".format(number)).text
+            # number = random.randint(1,10)
+            clue = self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > table > tbody > tr:nth-child(1)").text
             print(str(clue).replace("\n", " "))
-            self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > table > tbody > tr:nth-child({}) > td:nth-child(8) > a".format(number + 1)).click()
+            self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > table > tbody > tr:nth-child(2) > td:nth-child(8) > a").click()
 
 
         elif a is False:
@@ -606,8 +606,7 @@ class HhrTest(MyTestCase):
             time.sleep(2)
             number = random.randint(1, 10)
             clue = self.driver.find_element_by_css_selector(
-                "#personalCenter2-rightContainer > div > table > tbody > tr:nth-child({})".format(number)).text
+                "#personalCenter2-rightContainer > div > table > tbody > tr:nth-child(1)").text
             print(str(clue).replace("\n"," "))
             self.driver.find_element_by_css_selector(
-                "#personalCenter2-rightContainer > div > table > tbody > tr:nth-child({}) > td:nth-child(8) > a".format(
-                    number + 1)).click()
+                "#personalCenter2-rightContainer > div > table > tbody > tr:nth-child(2) > td:nth-child(8) > a").click()
