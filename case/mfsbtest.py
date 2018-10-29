@@ -268,7 +268,7 @@ class MfSbTest(MyTestCase):
         time.sleep(2)
         self.driver.find_element_by_name("key").send_keys(unicode())
         self.driver.find_element_by_id("btnSearchkey").click()
-        time.sleep(3)
+        time.sleep(5)
 
         trade = self.driver.find_element_by_css_selector("#searchList > div.page-content.w-center > div.page-content-right > div > ul > li:nth-child(1) > div.hot-brand-detail").text
         print("热门商标信息:" + str(trade).replace("\n"," "))
