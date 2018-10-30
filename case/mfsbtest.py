@@ -319,3 +319,62 @@ class MfSbTest(MyTestCase):
             jg1 = self.driver.find_element_by_css_selector(
                 "#searchList > div.page-content.w-center > div.page-content-left > ul > li:nth-child(1) > div.result-href > div.brand-info > div > ul").text
             print(str(jg1).replace("\n", " "))
+
+    def test_geograph(self):
+
+        """地理标志商标测试"""
+        dl = DengLuPage(self.driver)
+        self.driver.get("https://pre-so.quandashi.com/")
+        dl.refresh_pre()
+        time.sleep(2)
+        self.driver.find_element_by_css_selector("body > div.page > div.page-index > div.page-index-form.search > ul.page-index-icon > li:nth-child(4) > a > img").click()
+        time.sleep(5)
+
+        selected = self.driver.find_element_by_css_selector("#searchList > div.page-form.w-center > div.selected-category").text
+        print(str(selected).replace("\n"," "))
+
+        result = self.driver.find_element_by_css_selector("#searchList > div.page-content.w-center > div.page-content-left > div.search-top").text
+        print(str(result))
+
+        info = self.driver.find_element_by_css_selector("#searchList > div.page-content.w-center > div.page-content-left > ul > li:nth-child(1) > div.result-href").text
+        print(str(info).replace("\n"," "))
+
+        self.driver.find_element_by_css_selector("#searchList > div.page-content.w-center > div.page-content-left > ul > li:nth-child(1) > div.result-href").click()
+
+        windows = self.driver.window_handles
+        self.driver.switch_to.window(windows[-1])
+        time.sleep(2)
+        print(self.driver.current_url)
+
+        result2 = self.driver.find_element_by_css_selector("#searchDetail > div.page-brand > div > div.brand-left > div.brand-info > h2").text
+        print(str(result2))
+
+
+    def test_famous(self):
+
+        """驰著名商标测试"""
+        dl = DengLuPage(self.driver)
+        self.driver.get("https://pre-so.quandashi.com/")
+        dl.refresh_pre()
+        time.sleep(2)
+        self.driver.find_element_by_css_selector("body > div.page > div.page-index > div.page-index-form.search > ul.page-index-icon > li:nth-child(3) > a > img").click()
+        time.sleep(5)
+
+        selected = self.driver.find_element_by_css_selector("#searchList > div.page-form.w-center > div.selected-category").text
+        print(str(selected).replace("\n"," "))
+
+        result = self.driver.find_element_by_css_selector("#searchList > div.page-content.w-center > div.page-content-left > div.search-top").text
+        print(str(result))
+
+        info = self.driver.find_element_by_css_selector("#searchList > div.page-content.w-center > div.page-content-left > ul > li:nth-child(1) > div.result-href").text
+        print(str(info).replace("\n"," "))
+
+        self.driver.find_element_by_css_selector("#searchList > div.page-content.w-center > div.page-content-left > ul > li:nth-child(1) > div.result-href").click()
+
+        windows = self.driver.window_handles
+        self.driver.switch_to.window(windows[-1])
+        time.sleep(2)
+        print(self.driver.current_url)
+
+        result2 = self.driver.find_element_by_css_selector("#searchDetail > div.page-brand > div > div.brand-left > div.brand-info > h2").text
+        print(str(result2))
