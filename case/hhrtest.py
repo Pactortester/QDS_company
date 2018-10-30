@@ -106,7 +106,7 @@ class HhrTest(MyTestCase):
         self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.order-detail-fix > div > div.right > div.pay-btns > a").click()
         get_screenshort(self.driver,"test_sbddxg.png")
 
-        #self.driver.find_element_by_css_selector("#layui-layer100001 > div.layui-layer-btn.layui-layer-btn- > a.layui-layer-btn0").click()
+        # self.driver.find_element_by_css_selector("#layui-layer100001 > div.layui-layer-btn.layui-layer-btn- > a.layui-layer-btn0").click()
 
         print("测试通过!")
 

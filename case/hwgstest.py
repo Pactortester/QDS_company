@@ -333,7 +333,7 @@ class HwGsTest(MyTestCase):
         """商标类别导入历史订单"""
         self.driver.find_element_by_css_selector("#section-selfchoice > div.group-right > h3 > div > div > a").click()
         time.sleep(2)
-        history_number = random.randint(1,10)
+        history_number = random.randint(2,10)
         info = self.driver.find_element_by_css_selector("#history_order > li:nth-child({}) > h2".format(history_number)).text
         print("导入历史订单信息:" + info)
         self.driver.find_element_by_css_selector("#history_order > li:nth-child({}) > h2".format(history_number)).click()
@@ -455,7 +455,7 @@ class HwGsTest(MyTestCase):
         """商标类别导入历史订单"""
         self.driver.find_element_by_css_selector("#section-selfchoice > div.group-right > h3 > div > div > a").click()
         time.sleep(2)
-        history_number = random.randint(1,10)
+        history_number = random.randint(2,10)
         info = self.driver.find_element_by_css_selector("#history_order > li:nth-child({}) > h2".format(history_number)).text
         print("导入历史订单信息:" + info)
         self.driver.find_element_by_css_selector("#history_order > li:nth-child({}) > h2".format(history_number)).click()

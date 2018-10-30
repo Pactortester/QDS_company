@@ -331,7 +331,7 @@ class MfSbTest(MyTestCase):
         time.sleep(5)
 
         selected = self.driver.find_element_by_css_selector("#searchList > div.page-form.w-center > div.selected-category").text
-        print(str(selected).replace("\n"," "))
+        print((str(selected).replace("\n", " ")).replace("×", " "))
 
         result = self.driver.find_element_by_css_selector("#searchList > div.page-content.w-center > div.page-content-left > div.search-top").text
         print(str(result))
@@ -361,7 +361,7 @@ class MfSbTest(MyTestCase):
         time.sleep(5)
 
         selected = self.driver.find_element_by_css_selector("#searchList > div.page-form.w-center > div.selected-category").text
-        print(str(selected).replace("\n"," "))
+        print((str(selected).replace("\n"," ")).replace("×"," "))
 
         result = self.driver.find_element_by_css_selector("#searchList > div.page-content.w-center > div.page-content-left > div.search-top").text
         print(str(result))
