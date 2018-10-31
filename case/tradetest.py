@@ -185,7 +185,7 @@ class TradeTest(MyTestCase):
         self.driver.find_element_by_css_selector(
             "#app > div > div:nth-child(6) > div > div > p:nth-child(3) > input[type=\"text\"]").send_keys(price)
         print("报价:" + str(price) + "元!")
-        self.driver.find_element_by_css_selector("#app > div > div:nth-child(6) > div > p.subBtn > a").click()
+        # self.driver.find_element_by_css_selector("#app > div > div:nth-child(6) > div > p.subBtn > a").click()
         get_screenshort(self.driver,"test_trade_3.png")
         print("提交报价成功!")
 
@@ -340,6 +340,7 @@ class TradeTest(MyTestCase):
         print(self.driver.title)
 
         self.driver.find_element_by_css_selector("#app > div > div.header-wrap.clearfix > div.header-left > p > a:nth-child(2)").click()
+
         time.sleep(2)
         self.driver.find_element_by_css_selector("#app > div > div.purchaseDemandBox.clearfix > ul > li:nth-child(1) > p.recBrand > a > img").click()
         number = request_number()
@@ -530,3 +531,61 @@ class TradeTest(MyTestCase):
 
         self.driver.find_element_by_css_selector("#app > div > div.postNeedsBox > div > a").click()
         print("需求已发布!")
+
+    def test_trade_13(self):
+        """删除求购需求测试"""
+
+        dl = DengLuPage(self.driver)
+
+        dl.login()
+        self.driver.find_element_by_css_selector("#page-header > div.item-right > ul > li:nth-child(1) > a").click()
+
+        self.assertIn("权大师_个人中心", self.driver.title)
+        print(self.driver.title)
+        time.sleep(2)
+        self.driver.find_element_by_css_selector("#personalCenter2-leftNav > ul > li:nth-child(3) > ul > li:nth-child(2) > a").click()
+
+        self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.order-page.brand-trade-page > div.tabsPanel > div > div.table-box > table > thead > tr > th:nth-child(1) > label > input").click()
+
+        info = self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.order-page.brand-trade-page > div.tabsPanel > div > div.list-handle > div.handle-right > span").text
+
+        print(str(info))
+
+        result = self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.order-page.brand-trade-page > div.tabsPanel > div > div.table-box > table > tbody").text
+        print((str(result).replace("查看 删除", " ")).replace("\n", " "))
+
+        self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.order-page.brand-trade-page > div.tabsPanel > div > div.list-handle > div.handle-right > a").click()
+        time.sleep(2)
+        self.driver.find_element_by_css_selector("#layui-layer1 > div.layui-layer-btn.layui-layer-btn- > a.layui-layer-btn0").click()
+
+        info2 = self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.order-page.brand-trade-page > div.tabsPanel > div > div.table-box > table > tbody > tr > td > div > span").text
+        print(str(info2))
+
+    def _trade_14(self):
+        """删除意向商标测试"""
+
+        dl = DengLuPage(self.driver)
+
+        dl.login_pre()
+        self.driver.find_element_by_css_selector("#page-header > div.item-right > ul > li:nth-child(1) > a").click()
+
+        self.assertIn("权大师_个人中心", self.driver.title)
+        print(self.driver.title)
+        time.sleep(2)
+        self.driver.find_element_by_css_selector("#personalCenter2-leftNav > ul > li:nth-child(3) > ul > li:nth-child(1) > a").click()
+
+        self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.order-page.brand-trade-page.trade-order > div.tabsPanel > div > div.table-box > table > thead > tr > th:nth-child(1) > label > input").click()
+
+        info = self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.order-page.brand-trade-page.trade-order > div.tabsPanel > div > div.list-handle > div.handle-right > span").text
+
+        print(str(info))
+
+        result = self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.order-page.brand-trade-page.trade-order > div.tabsPanel > div > div.table-box > table > tbody").text
+        print((str(result).replace("查看 删除"," ")).replace("\n"," "))
+
+        self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.order-page.brand-trade-page.trade-order > div.tabsPanel > div > div.list-handle > div.handle-right > a").click()
+        time.sleep(2)
+        self.driver.find_element_by_css_selector("#layui-layer1 > div.layui-layer-btn.layui-layer-btn- > a.layui-layer-btn0").click()
+
+        info2 = self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.order-page.brand-trade-page > div.tabsPanel > div > div.table-box > table > tbody > tr > td > div > span").text
+        print(str(info2))

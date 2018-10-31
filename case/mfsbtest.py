@@ -196,7 +196,7 @@ class MfSbTest(MyTestCase):
         print(self.driver.title)
         print(self.driver.current_url)
 
-    def test_jcjs(self):
+    def _jcjs(self):
         """交叉检索测试"""
         dl = DengLuPage(self.driver)
         self.driver.get("https://pre-so.quandashi.com/")
@@ -320,7 +320,7 @@ class MfSbTest(MyTestCase):
                 "#searchList > div.page-content.w-center > div.page-content-left > ul > li:nth-child(1) > div.result-href > div.brand-info > div > ul").text
             print(str(jg1).replace("\n", " "))
 
-    def test_geograph(self):
+    def _geograph(self):
 
         """地理标志商标测试"""
         dl = DengLuPage(self.driver)
@@ -336,10 +336,11 @@ class MfSbTest(MyTestCase):
         result = self.driver.find_element_by_css_selector("#searchList > div.page-content.w-center > div.page-content-left > div.search-top").text
         print(str(result))
 
-        info = self.driver.find_element_by_css_selector("#searchList > div.page-content.w-center > div.page-content-left > ul > li:nth-child(1) > div.result-href").text
+        number = random.randint(1,20)
+        info = self.driver.find_element_by_css_selector("#searchList > div.page-content.w-center > div.page-content-left > ul > li:nth-child({}) > div.result-href".format(number)).text
         print(str(info).replace("\n"," "))
 
-        self.driver.find_element_by_css_selector("#searchList > div.page-content.w-center > div.page-content-left > ul > li:nth-child(1) > div.result-href").click()
+        self.driver.find_element_by_css_selector("#searchList > div.page-content.w-center > div.page-content-left > ul > li:nth-child({}) > div.result-href".format(number)).click()
 
         windows = self.driver.window_handles
         self.driver.switch_to.window(windows[-1])
@@ -349,8 +350,7 @@ class MfSbTest(MyTestCase):
         result2 = self.driver.find_element_by_css_selector("#searchDetail > div.page-brand > div > div.brand-left > div.brand-info > h2").text
         print(str(result2))
 
-
-    def test_famous(self):
+    def _famous(self):
 
         """驰著名商标测试"""
         dl = DengLuPage(self.driver)

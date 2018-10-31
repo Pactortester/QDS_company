@@ -20,7 +20,7 @@ class BmKsTest(MyTestCase):
         """保姆快速注册"""
 
         # logging.basicConfig(filename='../LOG/' + __name__ + '.log',
-        #                     format='[%(asctime)s-%(filename)s-%(levelname)s: %(message)s]', level=logging.DEBUG,
+        #                     format='[%(asctime)s-%(filename)s-%(levelname)s: %(message)s]', level=logging.ERROR,
         #                     filemode='a', datefmt='%Y-%m-%d%I:%M:%S %p')
 
         dl = DengLuPage(self.driver)
