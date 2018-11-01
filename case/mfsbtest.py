@@ -1,6 +1,10 @@
 import random
 import re
 import time
+
+from selenium.webdriver.common.keys import Keys
+
+from utils.datachoice import xz
 from utils.random import patent_name, unicode
 from utils.mytestcase import MyTestCase
 from utils.logincookie import DengLuPage
@@ -27,7 +31,7 @@ class MfSbTest(MyTestCase):
         dl.refresh()
         ss = unicode()
         print("搜索商标名称："+ss)
-        self.driver.find_element_by_css_selector("body > div.brandSearch2-page > div > div.search > div.searchPanel.clearfix > input.input.search-text").send_keys("{}".format(ss))
+        self.driver.find_element_by_css_selector("body > div.page > div.page-index > div.page-index-form.search > div > input.input.search-text").send_keys("{}".format(ss))
         self.driver.find_element_by_css_selector("#btnSearchkey").click()
         time.sleep(4)
         print(self.driver.title)
@@ -196,11 +200,11 @@ class MfSbTest(MyTestCase):
         print(self.driver.title)
         print(self.driver.current_url)
 
-    def _jcjs(self):
+    def test_cross(self):
         """交叉检索测试"""
         dl = DengLuPage(self.driver)
-        self.driver.get("https://pre-so.quandashi.com/")
-        dl.refresh_pre()
+        self.driver.get("https://so.quandashi.com/")
+        dl.refresh()
         time.sleep(2)
         brand = unicode()
         self.driver.find_element_by_name("key").send_keys(brand)
@@ -244,7 +248,7 @@ class MfSbTest(MyTestCase):
         """已选条件"""
 
         select = self.driver.find_element_by_class_name("selected-category").text
-        print(str(select).replace("\n"," "))
+        print((str(select).replace("\n", " ")).replace("×", " "))
 
 
         result = self.driver.find_element_by_css_selector("#searchList > div.page-content.w-center > div.page-content-left > div.search-top > i").text
@@ -259,6 +263,7 @@ class MfSbTest(MyTestCase):
             # 第一个商标信息
             jg1 = self.driver.find_element_by_css_selector("#searchList > div.page-content.w-center > div.page-content-left > ul > li:nth-child(1) > div.result-href > div.brand-info > div > ul").text
             print(str(jg1).replace("\n", " "))
+        get_screenshort(self.driver,"test_cross.png")
 
     def test_hot_trade(self):
         """热门商标出售测试"""
@@ -320,12 +325,12 @@ class MfSbTest(MyTestCase):
                 "#searchList > div.page-content.w-center > div.page-content-left > ul > li:nth-child(1) > div.result-href > div.brand-info > div > ul").text
             print(str(jg1).replace("\n", " "))
 
-    def _geograph(self):
+    def test_geography(self):
 
         """地理标志商标测试"""
         dl = DengLuPage(self.driver)
-        self.driver.get("https://pre-so.quandashi.com/")
-        dl.refresh_pre()
+        self.driver.get("https://so.quandashi.com/")
+        dl.refresh()
         time.sleep(2)
         self.driver.find_element_by_css_selector("body > div.page > div.page-index > div.page-index-form.search > ul.page-index-icon > li:nth-child(4) > a > img").click()
         time.sleep(5)
@@ -348,14 +353,15 @@ class MfSbTest(MyTestCase):
         print(self.driver.current_url)
 
         result2 = self.driver.find_element_by_css_selector("#searchDetail > div.page-brand > div > div.brand-left > div.brand-info > h2").text
+        get_screenshort(self.driver, "test_geography.png")
         print(str(result2))
 
-    def _famous(self):
+    def test_famous(self):
 
         """驰著名商标测试"""
         dl = DengLuPage(self.driver)
-        self.driver.get("https://pre-so.quandashi.com/")
-        dl.refresh_pre()
+        self.driver.get("https://so.quandashi.com/")
+        dl.refresh()
         time.sleep(2)
         self.driver.find_element_by_css_selector("body > div.page > div.page-index > div.page-index-form.search > ul.page-index-icon > li:nth-child(3) > a > img").click()
         time.sleep(5)
@@ -366,15 +372,136 @@ class MfSbTest(MyTestCase):
         result = self.driver.find_element_by_css_selector("#searchList > div.page-content.w-center > div.page-content-left > div.search-top").text
         print(str(result))
 
-        info = self.driver.find_element_by_css_selector("#searchList > div.page-content.w-center > div.page-content-left > ul > li:nth-child(1) > div.result-href").text
-        print(str(info).replace("\n"," "))
+        number = random.randint(1, 20)
+        info = self.driver.find_element_by_css_selector("#searchList > div.page-content.w-center > div.page-content-left > ul > li:nth-child({}) > div.result-href".format(number)).text
+        print(str(info).replace("\n", " "))
 
-        self.driver.find_element_by_css_selector("#searchList > div.page-content.w-center > div.page-content-left > ul > li:nth-child(1) > div.result-href").click()
+        self.driver.find_element_by_css_selector("#searchList > div.page-content.w-center > div.page-content-left > ul > li:nth-child({}) > div.result-href".format(number)).click()
+
+        windows = self.driver.window_handles
+        self.driver.switch_to.window(windows[-1])
+        time.sleep(2)
+        print(self.driver.current_url)
+        get_screenshort(self.driver,"test_famous.png")
+        result2 = self.driver.find_element_by_css_selector("#searchDetail > div.page-brand > div > div.brand-left > div.brand-info > h2").text
+        print(str(result2))
+
+    def test_special_trademark(self):
+
+        """特殊商标测试"""
+        dl = DengLuPage(self.driver)
+        self.driver.get("https://so.quandashi.com/")
+        dl.refresh()
+        time.sleep(2)
+
+        trademark = ("地理标志商标.txt", "著名商标.txt", "驰名商标.txt")
+        filename = random.choice(trademark)
+        print(filename)
+        application_number = xz(filename)
+        print("申请号:" + str(application_number))
+
+        self.driver.find_element_by_css_selector(
+            "body > div.page > div.page-index > div.page-index-form.search > div > input.input.search-text").send_keys(
+            application_number)
+        self.driver.find_element_by_css_selector("#btnSearchkey").click()
+        time.sleep(5)
+
+        result = self.driver.find_element_by_css_selector(
+            "#searchList > div.page-content.w-center > div.page-content-left > div.search-top").text
+        print(str(result))
+
+        info = self.driver.find_element_by_css_selector(
+            "#searchList > div.page-content.w-center > div.page-content-left > ul > li:nth-child(1) > div.result-href").text
+        print(str(info).replace("\n", " "))
+        number = self.driver.find_element_by_css_selector(
+            "#searchList > div.page-content.w-center > div.page-content-left > ul > li > div.result-href > div.brand-info > div > ul > li:nth-child(2) > span:nth-child(4)").text
+        print(str(number))
+
+        self.assertIn(str(application_number), str(number))
+
+        self.driver.find_element_by_css_selector(
+            "#searchList > div.page-content.w-center > div.page-content-left > ul > li:nth-child(1) > div.result-href").click()
 
         windows = self.driver.window_handles
         self.driver.switch_to.window(windows[-1])
         time.sleep(2)
         print(self.driver.current_url)
 
-        result2 = self.driver.find_element_by_css_selector("#searchDetail > div.page-brand > div > div.brand-left > div.brand-info > h2").text
+        result2 = self.driver.find_element_by_css_selector(
+            "#searchDetail > div.page-brand > div > div.brand-left > div.brand-info > h2").text
+        get_screenshort(self.driver, "test_special_trademark.png")
         print(str(result2))
+
+    def test_special_search(self):
+
+        """特殊商标测试"""
+        dl = DengLuPage(self.driver)
+        self.driver.get("https://so.quandashi.com/")
+        dl.refresh()
+        time.sleep(2)
+        self.driver.find_element_by_css_selector(
+            "body > div.page > div.page-index > div.page-index-form.search > div > input.input.search-text").send_keys("王")
+        self.driver.find_element_by_css_selector("#btnSearchkey").click()
+        time.sleep(5)
+
+        """删除搜索商标"""
+        self.driver.find_element_by_css_selector("#searchList > div.page-search.w-center > div.search-input > input").send_keys(Keys.BACK_SPACE)
+        time.sleep(2)
+        """点击驰名商标"""
+
+        self.driver.find_element_by_css_selector("#searchList > div.page-form.w-center > ul > li:nth-child(4) > div.category-show-box > a:nth-child(2)").click()
+        time.sleep(5)
+        result = self.driver.find_element_by_css_selector(
+            "#searchList > div.page-content.w-center > div.page-content-left > div.search-top").text
+        print(str(result))
+
+        info = self.driver.find_element_by_css_selector(
+            "#searchList > div.page-content.w-center > div.page-content-left > ul > li:nth-child(1) > div.result-href").text
+        print(str(info).replace("\n", " "))
+
+        for link in self.driver.find_elements_by_css_selector("#searchList > div.page-content.w-center > div.page-content-left > ul > li:nth-child(1) > div.result-href > div.brand-info > a"):
+            print(link.get_attribute("href"))
+
+        selected = self.driver.find_element_by_css_selector(
+            "#searchList > div.page-form.w-center > div.selected-category").text
+        print((str(selected).replace("\n", " ")).replace("×", " "))
+
+        """点击著名商标"""
+
+        self.driver.find_element_by_css_selector(
+            "#searchList > div.page-form.w-center > ul > li:nth-child(4) > div.category-show-box > a:nth-child(3)").click()
+        time.sleep(5)
+        result = self.driver.find_element_by_css_selector(
+            "#searchList > div.page-content.w-center > div.page-content-left > div.search-top").text
+        print(str(result))
+
+        info = self.driver.find_element_by_css_selector(
+            "#searchList > div.page-content.w-center > div.page-content-left > ul > li:nth-child(1) > div.result-href").text
+        print(str(info).replace("\n", " "))
+
+        for link in self.driver.find_elements_by_css_selector("#searchList > div.page-content.w-center > div.page-content-left > ul > li:nth-child(1) > div.result-href > div.brand-info > a"):
+            print(link.get_attribute("href"))
+
+        selected = self.driver.find_element_by_css_selector(
+            "#searchList > div.page-form.w-center > div.selected-category").text
+        print((str(selected).replace("\n", " ")).replace("×", " "))
+
+        """点击地理标志商标"""
+
+        self.driver.find_element_by_css_selector(
+            "#searchList > div.page-form.w-center > ul > li:nth-child(4) > div.category-show-box > a:nth-child(4)").click()
+        time.sleep(5)
+        result = self.driver.find_element_by_css_selector(
+            "#searchList > div.page-content.w-center > div.page-content-left > div.search-top").text
+        print(str(result))
+
+        info = self.driver.find_element_by_css_selector(
+            "#searchList > div.page-content.w-center > div.page-content-left > ul > li:nth-child(1) > div.result-href").text
+        print(str(info).replace("\n", " "))
+
+        for link in self.driver.find_elements_by_css_selector("#searchList > div.page-content.w-center > div.page-content-left > ul > li:nth-child(1) > div.result-href > div.brand-info > a"):
+            print(link.get_attribute("href"))
+
+        selected = self.driver.find_element_by_css_selector(
+            "#searchList > div.page-form.w-center > div.selected-category").text
+        print((str(selected).replace("\n", " ")).replace("×", " "))
