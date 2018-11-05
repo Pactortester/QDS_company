@@ -690,8 +690,7 @@ class HhrTest(MyTestCase):
             print("当前无线索,点击申请!")
             self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.nav > a").click()
             time.sleep(2)
-            # number = random.randint(1,10)
-            clue = self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > table > tbody > tr:nth-child(1)").text
+            clue = self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > table > tbody > tr:nth-child(2)").text
             print(str(clue).replace("\n", " "))
             self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > table > tbody > tr:nth-child(2) > td:nth-child(8) > a").click()
 
@@ -699,9 +698,8 @@ class HhrTest(MyTestCase):
         elif a is False:
             print("线索存在!")
             time.sleep(2)
-            number = random.randint(1, 10)
             clue = self.driver.find_element_by_css_selector(
-                "#personalCenter2-rightContainer > div > table > tbody > tr:nth-child(1)").text
+                "#personalCenter2-rightContainer > div > table > tbody > tr:nth-child(2)").text
             print(str(clue).replace("\n"," "))
             self.driver.find_element_by_css_selector(
                 "#personalCenter2-rightContainer > div > table > tbody > tr:nth-child(2) > td:nth-child(8) > a").click()

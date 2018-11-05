@@ -342,7 +342,7 @@ class TradeTest(MyTestCase):
         self.driver.find_element_by_css_selector("#app > div > div.header-wrap.clearfix > div.header-left > p > a:nth-child(2)").click()
 
         time.sleep(2)
-        brand = random.randint(1, 36)
+        brand = random.randint(1, 10)
         print(brand)
         info = self.driver.find_element_by_css_selector("#app > div > div.purchaseDemandBox.clearfix > ul > li:nth-child({})".format(brand)).text
 

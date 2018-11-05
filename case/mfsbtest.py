@@ -15,7 +15,7 @@ class MfSbTest(MyTestCase):
     """搜索查询测试集"""
 
     def test_sbss(self):
-        """商标搜索测试"""
+        """搜索详情测试"""
         dl = DengLuPage(self.driver)
         dl.login()
         time.sleep(2)
@@ -29,12 +29,34 @@ class MfSbTest(MyTestCase):
         self.assertIn("注册商标查询_中国商标查询_权大师官网", self.driver.title)
         print(self.driver.title)
         dl.refresh()
-        ss = unicode()
+        ss = "DD"
         print("搜索商标名称："+ss)
-        self.driver.find_element_by_css_selector("body > div.page > div.page-index > div.page-index-form.search > div > input.input.search-text").send_keys("{}".format(ss))
+        self.driver.find_element_by_name("key").send_keys("{}".format(ss))
         self.driver.find_element_by_css_selector("#btnSearchkey").click()
         time.sleep(4)
         print(self.driver.title)
+
+        result = self.driver.find_element_by_css_selector(
+            "#searchList > div.page-content.w-center > div.page-content-left > div.search-top").text
+        print(str(result))
+
+        number = random.randint(1,20)
+        info = self.driver.find_element_by_css_selector(
+            "#searchList > div.page-content.w-center > div.page-content-left > ul > li:nth-child({}) > div.result-href".format(number)).text
+        print(str(info).replace("\n", " "))
+        self.driver.find_element_by_css_selector(
+            "#searchList > div.page-content.w-center > div.page-content-left > ul > li:nth-child({}) > div.result-href".format(number)).click()
+
+        windows = self.driver.window_handles
+        # 切换到当前最新打开的窗口
+        self.driver.switch_to.window(windows[-1])
+        time.sleep(2)
+        self.driver.set_window_size(1920, 1080)
+        print(self.driver.current_url)
+
+        brand_info = self.driver.find_element_by_css_selector("#searchDetail > div.page-brand > div > div.brand-left > div.brand-info").text
+        print(str(brand_info).replace("\n"," "))
+
         get_screenshort(self.driver, "test_sbss.png")
         print("商标搜索测试通过")
 
@@ -76,13 +98,20 @@ class MfSbTest(MyTestCase):
         dl.refresh()
         number = self.driver.find_element_by_css_selector("#searchList > div.page-content.w-center > div.page-content-left > div.search-top").text
         print(str(number))
-        brand = self.driver.find_element_by_css_selector("#searchList > div.page-content.w-center > div.page-content-left > ul > li:nth-child(1) > div.result-href > div.brand-info > a > h2").text
-        print("商标名称:" + brand)
-        info = self.driver.find_element_by_css_selector("#searchList > div.page-content.w-center > div.page-content-left > ul > li:nth-child(1) > div.result-href > div.brand-info > div > ul").text
-        print(str(info))
+        time.sleep(2)
+
+        if number == 0:
+            print("热搜跳转正常,测试通过!")
+        else:
+            brand = self.driver.find_element_by_css_selector(
+                "#searchList > div.page-content.w-center > div.page-content-left > ul > li:nth-child(1) > div.result-href > div.brand-info > a > h2").text
+            print("商标名称:" + brand)
+            info = self.driver.find_element_by_css_selector(
+                "#searchList > div.page-content.w-center > div.page-content-left > ul > li:nth-child(1) > div.result-href > div.brand-info > div > ul").text
+            print(str(info).replace("\n", " "))
+            print("热搜跳转正常,测试通过!")
 
         get_screenshort(self.driver,"test_sbrs_2.png")
-        print("热搜跳转正常,测试通过!")
 
     def test_csgg(self):
         """初审公告测试"""
@@ -271,7 +300,7 @@ class MfSbTest(MyTestCase):
         self.driver.get("https://so.quandashi.com/")
         dl.refresh()
         time.sleep(2)
-        self.driver.find_element_by_name("key").send_keys(unicode())
+        self.driver.find_element_by_name("key").send_keys("小米")
         self.driver.find_element_by_id("btnSearchkey").click()
         time.sleep(5)
 
@@ -432,9 +461,9 @@ class MfSbTest(MyTestCase):
         get_screenshort(self.driver, "test_special_trademark.png")
         print(str(result2))
 
-    def test_special_search(self):
+    def _special_search(self):
 
-        """特殊商标测试"""
+        """特殊搜索测试"""
         dl = DengLuPage(self.driver)
         self.driver.get("https://so.quandashi.com/")
         dl.refresh()

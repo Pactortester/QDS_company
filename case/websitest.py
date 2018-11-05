@@ -18,6 +18,12 @@ class WebSiTest(MyTestCase):
         dl.login()
         time.sleep(2)
         self.driver.find_element_by_css_selector("body > div.footer-wrap > div > ul.items-2 > li:nth-child(7) > a").click()
+        # 获取打开的多个窗口句柄
+        windows = self.driver.window_handles
+        # 切换到当前最新打开的窗口
+        self.driver.switch_to.window(windows[-1])
+        time.sleep(2)
+        self.driver.set_window_size(1920, 1080)
         print("获取本页所有链接:")
         # url = 'https://pre-www.quandashi.com/site-map/index'
         # r = requests.get(url)

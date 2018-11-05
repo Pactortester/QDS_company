@@ -6,8 +6,8 @@
       <change beforePath="$PROJECT_DIR$/case/hhrtest.py" beforeDir="false" afterPath="$PROJECT_DIR$/case/hhrtest.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/case/mfsbtest.py" beforeDir="false" afterPath="$PROJECT_DIR$/case/mfsbtest.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/case/tradetest.py" beforeDir="false" afterPath="$PROJECT_DIR$/case/tradetest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/2018-10-31.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/2018-10-31.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/logincookie.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/logincookie.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/case/websitest.py" beforeDir="false" afterPath="$PROJECT_DIR$/case/websitest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/2018-11-01.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/2018-11-01.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/mytestcase.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/mytestcase.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -43,12 +43,12 @@
           <entry key="chinese" value="2" />
           <entry key="csv" value="3" />
           <entry key="gitattributes" value="1" />
-          <entry key="html" value="124" />
+          <entry key="html" value="129" />
           <entry key="ini" value="6" />
           <entry key="log" value="13" />
           <entry key="md" value="4" />
           <entry key="png" value="128" />
-          <entry key="py" value="581" />
+          <entry key="py" value="583" />
           <entry key="sql" value="1" />
           <entry key="txt" value="11" />
         </counts>
@@ -58,13 +58,13 @@
           <entry key="Bat" value="8" />
           <entry key="CSV" value="2" />
           <entry key="DBN-SQL" value="1" />
-          <entry key="HTML" value="124" />
+          <entry key="HTML" value="129" />
           <entry key="Image" value="128" />
           <entry key="Ini" value="6" />
           <entry key="Log" value="13" />
           <entry key="Markdown" value="4" />
           <entry key="PLAIN_TEXT" value="15" />
-          <entry key="Python" value="581" />
+          <entry key="Python" value="583" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -73,9 +73,9 @@
           <entry key="bat" value="1" />
           <entry key="csv" value="1" />
           <entry key="dummy" value="1" />
-          <entry key="html" value="16" />
+          <entry key="html" value="17" />
           <entry key="md" value="118" />
-          <entry key="py" value="11275" />
+          <entry key="py" value="11437" />
           <entry key="txt" value="21" />
         </counts>
       </usages-collector>
@@ -83,10 +83,10 @@
         <counts>
           <entry key="Bat" value="1" />
           <entry key="CSV" value="1" />
-          <entry key="HTML" value="16" />
+          <entry key="HTML" value="17" />
           <entry key="Markdown" value="118" />
           <entry key="PLAIN_TEXT" value="22" />
-          <entry key="Python" value="11308" />
+          <entry key="Python" value="11470" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages">
@@ -103,42 +103,30 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/start.py">
+        <entry file="file://$PROJECT_DIR$/utils/mytestcase.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="397" column="22" selection-start-line="397" selection-start-column="8" selection-end-line="397" selection-end-column="22" />
+            <state relative-caret-position="14">
+              <caret line="14" column="7" lean-forward="true" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/utils/mytestcase.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="26" column="8" lean-forward="true" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/case/mfsbtest.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="303">
-              <caret line="274" column="62" lean-forward="true" selection-start-line="274" selection-start-column="62" selection-end-line="274" selection-end-column="62" />
+            <state relative-caret-position="225">
+              <caret line="250" lean-forward="true" selection-start-line="250" selection-end-line="250" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
-                <element signature="e#291#1221#0" />
+                <element signature="e#373#2283#0" />
                 <element signature="e#1258#2326#0" />
-                <element signature="e#2363#4005#0" />
+                <element signature="e#2438#4199#0" />
                 <element signature="e#4040#7427#0" />
                 <element signature="e#7462#8533#0" />
                 <element signature="e#8568#9277#0" />
-                <element signature="e#9312#12580#0" />
                 <element signature="e#13400#15233#0" />
                 <element signature="e#15269#16768#0" />
                 <element signature="e#16810#18351#0" />
-                <element signature="e#18592#20495#0" />
-                <element signature="e#20628#23721#0" />
               </folding>
             </state>
           </provider>
@@ -148,7 +136,7 @@
         <entry file="file://$PROJECT_DIR$/case/cxzctest.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1088">
-              <caret line="77" lean-forward="true" selection-start-line="77" selection-end-line="77" />
+              <caret line="77" selection-start-line="77" selection-end-line="77" />
             </state>
           </provider>
         </entry>
@@ -156,8 +144,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/case/websitest.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="31" column="45" lean-forward="true" selection-start-line="30" selection-start-column="8" selection-end-line="31" selection-end-column="45" />
+            <state relative-caret-position="448">
+              <caret line="37" column="45" selection-start-line="37" selection-start-column="45" selection-end-line="37" selection-end-column="45" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -166,26 +154,30 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utils/random.py">
+        <entry file="file://$PROJECT_DIR$/case/bqywtest.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-18370" />
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/地理标志商标.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="5861" selection-start-line="5861" selection-end-line="5861" selection-end-column="8" />
+            <state relative-caret-position="380">
+              <caret line="145" column="49" selection-start-line="145" selection-start-column="49" selection-end-line="145" selection-end-column="49" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/case/bqywtest.py">
+        <entry file="file://$PROJECT_DIR$/case/hhrtest.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="145" column="49" lean-forward="true" selection-start-line="145" selection-start-column="49" selection-end-line="145" selection-end-column="49" />
+            <state relative-caret-position="382">
+              <caret line="666" column="24" selection-start-line="666" selection-start-column="24" selection-end-line="666" selection-end-column="24" />
+              <folding>
+                <element signature="e#347#7495#0" />
+                <element signature="e#7536#14317#0" />
+                <element signature="e#14365#19651#0" />
+                <element signature="e#19699#24765#0" />
+                <element signature="e#24804#30761#0" />
+                <element signature="e#30799#34605#0" />
+                <element signature="e#34643#38125#0" />
+                <element signature="e#38163#41562#0" />
+                <element signature="e#41598#43439#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -202,10 +194,9 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/case/tradetest.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="339">
-              <caret line="325" selection-start-line="325" selection-end-line="325" />
+            <state relative-caret-position="48">
+              <caret line="5" column="39" selection-start-line="5" selection-start-column="39" selection-end-line="5" selection-end-column="39" />
               <folding>
-                <element signature="e#15#28#0" expanded="true" />
                 <element signature="e#316#4092#0" />
                 <element signature="e#4130#7999#0" />
                 <element signature="e#8037#10043#0" />
@@ -220,6 +211,15 @@
                 <element signature="e#26686#28145#0" />
                 <element signature="e#28422#30111#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/report/2018-11-02_12-00-00_report.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="224">
+              <caret line="14" column="76" selection-start-line="14" selection-start-column="76" selection-end-line="14" selection-end-column="76" />
             </state>
           </provider>
         </entry>
@@ -299,8 +299,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/report/2018-09-13_22-00-01_report.html" />
-        <option value="$PROJECT_DIR$/utils/numberfilter.py" />
         <option value="$PROJECT_DIR$/case/subjectest.py" />
         <option value="$PROJECT_DIR$/report/2018-09-20_12-00-58_report.html" />
         <option value="$PROJECT_DIR$/config/HTMLTestReportCN.py" />
@@ -308,7 +306,6 @@
         <option value="$PROJECT_DIR$/case/qtzltest.py" />
         <option value="$PROJECT_DIR$/case/rjzztest.py" />
         <option value="$PROJECT_DIR$/case/sbnumtest.py" />
-        <option value="$PROJECT_DIR$/case/websitest.py" />
         <option value="$PROJECT_DIR$/utils/log.py" />
         <option value="$PROJECT_DIR$/utils/screenshort.py" />
         <option value="$PROJECT_DIR$/config/globalparam.py" />
@@ -345,19 +342,21 @@
         <option value="$PROJECT_DIR$/case/hwgstest.py" />
         <option value="$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/site-packages/selenium/webdriver/common/service.py" />
         <option value="$PROJECT_DIR$/case/bmkstest.py" />
-        <option value="$PROJECT_DIR$/case/hhrtest.py" />
-        <option value="$PROJECT_DIR$/case/tradetest.py" />
         <option value="$PROJECT_DIR$/utils/logincookie.py" />
-        <option value="$PROJECT_DIR$/case/mfsbtest.py" />
+        <option value="$PROJECT_DIR$/report/2018-11-01_22-00-00_report.html" />
         <option value="$PROJECT_DIR$/utils/mytestcase.py" />
+        <option value="$PROJECT_DIR$/case/tradetest.py" />
+        <option value="$PROJECT_DIR$/case/websitest.py" />
+        <option value="$PROJECT_DIR$/case/hhrtest.py" />
+        <option value="$PROJECT_DIR$/case/ww.py" />
+        <option value="$PROJECT_DIR$/case/mfsbtest.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="215" />
-    <option name="y" value="12" />
-    <option name="width" value="1040" />
-    <option name="height" value="744" />
+    <option name="x" value="-12" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -405,11 +404,6 @@
             <path>
               <item name="QDS_company" type="b2602c69:ProjectViewProjectNode" />
               <item name="QDS_company" type="462c0819:PsiDirectoryNode" />
-              <item name="case" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="QDS_company" type="b2602c69:ProjectViewProjectNode" />
-              <item name="QDS_company" type="462c0819:PsiDirectoryNode" />
               <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -430,7 +424,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="G:/python-selenium" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="fileTemplates" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -457,7 +451,21 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests for mfsbtest.MfSbTest.test_hot_trade">
+  <component name="RunManager" selected="Python tests.Unittests for mfsbtest.MfSbTest.test_cross">
+    <configuration name="Unittests for hhrtest.HhrTest.test_clue" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="QDS_company" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/case" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;hhrtest.HhrTest.test_clue&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
     <configuration name="Unittests for indextest.IndexTest.test_know" type="tests" factoryName="Unittests" nameIsGenerated="true">
       <module name="QDS_company" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -501,7 +509,7 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Unittests for mfsbtest.MfSbTest.test_sbss" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration name="Unittests for tradetest.TradeTest.test_trade_8" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="QDS_company" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -511,11 +519,11 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;mfsbtest.MfSbTest.test_sbss&quot;" />
+      <option name="_new_target" value="&quot;tradetest.TradeTest.test_trade_8&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Unittests for mfsbtest.MfSbTest.test_special_search" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration name="Unittests for websitest.WebSiTest.test_number1" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="QDS_company" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -525,39 +533,25 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;mfsbtest.MfSbTest.test_special_search&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Unittests for mfsbtest.MfSbTest.test_special_trademark" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-      <module name="QDS_company" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/case" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;mfsbtest.MfSbTest.test_special_trademark&quot;" />
+      <option name="_new_target" value="&quot;websitest.WebSiTest.test_number1&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
     <list>
       <item itemvalue="Python tests.Unittests for indextest.IndexTest.test_know" />
-      <item itemvalue="Python tests.Unittests for mfsbtest.MfSbTest.test_cross" />
-      <item itemvalue="Python tests.Unittests for mfsbtest.MfSbTest.test_special_trademark" />
-      <item itemvalue="Python tests.Unittests for mfsbtest.MfSbTest.test_special_search" />
-      <item itemvalue="Python tests.Unittests for mfsbtest.MfSbTest.test_sbss" />
       <item itemvalue="Python tests.Unittests for mfsbtest.MfSbTest.test_hot_trade" />
+      <item itemvalue="Python tests.Unittests for tradetest.TradeTest.test_trade_8" />
+      <item itemvalue="Python tests.Unittests for websitest.WebSiTest.test_number1" />
+      <item itemvalue="Python tests.Unittests for hhrtest.HhrTest.test_clue" />
+      <item itemvalue="Python tests.Unittests for mfsbtest.MfSbTest.test_cross" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.Unittests for mfsbtest.MfSbTest.test_hot_trade" />
-        <item itemvalue="Python tests.Unittests for mfsbtest.MfSbTest.test_sbss" />
-        <item itemvalue="Python tests.Unittests for mfsbtest.MfSbTest.test_special_search" />
-        <item itemvalue="Python tests.Unittests for mfsbtest.MfSbTest.test_special_trademark" />
         <item itemvalue="Python tests.Unittests for mfsbtest.MfSbTest.test_cross" />
+        <item itemvalue="Python tests.Unittests for hhrtest.HhrTest.test_clue" />
+        <item itemvalue="Python tests.Unittests for websitest.WebSiTest.test_number1" />
+        <item itemvalue="Python tests.Unittests for mfsbtest.MfSbTest.test_hot_trade" />
+        <item itemvalue="Python tests.Unittests for tradetest.TradeTest.test_trade_8" />
       </list>
     </recent_temporary>
   </component>
@@ -583,35 +577,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_for_mfsbtest_MfSbTest_test_special_search - 2018.11.01 at 18h 12m 58s.xml">
-      <configuration name="Unittests for mfsbtest.MfSbTest.test_special_search" configurationId="tests" />
+    <history-entry file="Unittests_for_mfsbtest_MfSbTest_test_sbrs_1 - 2018.11.02 at 10h 56m 00s.xml">
+      <configuration name="Unittests for mfsbtest.MfSbTest.test_sbrs_1" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_mfsbtest_MfSbTest_test_special_search - 2018.11.01 at 18h 16m 55s.xml">
-      <configuration name="Unittests for mfsbtest.MfSbTest.test_special_search" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_mfsbtest_MfSbTest_test_special_search - 2018.11.01 at 18h 18m 47s.xml">
-      <configuration name="Unittests for mfsbtest.MfSbTest.test_special_search" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_mfsbtest_MfSbTest_test_special_search - 2018.11.01 at 18h 32m 38s.xml">
-      <configuration name="Unittests for mfsbtest.MfSbTest.test_special_search" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_mfsbtest_MfSbTest_test_special_search - 2018.11.01 at 18h 33m 36s.xml">
-      <configuration name="Unittests for mfsbtest.MfSbTest.test_special_search" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_mfsbtest_MfSbTest_test_special_search - 2018.11.01 at 18h 37m 40s.xml">
-      <configuration name="Unittests for mfsbtest.MfSbTest.test_special_search" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_mfsbtest_MfSbTest_test_special_search - 2018.11.01 at 18h 43m 38s.xml">
-      <configuration name="Unittests for mfsbtest.MfSbTest.test_special_search" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_mfsbtest_MfSbTest_test_sbss - 2018.11.01 at 18h 47m 06s.xml">
-      <configuration name="Unittests for mfsbtest.MfSbTest.test_sbss" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_mfsbtest_MfSbTest_test_sbss - 2018.11.01 at 18h 48m 25s.xml">
-      <configuration name="Unittests for mfsbtest.MfSbTest.test_sbss" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_mfsbtest_MfSbTest_test_hot_trade - 2018.11.01 at 18h 50m 35s.xml">
+    <history-entry file="Unittests_for_mfsbtest_MfSbTest_test_hot_trade - 2018.11.02 at 10h 57m 23s.xml">
       <configuration name="Unittests for mfsbtest.MfSbTest.test_hot_trade" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_tradetest_TradeTest_test_trade_8 - 2018.11.02 at 14h 31m 13s.xml">
+      <configuration name="Unittests for tradetest.TradeTest.test_trade_8" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_mfsbtest_MfSbTest_test_hot_trade - 2018.11.02 at 14h 34m 54s.xml">
+      <configuration name="Unittests for mfsbtest.MfSbTest.test_hot_trade" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_websitest_WebSiTest_test_number1 - 2018.11.02 at 14h 37m 24s.xml">
+      <configuration name="Unittests for websitest.WebSiTest.test_number1" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_websitest_WebSiTest_test_number1 - 2018.11.02 at 14h 39m 29s.xml">
+      <configuration name="Unittests for websitest.WebSiTest.test_number1" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_websitest_WebSiTest_test_number1 - 2018.11.02 at 14h 40m 27s.xml">
+      <configuration name="Unittests for websitest.WebSiTest.test_number1" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_websitest_WebSiTest_test_number1 - 2018.11.02 at 14h 43m 14s.xml">
+      <configuration name="Unittests for websitest.WebSiTest.test_number1" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_hhrtest_HhrTest_test_clue - 2018.11.02 at 14h 48m 13s.xml">
+      <configuration name="Unittests for hhrtest.HhrTest.test_clue" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_mfsbtest_MfSbTest_test_cross - 2018.11.05 at 09h 31m 14s.xml">
+      <configuration name="Unittests for mfsbtest.MfSbTest.test_cross" configurationId="tests" />
     </history-entry>
   </component>
   <component name="TodoView" selected-index="2">
@@ -631,7 +625,7 @@
       <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49712643" visible="true" weight="0.1913646" />
       <window_info id="Structure" order="2" sideWeight="0.50287354" side_tool="true" weight="0.18976545" />
       <window_info anchor="bottom" id="Terminal" order="0" sideWeight="0.4946695" weight="0.26275787" />
-      <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.5042644" side_tool="true" weight="0.61129206" />
+      <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.5042644" side_tool="true" weight="0.40933767" />
       <window_info anchor="bottom" id="Python Console" order="2" sideWeight="0.49840087" weight="0.32899022" />
       <window_info anchor="bottom" id="Message" order="3" />
       <window_info anchor="bottom" id="Find" order="4" />
@@ -692,33 +686,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="8.31修改pycharm测试提交" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/report/2018-10-26_12-00-58_report.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="23" column="1" lean-forward="true" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/globalparam.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/config.ini">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/chinese.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/case/cluetest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="608">
-          <caret line="127" column="25" selection-start-line="127" selection-start-column="25" selection-end-line="127" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/标库网的所有注释原始.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="24496">
@@ -916,23 +883,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/case/hhrtest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="547">
-          <caret line="707" lean-forward="true" selection-start-line="707" selection-end-line="707" />
-          <folding>
-            <element signature="e#347#7495#0" />
-            <element signature="e#7536#14317#0" />
-            <element signature="e#14365#19651#0" />
-            <element signature="e#19699#24765#0" />
-            <element signature="e#24804#30761#0" />
-            <element signature="e#30799#34605#0" />
-            <element signature="e#34643#38125#0" />
-            <element signature="e#38163#41562#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/utils/log.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
@@ -967,11 +917,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils/random.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-18370" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/utils/logincookie.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-16">
@@ -982,26 +927,53 @@
     <entry file="file://$PROJECT_DIR$/case/bqywtest.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
-          <caret line="145" column="49" lean-forward="true" selection-start-line="145" selection-start-column="49" selection-end-line="145" selection-end-column="49" />
+          <caret line="145" column="49" selection-start-line="145" selection-start-column="49" selection-end-line="145" selection-end-column="49" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/case/websitest.py">
+    <entry file="file://$PROJECT_DIR$/case/cxzctest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="31" column="45" lean-forward="true" selection-start-line="30" selection-start-column="8" selection-end-line="31" selection-end-column="45" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="1088">
+          <caret line="77" selection-start-line="77" selection-end-line="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/report/2018-07-13_08-30-45_report.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/report/2018-07-13_08-32-23_report.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="13" column="32" lean-forward="true" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/report/2018-11-01_22-00-00_report.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="13" column="38" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/report/2018-11-02_12-00-00_report.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="14" column="76" selection-start-line="14" selection-start-column="76" selection-end-line="14" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/random.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="318">
+          <caret line="1183" column="4" selection-start-line="1183" selection-start-column="4" selection-end-line="1183" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/case/tradetest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="325" selection-start-line="325" selection-end-line="325" />
+        <state relative-caret-position="48">
+          <caret line="5" column="39" selection-start-line="5" selection-start-column="39" selection-end-line="5" selection-end-column="39" />
           <folding>
-            <element signature="e#15#28#0" expanded="true" />
             <element signature="e#316#4092#0" />
             <element signature="e#4130#7999#0" />
             <element signature="e#8037#10043#0" />
@@ -1019,39 +991,64 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/case/cxzctest.py">
+    <entry file="file://$PROJECT_DIR$/case/hhrtest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1088">
-          <caret line="77" lean-forward="true" selection-start-line="77" selection-end-line="77" />
+        <state relative-caret-position="382">
+          <caret line="666" column="24" selection-start-line="666" selection-start-column="24" selection-end-line="666" selection-end-column="24" />
+          <folding>
+            <element signature="e#347#7495#0" />
+            <element signature="e#7536#14317#0" />
+            <element signature="e#14365#19651#0" />
+            <element signature="e#19699#24765#0" />
+            <element signature="e#24804#30761#0" />
+            <element signature="e#30799#34605#0" />
+            <element signature="e#34643#38125#0" />
+            <element signature="e#38163#41562#0" />
+            <element signature="e#41598#43439#0" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/case/mfsbtest.py">
+    <entry file="file://$PROJECT_DIR$/case/websitest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="274" column="62" lean-forward="true" selection-start-line="274" selection-start-column="62" selection-end-line="274" selection-end-column="62" />
+        <state relative-caret-position="448">
+          <caret line="37" column="45" selection-start-line="37" selection-start-column="45" selection-end-line="37" selection-end-column="45" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
-            <element signature="e#291#1221#0" />
-            <element signature="e#1258#2326#0" />
-            <element signature="e#2363#4005#0" />
-            <element signature="e#4040#7427#0" />
-            <element signature="e#7462#8533#0" />
-            <element signature="e#8568#9277#0" />
-            <element signature="e#9312#12580#0" />
-            <element signature="e#13400#15233#0" />
-            <element signature="e#15269#16768#0" />
-            <element signature="e#16810#18351#0" />
-            <element signature="e#18592#20495#0" />
-            <element signature="e#20628#23721#0" />
+            <element signature="e#0#9#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/case/ww.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/utils/mytestcase.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="26" column="8" lean-forward="true" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
+        <state relative-caret-position="14">
+          <caret line="14" column="7" lean-forward="true" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/case/mfsbtest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="250" lean-forward="true" selection-start-line="250" selection-end-line="250" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#373#2283#0" />
+            <element signature="e#1258#2326#0" />
+            <element signature="e#2438#4199#0" />
+            <element signature="e#4040#7427#0" />
+            <element signature="e#7462#8533#0" />
+            <element signature="e#8568#9277#0" />
+            <element signature="e#13400#15233#0" />
+            <element signature="e#15269#16768#0" />
+            <element signature="e#16810#18351#0" />
+          </folding>
         </state>
       </provider>
     </entry>
