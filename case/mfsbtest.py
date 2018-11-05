@@ -96,11 +96,15 @@ class MfSbTest(MyTestCase):
         self.driver.set_window_size(1920, 1080)
         print(self.driver.title)
         dl.refresh()
-        number = self.driver.find_element_by_css_selector("#searchList > div.page-content.w-center > div.page-content-left > div.search-top").text
-        print(str(number))
+        time.sleep(3)
+        zf = self.driver.find_element_by_css_selector("#searchList > div.page-content.w-center > div.page-content-left > div.search-top").text
+        print(str(zf))
+        number = re.sub("\D", "", zf)
         time.sleep(2)
 
         if number == 0:
+            tips = self.driver.find_element_by_css_selector("#searchList > div.page-content.w-center > div.page-content-left > div.no-search-data > div").text
+            print(str(tips).replace("\n"," "))
             print("热搜跳转正常,测试通过!")
         else:
             brand = self.driver.find_element_by_css_selector(
@@ -235,8 +239,10 @@ class MfSbTest(MyTestCase):
         self.driver.get("https://so.quandashi.com/")
         dl.refresh()
         time.sleep(2)
-        brand = unicode()
+        mark = ("小米",unicode())
+        brand = random.choice(mark)
         self.driver.find_element_by_name("key").send_keys(brand)
+        print("搜索商标:" + brand)
         self.driver.find_element_by_id("btnSearchkey").click()
         time.sleep(3)
 
@@ -273,7 +279,7 @@ class MfSbTest(MyTestCase):
         print(str(info).replace("\n"," "))
 
         self.driver.find_element_by_css_selector("#searchList > div.page-form.w-center > div.w_category_modal > div > div.btns > a").click()
-
+        time.sleep(2)
         """已选条件"""
 
         select = self.driver.find_element_by_class_name("selected-category").text
@@ -281,14 +287,11 @@ class MfSbTest(MyTestCase):
 
 
         result = self.driver.find_element_by_css_selector("#searchList > div.page-content.w-center > div.page-content-left > div.search-top > i").text
-        print(result)
+        print("权大师为您找到相关结果{}个".format(result))
         time.sleep(2)
         if int(result) == 0:
             print("亲，未检测到您关注的商标，请换个词试试~ 不过您可以就~{}~提起商标申请哦".format(brand))
         else:
-            # 搜索结果
-            jg = self.driver.find_element_by_css_selector("#searchList > div.page-content.w-center > div.page-content-left > div.search-top").text
-            print(jg)
             # 第一个商标信息
             jg1 = self.driver.find_element_by_css_selector("#searchList > div.page-content.w-center > div.page-content-left > ul > li:nth-child(1) > div.result-href > div.brand-info > div > ul").text
             print(str(jg1).replace("\n", " "))
