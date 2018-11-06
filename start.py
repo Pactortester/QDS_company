@@ -1,3 +1,11 @@
+# -*- coding: utf-8 -*-
+# @Time    : 2018/11/6 11:19
+# @Author  : lijiawei
+# @Email   : lijiawei@quandashi.com
+# @FileName: start.py
+# @Software: PyCharm
+# @Blog    : https://blog.csdn.net/flower_drop
+
 # import random
 # import re
 # import time

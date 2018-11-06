@@ -163,7 +163,7 @@ class ZnZzTest(MyTestCase):
 
         self.assertIn(oo,ii)
 
-        print("测试通过")
+        print("测试通过!")
 
         self.driver.find_element_by_css_selector("#alisubmit").click()
 
