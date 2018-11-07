@@ -464,7 +464,7 @@ class MfSbTest(MyTestCase):
         get_screenshort(self.driver, "test_special_trademark.png")
         print(str(result2))
 
-    def _special_search(self):
+    def test_special_search(self):
 
         """特殊搜索测试"""
         dl = DengLuPage(self.driver)

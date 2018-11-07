@@ -566,3 +566,88 @@ class ZnZzTest(MyTestCase):
         print("测试通过")
 
         self.driver.find_element_by_css_selector("#alisubmit").click()
+
+    def test_zn_personal_modify(self):
+        """个人订单修改测试"""
+        dl = DengLuPage(self.driver)
+        dl.login()
+        time.sleep(1)
+        self.driver.find_element_by_css_selector("#page-header > div.item-right > ul > li:nth-child(1) > a").click()
+        time.sleep(1)
+
+        self.driver.find_element_by_css_selector("#personalCenter2-leftNav > ul > li.menu.open > ul > li:nth-child(1) > a").click()
+
+        self.assertIn("权大师_我的商标", self.driver.title)
+        print(self.driver.title)
+
+        time.sleep(2)
+        # 切换成下单时间
+        self.driver.find_element_by_class_name("order-time").click()
+        # 选择修改的订单号
+        print("订单编号:" + self.driver.find_element_by_css_selector(
+            "#personalCenter2-rightContainer > div.order-page.brand-trade-page.trade-order > div.tabsPanel > div > div > table > tbody > tr:nth-child(1) > td:nth-child(2) > span").text)
+        # 查看详情
+        self.driver.find_element_by_css_selector(
+            "#personalCenter2-rightContainer > div.order-page.brand-trade-page.trade-order > div.tabsPanel > div > div > table > tbody > tr:nth-child(1) > td:nth-child(8) > div > a.t-href").click()
+        time.sleep(3)
+
+        """修改商标名字"""
+        # self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.order-detail-page > div:nth-child(4) > h2 > a").click()
+        # self.driver.find_element_by_css_selector("#modal-brand > div.modal-button > a.button.save").click()
+        print("商标名字修改成功!")
+
+        time.sleep(1)
+
+        """修改尼斯分类"""
+        self.driver.execute_script("window.scrollBy(0,4200)")  # 滑动滚动条
+        suiji = random.randint(2, 46)
+        self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.order-detail-page > div.order-detail-box.order-categories > h2 > a").click()
+        time.sleep(2)
+        self.driver.find_element_by_css_selector("#section-selfchoice > div.group-right > div > div > h4 > div.header-right > a > i").click()
+        time.sleep(2)
+        self.driver.find_element_by_css_selector("#section-selfchoice > div.group-left > ul > li:nth-child({}) > span".format(suiji)).click()
+
+        self.driver.find_element_by_css_selector("#section-selfchoice > div.group-left > ul > li.list.open > div:nth-child(2) > span").click()
+
+        self.driver.find_element_by_css_selector("#section-selfchoice > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(1) > span").click()
+        self.driver.find_element_by_css_selector("#section-selfchoice > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(2) > span").click()
+        self.driver.find_element_by_css_selector("#section-selfchoice > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(3) > span").click()
+        self.driver.find_element_by_css_selector("#section-selfchoice > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(4) > span").click()
+        self.driver.find_element_by_css_selector("#section-selfchoice > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(5) > span").click()
+        self.driver.find_element_by_css_selector("#section-selfchoice > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(6) > span").click()
+        self.driver.find_element_by_css_selector("#section-selfchoice > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(7) > span").click()
+        self.driver.find_element_by_css_selector("#section-selfchoice > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(8) > span").click()
+        self.driver.find_element_by_css_selector("#section-selfchoice > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(9) > span").click()
+        self.driver.find_element_by_css_selector("#section-selfchoice > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(10) > span").click()
+
+        self.driver.find_element_by_css_selector("#edit-category > div.modal-button > a.button.save").click()
+        time.sleep(2)
+        print("尼斯分类修改为第{}类!".format(suiji-1))
+        time.sleep(2)
+
+        """申请人信息"""
+
+        # self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.order-detail-page > div.order-detail-box.applicant-info > h2 > a").click()
+        #
+        # self.driver.find_element_by_css_selector("#change-applicant-info > div.modal-body.scroll > div > table > thead > tr:nth-child(1) > td.td-content > a.btn-choice.fownertype.active").click()
+        # self.driver.find_element_by_css_selector("#change-applicant-info > div.modal-body.scroll > div > div > div > div > table > tbody.tbody-gsh > tr:nth-child(1) > td.td-content.contact-select-container > dl > dt > input").clear()
+        # self.driver.find_element_by_css_selector("#change-applicant-info > div.modal-body.scroll > div > div > div > div > table > tbody.tbody-gsh > tr:nth-child(1) > td.td-content.contact-select-container > dl > dt > input").send_keys("田伟")
+        # self.driver.find_element_by_css_selector("#geren-idCard").clear()
+        # self.driver.find_element_by_css_selector("#geren-idCard").send_keys("130184198908191520")
+        # self.driver.find_element_by_css_selector("#change-applicant-info > div.modal-button > a.button.save").click()
+        print("申请人信息修改成功!")
+
+        """订单联系人"""
+
+        self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.order-detail-page > div:nth-child(8) > div > h2 > a").click()
+        time.sleep(2)
+        self.driver.find_element_by_css_selector("#change-contact-info > div.section-base > table > tbody.tbody-qiye > tr:nth-child(1) > td.td-content > input").clear()
+        self.driver.find_element_by_css_selector("#change-contact-info > div.section-base > table > tbody.tbody-qiye > tr:nth-child(1) > td.td-content > input").send_keys("大西瓜")
+        self.driver.find_element_by_name("ftelephone").clear()
+        self.driver.find_element_by_name("ftelephone").send_keys("0351-5925212")
+        self.driver.find_element_by_css_selector("#change-contact-info > div.modal-button > a.button.save").click()
+        print("订单联系人修改成功!")
+        time.sleep(1)
+        get_screenshort(self.driver,"test_personal_modify.png")
+
+        print("订单修改测试通过!")
