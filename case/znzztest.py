@@ -100,7 +100,7 @@ class ZnZzTest(MyTestCase):
         self.driver.find_element_by_css_selector(
             "body > div.smartRegister-page.smartRegister3-page > div.last-pay > ul > li.row-step > a").click()
 
-        time.sleep(1)
+        time.sleep(3)
         # self.driver.execute_script("document.getElementByName('fname').length = 0;")
 
         self.driver.find_element_by_css_selector(
@@ -252,11 +252,11 @@ class ZnZzTest(MyTestCase):
         self.driver.find_element_by_css_selector(
             "body > div.smartRegister-page.smartRegister3-page > div.last-pay > ul > li.row-step > a").click()
 
-        time.sleep(1)
+        time.sleep(3)
         # self.driver.execute_script("document.getElementByName('fname').length = 0;")
 
         self.driver.find_element_by_css_selector("body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base > table > thead > tr > td.td-content > a:nth-child(2)").click()
-
+        time.sleep(2)
         self.driver.find_element_by_css_selector(
             "body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base.open > div.applicant-form > table.table-1.table-applicant.table-type1.active > tbody.tbody-gsh > tr:nth-child(1) > td.td-content.contact-select-container > dl > dt > input").clear()
 
@@ -376,7 +376,7 @@ class ZnZzTest(MyTestCase):
         self.driver.find_element_by_css_selector(
             "body > div.smartRegister-page.smartRegister3-page > div.last-pay > ul > li.row-step > a").click()
 
-        time.sleep(1)
+        time.sleep(3)
         # self.driver.execute_script("document.getElementByName('fname').length = 0;")
 
         self.driver.find_element_by_css_selector(
@@ -508,10 +508,11 @@ class ZnZzTest(MyTestCase):
         self.driver.find_element_by_css_selector(
             "body > div.smartRegister-page.smartRegister3-page > div.last-pay > ul > li.row-step > a").click()
 
-        time.sleep(1)
+        time.sleep(3)
         # self.driver.execute_script("document.getElementByName('fname').length = 0;")
 
         self.driver.find_element_by_css_selector("body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base > table > thead > tr > td.td-content > a:nth-child(2)").click()
+        time.sleep(2)
 
         self.driver.find_element_by_css_selector(
             "body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base.open > div.applicant-form > table.table-1.table-applicant.table-type1.active > tbody.tbody-gsh > tr:nth-child(1) > td.td-content.contact-select-container > dl > dt > input").clear()
@@ -567,7 +568,7 @@ class ZnZzTest(MyTestCase):
 
         self.driver.find_element_by_css_selector("#alisubmit").click()
 
-    def test_zn_personal_modify(self):
+    def test_znzz_5(self):
         """个人订单修改测试"""
         dl = DengLuPage(self.driver)
         dl.login()

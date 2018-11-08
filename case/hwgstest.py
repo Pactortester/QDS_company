@@ -94,7 +94,7 @@ class HwGsTest(MyTestCase):
         self.driver.find_element_by_css_selector(
             "body > div.smartRegister-page.smartRegister3-page > div.last-pay > ul > li.row-step > a").click()
 
-        time.sleep(1)
+        time.sleep(3)
 
         # 企业 国外
 
@@ -234,7 +234,7 @@ class HwGsTest(MyTestCase):
         self.driver.find_element_by_css_selector(
             "body > div.smartRegister-page.smartRegister3-page > div.last-pay > ul > li.row-step > a").click()
 
-        time.sleep(1)
+        time.sleep(3)
 
         # 企业 自然人
 
@@ -345,7 +345,7 @@ class HwGsTest(MyTestCase):
         self.driver.find_element_by_css_selector(
             "body > div.smartRegister-page.smartRegister3-page > div.last-pay > ul > li.row-step > a").click()
 
-        time.sleep(1)
+        time.sleep(3)
 
         # 企业 国外
 
@@ -467,7 +467,7 @@ class HwGsTest(MyTestCase):
         self.driver.find_element_by_css_selector(
             "body > div.smartRegister-page.smartRegister3-page > div.last-pay > ul > li.row-step > a").click()
 
-        time.sleep(1)
+        time.sleep(3)
 
         # 企业 自然人
 
