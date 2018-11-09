@@ -32,7 +32,7 @@ class SubjectTest(MyTestCase):
         print("合伙人收益:" + str(income) + "元")
 
 
-    def test_Navigation(self):
+    def test_navigation(self):
         """悬浮导航测试"""
 
         dl = DengLuPage(self.driver)
@@ -47,6 +47,6 @@ class SubjectTest(MyTestCase):
         # 切换到当前最新打开的窗口
         self.driver.switch_to.window(windows[-1])
         time.sleep(2)
-        self.assertIn("合伙人|合伙人计划|权大师", self.driver.title)
+        self.assertIn("首页", self.driver.title)
         print(self.driver.title)
         print(self.driver.current_url)
