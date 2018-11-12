@@ -56,7 +56,7 @@ class HomeTest(MyTestCase):
 
     def test_invoice(self):
 
-        """发票申请"""
+        """发票申请测试"""
 
         # logging.basicConfig(filename='../LOG/' + __name__ + '.log',
         #                     format='[%(asctime)s-%(filename)s-%(levelname)s: %(message)s]', level=logging.DEBUG,
@@ -106,7 +106,7 @@ class HomeTest(MyTestCase):
 
     def test_official(self):
 
-        """官文邮寄"""
+        """官文邮寄测试"""
 
         # logging.basicConfig(filename='../LOG/' + __name__ + '.log',
         #                     format='[%(asctime)s-%(filename)s-%(levelname)s: %(message)s]', level=logging.DEBUG,
