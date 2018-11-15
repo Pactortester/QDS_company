@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4045b1ed-0b5c-43da-8b53-9fbc7a687bac" name="Default Changelist" comment="8.31修改pycharm测试提交">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/2018-11-13.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/2018-11-13.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/2018-11-14.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/2018-11-14.log" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,10 +25,10 @@
           <entry key="project.open.time.19" value="1" />
           <entry key="project.open.time.24" value="1" />
           <entry key="project.open.time.3" value="2" />
-          <entry key="project.open.time.4" value="3" />
+          <entry key="project.open.time.4" value="4" />
           <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="23" />
+          <entry key="project.opened" value="24" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -39,12 +38,12 @@
           <entry key="csv" value="3" />
           <entry key="gitattributes" value="1" />
           <entry key="hosts" value="1" />
-          <entry key="html" value="147" />
+          <entry key="html" value="149" />
           <entry key="ini" value="6" />
           <entry key="log" value="15" />
           <entry key="md" value="4" />
           <entry key="png" value="151" />
-          <entry key="py" value="616" />
+          <entry key="py" value="617" />
           <entry key="pyi" value="1" />
           <entry key="sql" value="1" />
           <entry key="txt" value="11" />
@@ -55,13 +54,13 @@
           <entry key="Bat" value="8" />
           <entry key="CSV" value="2" />
           <entry key="DBN-SQL" value="1" />
-          <entry key="HTML" value="147" />
+          <entry key="HTML" value="149" />
           <entry key="Image" value="151" />
           <entry key="Ini" value="6" />
           <entry key="Log" value="15" />
           <entry key="Markdown" value="4" />
           <entry key="PLAIN_TEXT" value="16" />
-          <entry key="Python" value="616" />
+          <entry key="Python" value="617" />
           <entry key="PythonStub" value="1" />
         </counts>
       </usages-collector>
@@ -106,7 +105,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utils/mytestcase.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="101">
+            <state relative-caret-position="128">
               <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
             </state>
           </provider>
@@ -115,12 +114,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/case/hometest.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
+            <state relative-caret-position="1696">
               <caret line="151" selection-start-line="151" selection-end-line="151" />
               <folding>
                 <element signature="e#306#2281#0" />
-                <element signature="e#2320#5422#0" />
-                <element signature="e#5464#7772#0" />
               </folding>
             </state>
           </provider>
@@ -129,8 +126,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/start.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="149">
-              <caret line="428" column="109" selection-start-line="428" selection-start-column="109" selection-end-line="428" selection-end-column="109" />
+            <state relative-caret-position="1461">
+              <caret line="444" column="25" lean-forward="true" selection-start-line="444" selection-start-column="25" selection-end-line="444" selection-end-column="25" />
               <folding>
                 <element signature="e#11353#11366#0" expanded="true" />
               </folding>
@@ -139,10 +136,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/case/bmkstest.py">
+        <entry file="file://$PROJECT_DIR$/utils/pyselenium.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="27" column="42" selection-start-line="27" selection-start-column="42" selection-end-line="27" selection-end-column="42" />
+            <state relative-caret-position="693">
+              <caret line="598" column="17" selection-start-line="598" selection-start-column="17" selection-end-line="598" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -276,7 +273,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
@@ -307,6 +304,17 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="QDS_company" type="b2602c69:ProjectViewProjectNode" />
+              <item name="QDS_company" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="Scope">
         <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
@@ -328,17 +336,6 @@
               <item name="QDS_company" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="utils" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="QDS_company" type="b2602c69:ProjectViewProjectNode" />
-              <item name="QDS_company" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -550,11 +547,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" sideWeight="0.50287354" side_tool="true" weight="0.18976545" />
-      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49712643" visible="true" weight="0.14072494" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49712643" visible="true" weight="0.14232409" />
       <window_info id="Structure" order="2" sideWeight="0.50287354" side_tool="true" weight="0.18976545" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="0" sideWeight="0.4946695" visible="true" weight="0.26275787" />
+      <window_info anchor="bottom" id="Terminal" order="0" sideWeight="0.4946695" visible="true" weight="0.26275787" />
       <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.5042644" side_tool="true" weight="0.36807817" />
       <window_info anchor="bottom" id="Python Console" order="2" sideWeight="0.49840087" weight="0.32899022" />
       <window_info anchor="bottom" id="Message" order="3" />
@@ -616,20 +614,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="8.31修改pycharm测试提交" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/case/websitest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/case/zlywtest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1554">
-          <caret line="608" column="22" lean-forward="true" selection-start-line="608" selection-start-column="22" selection-end-line="608" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://F:/AirtestIDE/wx.air/wx.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="352">
@@ -819,13 +803,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils/pyselenium.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="598" column="17" selection-start-line="598" selection-start-column="17" selection-end-line="598" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/report/2018-11-12_12-01-00_report.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
@@ -873,35 +850,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/case/hometest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="151" selection-start-line="151" selection-end-line="151" />
-          <folding>
-            <element signature="e#306#2281#0" />
-            <element signature="e#2320#5422#0" />
-            <element signature="e#5464#7772#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/mytestcase.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="101">
-          <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/start.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="428" column="109" selection-start-line="428" selection-start-column="109" selection-end-line="428" selection-end-column="109" />
-          <folding>
-            <element signature="e#11353#11366#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/report/2018-11-14_12-01-03_report.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="368">
@@ -916,10 +864,58 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/case/hometest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1696">
+          <caret line="151" selection-start-line="151" selection-end-line="151" />
+          <folding>
+            <element signature="e#306#2281#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/report/2018-11-14_22-00-57_report.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="14" column="76" selection-start-line="14" selection-start-column="76" selection-end-line="14" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/report/2018-11-15_12-00-58_report.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="5" column="59" lean-forward="true" selection-start-line="5" selection-start-column="59" selection-end-line="5" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/case/bmkstest.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
           <caret line="27" column="42" selection-start-line="27" selection-start-column="42" selection-end-line="27" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/start.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1461">
+          <caret line="444" column="25" lean-forward="true" selection-start-line="444" selection-start-column="25" selection-end-line="444" selection-end-column="25" />
+          <folding>
+            <element signature="e#11353#11366#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/mytestcase.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/pyselenium.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="693">
+          <caret line="598" column="17" selection-start-line="598" selection-start-column="17" selection-end-line="598" selection-end-column="17" />
         </state>
       </provider>
     </entry>
