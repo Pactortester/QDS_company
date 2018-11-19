@@ -574,10 +574,10 @@ class ZnZzTest(MyTestCase):
         dl.login()
         time.sleep(1)
         self.driver.find_element_by_css_selector("#page-header > div.item-right > ul > li:nth-child(1) > a").click()
-        time.sleep(1)
+        time.sleep(2)
 
         self.driver.find_element_by_css_selector("#personalCenter2-leftNav > ul > li.menu.open > ul > li:nth-child(1) > a").click()
-
+        time.sleep(2)
         self.assertIn("权大师_我的商标", self.driver.title)
         print(self.driver.title)
 
