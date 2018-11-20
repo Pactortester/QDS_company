@@ -101,7 +101,7 @@ class MfSbTest(MyTestCase):
         print(str(zf))
         number = re.sub("\D", "", zf)
         time.sleep(2)
-
+        self.driver.execute_script("window.scrollBy(0,1200)")  # 滑动滚动条
         if number == 0:
             tips = self.driver.find_element_by_css_selector("#searchList > div.page-content.w-center > div.page-content-left > div.no-search-data > div").text
             print(str(tips).replace("\n"," "))
