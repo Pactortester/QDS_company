@@ -1,5 +1,3 @@
-import  os
-
 import time
 
 from config.globalparam import img_path

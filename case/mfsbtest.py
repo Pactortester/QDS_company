@@ -14,7 +14,7 @@ from utils.screenshort import get_screenshort
 class MfSbTest(MyTestCase):
     """搜索查询测试集"""
 
-    def test_sbss(self):
+    def test_trademark_search(self):
         """搜索详情测试"""
         dl = DengLuPage(self.driver)
         dl.login()
@@ -57,10 +57,10 @@ class MfSbTest(MyTestCase):
         brand_info = self.driver.find_element_by_css_selector("#searchDetail > div.page-brand > div > div.brand-left > div.brand-info").text
         print(str(brand_info).replace("\n"," "))
 
-        get_screenshort(self.driver, "test_sbss.png")
+        get_screenshort(self.driver, "test_trademark_search.png")
         print("商标搜索测试通过")
 
-    def test_sbrs_1(self):
+    def test_trademark_hot_1(self):
         """商标热搜测试"""
         dl = DengLuPage(self.driver)
         dl.login()
@@ -75,10 +75,10 @@ class MfSbTest(MyTestCase):
         time.sleep(2)
         rs3 = self.driver.find_element_by_css_selector("body > div.section-banner > div.public-search > div > dl > dt > span.hot-search-item").text
         print("热搜商标_3:" + str(rs3).replace("\n", " "))
-        get_screenshort(self.driver,"test_sbrs.png")
+        get_screenshort(self.driver,"test_trademark_hot_1.png")
         print("热搜正常,测试通过!")
 
-    def test_sbrs_2(self):
+    def test_trademark_hot_2(self):
         """热搜跳转测试"""
         dl = DengLuPage(self.driver)
         dl.login()
@@ -115,10 +115,10 @@ class MfSbTest(MyTestCase):
             print(str(info).replace("\n", " "))
             print("热搜跳转正常,测试通过!")
 
-        get_screenshort(self.driver,"test_sbrs_2.png")
+        get_screenshort(self.driver,"test_trademark_hot_2.png")
 
-    def test_csgg(self):
-        """初审公告测试"""
+    def test_PreliminaryPublicationQuery(self):
+        """初审公告查询测试"""
 
         dl = DengLuPage(self.driver)
         time.sleep(2)
@@ -144,7 +144,7 @@ class MfSbTest(MyTestCase):
         print(str(ss))
 
         time.sleep(2)
-        get_screenshort(self.driver,"test_csgg_1.png")
+        get_screenshort(self.driver,"test_PreliminaryPublicationQuery_1.png")
         self.driver.refresh()
 
 
@@ -165,7 +165,7 @@ class MfSbTest(MyTestCase):
         ss = self.driver.execute_script(js)
         print(str(ss))
         time.sleep(2)
-        get_screenshort(self.driver, "test_csgg_2.png")
+        get_screenshort(self.driver, "test_PreliminaryPublicationQuery_2.png")
         self.driver.refresh()
 
         brand3 = unicode()
@@ -185,9 +185,123 @@ class MfSbTest(MyTestCase):
         ss = self.driver.execute_script(js)
         print(str(ss))
         time.sleep(2)
-        get_screenshort(self.driver, "test_csgg_3.png")
+        get_screenshort(self.driver, "test_PreliminaryPublicationQuery_3.png")
 
-    def test_zlss(self):
+    def test_PreliminaryPublicationExport(self):
+        """初审公告导出测试"""
+        dl = DengLuPage(self.driver)
+        time.sleep(2)
+        self.driver.get("https://so.quandashi.com/")
+        time.sleep(2)
+        self.driver.find_element_by_css_selector("body > div.page > div.page-index > div.page-index-form.search > ul.page-index-icon > li:nth-child(1) > a > img").click()
+        self.driver.set_window_size(1920, 1080)
+        self.assertIn("初审公告搜索", self.driver.title)
+        print(self.driver.title)
+        dl.refresh()
+        self.driver.find_element_by_css_selector("#noticeList > div > div.page-form > ul:nth-child(1) > li:nth-child(1) > input[type=\"text\"]").send_keys("大王")
+        print("商标名称:大王")
+        self.driver.find_element_by_css_selector("#noticeList > div > div.page-form > div > a").click()
+        time.sleep(5)
+        result = self.driver.find_element_by_css_selector("#noticeList > div > div.page-form > div > span").text
+        print(str(result))
+        """点击导出数据"""
+        self.driver.find_element_by_css_selector("#noticeList > div > div.page-form > div > a.button.button-white").click()
+        time.sleep(5)
+        print("初审公告报告导出测试通过!请在默认目录查看文件!")
+
+    def test_PreliminaryPublicationDetails(self):
+        """初审公告详情测试"""
+        dl = DengLuPage(self.driver)
+        time.sleep(2)
+        self.driver.get("https://so.quandashi.com/search/notice/index")
+        time.sleep(2)
+        self.driver.set_window_size(1920, 1080)
+        self.assertIn("初审公告搜索", self.driver.title)
+        print(self.driver.title)
+        dl.refresh()
+        self.driver.find_element_by_css_selector(
+            "#noticeList > div > div.page-form > ul:nth-child(1) > li:nth-child(1) > input[type=\"text\"]").send_keys("大")
+        print("商标名称:大")
+        self.driver.find_element_by_css_selector("#noticeList > div > div.page-form > div > a").click()
+        time.sleep(5)
+        result = self.driver.find_element_by_css_selector("#noticeList > div > div.page-form > div > span").text
+        print(str(result))
+        """查询到的第一个商标信息"""
+        info = self.driver.find_element_by_css_selector("#noticeList > div > div.page-content > table > tbody > tr:nth-child(3)").text
+        print("商标信息:" + str(info).replace("\n"," ").replace("查看详情","").replace("我要异议",""))
+
+        self.driver.find_element_by_css_selector("#noticeList > div > div.page-content > table > tbody > tr:nth-child(3) > td.td-href > a:nth-child(1)").click()
+        # 获取打开的多个窗口句柄
+        windows = self.driver.window_handles
+        # 切换到当前最新打开的窗口
+        self.driver.switch_to.window(windows[-1])
+        time.sleep(2)
+        self.driver.set_window_size(1920, 1080)
+        get_screenshort(self.driver, "test_PreliminaryPublicationDetails_1.png")
+        """点击下载初审公告"""
+        self.driver.find_element_by_css_selector("body > div.page > div.w-center > div.page-detail > div.btns > a.sc_notice_download.button.button-white").click()
+        time.sleep(5)
+        print("初审公告pdf文件下载测试通过!请在默认目录查看文件!")
+        self.driver.find_element_by_css_selector("body > div.page > div.w-center > div.page-detail > div.btns > a.sc_notice_brand.button").click()
+        time.sleep(2)
+        get_screenshort(self.driver,"test_PreliminaryPublicationDetails_2.png")
+
+    def test_PreliminaryPublicationBusiness(self):
+        """我要异议测试"""
+        dl = DengLuPage(self.driver)
+        time.sleep(2)
+        self.driver.get("https://so.quandashi.com/search/notice/index")
+        time.sleep(2)
+        self.driver.set_window_size(1920, 1080)
+        self.assertIn("初审公告搜索", self.driver.title)
+        print(self.driver.title)
+        dl.refresh()
+
+        self.driver.find_element_by_css_selector("#noticeList > div > div.page-form > div > a").click()
+        time.sleep(5)
+        """点击我要异议"""
+        self.driver.find_element_by_css_selector("#noticeList > div > div.page-content > table > tbody > tr:nth-child(3) > td.td-href > a.notice_business").click()
+        get_screenshort(self.driver,"test_PreliminaryPublicationBusiness.png")
+        print("初审公告异议测试通过!")
+
+    def test_PreliminaryPublicationConditions(self):
+        """初审公告筛选条件测试"""
+        dl = DengLuPage(self.driver)
+        time.sleep(2)
+        self.driver.get("https://so.quandashi.com/search/notice/index")
+        time.sleep(2)
+        self.driver.set_window_size(1920, 1080)
+        self.assertIn("初审公告搜索", self.driver.title)
+        print(self.driver.title)
+        dl.refresh()
+        self.driver.find_element_by_css_selector(
+            "#noticeList > div > div.page-form > ul:nth-child(1) > li:nth-child(1) > input[type=\"text\"]").send_keys("大王")
+        print("商标名称:大王")
+        self.driver.find_element_by_css_selector("#noticeList > div > div.page-form > div > a").click()
+        time.sleep(5)
+        result_1 = self.driver.find_element_by_css_selector("#noticeList > div > div.page-form > div > span").text
+        print(str(result_1))
+        sl_1 = int(re.sub("\D", "", result_1))
+
+        """筛选条件"""
+        self.driver.find_element_by_css_selector("#noticeList > div > div.page-form > ul:nth-child(2) > li > a").click()
+        number = random.randint(1,45)
+        lb = self.driver.find_element_by_css_selector("#noticeList > div > div.page-form > ul:nth-child(2) > li > div.category-show-box.select-show-category > a:nth-child({})".format(number)).text
+        self.driver.find_element_by_css_selector("#noticeList > div > div.page-form > ul:nth-child(2) > li > div.category-show-box.select-show-category > a:nth-child({})".format(number)).click()
+        print("选择申请类别:" + lb)
+        time.sleep(5)
+
+        result_2 = self.driver.find_element_by_css_selector("#noticeList > div > div.page-form > div > span").text
+        print(str(result_2))
+        sl_2 = int(re.sub("\D", "", result_2))
+
+        if sl_1 > sl_2:
+            print("初审公告筛选申请类别测试通过!")
+        else:
+            self.assertEqual(sl_1,sl_2,"筛选条件异常请及时查看!")
+
+
+    def test_patent_search(self):
         """专利搜索测试"""
         dl = DengLuPage(self.driver)
         dl.login()
@@ -211,10 +325,10 @@ class MfSbTest(MyTestCase):
         number = re.sub("\D", "", num)
         print(number)
 
-        get_screenshort(self.driver,"test_zlss.png")
+        get_screenshort(self.driver,"test_patent_search.png")
         print("专利搜索测试通过!")
 
-    def test_qyss(self):
+    def test_enterprise_search(self):
         """企业搜索测试"""
         dl = DengLuPage(self.driver)
         dl.login()
