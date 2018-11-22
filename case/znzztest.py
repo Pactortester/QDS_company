@@ -584,6 +584,7 @@ class ZnZzTest(MyTestCase):
         time.sleep(2)
         # 切换成下单时间
         self.driver.find_element_by_class_name("order-time").click()
+        time.sleep(2)
         # 选择修改的订单号
         print("订单编号:" + self.driver.find_element_by_css_selector(
             "#personalCenter2-rightContainer > div.order-page.brand-trade-page.trade-order > div.tabsPanel > div > div > table > tbody > tr:nth-child(1) > td:nth-child(2) > span").text)
@@ -652,3 +653,4 @@ class ZnZzTest(MyTestCase):
         get_screenshort(self.driver,"test_personal_modify.png")
 
         print("订单修改测试通过!")
+

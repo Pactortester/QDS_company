@@ -102,7 +102,7 @@ class MfSbTest(MyTestCase):
         number = re.sub("\D", "", zf)
         time.sleep(2)
         self.driver.execute_script("window.scrollBy(0,1200)")  # 滑动滚动条
-        if number == 0:
+        if int(number) == 0:
             tips = self.driver.find_element_by_css_selector("#searchList > div.page-content.w-center > div.page-content-left > div.no-search-data > div").text
             print(str(tips).replace("\n"," "))
             print("热搜跳转正常,测试通过!")
@@ -299,7 +299,6 @@ class MfSbTest(MyTestCase):
             print("初审公告筛选申请类别测试通过!")
         else:
             self.assertEqual(sl_1,sl_2,"筛选条件异常请及时查看!")
-
 
     def test_patent_search(self):
         """专利搜索测试"""

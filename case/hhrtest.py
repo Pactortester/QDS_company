@@ -864,7 +864,7 @@ class HhrTest(MyTestCase):
         self.driver.find_element_by_xpath("//*[@id=\"personalCenter2-rightContainer\"]/div[1]/div/a").click()
         self.driver.find_element_by_css_selector("#personalCenter2-leftNav > ul > li.menu.open > ul > li:nth-child(2) > a").click()
         time.sleep(2)
-        self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > div.partner > a:nth-child(4)").click()
+        self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.distribute > a").click()
         time.sleep(2)
         lb = (100001,100004,100007,100020,100021)
         xm = random.choice(lb)
@@ -922,3 +922,31 @@ class HhrTest(MyTestCase):
         self.driver.find_element_by_css_selector("#close > div > textarea").send_keys("不做了!")
         self.driver.find_element_by_css_selector("#close > a.a-tow").click()
         print("{}线索已退回!".format(clue_number))
+
+    def test_CancelState(self):
+        """取消订单测试"""
+        dl = DengLuPage(self.driver)
+        dl.login()
+        time.sleep(1)
+
+        self.driver.find_element_by_css_selector("#page-header > div.item-right > ul > li:nth-child(2) > a").click()
+        time.sleep(1)
+
+        # 新版提示
+        self.driver.find_element_by_xpath("//*[@id=\"personalCenter2-rightContainer\"]/div[1]/div/a").click()
+
+        self.driver.find_element_by_css_selector(
+            "#personalCenter2-leftNav > ul > li.menu.open > ul > li:nth-child(1) > a").click()
+        time.sleep(2)
+        # 切换成下单时间
+        self.driver.find_element_by_class_name("order-time").click()
+        # 选择修改的订单号
+        print("订单编号:" + self.driver.find_element_by_css_selector(
+            "#personalCenter2-rightContainer > div.order-page > div.tabsPanel > div > div > table > tbody > tr:nth-child(1) > td:nth-child(3) > div > p:nth-child(1)").text)
+        # 查看详情
+        self.driver.find_element_by_class_name("order-cancel").click()
+        time.sleep(2)
+        self.driver.find_element_by_class_name("modal-body-textarea").send_keys("下错单了!")
+        time.sleep(2)
+        self.driver.find_element_by_link_text("提   交").click()
+        print("订单取消成功!")
