@@ -864,7 +864,7 @@ class HhrTest(MyTestCase):
         self.driver.find_element_by_xpath("//*[@id=\"personalCenter2-rightContainer\"]/div[1]/div/a").click()
         self.driver.find_element_by_css_selector("#personalCenter2-leftNav > ul > li.menu.open > ul > li:nth-child(2) > a").click()
         time.sleep(2)
-        self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.distribute > a").click()
+        self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > div.partner > a:nth-child(4)").click()
         time.sleep(2)
         lb = (100001,100004,100007,100020,100021)
         xm = random.choice(lb)
@@ -872,9 +872,9 @@ class HhrTest(MyTestCase):
         self.driver.find_element_by_css_selector("#product_{}".format(xm)).click()
         self.driver.find_element_by_css_selector("#close > a").click()
         time.sleep(1)
-        info = self.driver.find_element_by_css_selector("#delivery > div.test.test-1 > ul").text
-        print("当前线索:" + str(info).replace("\n"," "))
-        self.driver.find_element_by_css_selector("#delivery > div.bt-a > a.bt-a-two.a-colour").click()
+        # info = self.driver.find_element_by_css_selector("#delivery > div.test.test-1 > ul").text
+        # print("当前线索:" + str(info).replace("\n"," "))
+        # self.driver.find_element_by_css_selector("#delivery > div.bt-a > a.bt-a-two.a-colour").click()
         get_screenshort(self.driver,"test_partner_clue_4.png")
         time.sleep(3)
         self.driver.find_element_by_css_selector(

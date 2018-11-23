@@ -103,8 +103,8 @@ class ZnZzTest(MyTestCase):
         time.sleep(3)
         # self.driver.execute_script("document.getElementByName('fname').length = 0;")
 
-        self.driver.find_element_by_css_selector(
-            "body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base > div.applicant-form > table.table-1.table-applicant.table-type1.active > tbody.tbody-qiye > tr:nth-child(1) > td.td-content.contact-select-container > dl > dt > input").clear()
+        # self.driver.find_element_by_css_selector(
+        #     "body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base > div.applicant-form > table.table-1.table-applicant.table-type1.active > tbody.tbody-qiye > tr:nth-child(1) > td.td-content.contact-select-container > dl > dt > input").clear()
 
         self.driver.find_element_by_css_selector(
             "body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base > div.applicant-form > table.table-1.table-applicant.table-type1.active > tbody.tbody-qiye > tr:nth-child(1) > td.td-content.contact-select-container > dl > dt > input").send_keys(
@@ -379,8 +379,8 @@ class ZnZzTest(MyTestCase):
         time.sleep(3)
         # self.driver.execute_script("document.getElementByName('fname').length = 0;")
 
-        self.driver.find_element_by_css_selector(
-            "body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base > div.applicant-form > table.table-1.table-applicant.table-type1.active > tbody.tbody-qiye > tr:nth-child(1) > td.td-content.contact-select-container > dl > dt > input").clear()
+        # self.driver.find_element_by_css_selector(
+        #     "body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base > div.applicant-form > table.table-1.table-applicant.table-type1.active > tbody.tbody-qiye > tr:nth-child(1) > td.td-content.contact-select-container > dl > dt > input").clear()
 
         self.driver.find_element_by_css_selector(
             "body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base > div.applicant-form > table.table-1.table-applicant.table-type1.active > tbody.tbody-qiye > tr:nth-child(1) > td.td-content.contact-select-container > dl > dt > input").send_keys(
@@ -653,4 +653,3 @@ class ZnZzTest(MyTestCase):
         get_screenshort(self.driver,"test_personal_modify.png")
 
         print("订单修改测试通过!")
-
