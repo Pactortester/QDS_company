@@ -35,4 +35,4 @@ class WebSiTest(MyTestCase):
         #     print(link)
         time.sleep(2)
         for link in self.driver.find_elements_by_tag_name("a"):
-            print(link.get_attribute("href"))
+            print(str(link.get_attribute("href")).replace("javascript:;","").replace("javascript:void(0)","").replace("None",""))
