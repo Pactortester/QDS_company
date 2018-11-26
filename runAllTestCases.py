@@ -141,7 +141,7 @@ if __name__ == "__main__":
     now = time.strftime("%Y-%m-%d_%H-%M-%S")
     path = report_path + "\\" + now + "_report.html"
     with open(path, 'wb') as file:
-        HTMLTestRunner(stream=file, verbosity=1, title="权大师测试报告", description="Environment ：win10 chrome", tester="lijiawei").run(suite)
+        HTMLTestRunner(stream=file, verbosity=1, title="权大师server测试报告", description="Environment ：win10server chrome", tester="lijiawei").run(suite)
     # send_mail(path)
     sendMail = SendMail()
     sendMail.send()
