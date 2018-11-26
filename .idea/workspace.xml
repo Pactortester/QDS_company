@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4045b1ed-0b5c-43da-8b53-9fbc7a687bac" name="Default Changelist" comment="8.31修改pycharm测试提交">
+      <change afterPath="$PROJECT_DIR$/image/2018-11-26_13-41-42_test_bmks.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/report/2018-11-26_12-00-50_report.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -54,8 +57,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utils/mytestcase.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="26" column="8" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
+            <state relative-caret-position="13">
+              <caret line="10" selection-start-line="10" selection-end-line="10" />
             </state>
           </provider>
         </entry>
@@ -82,29 +85,58 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/case/websitest.py">
+        <entry file="file://$PROJECT_DIR$/case/bqywtest.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="592">
-              <caret line="37" column="12" selection-start-line="37" selection-start-column="12" selection-end-line="37" selection-end-column="12" />
+            <state relative-caret-position="256">
+              <caret line="25" column="61" selection-start-line="25" selection-start-column="61" selection-end-line="25" selection-end-column="61" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/case/mfsbtest.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="543" column="23" selection-start-line="543" selection-start-column="23" selection-end-line="543" selection-end-column="23" />
               <folding>
-                <element signature="e#0#9#0" expanded="true" />
+                <element signature="e#0#13#0" expanded="true" />
+                <element signature="e#385#2300#0" />
+                <element signature="e#2346#3425#0" />
+                <element signature="e#3471#5623#0" />
+                <element signature="e#5681#9139#0" />
+                <element signature="e#9198#10331#0" />
+                <element signature="e#10391#12381#0" />
+                <element signature="e#12442#13180#0" />
+                <element signature="e#13243#15027#0" />
+                <element signature="e#15071#16151#0" />
+                <element signature="e#16199#16908#0" />
+                <element signature="e#16944#20149#0" />
+                <element signature="e#20189#20995#0" />
+                <element signature="e#21029#22862#0" />
+                <element signature="e#22903#24453#0" />
+                <element signature="e#28120#31961#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/runAllTestCases.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="400">
+              <caret line="136" lean-forward="true" selection-start-line="136" selection-end-line="136" />
+              <folding>
+                <element signature="e#15#24#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/report/2018-11-25_22-00-05_report.html">
+        <entry file="file://$PROJECT_DIR$/report/2018-11-23_16-40-04_report.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-192" />
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/case/znzztest.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6960">
-              <caret line="445" column="26" selection-start-line="445" selection-start-column="26" selection-end-line="445" selection-end-column="26" />
+            <state relative-caret-position="64">
+              <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -154,8 +186,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/assert.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="2" selection-start-column="2" selection-end-column="63" />
+            <state relative-caret-position="128">
+              <caret line="8" column="76" selection-start-line="8" selection-start-column="76" selection-end-line="8" selection-end-column="76" />
             </state>
           </provider>
         </entry>
@@ -316,7 +348,7 @@
     <ConfirmationsSetting value="1" id="Add" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="Scope" currentSubView="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope" proportions="" version="1">
+    <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
@@ -340,7 +372,12 @@
             <path>
               <item name="QDS_company" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="report" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="image" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="QDS_company" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="utils" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
           </expand>
           <select />
@@ -573,7 +610,7 @@
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="7" />
     <layout>
       <window_info id="Favorites" order="0" sideWeight="0.50287354" side_tool="true" weight="0.18976545" />
-      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49712643" visible="true" weight="0.18976545" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49712643" visible="true" weight="0.18756586" />
       <window_info id="Structure" order="2" sideWeight="0.50287354" side_tool="true" weight="0.18976545" />
       <window_info active="true" anchor="bottom" id="Terminal" order="0" sideWeight="0.4946695" visible="true" weight="0.26275787" />
       <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.5042644" side_tool="true" weight="0.36807817" />
@@ -628,9 +665,20 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="8.31修改pycharm测试提交" />
@@ -797,10 +845,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/case/mfsbtest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2608">
-          <caret line="210" selection-start-line="210" selection-end-line="210" />
+        <state relative-caret-position="240">
+          <caret line="543" column="23" selection-start-line="543" selection-start-column="23" selection-end-line="543" selection-end-column="23" />
           <folding>
+            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#385#2300#0" />
+            <element signature="e#2346#3425#0" />
             <element signature="e#3471#5623#0" />
+            <element signature="e#5681#9139#0" />
+            <element signature="e#9198#10331#0" />
+            <element signature="e#10391#12381#0" />
+            <element signature="e#12442#13180#0" />
+            <element signature="e#13243#15027#0" />
+            <element signature="e#15071#16151#0" />
+            <element signature="e#16199#16908#0" />
+            <element signature="e#16944#20149#0" />
+            <element signature="e#20189#20995#0" />
+            <element signature="e#21029#22862#0" />
+            <element signature="e#22903#24453#0" />
+            <element signature="e#28120#31961#0" />
           </folding>
         </state>
       </provider>
@@ -842,8 +905,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/case/websitest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="592">
-          <caret line="37" column="12" selection-start-line="37" selection-start-column="12" selection-end-line="37" selection-end-column="12" />
+        <state relative-caret-position="147">
+          <caret line="26" column="26" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
