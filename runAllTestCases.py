@@ -80,7 +80,7 @@ logger = Log()
 # 配置收发件人
 recvaddress = ['lijiawei@quandashi.com']
 # 163的用户名和密码
-sendaddr_name = 'm15624992422@163.com'
+sendaddr_name = 'lijiawei@quandashi.com'
 sendaddr_pswd = '!QAZ1qaz'
 
 
@@ -126,7 +126,7 @@ class SendMail:
         self.__take_messages()
         self.msg['from'] = sendaddr_name
         try:
-            smtp = smtplib.SMTP('smtp.163.com')
+            smtp = smtplib.SMTP('smtp.quandashi.com')
             smtp.login(sendaddr_name, sendaddr_pswd)
             smtp.sendmail(self.msg['from'], self.sendTo, self.msg.as_string())
             smtp.close()
