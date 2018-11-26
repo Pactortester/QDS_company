@@ -950,3 +950,58 @@ class HhrTest(MyTestCase):
         time.sleep(2)
         self.driver.find_element_by_link_text("提   交").click()
         print("订单取消成功!")
+
+    def test_payment_voucher(self):
+        """付款凭证测试"""
+        dl = DengLuPage(self.driver)
+        dl.login()
+        time.sleep(1)
+
+        self.driver.find_element_by_css_selector("#page-header > div.item-right > ul > li:nth-child(2) > a").click()
+        time.sleep(1)
+
+        # 新版提示
+        self.driver.find_element_by_xpath("//*[@id=\"personalCenter2-rightContainer\"]/div[1]/div/a").click()
+
+        self.driver.find_element_by_css_selector(
+            "#personalCenter2-leftNav > ul > li.menu.open > ul > li:nth-child(1) > a").click()
+        time.sleep(2)
+        # 切换成下单时间
+        self.driver.find_element_by_class_name("order-time").click()
+        # 选择修改的订单号
+        number = self.driver.find_element_by_css_selector(
+            "#personalCenter2-rightContainer > div.order-page > div.tabsPanel > div > div > table > tbody > tr:nth-child(1) > td:nth-child(3) > div > p:nth-child(1)").text
+        print("订单编号:" + number)
+        # 查看详情
+        self.driver.find_element_by_css_selector(
+            "#personalCenter2-rightContainer > div.order-page > div.tabsPanel > div > div > table > tbody > tr:nth-child(1) > td:nth-child(9) > div.td-handle > a.info").click()
+        time.sleep(3)
+        self.driver.execute_script("window.scrollBy(0,1500)")  # 滑动滚动条
+
+        # 点击支付凭证
+        self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.order-detail-page > div.order-detail-box.order-detail-pay-info > table > tbody > tr:nth-child(2) > td:nth-child(6) > a").click()
+
+        # 获取打开的多个窗口句柄
+        windows = self.driver.window_handles
+        # 切换到当前最新打开的窗口
+        self.driver.switch_to.window(windows[-1])
+        time.sleep(2)
+        # pay_number = str("订单" + number)
+        print(self.driver.title)
+        # self.assertEqual(pay_number,self.driver.title,"凭证异常!请及时查看!")
+
+
+        try:
+            self.driver.find_element(By.CSS_SELECTOR,"#personalCenter2-rightContainer > div > div.cont-crumbs > ul > li:nth-child(3) > a")
+            a = True
+        except:
+            a = False
+        if a is True:
+            voucher = self.driver.find_element_by_css_selector(
+                "#personalCenter2-rightContainer > div > div.cont-crumbs > ul > li:nth-child(3) > a").text
+            print(voucher + "测试通过!")
+
+        elif a is False:
+            error = self.driver.find_element_by_css_selector("body > div.error-box > div.error-left > p").text
+            print(error)
+            self.assertEqual(1,2,"凭证异常!请及时查看!")
