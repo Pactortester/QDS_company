@@ -480,12 +480,12 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Python tests.Unittests for bmkstest.BmKsTest.test_bmks" />
+      <item itemvalue="Python tests.Unittests for hhrtest.HhrTest.test_payment_voucher" />
       <item itemvalue="Python tests.Unittests for indextest.IndexTest.test_know" />
-      <item itemvalue="Python tests.Unittests for websitest.WebSiTest.test_number1" />
       <item itemvalue="Python tests.Unittests for mfsbtest.MfSbTest.test_geography" />
       <item itemvalue="Python tests.Unittests for mfsbtest.MfSbTest.test_special_trademark" />
-      <item itemvalue="Python tests.Unittests for hhrtest.HhrTest.test_payment_voucher" />
-      <item itemvalue="Python tests.Unittests for bmkstest.BmKsTest.test_bmks" />
+      <item itemvalue="Python tests.Unittests for websitest.WebSiTest.test_number1" />
     </list>
     <recent_temporary>
       <list>
@@ -567,7 +567,7 @@
       <window_info id="Structure" order="2" sideWeight="0.50287354" side_tool="true" weight="0.18976545" />
       <window_info anchor="bottom" id="Terminal" order="0" sideWeight="0.4946695" weight="0.26275787" />
       <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.5042644" side_tool="true" weight="0.36807817" />
-      <window_info anchor="bottom" id="Python Console" order="2" sideWeight="0.49840087" weight="0.32899022" />
+      <window_info anchor="bottom" id="Python Console" order="2" sideWeight="0.49840087" weight="0.3286334" />
       <window_info anchor="bottom" id="Message" order="3" />
       <window_info anchor="bottom" id="Find" order="4" weight="0.32899022" />
       <window_info anchor="bottom" id="Version Control" order="5" sideWeight="0.49733475" weight="0.35396308" />
@@ -861,10 +861,12 @@
             <element signature="e#34559#39299#0" />
             <element signature="e#39337#42819#0" />
             <element signature="e#42857#46256#0" />
+            <element signature="e#46302#48042#0" />
             <element signature="e#48088#51909#0" />
             <element signature="e#51955#53481#0" />
             <element signature="e#53527#55502#0" />
             <element signature="e#55544#56720#0" />
+            <element signature="e#56766#59191#0" />
           </folding>
         </state>
       </provider>
