@@ -146,7 +146,7 @@ class ZnZzTest(MyTestCase):
             "html body div.smartRegister-page div.orderinfo-wrap div.order-content textarea").send_keys(
             time.strftime("%Y-%m-%d_%H-%M-%S") + "测试订单")
 
-        get_screenshort(self.driver, "test_znzz.png")
+        get_screenshort(self.driver, "test_znzz_1.png")
 
         for i in self.driver.find_elements_by_css_selector("body > div.smartRegister-page > div.orderinfo-wrap > div.last-pay.personal-last-pay > ul > li.row-sense > em > i"):
 
@@ -290,7 +290,7 @@ class ZnZzTest(MyTestCase):
             "html body div.smartRegister-page div.orderinfo-wrap div.order-content textarea").send_keys(
             time.strftime("%Y-%m-%d_%H-%M-%S") + "测试订单")
 
-        get_screenshort(self.driver, "test_znzz.png")
+        get_screenshort(self.driver, "test_znzz_2.png")
 
         for i in self.driver.find_elements_by_css_selector("body > div.smartRegister-page > div.orderinfo-wrap > div.last-pay.personal-last-pay > ul > li.row-sense > em > i"):
 

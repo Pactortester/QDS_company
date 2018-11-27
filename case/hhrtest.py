@@ -909,8 +909,8 @@ class HhrTest(MyTestCase):
         self.driver.set_window_size(1920, 1080)
 
 
-        """关掉时间提示"""
-        self.driver.find_element_by_css_selector("#layui-layer1 > span.layui-layer-setwin > a").click()
+        # """关掉时间提示"""
+        # self.driver.find_element_by_css_selector("#layui-layer1 > span.layui-layer-setwin > a").click()
 
         get_screenshort(self.driver,"test_partner_clue_4.png")
 
