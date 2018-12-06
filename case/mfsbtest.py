@@ -482,6 +482,12 @@ class MfSbTest(MyTestCase):
 
         selected = self.driver.find_element_by_css_selector("#searchList > div.page-form.w-center > div.selected-category").text
         print((str(selected).replace("\n", " ")).replace("×", " "))
+        selected_1 = self.driver.find_element_by_css_selector(
+            "#searchList > div.page-form.w-center > div.selected-category > div.selected-category-box > a:nth-child(1) > span").text
+        if selected_1 == "驰名商标":
+            pass
+        else:
+            self.assertEqual(1, 2, "已选条件异常请及时查看")
 
         result = self.driver.find_element_by_css_selector("#searchList > div.page-content.w-center > div.page-content-left > div.search-top").text
         print(str(result))
@@ -513,6 +519,12 @@ class MfSbTest(MyTestCase):
 
         selected = self.driver.find_element_by_css_selector("#searchList > div.page-form.w-center > div.selected-category").text
         print((str(selected).replace("\n"," ")).replace("×"," "))
+
+        selected_1 = self.driver.find_element_by_css_selector("#searchList > div.page-form.w-center > div.selected-category > div.selected-category-box > a:nth-child(1) > span").text
+        if selected_1 == "驰名商标":
+            pass
+        else:
+            self.assertEqual(1,2,"已选条件异常请及时查看")
 
         result = self.driver.find_element_by_css_selector("#searchList > div.page-content.w-center > div.page-content-left > div.search-top").text
         print(str(result))

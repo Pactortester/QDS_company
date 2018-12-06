@@ -9,10 +9,10 @@ class DengLuPage:
              'value': '38b93cd51f3d844a92cfcb2b8a5cd036b63c89aa',
             'Domain': '.quandashi.com'})
 
-    url_pre = "https://pre-www.quandashi.com/"
+    url_pre = "https://apre-www.quandashi.com/"
 
     cookie_pre = ({'name': 'QDS_COOKIE',
-               'value': 'e5f65bccd4057b8215baf0580cbf4b013e6d18c7',
+               'value': 'b4e47166169c76a04575c04164bb758699080ff6',
                'Domain': '.quandashi.com'})
 
     def __init__(self, driver):
