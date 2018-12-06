@@ -396,88 +396,89 @@ class HhrTest(MyTestCase):
 
         print("订单已发送客户付款!")
 
-    def test_channel(self):
-
+    @staticmethod
+    def test_channel():
         """渠道下单单个商标注册"""
-        dl = DengLuPage(self.driver)
-        dl.login()
-        time.sleep(1)
-
-        self.driver.find_element_by_css_selector("#page-header > div.item-right > ul > li:nth-child(2) > a").click()
-        time.sleep(1)
-        # 新版提示
-        self.driver.find_element_by_xpath("//*[@id=\"personalCenter2-rightContainer\"]/div[1]/div/a").click()
-        self.driver.find_element_by_link_text("渠道下单").click()
-
-        """填写渠道账号"""
-        self.driver.find_element_by_xpath("//*[@id=\"personalCenter2-rightContainer\"]/div/div[1]/div[2]/div[1]/dl/dt/input").clear()
-        self.driver.find_element_by_xpath("//*[@id=\"personalCenter2-rightContainer\"]/div/div[1]/div[2]/div[1]/dl/dt/input").send_keys("15122311450")
-        self.driver.find_element_by_xpath("//*[@id=\"inquirer\"]").clear()
-        self.driver.find_element_by_xpath("//*[@id=\"inquirer\"]").send_keys("15624992422")
-
-
-
-        """填写商标信息"""
-
-        self.driver.find_element_by_xpath("//*[@id=\"selectBrandType\"]/label[1]").click()
-        ss = unicode()
-        self.driver.find_element_by_name("brandName").send_keys("{}".format(ss))
-        self.driver.find_element_by_xpath("//*[@id=\"create-tuyang\"]/label[2]").click()
-        self.driver.find_element_by_xpath("//*[@id=\"personalCenter2-rightContainer\"]/div/div[1]/div[3]/div[1]/div[1]/table/tbody/tr[4]/td[2]/div[3]/ul/li/div[2]/a").click()
-        time.sleep(2)
-        print("商标名称:{}".format(ss))
-        print("商标名称填写成功!")
-
-        self.driver.execute_script("window.scrollBy(0,500)")  # 滑动滚动条
-
-        """商标类别"""
-        suiji = random.randint(1,46)
-        self.driver.find_element_by_xpath("//*[@id=\"personalCenter2-rightContainer\"]/div/div[1]/div[3]/div[1]/div[1]/table/tbody/tr[5]/td[2]/a[2]").click()
-
-        self.driver.find_element_by_css_selector("#section-selfchoice > div.group-left > ul > li:nth-child({}) > span".format(suiji)).click()
-        time.sleep(2)
-        self.driver.find_element_by_css_selector("#section-selfchoice > div.group-left > ul > li.list.open > div:nth-child(2) > span").click()
-        time.sleep(2)
-        self.driver.find_element_by_css_selector("#section-selfchoice > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(1) > span").click()
-        self.driver.find_element_by_css_selector("#section-selfchoice > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(2) > span").click()
-        self.driver.find_element_by_css_selector("#section-selfchoice > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(3) > span").click()
-        self.driver.find_element_by_css_selector("#section-selfchoice > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(4) > span").click()
-        self.driver.find_element_by_css_selector("#section-selfchoice > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(5) > span").click()
-        self.driver.find_element_by_css_selector("#section-selfchoice > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(6) > span").click()
-        self.driver.find_element_by_css_selector("#section-selfchoice > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(7) > span").click()
-        self.driver.find_element_by_css_selector("#section-selfchoice > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(8) > span").click()
-        self.driver.find_element_by_css_selector("#section-selfchoice > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(9) > span").click()
-        self.driver.find_element_by_css_selector("#section-selfchoice > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(10) > span").click()
-
-        print("选择了第{}类商标分类".format(suiji))
-
-        # for i in self.driver.find_elements_by_css_selector("#personalCenter2-rightContainer > div > div.order-form-page > div > div.order-detail-box.order-categories > div.order-categories-total > span.span-total > strong > i"):
-        #     print("总价:"+i.text)
-        #     ii=i.text
-
-        """申请人信息"""
-
-        self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > div.smartRegister-page.smartRegister-page-source2.smartRegister-page-personal > div:nth-child(5) > div.agentInfo-wrap.agentInfo-wrap-in > div > table > thead > tr > td.td-content > a.btn-choice.fownertype.active").click()
-        self.driver.find_element_by_xpath("//*[@id=\"personalCenter2-rightContainer\"]/div/div[1]/div[4]/div[1]/div/table/tbody[1]/tr[1]/td[2]/dl/dt/input").clear()
-        self.driver.find_element_by_xpath("//*[@id=\"personalCenter2-rightContainer\"]/div/div[1]/div[4]/div[1]/div/table/tbody[1]/tr[1]/td[2]/dl/dt/input").send_keys(unicode())
-        self.driver.find_element_by_xpath("//*[@id=\"ssq\"]").click()
-        self.driver.find_element_by_xpath("//*[@id=\"myadministrative\"]/div/div[2]/div[1]/dl[1]/dd/span[1]").click()
-        self.driver.find_element_by_xpath("//*[@id=\"myadministrative\"]/div/div[2]/div[2]/dl[2]/dd/span[1]").click()
-        self.driver.find_element_by_name("fcontactName").clear()
-        self.driver.find_element_by_name("fcontactName").send_keys("蔡妍妍")
-        self.driver.find_element_by_name("fcontactTel").clear()
-        self.driver.find_element_by_name("fcontactTel").send_keys("17801188215")
-        self.driver.find_element_by_name("ftelephone").send_keys("4001005678")
-        self.driver.find_element_by_name("fcontactMail").send_keys("m15624992422@qq.com")
-        print("申请人信息填写成功!")
-
-        get_screenshort(self.driver, "test_channel.png")
-        for o in self.driver.find_elements_by_xpath("//*[@id=\"personalCenter2-rightContainer\"]/div/div[1]/div[5]/div/ul/li[3]/em/i"):
-            print("订单提交成功，应付金额:"+o.text)
-            oo=o.text
-
-        # self.assertIn(oo,ii)
-        self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > div.section8 > div > a").click()
+        print("此账号无渠道下单!")
+        # dl = DengLuPage(self.driver)
+        # dl.login()
+        # time.sleep(1)
+        #
+        # self.driver.find_element_by_css_selector("#page-header > div.item-right > ul > li:nth-child(2) > a").click()
+        # time.sleep(1)
+        # # 新版提示
+        # self.driver.find_element_by_xpath("//*[@id=\"personalCenter2-rightContainer\"]/div[1]/div/a").click()
+        # self.driver.find_element_by_link_text("渠道下单").click()
+        #
+        # """填写渠道账号"""
+        # self.driver.find_element_by_xpath("//*[@id=\"personalCenter2-rightContainer\"]/div/div[1]/div[2]/div[1]/dl/dt/input").clear()
+        # self.driver.find_element_by_xpath("//*[@id=\"personalCenter2-rightContainer\"]/div/div[1]/div[2]/div[1]/dl/dt/input").send_keys("15122311450")
+        # self.driver.find_element_by_xpath("//*[@id=\"inquirer\"]").clear()
+        # self.driver.find_element_by_xpath("//*[@id=\"inquirer\"]").send_keys("15624992422")
+        #
+        #
+        #
+        # """填写商标信息"""
+        #
+        # self.driver.find_element_by_xpath("//*[@id=\"selectBrandType\"]/label[1]").click()
+        # ss = unicode()
+        # self.driver.find_element_by_name("brandName").send_keys("{}".format(ss))
+        # self.driver.find_element_by_xpath("//*[@id=\"create-tuyang\"]/label[2]").click()
+        # self.driver.find_element_by_xpath("//*[@id=\"personalCenter2-rightContainer\"]/div/div[1]/div[3]/div[1]/div[1]/table/tbody/tr[4]/td[2]/div[3]/ul/li/div[2]/a").click()
+        # time.sleep(2)
+        # print("商标名称:{}".format(ss))
+        # print("商标名称填写成功!")
+        #
+        # self.driver.execute_script("window.scrollBy(0,500)")  # 滑动滚动条
+        #
+        # """商标类别"""
+        # suiji = random.randint(1,46)
+        # self.driver.find_element_by_xpath("//*[@id=\"personalCenter2-rightContainer\"]/div/div[1]/div[3]/div[1]/div[1]/table/tbody/tr[5]/td[2]/a[2]").click()
+        #
+        # self.driver.find_element_by_css_selector("#section-selfchoice > div.group-left > ul > li:nth-child({}) > span".format(suiji)).click()
+        # time.sleep(2)
+        # self.driver.find_element_by_css_selector("#section-selfchoice > div.group-left > ul > li.list.open > div:nth-child(2) > span").click()
+        # time.sleep(2)
+        # self.driver.find_element_by_css_selector("#section-selfchoice > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(1) > span").click()
+        # self.driver.find_element_by_css_selector("#section-selfchoice > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(2) > span").click()
+        # self.driver.find_element_by_css_selector("#section-selfchoice > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(3) > span").click()
+        # self.driver.find_element_by_css_selector("#section-selfchoice > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(4) > span").click()
+        # self.driver.find_element_by_css_selector("#section-selfchoice > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(5) > span").click()
+        # self.driver.find_element_by_css_selector("#section-selfchoice > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(6) > span").click()
+        # self.driver.find_element_by_css_selector("#section-selfchoice > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(7) > span").click()
+        # self.driver.find_element_by_css_selector("#section-selfchoice > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(8) > span").click()
+        # self.driver.find_element_by_css_selector("#section-selfchoice > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(9) > span").click()
+        # self.driver.find_element_by_css_selector("#section-selfchoice > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(10) > span").click()
+        #
+        # print("选择了第{}类商标分类".format(suiji))
+        #
+        # # for i in self.driver.find_elements_by_css_selector("#personalCenter2-rightContainer > div > div.order-form-page > div > div.order-detail-box.order-categories > div.order-categories-total > span.span-total > strong > i"):
+        # #     print("总价:"+i.text)
+        # #     ii=i.text
+        #
+        # """申请人信息"""
+        #
+        # self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > div.smartRegister-page.smartRegister-page-source2.smartRegister-page-personal > div:nth-child(5) > div.agentInfo-wrap.agentInfo-wrap-in > div > table > thead > tr > td.td-content > a.btn-choice.fownertype.active").click()
+        # self.driver.find_element_by_xpath("//*[@id=\"personalCenter2-rightContainer\"]/div/div[1]/div[4]/div[1]/div/table/tbody[1]/tr[1]/td[2]/dl/dt/input").clear()
+        # self.driver.find_element_by_xpath("//*[@id=\"personalCenter2-rightContainer\"]/div/div[1]/div[4]/div[1]/div/table/tbody[1]/tr[1]/td[2]/dl/dt/input").send_keys(unicode())
+        # self.driver.find_element_by_xpath("//*[@id=\"ssq\"]").click()
+        # self.driver.find_element_by_xpath("//*[@id=\"myadministrative\"]/div/div[2]/div[1]/dl[1]/dd/span[1]").click()
+        # self.driver.find_element_by_xpath("//*[@id=\"myadministrative\"]/div/div[2]/div[2]/dl[2]/dd/span[1]").click()
+        # self.driver.find_element_by_name("fcontactName").clear()
+        # self.driver.find_element_by_name("fcontactName").send_keys("蔡妍妍")
+        # self.driver.find_element_by_name("fcontactTel").clear()
+        # self.driver.find_element_by_name("fcontactTel").send_keys("17801188215")
+        # self.driver.find_element_by_name("ftelephone").send_keys("4001005678")
+        # self.driver.find_element_by_name("fcontactMail").send_keys("m15624992422@qq.com")
+        # print("申请人信息填写成功!")
+        #
+        # get_screenshort(self.driver, "test_channel.png")
+        # for o in self.driver.find_elements_by_xpath("//*[@id=\"personalCenter2-rightContainer\"]/div/div[1]/div[5]/div/ul/li[3]/em/i"):
+        #     print("订单提交成功，应付金额:"+o.text)
+        #     # oo = o.text
+        #
+        # # self.assertIn(oo,ii)
+        # self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > div.section8 > div > a").click()
 
     def test_full_business_1(self):
 
@@ -872,9 +873,9 @@ class HhrTest(MyTestCase):
         self.driver.find_element_by_css_selector("#product_{}".format(xm)).click()
         self.driver.find_element_by_css_selector("#close > a").click()
         time.sleep(1)
-        # info = self.driver.find_element_by_css_selector("#delivery > div.test.test-1 > ul").text
-        # print("当前线索:" + str(info).replace("\n"," "))
-        # self.driver.find_element_by_css_selector("#delivery > div.bt-a > a.bt-a-two.a-colour").click()
+        info = self.driver.find_element_by_css_selector("#delivery > div.test.test-1 > ul").text
+        print("当前线索:" + str(info).replace("\n"," "))
+        self.driver.find_element_by_css_selector("#delivery > div.bt-a > a.bt-a-two.a-colour").click()
         get_screenshort(self.driver,"test_partner_clue_4.png")
         time.sleep(3)
         self.driver.find_element_by_css_selector(
