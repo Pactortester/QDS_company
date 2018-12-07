@@ -1,11 +1,7 @@
 # coding=utf-8
 import random
 import time
-
-import logging
-
 from selenium.webdriver import ActionChains
-
 from utils.mytestcase import MyTestCase
 from utils.logincookie import DengLuPage
 from utils.random import unicode

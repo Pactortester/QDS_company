@@ -5,6 +5,7 @@ from selenium.webdriver.common.by import By
 from utils.mytestcase import MyTestCase
 from utils.logincookie import DengLuPage
 from utils.random import unicode
+from utils.datachoice import credit_code
 from utils.screenshort import get_screenshort
 
 
@@ -158,6 +159,8 @@ class HhrTest(MyTestCase):
         time.sleep(2)
         self.driver.find_element_by_xpath("//*[@id=\"companylistrative\"]/div/div[2]/div[2]/dl[2]/dd/span[1]").click()
         time.sleep(1)
+        # # 添加社会信用代码
+        # self.driver.find_element_by_name("creditcode").send_keys(credit_code())
 
         print("申请人信息填写成功!")
 
@@ -256,7 +259,8 @@ class HhrTest(MyTestCase):
         time.sleep(2)
         self.driver.find_element_by_xpath("//*[@id=\"companylistrative\"]/div/div[2]/div[2]/dl[2]/dd/span[1]").click()
         time.sleep(1)
-
+        # # 添加社会信用代码
+        # self.driver.find_element_by_name("creditcode").send_keys(credit_code())
         print("申请人信息填写成功!")
 
 
@@ -351,7 +355,8 @@ class HhrTest(MyTestCase):
         time.sleep(2)
         self.driver.find_element_by_xpath("//*[@id=\"companylistrative\"]/div/div[2]/div[2]/dl[2]/dd/span[1]").click()
         time.sleep(1)
-
+        # # 添加社会信用代码
+        # self.driver.find_element_by_name("creditcode").send_keys(credit_code())
         print("申请人信息填写成功!")
 
 

@@ -204,3 +204,43 @@ class CxZcTest(MyTestCase):
         self.driver.switch_to.window(windows[-1])
         time.sleep(2)
         print("后续业务:" + self.driver.title)
+
+    def test_group_search(self):
+        """群组种类搜索测试"""
+
+        dl = DengLuPage(self.driver)
+        time.sleep(2)
+        self.driver.get("https://so.quandashi.com")
+        time.sleep(2)
+        self.driver.set_window_size(1920, 1080)
+        print(self.driver.title)
+        dl.refresh()
+        self.driver.find_element_by_name("key").send_keys("大王")
+        print("商标名称:大王")
+        self.driver.find_element_by_css_selector("#btnSearchkey").click()
+        time.sleep(2)
+        # 点击近似搜索
+        self.driver.find_element_by_css_selector("#searchList > div.page-nav > div > a:nth-child(1)").click()
+        time.sleep(3)
+        result_1 = self.driver.find_element_by_css_selector(
+            "#searchList > div.page-content.w-center > div.page-content-left > div.search-top").text
+        print(str(result_1))
+        sl_1 = int(re.sub("\D", "", result_1))
+        # 取消全选
+        self.driver.find_element_by_css_selector("#searchList > div.page-checkbox.w-center > div > label:nth-child(1) > span").click()
+        time.sleep(3)
+        checkbox = random.randint(2,10)
+        check = self.driver.find_element_by_css_selector("#searchList > div.page-checkbox.w-center > div > label:nth-child({}) > span".format(checkbox)).text
+        print("搜索条件:" + check)
+        self.driver.find_element_by_css_selector("#searchList > div.page-checkbox.w-center > div > label:nth-child({}) > span".format(checkbox)).click()
+        time.sleep(3)
+        result_2 = self.driver.find_element_by_css_selector(
+            "#searchList > div.page-content.w-center > div.page-content-left > div.search-top").text
+        print(str(result_2))
+        sl_2 = int(re.sub("\D", "", result_2))
+
+
+        if sl_1 > sl_2:
+            print("商标搜索群组种类测试通过!")
+        else:
+            self.assertEqual(sl_1,sl_2,"筛选条件异常请及时查看!")
