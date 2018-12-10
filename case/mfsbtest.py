@@ -555,11 +555,11 @@ class MfSbTest(MyTestCase):
         filename = random.choice(trademark)
         print(filename)
         application_number = xz(filename)
-        print("申请号:" + str(application_number))
+        print("申请号:" + str(application_number).replace(".0",""))
 
         self.driver.find_element_by_css_selector(
             "body > div.page > div.page-index > div.page-index-form.search > div > input.input.search-text").send_keys(
-            application_number)
+            str(application_number).replace(".0",""))
         self.driver.find_element_by_css_selector("#btnSearchkey").click()
         time.sleep(5)
 
@@ -574,7 +574,7 @@ class MfSbTest(MyTestCase):
             "#searchList > div.page-content.w-center > div.page-content-left > ul > li > div.result-href > div.brand-info > div > ul > li:nth-child(2) > span:nth-child(4)").text
         print(str(number))
 
-        self.assertIn(str(application_number), str(number))
+        self.assertIn(str(application_number).replace(".0",""), str(number))
 
         self.driver.find_element_by_css_selector(
             "#searchList > div.page-content.w-center > div.page-content-left > ul > li:nth-child(1) > div.result-href").click()
