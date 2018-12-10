@@ -118,8 +118,8 @@ class ZnZzTest(MyTestCase):
             "#companylistrative > div > div.d-dropdown > div.tab-content.tab-city.active > dl.item.item-a-g.clearfix > dd > span:nth-child({})".format(random.randint(1,5))).click()
         time.sleep(2)
 
-        # # 添加社会信用代码
-        # self.driver.find_element_by_name("creditcode").send_keys(credit_code())
+        # 添加社会信用代码
+        self.driver.find_element_by_name("creditcode").send_keys(credit_code())
 
         # 解决弹框
         # self.driver.find_element_by_css_selector("body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base > div.applicant-form > table.table-1.table-applicant.table-type1.active > tbody.tbody-qiye > tr:nth-child(4) > td.td-title").click()
@@ -268,8 +268,8 @@ class ZnZzTest(MyTestCase):
         self.driver.find_element_by_css_selector("body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base.open > div.applicant-form > table.table-1.table-applicant.table-type1.active > tbody.tbody-gsh > tr:nth-child(1) > td.td-content.contact-select-container > dl > dt > input").send_keys(
             "{}".format(unicode()))
 
-        # # 添加社会信用代码
-        # self.driver.find_element_by_name("creditcode").send_keys(credit_code())
+        # 添加社会信用代码
+        self.driver.find_element_by_css_selector("body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base.open > div.applicant-form > table.table-1.table-applicant.table-type1.active > tbody.tbody-gsh > tr:nth-child(2) > td.td-content > input").send_keys(credit_code())
 
         self.driver.find_element_by_css_selector("#geren-idCard").send_keys("140121198906133513")
         time.sleep(1)
@@ -402,8 +402,8 @@ class ZnZzTest(MyTestCase):
             "#companylistrative > div > div.d-dropdown > div.tab-content.tab-city.active > dl.item.item-a-g.clearfix > dd > span:nth-child({})".format(random.randint(1,5))).click()
         time.sleep(2)
 
-        # # 添加社会信用代码
-        # self.driver.find_element_by_name("creditcode").send_keys(credit_code())
+        # 添加社会信用代码
+        self.driver.find_element_by_name("creditcode").send_keys(credit_code())
 
         # 解决弹框
         # self.driver.find_element_by_css_selector("body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base > div.applicant-form > table.table-1.table-applicant.table-type1.active > tbody.tbody-qiye > tr:nth-child(4) > td.td-title").click()
@@ -499,8 +499,8 @@ class ZnZzTest(MyTestCase):
             "{}".format(ss))
         print("商标名称：{}".format(ss))
 
-        # # 添加社会信用代码
-        # self.driver.find_element_by_name("creditcode").send_keys(credit_code())
+        # 添加社会信用代码
+        self.driver.find_element_by_css_selector("body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base.open > div.applicant-form > table.table-1.table-applicant.table-type1.active > tbody.tbody-gsh > tr:nth-child(2) > td.td-content > input").send_keys(credit_code())
 
         self.driver.find_element_by_css_selector(
             "body > div.smartRegister-page.smartRegister3-page > div:nth-child(4) > div > table > tbody > tr.row-tuyang.show-create.show-create1 > td.td-content > div.zidongdong-create > ul > li > div.bottom.getBrandPic > a").click()
