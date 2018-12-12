@@ -24,14 +24,14 @@ for i in range(1,10):
 
 
 
-# """读取"""
-# f = open(r"G:\QDS_company\data\credit_code.txt")
-# line = f.readline()
-# data_list = []
-# while line:
-#     num = list(map(str,line.split()))
-#     data_list.append(num)
-#     line = f.readline()
-# f.close()
-# data_array = np.array(data_list)
-# print(str(random.choice(data_array)).replace("['","").replace("']",""))
+"""读取"""
+f = open(r"G:\QDS_company\data\credit_code.txt")
+line = f.readline()
+data_list = []
+while line:
+    num = list(map(str,line.split()))
+    data_list.append(num)
+    line = f.readline()
+f.close()
+data_array = np.array(data_list)
+print(str(random.choice(data_array)).replace("['","").replace("']",""))
