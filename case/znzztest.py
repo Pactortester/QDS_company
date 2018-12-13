@@ -55,16 +55,16 @@ class ZnZzTest(MyTestCase):
             "body > div.section-product.width1200 > dl > dd > div.cont-btnBuy > a.btn.btn-next.buynow").click()
         ss = unicode()
         self.driver.find_element_by_css_selector(
-            "body > div.smartRegister-page.smartRegister3-page > div:nth-child(4) > div > table > tbody > tr.row-name > td.td-content > input").send_keys(
+            "body > div.register-wrap.register-wrap.brandinfo-wrap > div:nth-child(4) > div > table > tbody > tr.row-name > td.td-content > input").send_keys(
             "{}".format(ss))
         print("商标名称：{}".format(ss))
         self.driver.find_element_by_css_selector(
-            "body > div.smartRegister-page.smartRegister3-page > div:nth-child(4) > div > table > tbody > tr.row-tuyang.show-create.show-create1 > td.td-content > div.zidongdong-create > ul > li > div.bottom.getBrandPic > a").click()
+            "body > div.register-wrap.register-wrap.brandinfo-wrap > div:nth-child(4) > div > table > tbody > tr.row-tuyang.show-create.show-create1 > td.td-content > div.zidongdong-create > ul > li > div.bottom.getBrandPic > a").click()
         self.driver.find_element_by_css_selector("#create-tuyang > label.label.checked").click()
         time.sleep(2)
 
         self.driver.find_element_by_css_selector(
-            "body > div.smartRegister-page.smartRegister3-page > div:nth-child(14) > div.categoryInfo-wrap > div.c-row.row-way > div > a.btn-choice.active").click()
+            "body > div.register-wrap.register-wrap.brandinfo-wrap > div:nth-child(14) > div.categoryInfo-wrap > div.c-row.row-way > div > a.btn-choice.active").click()
 
         suiji = random.randint(2, 46)
         time.sleep(2)
@@ -99,16 +99,16 @@ class ZnZzTest(MyTestCase):
 
 
         self.driver.find_element_by_css_selector(
-            "body > div.smartRegister-page.smartRegister3-page > div.last-pay > ul > li.row-step > a").click()
+            "body > div.register-wrap.register-wrap.brandinfo-wrap > div.last-pay > ul > li.row-step > a").click()
 
         time.sleep(3)
         # self.driver.execute_script("document.getElementByName('fname').length = 0;")
 
         # self.driver.find_element_by_css_selector(
-        #     "body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base > div.applicant-form > table.table-1.table-applicant.table-type1.active > tbody.tbody-qiye > tr:nth-child(1) > td.td-content.contact-select-container > dl > dt > input").clear()
+        #     "body > div.register-wrap > div.agentInfo-wrap.applicant-wrap > div.section-base > div.applicant-form > table.table-1.table-applicant.table-type1.active > tbody.tbody-qiye > tr:nth-child(1) > td.td-content.contact-select-container > dl > dt > input").clear()
 
         self.driver.find_element_by_css_selector(
-            "body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base > div.applicant-form > table.table-1.table-applicant.table-type1.active > tbody.tbody-qiye > tr:nth-child(1) > td.td-content.contact-select-container > dl > dt > input").send_keys(
+            "body > div.register-wrap > div.agentInfo-wrap.applicant-wrap > div.section-base > div.applicant-form > table.table-1.table-applicant.table-type1.active > tbody.tbody-qiye > tr:nth-child(1) > td.td-content.contact-select-container > dl > dt > input").send_keys(
             "{}".format(unicode()))
         self.driver.find_element_by_css_selector("#ssq").click()
         self.driver.find_element_by_css_selector(
@@ -122,38 +122,38 @@ class ZnZzTest(MyTestCase):
         self.driver.find_element_by_name("creditcode").send_keys(credit_code())
 
         # 解决弹框
-        # self.driver.find_element_by_css_selector("body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base > div.applicant-form > table.table-1.table-applicant.table-type1.active > tbody.tbody-qiye > tr:nth-child(4) > td.td-title").click()
+        # self.driver.find_element_by_css_selector("body > div.register-wrap > div.agentInfo-wrap.applicant-wrap > div.section-base > div.applicant-form > table.table-1.table-applicant.table-type1.active > tbody.tbody-qiye > tr:nth-child(4) > td.td-title").click()
         # time.sleep(1)
 
         self.driver.find_element_by_css_selector(
-            "body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base > div.applicant-form > table:nth-child(13) > tbody.tbody-qiye > tr:nth-child(1) > td.td-content > input").send_keys(
+            "body > div.register-wrap > div.agentInfo-wrap.applicant-wrap > div.section-base > div.applicant-form > table:nth-child(13) > tbody.tbody-qiye > tr:nth-child(1) > td.td-content > input").send_keys(
             "{}".format(unicode()))
         self.driver.find_element_by_css_selector(
-            "body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base > div.applicant-form > table:nth-child(13) > tbody.tbody-qiye > tr:nth-child(2) > td.td-content > input").send_keys(
+            "body > div.register-wrap > div.agentInfo-wrap.applicant-wrap > div.section-base > div.applicant-form > table:nth-child(13) > tbody.tbody-qiye > tr:nth-child(2) > td.td-content > input").send_keys(
             "15624992489")
         self.driver.find_element_by_css_selector(
-            "body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base > div.applicant-form > table:nth-child(13) > tbody.tbody-qiye > tr:nth-child(3) > td.td-content > input").send_keys(
+            "body > div.register-wrap > div.agentInfo-wrap.applicant-wrap > div.section-base > div.applicant-form > table:nth-child(13) > tbody.tbody-qiye > tr:nth-child(3) > td.td-content > input").send_keys(
             "132132@qq.com")
         self.driver.find_element_by_css_selector(
-            "body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base > div.applicant-form > table:nth-child(13) > tbody.tbody-qiye > tr:nth-child(4) > td.td-content > input").send_keys("03515978787")
+            "body > div.register-wrap > div.agentInfo-wrap.applicant-wrap > div.section-base > div.applicant-form > table:nth-child(13) > tbody.tbody-qiye > tr:nth-child(4) > td.td-content > input").send_keys("03515978787")
         time.sleep(2)
         # 解决常用申请人弹框，点击空白处
-        self.driver.find_element_by_css_selector("body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base > div.applicant-form > h2").click()
+        self.driver.find_element_by_css_selector("body > div.register-wrap > div.agentInfo-wrap.applicant-wrap > div.section-base > div.applicant-form > h2").click()
 
         self.driver.find_element_by_css_selector(
-            "body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base > div.section-btns.clearfix > a:nth-child(2)").click()
+            "body > div.register-wrap > div.agentInfo-wrap.applicant-wrap > div.section-base > div.section-btns.clearfix > a:nth-child(2)").click()
         time.sleep(1)
         # self.driver.find_element_by_css_selector(
-        #     "body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base > div.section-btns.clearfix > a:nth-child(2)").click()
+        #     "body > div.register-wrap > div.agentInfo-wrap.applicant-wrap > div.section-base > div.section-btns.clearfix > a:nth-child(2)").click()
         # time.sleep(1)
         """订单备注"""
         self.driver.find_element_by_css_selector(
-            "html body div.smartRegister-page div.orderinfo-wrap div.order-content textarea").send_keys(
+            "html body div.register-wrap div.orderinfo-wrap div.order-content textarea").send_keys(
             time.strftime("%Y-%m-%d_%H-%M-%S") + "测试订单")
 
         get_screenshort(self.driver, "test_znzz_1.png")
 
-        for i in self.driver.find_elements_by_css_selector("body > div.smartRegister-page > div.orderinfo-wrap > div.last-pay.personal-last-pay > ul > li.row-sense > em > i"):
+        for i in self.driver.find_elements_by_css_selector("body > div.register-wrap > div.orderinfo-wrap > div.last-pay.personal-last-pay > ul > li.row-sense > em > i"):
 
             print("总价:"+i.text)
             ii = i.text
@@ -161,7 +161,7 @@ class ZnZzTest(MyTestCase):
         # self.assertIn(aa,ii)
         # print("测试通过")
         # self.driver.find_element_by_xpath("/html/body/div[6]/div[3]/div[5]/div/a").click()
-        self.driver.find_element_by_css_selector("body > div.smartRegister-page > div.orderinfo-wrap > div.last-pay.personal-last-pay > div > a").click()
+        self.driver.find_element_by_css_selector("body > div.register-wrap > div.orderinfo-wrap > div.last-pay.personal-last-pay > div > a").click()
         for o in self.driver.find_elements_by_class_name("payable"):
             print("订单提交成功，应付金额:"+o.text)
             oo = o.text
@@ -211,16 +211,16 @@ class ZnZzTest(MyTestCase):
             "body > div.section-product.width1200 > dl > dd > div.cont-btnBuy > a.btn.btn-next.buynow").click()
         ss = unicode()
         self.driver.find_element_by_css_selector(
-            "body > div.smartRegister-page.smartRegister3-page > div:nth-child(4) > div > table > tbody > tr.row-name > td.td-content > input").send_keys(
+            "body > div.register-wrap.register-wrap.brandinfo-wrap > div:nth-child(4) > div > table > tbody > tr.row-name > td.td-content > input").send_keys(
             "{}".format(ss))
         print("商标名称：{}".format(ss))
         self.driver.find_element_by_css_selector(
-            "body > div.smartRegister-page.smartRegister3-page > div:nth-child(4) > div > table > tbody > tr.row-tuyang.show-create.show-create1 > td.td-content > div.zidongdong-create > ul > li > div.bottom.getBrandPic > a").click()
+            "body > div.register-wrap.register-wrap.brandinfo-wrap > div:nth-child(4) > div > table > tbody > tr.row-tuyang.show-create.show-create1 > td.td-content > div.zidongdong-create > ul > li > div.bottom.getBrandPic > a").click()
         self.driver.find_element_by_css_selector("#create-tuyang > label.label.checked").click()
         time.sleep(5)
 
         self.driver.find_element_by_css_selector(
-            "body > div.smartRegister-page.smartRegister3-page > div:nth-child(14) > div.categoryInfo-wrap > div.c-row.row-way > div > a.btn-choice.active").click()
+            "body > div.register-wrap.register-wrap.brandinfo-wrap > div:nth-child(14) > div.categoryInfo-wrap > div.c-row.row-way > div > a.btn-choice.active").click()
 
         suiji = random.randint(2, 46)
         time.sleep(2)
@@ -255,21 +255,21 @@ class ZnZzTest(MyTestCase):
 
 
         self.driver.find_element_by_css_selector(
-            "body > div.smartRegister-page.smartRegister3-page > div.last-pay > ul > li.row-step > a").click()
+            "body > div.register-wrap.register-wrap.brandinfo-wrap > div.last-pay > ul > li.row-step > a").click()
 
         time.sleep(3)
         # self.driver.execute_script("document.getElementByName('fname').length = 0;")
 
-        self.driver.find_element_by_css_selector("body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base > table > thead > tr > td.td-content > a:nth-child(2)").click()
+        self.driver.find_element_by_css_selector("body > div.register-wrap > div.agentInfo-wrap.applicant-wrap > div.section-base > table > thead > tr > td.td-content > a:nth-child(2)").click()
         time.sleep(2)
         self.driver.find_element_by_css_selector(
-            "body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base.open > div.applicant-form > table.table-1.table-applicant.table-type1.active > tbody.tbody-gsh > tr:nth-child(1) > td.td-content.contact-select-container > dl > dt > input").clear()
+            "body > div.register-wrap > div.agentInfo-wrap.applicant-wrap > div.section-base.open > div.applicant-form > table.table-1.table-applicant.table-type1.active > tbody.tbody-gsh > tr:nth-child(1) > td.td-content.contact-select-container > dl > dt > input").clear()
 
-        self.driver.find_element_by_css_selector("body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base.open > div.applicant-form > table.table-1.table-applicant.table-type1.active > tbody.tbody-gsh > tr:nth-child(1) > td.td-content.contact-select-container > dl > dt > input").send_keys(
+        self.driver.find_element_by_css_selector("body > div.register-wrap > div.agentInfo-wrap.applicant-wrap > div.section-base.open > div.applicant-form > table.table-1.table-applicant.table-type1.active > tbody.tbody-gsh > tr:nth-child(1) > td.td-content.contact-select-container > dl > dt > input").send_keys(
             "{}".format(unicode()))
 
         # 添加社会信用代码
-        self.driver.find_element_by_css_selector("body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base.open > div.applicant-form > table.table-1.table-applicant.table-type1.active > tbody.tbody-gsh > tr:nth-child(2) > td.td-content > input").send_keys(credit_code())
+        self.driver.find_element_by_css_selector("body > div.register-wrap > div.agentInfo-wrap.applicant-wrap > div.section-base.open > div.applicant-form > table.table-1.table-applicant.table-type1.active > tbody.tbody-gsh > tr:nth-child(2) > td.td-content > input").send_keys(credit_code())
 
         self.driver.find_element_by_css_selector("#geren-idCard").send_keys("140121198906133513")
         time.sleep(1)
@@ -281,27 +281,27 @@ class ZnZzTest(MyTestCase):
         self.driver.find_element_by_css_selector("#geren-street").clear()
         self.driver.find_element_by_css_selector("#geren-street").send_keys("北京市昌平区")
 
-        self.driver.find_element_by_css_selector("body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base.open > div.applicant-form > table:nth-child(13) > tbody.tbody-gsh > tr:nth-child(1) > td.td-content > input").send_keys("{}".format(unicode()))
-        self.driver.find_element_by_css_selector("body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base.open > div.applicant-form > table:nth-child(13) > tbody.tbody-gsh > tr:nth-child(2) > td.td-content > input").send_keys("15122311456")
-        self.driver.find_element_by_css_selector("body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base.open > div.applicant-form > table:nth-child(13) > tbody.tbody-gsh > tr:nth-child(3) > td.td-content > input").send_keys("123313@qq.com")
+        self.driver.find_element_by_css_selector("body > div.register-wrap > div.agentInfo-wrap.applicant-wrap > div.section-base.open > div.applicant-form > table:nth-child(13) > tbody.tbody-gsh > tr:nth-child(1) > td.td-content > input").send_keys("{}".format(unicode()))
+        self.driver.find_element_by_css_selector("body > div.register-wrap > div.agentInfo-wrap.applicant-wrap > div.section-base.open > div.applicant-form > table:nth-child(13) > tbody.tbody-gsh > tr:nth-child(2) > td.td-content > input").send_keys("15122311456")
+        self.driver.find_element_by_css_selector("body > div.register-wrap > div.agentInfo-wrap.applicant-wrap > div.section-base.open > div.applicant-form > table:nth-child(13) > tbody.tbody-gsh > tr:nth-child(3) > td.td-content > input").send_keys("123313@qq.com")
 
 
 
         # 解决常用申请人弹框，点击空白处
-        # self.driver.find_element_by_css_selector("body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base.open > div.applicant-form > h2").click()
+        # self.driver.find_element_by_css_selector("body > div.register-wrap > div.agentInfo-wrap.applicant-wrap > div.section-base.open > div.applicant-form > h2").click()
 
         self.driver.find_element_by_css_selector(
-            "body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base.open > div.section-btns.clearfix > a:nth-child(2)").click()
+            "body > div.register-wrap > div.agentInfo-wrap.applicant-wrap > div.section-base.open > div.section-btns.clearfix > a:nth-child(2)").click()
         time.sleep(1)
 
         """订单备注"""
         self.driver.find_element_by_css_selector(
-            "html body div.smartRegister-page div.orderinfo-wrap div.order-content textarea").send_keys(
+            "html body div.register-wrap div.orderinfo-wrap div.order-content textarea").send_keys(
             time.strftime("%Y-%m-%d_%H-%M-%S") + "测试订单")
 
         get_screenshort(self.driver, "test_znzz_2.png")
 
-        for i in self.driver.find_elements_by_css_selector("body > div.smartRegister-page > div.orderinfo-wrap > div.last-pay.personal-last-pay > ul > li.row-sense > em > i"):
+        for i in self.driver.find_elements_by_css_selector("body > div.register-wrap > div.orderinfo-wrap > div.last-pay.personal-last-pay > ul > li.row-sense > em > i"):
 
             print("总价:"+i.text)
             ii = i.text
@@ -309,7 +309,7 @@ class ZnZzTest(MyTestCase):
         # self.assertIn(aa,ii)
         # print("测试通过")
         # self.driver.find_element_by_xpath("/html/body/div[6]/div[3]/div[5]/div/a").click()
-        self.driver.find_element_by_css_selector("body > div.smartRegister-page > div.orderinfo-wrap > div.last-pay.personal-last-pay > div > a").click()
+        self.driver.find_element_by_css_selector("body > div.register-wrap > div.orderinfo-wrap > div.last-pay.personal-last-pay > div > a").click()
         for o in self.driver.find_elements_by_class_name("payable"):
             print("订单提交成功，应付金额:"+o.text)
             oo = o.text
@@ -359,15 +359,15 @@ class ZnZzTest(MyTestCase):
             "body > div.section-product.width1200 > dl > dd > div.cont-btnBuy > a.btn.btn-next.buynow").click()
         ss = unicode()
         self.driver.find_element_by_css_selector(
-            "body > div.smartRegister-page.smartRegister3-page > div:nth-child(4) > div > table > tbody > tr.row-name > td.td-content > input").send_keys(
+            "body > div.register-wrap.register-wrap.brandinfo-wrap > div:nth-child(4) > div > table > tbody > tr.row-name > td.td-content > input").send_keys(
             "{}".format(ss))
         print("商标名称：{}".format(ss))
         self.driver.find_element_by_css_selector(
-            "body > div.smartRegister-page.smartRegister3-page > div:nth-child(4) > div > table > tbody > tr.row-tuyang.show-create.show-create1 > td.td-content > div.zidongdong-create > ul > li > div.bottom.getBrandPic > a").click()
+            "body > div.register-wrap.register-wrap.brandinfo-wrap > div:nth-child(4) > div > table > tbody > tr.row-tuyang.show-create.show-create1 > td.td-content > div.zidongdong-create > ul > li > div.bottom.getBrandPic > a").click()
         self.driver.find_element_by_css_selector("#create-tuyang > label.label.checked").click()
         time.sleep(2)
         self.driver.find_element_by_css_selector(
-            "body > div.smartRegister-page.smartRegister3-page > div:nth-child(14) > div.categoryInfo-wrap > div.c-row.row-way > div > a.btn-choice.active").click()
+            "body > div.register-wrap.register-wrap.brandinfo-wrap > div:nth-child(14) > div.categoryInfo-wrap > div.c-row.row-way > div > a.btn-choice.active").click()
 
 
         """商标类别导入历史订单"""
@@ -383,16 +383,16 @@ class ZnZzTest(MyTestCase):
 
 
         self.driver.find_element_by_css_selector(
-            "body > div.smartRegister-page.smartRegister3-page > div.last-pay > ul > li.row-step > a").click()
+            "body > div.register-wrap.register-wrap.brandinfo-wrap > div.last-pay > ul > li.row-step > a").click()
 
         time.sleep(3)
         # self.driver.execute_script("document.getElementByName('fname').length = 0;")
 
         # self.driver.find_element_by_css_selector(
-        #     "body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base > div.applicant-form > table.table-1.table-applicant.table-type1.active > tbody.tbody-qiye > tr:nth-child(1) > td.td-content.contact-select-container > dl > dt > input").clear()
+        #     "body > div.register-wrap > div.agentInfo-wrap.applicant-wrap > div.section-base > div.applicant-form > table.table-1.table-applicant.table-type1.active > tbody.tbody-qiye > tr:nth-child(1) > td.td-content.contact-select-container > dl > dt > input").clear()
 
         self.driver.find_element_by_css_selector(
-            "body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base > div.applicant-form > table.table-1.table-applicant.table-type1.active > tbody.tbody-qiye > tr:nth-child(1) > td.td-content.contact-select-container > dl > dt > input").send_keys(
+            "body > div.register-wrap > div.agentInfo-wrap.applicant-wrap > div.section-base > div.applicant-form > table.table-1.table-applicant.table-type1.active > tbody.tbody-qiye > tr:nth-child(1) > td.td-content.contact-select-container > dl > dt > input").send_keys(
             "{}".format(unicode()))
         self.driver.find_element_by_css_selector("#ssq").click()
         self.driver.find_element_by_css_selector(
@@ -406,38 +406,38 @@ class ZnZzTest(MyTestCase):
         self.driver.find_element_by_name("creditcode").send_keys(credit_code())
 
         # 解决弹框
-        # self.driver.find_element_by_css_selector("body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base > div.applicant-form > table.table-1.table-applicant.table-type1.active > tbody.tbody-qiye > tr:nth-child(4) > td.td-title").click()
+        # self.driver.find_element_by_css_selector("body > div.register-wrap > div.agentInfo-wrap.applicant-wrap > div.section-base > div.applicant-form > table.table-1.table-applicant.table-type1.active > tbody.tbody-qiye > tr:nth-child(4) > td.td-title").click()
         # time.sleep(1)
 
         self.driver.find_element_by_css_selector(
-            "body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base > div.applicant-form > table:nth-child(13) > tbody.tbody-qiye > tr:nth-child(1) > td.td-content > input").send_keys(
+            "body > div.register-wrap > div.agentInfo-wrap.applicant-wrap > div.section-base > div.applicant-form > table:nth-child(13) > tbody.tbody-qiye > tr:nth-child(1) > td.td-content > input").send_keys(
             "{}".format(unicode()))
         self.driver.find_element_by_css_selector(
-            "body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base > div.applicant-form > table:nth-child(13) > tbody.tbody-qiye > tr:nth-child(2) > td.td-content > input").send_keys(
+            "body > div.register-wrap > div.agentInfo-wrap.applicant-wrap > div.section-base > div.applicant-form > table:nth-child(13) > tbody.tbody-qiye > tr:nth-child(2) > td.td-content > input").send_keys(
             "15624992489")
         self.driver.find_element_by_css_selector(
-            "body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base > div.applicant-form > table:nth-child(13) > tbody.tbody-qiye > tr:nth-child(3) > td.td-content > input").send_keys(
+            "body > div.register-wrap > div.agentInfo-wrap.applicant-wrap > div.section-base > div.applicant-form > table:nth-child(13) > tbody.tbody-qiye > tr:nth-child(3) > td.td-content > input").send_keys(
             "132132@qq.com")
         self.driver.find_element_by_css_selector(
-            "body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base > div.applicant-form > table:nth-child(13) > tbody.tbody-qiye > tr:nth-child(4) > td.td-content > input").send_keys("03515978787")
+            "body > div.register-wrap > div.agentInfo-wrap.applicant-wrap > div.section-base > div.applicant-form > table:nth-child(13) > tbody.tbody-qiye > tr:nth-child(4) > td.td-content > input").send_keys("03515978787")
         time.sleep(2)
         # 解决常用申请人弹框，点击空白处
-        self.driver.find_element_by_css_selector("body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base > div.applicant-form > h2").click()
+        self.driver.find_element_by_css_selector("body > div.register-wrap > div.agentInfo-wrap.applicant-wrap > div.section-base > div.applicant-form > h2").click()
 
         self.driver.find_element_by_css_selector(
-            "body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base > div.section-btns.clearfix > a:nth-child(2)").click()
+            "body > div.register-wrap > div.agentInfo-wrap.applicant-wrap > div.section-base > div.section-btns.clearfix > a:nth-child(2)").click()
         time.sleep(1)
         # self.driver.find_element_by_css_selector(
-        #     "body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base > div.section-btns.clearfix > a:nth-child(2)").click()
+        #     "body > div.register-wrap > div.agentInfo-wrap.applicant-wrap > div.section-base > div.section-btns.clearfix > a:nth-child(2)").click()
         # time.sleep(1)
         """订单备注"""
         self.driver.find_element_by_css_selector(
-            "html body div.smartRegister-page div.orderinfo-wrap div.order-content textarea").send_keys(
+            "html body div.register-wrap div.orderinfo-wrap div.order-content textarea").send_keys(
             time.strftime("%Y-%m-%d_%H-%M-%S") + "测试订单")
 
         get_screenshort(self.driver, "test_znzz_3.png")
 
-        for i in self.driver.find_elements_by_css_selector("body > div.smartRegister-page > div.orderinfo-wrap > div.last-pay.personal-last-pay > ul > li.row-sense > em > i"):
+        for i in self.driver.find_elements_by_css_selector("body > div.register-wrap > div.orderinfo-wrap > div.last-pay.personal-last-pay > ul > li.row-sense > em > i"):
 
             print("总价:"+i.text)
             ii = i.text
@@ -445,7 +445,7 @@ class ZnZzTest(MyTestCase):
         # self.assertIn(aa,ii)
         # print("测试通过")
         # self.driver.find_element_by_xpath("/html/body/div[6]/div[3]/div[5]/div/a").click()
-        self.driver.find_element_by_css_selector("body > div.smartRegister-page > div.orderinfo-wrap > div.last-pay.personal-last-pay > div > a").click()
+        self.driver.find_element_by_css_selector("body > div.register-wrap > div.orderinfo-wrap > div.last-pay.personal-last-pay > div > a").click()
         for o in self.driver.find_elements_by_class_name("payable"):
             print("订单提交成功，应付金额:"+o.text)
             oo = o.text
@@ -495,17 +495,17 @@ class ZnZzTest(MyTestCase):
             "body > div.section-product.width1200 > dl > dd > div.cont-btnBuy > a.btn.btn-next.buynow").click()
         ss = unicode()
         self.driver.find_element_by_css_selector(
-            "body > div.smartRegister-page.smartRegister3-page > div:nth-child(4) > div > table > tbody > tr.row-name > td.td-content > input").send_keys(
+            "body > div.register-wrap.register-wrap.brandinfo-wrap > div:nth-child(4) > div > table > tbody > tr.row-name > td.td-content > input").send_keys(
             "{}".format(ss))
         print("商标名称：{}".format(ss))
 
         self.driver.find_element_by_css_selector(
-            "body > div.smartRegister-page.smartRegister3-page > div:nth-child(4) > div > table > tbody > tr.row-tuyang.show-create.show-create1 > td.td-content > div.zidongdong-create > ul > li > div.bottom.getBrandPic > a").click()
+            "body > div.register-wrap.register-wrap.brandinfo-wrap > div:nth-child(4) > div > table > tbody > tr.row-tuyang.show-create.show-create1 > td.td-content > div.zidongdong-create > ul > li > div.bottom.getBrandPic > a").click()
         self.driver.find_element_by_css_selector("#create-tuyang > label.label.checked").click()
         time.sleep(5)
 
         self.driver.find_element_by_css_selector(
-            "body > div.smartRegister-page.smartRegister3-page > div:nth-child(14) > div.categoryInfo-wrap > div.c-row.row-way > div > a.btn-choice.active").click()
+            "body > div.register-wrap.register-wrap.brandinfo-wrap > div:nth-child(14) > div.categoryInfo-wrap > div.c-row.row-way > div > a.btn-choice.active").click()
 
         """商标类别导入历史订单"""
         self.driver.find_element_by_css_selector("#section-selfchoice > div.group-right > h3 > div > div > a").click()
@@ -520,23 +520,22 @@ class ZnZzTest(MyTestCase):
 
 
         self.driver.find_element_by_css_selector(
-            "body > div.smartRegister-page.smartRegister3-page > div.last-pay > ul > li.row-step > a").click()
+            "body > div.register-wrap.register-wrap.brandinfo-wrap > div.last-pay > ul > li.row-step > a").click()
 
         time.sleep(3)
         # self.driver.execute_script("document.getElementByName('fname').length = 0;")
 
-        self.driver.find_element_by_css_selector("body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base > table > thead > tr > td.td-content > a:nth-child(2)").click()
+        self.driver.find_element_by_css_selector("body > div.register-wrap > div.agentInfo-wrap.applicant-wrap > div.section-base > table > thead > tr > td.td-content > a:nth-child(2)").click()
         time.sleep(2)
 
         self.driver.find_element_by_css_selector(
-            "body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base.open > div.applicant-form > table.table-1.table-applicant.table-type1.active > tbody.tbody-gsh > tr:nth-child(1) > td.td-content.contact-select-container > dl > dt > input").clear()
-
-        self.driver.find_element_by_css_selector("body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base.open > div.applicant-form > table.table-1.table-applicant.table-type1.active > tbody.tbody-gsh > tr:nth-child(1) > td.td-content.contact-select-container > dl > dt > input").send_keys(
+            "body > div.register-wrap > div.agentInfo-wrap.applicant-wrap > div.section-base.open > div.applicant-form > table.table-1.table-applicant.table-type1.active > tbody.tbody-gsh > tr:nth-child(1) > td.td-content.contact-select-container > dl > dt > input").clear()
+        self.driver.find_element_by_css_selector("body > div.register-wrap > div.agentInfo-wrap.applicant-wrap > div.section-base.open > div.applicant-form > table.table-1.table-applicant.table-type1.active > tbody.tbody-gsh > tr:nth-child(1) > td.td-content.contact-select-container > dl > dt > input").send_keys(
             "{}".format(unicode()))
 
         # 添加社会信用代码
         self.driver.find_element_by_css_selector(
-            "body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base.open > div.applicant-form > table.table-1.table-applicant.table-type1.active > tbody.tbody-gsh > tr:nth-child(2) > td.td-content > input").send_keys(
+            "body > div.register-wrap > div.agentInfo-wrap.applicant-wrap > div.section-base.open > div.applicant-form > table.table-1.table-applicant.table-type1.active > tbody.tbody-gsh > tr:nth-child(2) > td.td-content > input").send_keys(
             credit_code())
 
         self.driver.find_element_by_css_selector("#geren-idCard").send_keys("140121198906133513")
@@ -549,27 +548,27 @@ class ZnZzTest(MyTestCase):
         self.driver.find_element_by_css_selector("#geren-street").clear()
         self.driver.find_element_by_css_selector("#geren-street").send_keys("北京市昌平区")
 
-        self.driver.find_element_by_css_selector("body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base.open > div.applicant-form > table:nth-child(13) > tbody.tbody-gsh > tr:nth-child(1) > td.td-content > input").send_keys("{}".format(unicode()))
-        self.driver.find_element_by_css_selector("body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base.open > div.applicant-form > table:nth-child(13) > tbody.tbody-gsh > tr:nth-child(2) > td.td-content > input").send_keys("15122311456")
-        self.driver.find_element_by_css_selector("body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base.open > div.applicant-form > table:nth-child(13) > tbody.tbody-gsh > tr:nth-child(3) > td.td-content > input").send_keys("123313@qq.com")
+        self.driver.find_element_by_css_selector("body > div.register-wrap > div.agentInfo-wrap.applicant-wrap > div.section-base.open > div.applicant-form > table:nth-child(13) > tbody.tbody-gsh > tr:nth-child(1) > td.td-content > input").send_keys("{}".format(unicode()))
+        self.driver.find_element_by_css_selector("body > div.register-wrap > div.agentInfo-wrap.applicant-wrap > div.section-base.open > div.applicant-form > table:nth-child(13) > tbody.tbody-gsh > tr:nth-child(2) > td.td-content > input").send_keys("15122311456")
+        self.driver.find_element_by_css_selector("body > div.register-wrap > div.agentInfo-wrap.applicant-wrap > div.section-base.open > div.applicant-form > table:nth-child(13) > tbody.tbody-gsh > tr:nth-child(3) > td.td-content > input").send_keys("123313@qq.com")
 
 
 
         # 解决常用申请人弹框，点击空白处
-        # self.driver.find_element_by_css_selector("body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base.open > div.applicant-form > h2").click()
+        # self.driver.find_element_by_css_selector("body > div.register-wrap > div.agentInfo-wrap.applicant-wrap > div.section-base.open > div.applicant-form > h2").click()
 
         self.driver.find_element_by_css_selector(
-            "body > div.smartRegister-page > div.agentInfo-wrap.applicant-wrap > div.section-base.open > div.section-btns.clearfix > a:nth-child(2)").click()
+            "body > div.register-wrap > div.agentInfo-wrap.applicant-wrap > div.section-base.open > div.section-btns.clearfix > a:nth-child(2)").click()
         time.sleep(1)
 
         """订单备注"""
         self.driver.find_element_by_css_selector(
-            "html body div.smartRegister-page div.orderinfo-wrap div.order-content textarea").send_keys(
+            "html body div.register-wrap div.orderinfo-wrap div.order-content textarea").send_keys(
             time.strftime("%Y-%m-%d_%H-%M-%S") + "测试订单")
 
         get_screenshort(self.driver, "test_znzz_4.png")
 
-        for i in self.driver.find_elements_by_css_selector("body > div.smartRegister-page > div.orderinfo-wrap > div.last-pay.personal-last-pay > ul > li.row-sense > em > i"):
+        for i in self.driver.find_elements_by_css_selector("body > div.register-wrap > div.orderinfo-wrap > div.last-pay.personal-last-pay > ul > li.row-sense > em > i"):
 
             print("总价:"+i.text)
             ii = i.text
@@ -577,7 +576,7 @@ class ZnZzTest(MyTestCase):
         # self.assertIn(aa,ii)
         # print("测试通过")
         # self.driver.find_element_by_xpath("/html/body/div[6]/div[3]/div[5]/div/a").click()
-        self.driver.find_element_by_css_selector("body > div.smartRegister-page > div.orderinfo-wrap > div.last-pay.personal-last-pay > div > a").click()
+        self.driver.find_element_by_css_selector("body > div.register-wrap > div.orderinfo-wrap > div.last-pay.personal-last-pay > div > a").click()
         for o in self.driver.find_elements_by_class_name("payable"):
             print("订单提交成功，应付金额:"+o.text)
             oo = o.text

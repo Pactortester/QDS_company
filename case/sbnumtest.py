@@ -34,16 +34,16 @@ class SbNumTest(MyTestCase):
             "body > div.section-product.width1200 > dl > dd > div.cont-btnBuy > a.btn.btn-next.buynow").click()
         sbmc = unicode()
         self.driver.find_element_by_css_selector(
-            "body > div.smartRegister-page.smartRegister3-page > div:nth-child(4) > div > table > tbody > tr.row-name > td.td-content > input").send_keys(
+            "body > div.register-wrap.register-wrap.brandinfo-wrap > div:nth-child(4) > div > table > tbody > tr.row-name > td.td-content > input").send_keys(
             "{}".format(sbmc))
         print("商标名称：{}".format(sbmc))
         self.driver.find_element_by_css_selector(
-            "body > div.smartRegister-page.smartRegister3-page > div:nth-child(4) > div > table > tbody > tr.row-tuyang.show-create.show-create1 > td.td-content > div.zidongdong-create > ul > li > div.bottom.getBrandPic > a").click()
+            "body > div.register-wrap.register-wrap.brandinfo-wrap > div:nth-child(4) > div > table > tbody > tr.row-tuyang.show-create.show-create1 > td.td-content > div.zidongdong-create > ul > li > div.bottom.getBrandPic > a").click()
         self.driver.find_element_by_css_selector("#create-tuyang > label.label.checked").click()
         time.sleep(5)
 
         self.driver.find_element_by_css_selector(
-            "body > div.smartRegister-page.smartRegister3-page > div:nth-child(14) > div.categoryInfo-wrap > div.c-row.row-way > div > a.btn-choice.active").click()
+            "body > div.register-wrap.register-wrap.brandinfo-wrap > div:nth-child(14) > div.categoryInfo-wrap > div.c-row.row-way > div > a.btn-choice.active").click()
 
         suiji = random.randint(2, 46)
 
@@ -128,25 +128,25 @@ class SbNumTest(MyTestCase):
             "body > div.section-product.width1200 > dl > dd > div.cont-btnBuy > a.btn.btn-next.buynow").click()
         sbmc = unicode()
         self.driver.find_element_by_css_selector(
-            "body > div.smartRegister-page.smartRegister3-page > div:nth-child(4) > div > table > tbody > tr.row-name > td.td-content > input").send_keys(
+            "body > div.register-wrap.register-wrap.brandinfo-wrap > div:nth-child(4) > div > table > tbody > tr.row-name > td.td-content > input").send_keys(
             "{}".format(sbmc))
         print("商标名称：{}".format(sbmc))
         self.driver.find_element_by_css_selector(
-            "body > div.smartRegister-page.smartRegister3-page > div:nth-child(4) > div > table > tbody > tr.row-tuyang.show-create.show-create1 > td.td-content > div.zidongdong-create > ul > li > div.bottom.getBrandPic > a").click()
+            "body > div.register-wrap.register-wrap.brandinfo-wrap > div:nth-child(4) > div > table > tbody > tr.row-tuyang.show-create.show-create1 > td.td-content > div.zidongdong-create > ul > li > div.bottom.getBrandPic > a").click()
         self.driver.find_element_by_css_selector("#create-tuyang > label.label.checked").click()
         time.sleep(5)
 
         self.driver.find_element_by_css_selector(
-            "body > div.smartRegister-page.smartRegister3-page > div:nth-child(14) > div.categoryInfo-wrap > div.c-row.row-way > div > a:nth-child(1)").click()
+            "body > div.register-wrap.register-wrap.brandinfo-wrap > div:nth-child(14) > div.categoryInfo-wrap > div.c-row.row-way > div > a:nth-child(1)").click()
 
-        self.driver.find_element_by_css_selector("body > div.smartRegister-page.smartRegister3-page > div:nth-child(14) > div.categoryInfo-wrap > div.c-row.row-industry1 > div > select.myInput.znfirst").click()
+        self.driver.find_element_by_css_selector("body > div.register-wrap.register-wrap.brandinfo-wrap > div:nth-child(14) > div.categoryInfo-wrap > div.c-row.row-industry1 > div > select.myInput.znfirst").click()
         fl = random.randint(2, 12)
-        self.driver.find_element_by_css_selector("body > div.smartRegister-page.smartRegister3-page > div:nth-child(14) > div.categoryInfo-wrap > div.c-row.row-industry1 > div > select.myInput.znfirst > option:nth-child({})".format(fl)).click()
-        fenlei1 = self.driver.find_element_by_css_selector("body > div.smartRegister-page.smartRegister3-page > div:nth-child(14) > div.categoryInfo-wrap > div.c-row.row-industry1 > div > select.myInput.znfirst > option:nth-child({})".format(fl)).text
+        self.driver.find_element_by_css_selector("body > div.register-wrap.register-wrap.brandinfo-wrap > div:nth-child(14) > div.categoryInfo-wrap > div.c-row.row-industry1 > div > select.myInput.znfirst > option:nth-child({})".format(fl)).click()
+        fenlei1 = self.driver.find_element_by_css_selector("body > div.register-wrap.register-wrap.brandinfo-wrap > div:nth-child(14) > div.categoryInfo-wrap > div.c-row.row-industry1 > div > select.myInput.znfirst > option:nth-child({})".format(fl)).text
 
-        self.driver.find_element_by_css_selector("body > div.smartRegister-page.smartRegister3-page > div:nth-child(14) > div.categoryInfo-wrap > div.c-row.row-industry1 > div > select.myInput.znsecond").click()
-        self.driver.find_element_by_css_selector("body > div.smartRegister-page.smartRegister3-page > div:nth-child(14) > div.categoryInfo-wrap > div.c-row.row-industry1 > div > select.myInput.znsecond > option:nth-child(2)").click()
-        fenlei2 = self.driver.find_element_by_css_selector("body > div.smartRegister-page.smartRegister3-page > div:nth-child(14) > div.categoryInfo-wrap > div.c-row.row-industry1 > div > select.myInput.znsecond > option:nth-child(2)").text
+        self.driver.find_element_by_css_selector("body > div.register-wrap.register-wrap.brandinfo-wrap > div:nth-child(14) > div.categoryInfo-wrap > div.c-row.row-industry1 > div > select.myInput.znsecond").click()
+        self.driver.find_element_by_css_selector("body > div.register-wrap.register-wrap.brandinfo-wrap > div:nth-child(14) > div.categoryInfo-wrap > div.c-row.row-industry1 > div > select.myInput.znsecond > option:nth-child(2)").click()
+        fenlei2 = self.driver.find_element_by_css_selector("body > div.register-wrap.register-wrap.brandinfo-wrap > div:nth-child(14) > div.categoryInfo-wrap > div.c-row.row-industry1 > div > select.myInput.znsecond > option:nth-child(2)").text
 
         print("选择所在领域："+fenlei1+"_"+fenlei2)
 
