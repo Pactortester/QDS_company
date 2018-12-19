@@ -711,7 +711,7 @@ class HhrTest(MyTestCase):
         time.sleep(3)
 
         """收益校验"""
-        if price_2 > price_1:
+        if int(price_2) > int(price_1):
             pass
         else:
             self.assertEqual(1,2,"收益预估异常,请及时查看!")
