@@ -6,13 +6,13 @@ class DengLuPage:
     url = "https://www.quandashi.com/"
 
     cookie = ({'name': 'QDS_COOKIE',
-             'value': '6684414aed6bdaea48643e9bbbf9ef059a024365',
+             'value': '610c8766fea82f5489a68b7ed3ace5805bb8085c',
             'Domain': '.quandashi.com'})
 
     url_pre = "https://apre-www.quandashi.com/"
 
     cookie_pre = ({'name': 'QDS_COOKIE',
-               'value': '0de4b000aa75801fc9e72a07b7661afa7e31d5fe',
+               'value': 'ef1f9bfadf24f4c3d7487463b367b1685638789e',
                'Domain': '.quandashi.com'})
 
     def __init__(self, driver):

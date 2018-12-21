@@ -244,3 +244,33 @@ class CxZcTest(MyTestCase):
             print("商标搜索群组种类测试通过!")
         else:
             self.assertEqual(sl_1,sl_2,"筛选条件异常请及时查看!")
+
+    def _ad(self):
+        """广告位点击测试"""
+
+        dl = DengLuPage(self.driver)
+        time.sleep(2)
+        self.driver.get("https://so.quandashi.com")
+        time.sleep(2)
+        self.driver.set_window_size(1920, 1080)
+        print(self.driver.title)
+        dl.refresh_pre()
+        self.driver.find_element_by_name("key").send_keys("大王")
+        print("商标名称:大王")
+        self.driver.find_element_by_css_selector("#btnSearchkey").click()
+        time.sleep(5)
+        result_1 = self.driver.find_element_by_css_selector(
+            "#searchList > div.page-content.w-center > div.page-content-left > div.search-top").text
+        print(str(result_1))
+
+        """点击广告"""
+        self.driver.find_element_by_css_selector("#searchList > div.page-content.w-center > div.page-content-left > div.list-banner > a > img").click()
+        # 获取打开的多个窗口句柄
+        windows = self.driver.window_handles
+        # 切换到当前最新打开的窗口
+        self.driver.switch_to.window(windows[-1])
+        time.sleep(2)
+        self.driver.set_window_size(1920, 1080)
+
+        print(self.driver.current_url)
+        print(self.driver.title)
