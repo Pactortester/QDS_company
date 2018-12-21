@@ -993,7 +993,7 @@ class HhrTest(MyTestCase):
 
     def test_partner_clue_4(self):
 
-        """合伙人线索退回"""
+        """合伙人线索退回,工商信息搜索"""
         dl = DengLuPage(self.driver)
         dl.login()
         time.sleep(1)
@@ -1016,13 +1016,18 @@ class HhrTest(MyTestCase):
         """切换窗口打开详情"""
         windows = self.driver.window_handles
         self.driver.switch_to.window(windows[-1])
-        time.sleep(2)
+        time.sleep(5)
         self.driver.set_window_size(1920, 1080)
 
 
         # """关掉时间提示"""
         # self.driver.find_element_by_css_selector("#layui-layer1 > span.layui-layer-setwin > a").click()
 
+        """客户工商信息搜索"""
+        self.driver.find_element_by_class_name("icon-search").click()
+        time.sleep(5)
+        self.driver.find_element_by_class_name("a-bottom").click()
+        time.sleep(2)
         get_screenshort(self.driver,"test_partner_clue_4.png")
 
         """点击退回线索"""
