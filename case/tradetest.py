@@ -114,12 +114,12 @@ class TradeTest(MyTestCase):
         self.driver.switch_to.window(windows[-1])
         time.sleep(2)
         self.driver.set_window_size(1920, 1080)
-        time.sleep(4)
+        time.sleep(2)
         name_1 = self.driver.find_element_by_css_selector("#app > div > div.brandDetailMsgBox > div.brandMsgBox > div.brandMsg > dl > dt").text
         print(name_1)
         self.assertIn(str(name_1),str(name))
         self.driver.find_element_by_css_selector("#app > div > div.brandDetailMsgBox > div.brandMsgBox > div.brandMsg > dl > dd:nth-child(9) > a:nth-child(2)").click()
-        time.sleep(2)
+        time.sleep(4)
         price_1 = self.driver.find_element_by_css_selector("#app > div > div.shoppingCarBox > div.totalMoney > div > p > span").text
 
         print(price_1)
