@@ -316,6 +316,7 @@ class MfSbTest(MyTestCase):
         self.driver.switch_to.window(windows[-1])
         time.sleep(2)
         self.driver.set_window_size(1920, 1080)
+        dl.refresh()
         time.sleep(5)
         self.assertIn("注册专利查询_中国专利查询系统_让知识产生财富_权大师",self.driver.title)
         print(self.driver.title)
@@ -476,6 +477,7 @@ class MfSbTest(MyTestCase):
         dl = DengLuPage(self.driver)
         self.driver.get("https://so.quandashi.com/")
         dl.refresh()
+        self.driver.find_element_by_name("key").send_keys(xz("地理标志商标.txt").replace(".0",""))
         time.sleep(2)
         self.driver.find_element_by_css_selector("body > div.page > div.page-index > div.page-index-form.search > ul.page-index-icon > li:nth-child(4) > a > img").click()
         time.sleep(5)
@@ -492,7 +494,7 @@ class MfSbTest(MyTestCase):
         result = self.driver.find_element_by_css_selector("#searchList > div.page-content.w-center > div.page-content-left > div.search-top").text
         print(str(result))
 
-        number = random.randint(1,20)
+        number = 1
         info = self.driver.find_element_by_css_selector("#searchList > div.page-content.w-center > div.page-content-left > ul > li:nth-child({}) > div.result-href".format(number)).text
         print(str(info).replace("\n"," "))
 
@@ -513,6 +515,7 @@ class MfSbTest(MyTestCase):
         dl = DengLuPage(self.driver)
         self.driver.get("https://so.quandashi.com/")
         dl.refresh()
+        self.driver.find_element_by_name("key").send_keys(xz("驰著名商标.txt").replace(".0", ""))
         time.sleep(2)
         self.driver.find_element_by_css_selector("body > div.page > div.page-index > div.page-index-form.search > ul.page-index-icon > li:nth-child(3) > a > img").click()
         time.sleep(5)
@@ -529,7 +532,7 @@ class MfSbTest(MyTestCase):
         result = self.driver.find_element_by_css_selector("#searchList > div.page-content.w-center > div.page-content-left > div.search-top").text
         print(str(result))
 
-        number = random.randint(1, 20)
+        number = 1
         info = self.driver.find_element_by_css_selector("#searchList > div.page-content.w-center > div.page-content-left > ul > li:nth-child({}) > div.result-href".format(number)).text
         print(str(info).replace("\n", " "))
 
@@ -597,7 +600,7 @@ class MfSbTest(MyTestCase):
         dl.refresh()
         time.sleep(2)
         self.driver.find_element_by_css_selector(
-            "body > div.page > div.page-index > div.page-index-form.search > div > input.input.search-text").send_keys("王")
+            "body > div.page > div.page-index > div.page-index-form.search > div > input.input.search-text").send_keys(xz("驰著名地理标志.txt").replace(".0",""))
         self.driver.find_element_by_css_selector("#btnSearchkey").click()
         time.sleep(5)
 
