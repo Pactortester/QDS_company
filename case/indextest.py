@@ -111,11 +111,11 @@ class IndexTest(MyTestCase):
             self.driver.find_element_by_css_selector("#niceList > div.page-content.w-center > ul > li:nth-child({})".format(num))).perform()
 
 
-        mc = self.driver.find_element_by_css_selector("#niceList > div.page-content.w-center > ul > li:nth-child({}) > div.first-name".format(num)).text
+        mc = self.driver.find_element_by_css_selector("#niceList > div.page-content.w-center > ul > li:nth-child({}) > a > div.first-name".format(num)).text
 
         print("选择了第{}类".format(num) + "_" + mc)
 
-        self.driver.find_element_by_css_selector("#niceList > div.page-content.w-center > ul > li:nth-child({}) > div.first-intro > div > a".format(num)).click()
+        self.driver.find_element_by_css_selector("#niceList > div.page-content.w-center > ul > li:nth-child({}) > a > div.first-num".format(num)).click()
 
         time.sleep(2)
         ActionChains(self.driver).release()

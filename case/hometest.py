@@ -77,32 +77,34 @@ class HomeTest(MyTestCase):
         print(self.driver.title)
         time.sleep(1)
 
-        self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.order-page.p-invoice-content > div.tabsPanel > ul > li.list.selected > a").click()
-        self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.order-page.p-invoice-content > div.tabsPanel > ul > li:nth-child(3) > a").click()
-        self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.order-page.p-invoice-content > div.search-form > form > ul > li:nth-child(1) > dl:nth-child(1) > dd > input").send_keys("Z80509824620")
-        self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.order-page.p-invoice-content > div.search-form > form > ul > li:nth-child(2) > div > input").click()
-        self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.order-page.p-invoice-content > div.tabsPanel > div > div.section1 > table > tbody > tr > td:nth-child(8) > div > a").click()
-        # self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.order-page.p-invoice-content > div.tabsPanel > div > div.section1 > table > tfoot > tr > td.td-selectSingle > div > a").click()
-        time.sleep(2)
+        self.assertEqual(1, 0 ,"此账号无发票可申请!")
 
-
-        # self.driver.find_element_by_css_selector("#invoiceModal > ul > li.tab.active")
-
-
-
-        self.driver.find_element_by_css_selector("#invoiceModal > ul > li.tab.active").click()
-
-        # self.driver.find_element_by_name("invoiceType").click()
-        self.driver.find_element_by_css_selector("#radio-isgs > label:nth-child(2)").click()
-
-        self.driver.find_element_by_css_selector("#invoiceModal > div.tabs-boder > div.tabs-content.active > table > tbody > tr:nth-child(3) > td:nth-child(2) > input").clear()
-        self.driver.find_element_by_css_selector("#invoiceModal > div.tabs-boder > div.tabs-content.active > table > tbody > tr:nth-child(3) > td:nth-child(2) > input").send_keys("北京梦知网科技有限公司")
-        self.driver.find_element_by_css_selector("#invoiceModal > div.tabs-boder > div.tabs-content.active > table > tbody > tr.tr-sbh.active > td:nth-child(2) > input").clear()
-        self.driver.find_element_by_css_selector("#invoiceModal > div.tabs-boder > div.tabs-content.active > table > tbody > tr.tr-sbh.active > td:nth-child(2) > input").send_keys("91330784689989022Q")
-        self.driver.find_element_by_css_selector("#invoice-general").click()
-
-        print("发票申请提交成功")
-        print("测试通过！")
+        # self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.order-page.p-invoice-content > div.tabsPanel > ul > li.list.selected > a").click()
+        # self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.order-page.p-invoice-content > div.tabsPanel > ul > li:nth-child(3) > a").click()
+        # self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.order-page.p-invoice-content > div.search-form > form > ul > li:nth-child(1) > dl:nth-child(1) > dd > input").send_keys("Z80509824620")
+        # self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.order-page.p-invoice-content > div.search-form > form > ul > li:nth-child(2) > div > input").click()
+        # self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.order-page.p-invoice-content > div.tabsPanel > div > div.section1 > table > tbody > tr > td:nth-child(8) > div > a").click()
+        # # self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.order-page.p-invoice-content > div.tabsPanel > div > div.section1 > table > tfoot > tr > td.td-selectSingle > div > a").click()
+        # time.sleep(2)
+        #
+        #
+        # # self.driver.find_element_by_css_selector("#invoiceModal > ul > li.tab.active")
+        #
+        #
+        #
+        # self.driver.find_element_by_css_selector("#invoiceModal > ul > li.tab.active").click()
+        #
+        # # self.driver.find_element_by_name("invoiceType").click()
+        # self.driver.find_element_by_css_selector("#radio-isgs > label:nth-child(2)").click()
+        #
+        # self.driver.find_element_by_css_selector("#invoiceModal > div.tabs-boder > div.tabs-content.active > table > tbody > tr:nth-child(3) > td:nth-child(2) > input").clear()
+        # self.driver.find_element_by_css_selector("#invoiceModal > div.tabs-boder > div.tabs-content.active > table > tbody > tr:nth-child(3) > td:nth-child(2) > input").send_keys("北京梦知网科技有限公司")
+        # self.driver.find_element_by_css_selector("#invoiceModal > div.tabs-boder > div.tabs-content.active > table > tbody > tr.tr-sbh.active > td:nth-child(2) > input").clear()
+        # self.driver.find_element_by_css_selector("#invoiceModal > div.tabs-boder > div.tabs-content.active > table > tbody > tr.tr-sbh.active > td:nth-child(2) > input").send_keys("91330784689989022Q")
+        # self.driver.find_element_by_css_selector("#invoice-general").click()
+        #
+        # print("发票申请提交成功")
+        # print("测试通过！")
 
     def test_official(self):
 
@@ -125,27 +127,29 @@ class HomeTest(MyTestCase):
 
         self.assertIn("权大师_官文待申请", self.driver.title)
         print(self.driver.title)
-        time.sleep(1)
 
-
-        self.driver.find_element_by_name("receiptNo").send_keys("23491381")
-        self.driver.find_element_by_xpath("//*[@id=\"personalCenter2-rightContainer\"]/div[1]/form/p/input").click()
-
-        self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.person-postofficial.order-page > div.official-doc-wrap > table > tbody > tr:nth-child(2) > td:nth-child(1) > span").click()
-        self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.cho-wrap-wrap > div > dl > dd.next-btn").click()
-        time.sleep(1)
-        self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.person-postofficial.order-page > div.confirm-post-addr > p.addr-head > a").click()
-        self.driver.find_element_by_name("receivedName").send_keys("老戏骨")
-
-        self.driver.find_element_by_name("receivedTel").send_keys("15624992422")
-        self.driver.find_element_by_name("divisionName").click()
-        self.driver.find_element_by_css_selector("#administrative > div > div.d-dropdown > div.tab-content.active.tab-province > dl.item.item-a-g.clearfix > dd > span:nth-child(1)").click()
-        self.driver.find_element_by_css_selector("#administrative > div > div.d-dropdown > div.tab-content.tab-city.active > dl.item.item-a-g.clearfix > dd > span:nth-child(1)").click()
-        self.driver.find_element_by_name("street").send_keys("TBD云集中心")
-        time.sleep(1)
-
-        self.driver.find_element_by_xpath("//*[@id=\"address_info\"]/p[5]/a[2]").click()
-
-        get_screenshort(self.driver,"test_official.png")
-        print("官文邮寄成功！")
-        print("测试通过！")
+        self.assertEqual(1, 0, "此账号无官文可申请!")
+        # time.sleep(1)
+        #
+        #
+        # self.driver.find_element_by_name("receiptNo").send_keys("23491381")
+        # self.driver.find_element_by_xpath("//*[@id=\"personalCenter2-rightContainer\"]/div[1]/form/p/input").click()
+        #
+        # self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.person-postofficial.order-page > div.official-doc-wrap > table > tbody > tr:nth-child(2) > td:nth-child(1) > span").click()
+        # self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.cho-wrap-wrap > div > dl > dd.next-btn").click()
+        # time.sleep(1)
+        # self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.person-postofficial.order-page > div.confirm-post-addr > p.addr-head > a").click()
+        # self.driver.find_element_by_name("receivedName").send_keys("老戏骨")
+        #
+        # self.driver.find_element_by_name("receivedTel").send_keys("15624992422")
+        # self.driver.find_element_by_name("divisionName").click()
+        # self.driver.find_element_by_css_selector("#administrative > div > div.d-dropdown > div.tab-content.active.tab-province > dl.item.item-a-g.clearfix > dd > span:nth-child(1)").click()
+        # self.driver.find_element_by_css_selector("#administrative > div > div.d-dropdown > div.tab-content.tab-city.active > dl.item.item-a-g.clearfix > dd > span:nth-child(1)").click()
+        # self.driver.find_element_by_name("street").send_keys("TBD云集中心")
+        # time.sleep(1)
+        #
+        # self.driver.find_element_by_xpath("//*[@id=\"address_info\"]/p[5]/a[2]").click()
+        #
+        # get_screenshort(self.driver,"test_official.png")
+        # print("官文邮寄成功！")
+        # print("测试通过！")

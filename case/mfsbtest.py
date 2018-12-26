@@ -600,7 +600,7 @@ class MfSbTest(MyTestCase):
         dl.refresh()
         time.sleep(2)
         self.driver.find_element_by_css_selector(
-            "body > div.page > div.page-index > div.page-index-form.search > div > input.input.search-text").send_keys(xz("驰著名地理标志.txt").replace(".0",""))
+            "body > div.page > div.page-index > div.page-index-form.search > div > input.input.search-text").send_keys(xz("驰著名地理商标.txt").replace(".0",""))
         self.driver.find_element_by_css_selector("#btnSearchkey").click()
         time.sleep(5)
 
