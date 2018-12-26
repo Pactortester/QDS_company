@@ -604,9 +604,9 @@ class MfSbTest(MyTestCase):
         self.driver.find_element_by_css_selector("#btnSearchkey").click()
         time.sleep(5)
 
-        """删除搜索商标"""
-        self.driver.find_element_by_css_selector("#searchList > div.page-search.w-center > div.search-input > input").send_keys(Keys.BACK_SPACE)
-        time.sleep(2)
+        # """删除搜索商标"""
+        # self.driver.find_element_by_css_selector("#searchList > div.page-search.w-center > div.search-input > input").send_keys(Keys.BACK_SPACE)
+        # time.sleep(2)
         """点击驰名商标"""
 
         self.driver.find_element_by_css_selector("#searchList > div.page-form.w-center > ul > li:nth-child(4) > div.category-show-box > a:nth-child(2)").click()
