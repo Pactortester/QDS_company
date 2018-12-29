@@ -741,10 +741,10 @@ class ZnZzTest(MyTestCase):
         print("选择所在领域:" + ly + "_" + hy + "_" + "行业精准推荐")
         time.sleep(5)
 
-        """申请人信息"""
         self.driver.find_element_by_css_selector(
             "body > div.register-wrap.brandinfo-wrap > div.register-pay > div > ul > li.row-step > a").click()
 
+        """申请人信息"""
         time.sleep(3)
         # self.driver.execute_script("document.getElementByName('fname').length = 0;")
 
