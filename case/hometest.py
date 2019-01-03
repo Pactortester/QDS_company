@@ -153,3 +153,37 @@ class HomeTest(MyTestCase):
         # get_screenshort(self.driver,"test_official.png")
         # print("官文邮寄成功！")
         # print("测试通过！")
+
+    def test_batch_payment(self):
+        """批量支付测试"""
+        dl = DengLuPage(self.driver)
+        dl.login_pre()
+        time.sleep(1)
+        self.driver.find_element_by_css_selector("#page-header > div.item-right > ul > li:nth-child(1) > a").click()
+        time.sleep(2)
+
+        self.driver.find_element_by_css_selector(
+            "#personalCenter2-leftNav > ul > li.menu.open > ul > li:nth-child(1) > a").click()
+        time.sleep(2)
+        self.assertIn("权大师_我的商标", self.driver.title)
+        print(self.driver.title)
+
+        """待付款"""
+        self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.order-page.brand-trade-page.trade-order > div.tabsPanel > ul > li:nth-child(2) > a").click()
+        """全选订单批量支付"""
+        self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.order-page.brand-trade-page.trade-order > div.tabsPanel > div > div > table > thead > tr > th:nth-child(1) > label").click()
+        time.sleep(2)
+
+        info_1 = self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.order-page.brand-trade-page.trade-order > div.tabsPanel > div > div > div.order-detail-fix > div > div.right > div > span").text
+        print(info_1)
+
+        number_1 = self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.order-page.brand-trade-page.trade-order > div.tabsPanel > div > div > div.order-detail-fix > div > div.right > div > span > i:nth-child(2) > i").text
+        """立即付款"""
+        self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.order-page.brand-trade-page.trade-order > div.tabsPanel > div > div > div.order-detail-fix > div > div.right > div > a").click()
+        time.sleep(5)
+        info_2 = self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > div.section-orderInfo.clearfix > div.order-info-box > div > h2").text
+        print(info_2)
+        number_2 = self.driver.find_element_by_css_selector("#total").text
+
+        self.assertEqual(number_1,number_2,"批量支付金额异常!")
+        print("批量支付测试通过!")

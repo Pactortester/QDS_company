@@ -5,6 +5,7 @@ import time
 import logging
 
 from selenium.webdriver import ActionChains
+from selenium.webdriver.common.by import By
 
 from utils.mytestcase import MyTestCase
 from utils.logincookie import DengLuPage
@@ -627,20 +628,21 @@ class ZnZzTest(MyTestCase):
         time.sleep(2)
         self.driver.find_element_by_css_selector("#section-selfchoice > div.group-right > div > div > h4 > div.header-right > a > i").click()
         time.sleep(2)
-        self.driver.find_element_by_css_selector("#section-selfchoice > div > div.group-left.scroll > ul > li:nth-child({}) > span".format(suiji)).click()
+        # self.driver.find_element_by_css_selector("#section-selfchoice > div > div.group-left.scroll > ul > li:nth-child({}) > span".format(suiji)).click()
+        self.driver.find_element_by_css_selector("#section-selfchoice > div.group-left > ul > li:nth-child(3) > span".format(suiji)).click()
 
-        self.driver.find_element_by_css_selector("#section-selfchoice > div > div.group-left.scroll > ul > li.list.open > div:nth-child(2) > span").click()
+        self.driver.find_element_by_css_selector("#section-selfchoice > div.group-left > ul > li.list.open > div:nth-child(2) > span").click()
 
-        self.driver.find_element_by_css_selector("#section-selfchoice > div > div.group-left.scroll > ul > li.list.open > div.title-second.open > dl > dt:nth-child(1) > span").click()
-        self.driver.find_element_by_css_selector("#section-selfchoice > div > div.group-left.scroll > ul > li.list.open > div.title-second.open > dl > dt:nth-child(2) > span").click()
-        self.driver.find_element_by_css_selector("#section-selfchoice > div > div.group-left.scroll > ul > li.list.open > div.title-second.open > dl > dt:nth-child(3) > span").click()
-        self.driver.find_element_by_css_selector("#section-selfchoice > div > div.group-left.scroll > ul > li.list.open > div.title-second.open > dl > dt:nth-child(4) > span").click()
-        self.driver.find_element_by_css_selector("#section-selfchoice > div > div.group-left.scroll > ul > li.list.open > div.title-second.open > dl > dt:nth-child(5) > span").click()
-        self.driver.find_element_by_css_selector("#section-selfchoice > div > div.group-left.scroll > ul > li.list.open > div.title-second.open > dl > dt:nth-child(6) > span").click()
-        self.driver.find_element_by_css_selector("#section-selfchoice > div > div.group-left.scroll > ul > li.list.open > div.title-second.open > dl > dt:nth-child(7) > span").click()
-        self.driver.find_element_by_css_selector("#section-selfchoice > div > div.group-left.scroll > ul > li.list.open > div.title-second.open > dl > dt:nth-child(8) > span").click()
-        self.driver.find_element_by_css_selector("#section-selfchoice > div > div.group-left.scroll > ul > li.list.open > div.title-second.open > dl > dt:nth-child(9) > span").click()
-        self.driver.find_element_by_css_selector("#section-selfchoice > div > div.group-left.scroll > ul > li.list.open > div.title-second.open > dl > dt:nth-child(10) > span").click()
+        self.driver.find_element_by_css_selector("#section-selfchoice > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(1) > span").click()
+        self.driver.find_element_by_css_selector("#section-selfchoice > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(2) > span").click()
+        self.driver.find_element_by_css_selector("#section-selfchoice > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(3) > span").click()
+        self.driver.find_element_by_css_selector("#section-selfchoice > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(4) > span").click()
+        self.driver.find_element_by_css_selector("#section-selfchoice > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(5) > span").click()
+        self.driver.find_element_by_css_selector("#section-selfchoice > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(6) > span").click()
+        self.driver.find_element_by_css_selector("#section-selfchoice > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(7) > span").click()
+        self.driver.find_element_by_css_selector("#section-selfchoice > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(8) > span").click()
+        self.driver.find_element_by_css_selector("#section-selfchoice > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(9) > span").click()
+        self.driver.find_element_by_css_selector("#section-selfchoice > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(10) > span").click()
 
         self.driver.find_element_by_css_selector("#edit-category > div.modal-button > a.button.save").click()
         time.sleep(2)
@@ -743,6 +745,19 @@ class ZnZzTest(MyTestCase):
 
         self.driver.find_element_by_css_selector(
             "body > div.register-wrap.brandinfo-wrap > div.register-pay > div > ul > li.row-step > a").click()
+        time.sleep(2)
+
+
+        try:
+            self.driver.find_element(By.LINK_TEXT,"确认")
+            a = True
+        except :
+            a = False
+        if a is True:
+            """不足10小项确认提交"""
+            self.driver.find_element_by_link_text("确认").click()
+        elif a is False:
+            pass
 
         """申请人信息"""
         time.sleep(3)
@@ -862,7 +877,7 @@ class ZnZzTest(MyTestCase):
         # body > div.recommend-help > i
         ss = unicode()
         self.driver.find_element_by_name("brandName").send_keys("{}".format(ss))
-        print("商标名称：{}".format(ss))
+        print("商标名称:{}".format(ss))
         self.driver.find_element_by_css_selector("#create-tuyang > label.label.checked").click()
         self.driver.find_element_by_css_selector("body > div.register-wrap.brandinfo-wrap > div.brand-info-wrap.show1.form-wrap > ul > li.brand-upload > div > div.brand-upload-wrap > div.zidongdong-create > ul > li > a").click()
         time.sleep(5)
@@ -871,6 +886,7 @@ class ZnZzTest(MyTestCase):
         self.driver.find_element_by_css_selector(
             "#selectCategoryType > label:nth-child(3)").click()
         time.sleep(20)
+        print("类别:全类保护")
 
         self.driver.find_element_by_css_selector(
             "body > div.register-wrap.brandinfo-wrap > div.register-pay > div > ul > li.row-step > a").click()
@@ -946,7 +962,7 @@ class ZnZzTest(MyTestCase):
         self.driver.find_element_by_css_selector(
             "body > div.register-wrap > div.orderinfo-wrap > div.last-pay.personal-last-pay > div > a").click()
         for o in self.driver.find_elements_by_class_name("payable"):
-            print("订单提交成功，应付金额:" + o.text)
+            print("订单提交成功,应付金额:" + o.text)
             oo = o.text
 
         self.assertIn(oo, ii)
