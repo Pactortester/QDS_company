@@ -1,6 +1,7 @@
 import random
 import re
 import time
+from _cffi_backend import string
 
 from selenium.webdriver import ActionChains
 
@@ -205,7 +206,7 @@ class SbNumTest(MyTestCase):
         number1 = re.sub("\D", "", xt)
         number2 = re.sub("\D", "", js)
 
-        sl = number1 + number2
+        sl = int(number1) + int(number2)
         print(sl)
         time.sleep(1)
         self.driver.find_element_by_css_selector(
@@ -276,7 +277,7 @@ class SbNumTest(MyTestCase):
         time.sleep(2)
         self.driver.find_element_by_css_selector("body > div.recommend-help > i").click()
         # body > div.recommend-help > i
-        ss = "小米"
+        ss = "vivo"
         self.driver.find_element_by_name("brandName").send_keys("{}".format(ss))
         print("商标名称:{}".format(ss))
         self.driver.find_element_by_css_selector("#create-tuyang > label.label.checked").click()
@@ -291,9 +292,10 @@ class SbNumTest(MyTestCase):
 
 
         zf = self.driver.find_element_by_css_selector("#first01 > div.category-recommend-first > span.tips > a:nth-child(2)").text
-        print(zf)
+        print(str(zf).replace("，",""))
         number1 = re.sub("\D", "", zf)
-        print(number1.replace("，",""))
+        s2 = int(number1) + 0
+        print(s2)
         time.sleep(1)
         self.driver.find_element_by_css_selector(
             "#first01 > div.category-recommend-first > span.tips").click()
@@ -319,6 +321,6 @@ class SbNumTest(MyTestCase):
 
         print("权大师为您找到相关结果{}个".format(number2))
 
-        self.assertIn(number2, number1,"相似商标数量不一致请及时查看!")
+        self.assertEqual(s2, number2,"相似商标数量不一致请及时查看!")
 
         print("检索相似商标数量一致,测试通过！")

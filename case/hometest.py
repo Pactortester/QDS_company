@@ -157,7 +157,7 @@ class HomeTest(MyTestCase):
     def test_batch_payment(self):
         """批量支付测试"""
         dl = DengLuPage(self.driver)
-        dl.login_pre()
+        dl.login()
         time.sleep(1)
         self.driver.find_element_by_css_selector("#page-header > div.item-right > ul > li:nth-child(1) > a").click()
         time.sleep(2)
