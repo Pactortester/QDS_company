@@ -977,6 +977,7 @@ class HhrTest(MyTestCase):
         time.sleep(2)
         self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > div.partner > a:nth-child(4)").click()
         time.sleep(2)
+        self.driver.find_element_by_css_selector("#product_100003").click()
         lb = (100001,100004,100007,100020,100021)
         xm = random.choice(lb)
         print("换单标签:" + self.driver.find_element_by_css_selector("#product_{}".format(xm)).text)
