@@ -230,10 +230,10 @@ class SbNumTest(MyTestCase):
 
         number3 = self.driver.find_element_by_css_selector(
             "#searchList > div.page-content.w-center > div.page-content-left > div.search-top > i").text
-
+        s2 = int(number3) + 0
         print("权大师为您找到相关结果{}个".format(number3))
 
-        self.assertEqual(sl, number3,"相似商标数量不一致请及时查看!")
+        self.assertEqual(sl, s2,"相似商标数量不一致请及时查看!")
 
         print("检索相似商标数量一致,测试通过！")
 
@@ -318,9 +318,9 @@ class SbNumTest(MyTestCase):
 
         number2 = self.driver.find_element_by_css_selector(
             "#searchList > div.page-content.w-center > div.page-content-left > div.search-top > i").text
-
+        s3 = int(number2) + 0
         print("权大师为您找到相关结果{}个".format(number2))
 
-        self.assertEqual(s2, number2,"相似商标数量不一致请及时查看!")
+        self.assertEqual(s2, s3,"相似商标数量不一致请及时查看!")
 
         print("检索相似商标数量一致,测试通过！")
