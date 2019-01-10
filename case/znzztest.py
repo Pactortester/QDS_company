@@ -387,6 +387,17 @@ class ZnZzTest(MyTestCase):
         self.driver.find_element_by_css_selector(
             "body > div.register-wrap.brandinfo-wrap > div.register-pay > div > ul > li.row-step > a").click()
 
+        try:
+            self.driver.find_element(By.LINK_TEXT, "确认")
+            a = True
+        except:
+            a = False
+        if a is True:
+            """不足10小项确认提交"""
+            self.driver.find_element_by_link_text("确认").click()
+        elif a is False:
+            pass
+
         time.sleep(3)
         # self.driver.execute_script("document.getElementByName('fname').length = 0;")
 
@@ -523,6 +534,17 @@ class ZnZzTest(MyTestCase):
 
         self.driver.find_element_by_css_selector(
             "body > div.register-wrap.brandinfo-wrap > div.register-pay > div > ul > li.row-step > a").click()
+
+        try:
+            self.driver.find_element(By.LINK_TEXT, "确认")
+            a = True
+        except:
+            a = False
+        if a is True:
+            """不足10小项确认提交"""
+            self.driver.find_element_by_link_text("确认").click()
+        elif a is False:
+            pass
 
         time.sleep(3)
         # self.driver.execute_script("document.getElementByName('fname').length = 0;")

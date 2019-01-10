@@ -282,6 +282,17 @@ class HhrTest(MyTestCase):
 
         self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > div.order-form-page > div > div:nth-child(7) > div > a:nth-child(2)").click()
 
+        try:
+            self.driver.find_element(By.LINK_TEXT, "确认")
+            a = True
+        except:
+            a = False
+        if a is True:
+            """不足10小项确认提交"""
+            self.driver.find_element_by_link_text("确认").click()
+        elif a is False:
+            pass
+
         time.sleep(2)
 
         for o in self.driver.find_elements_by_class_name("payable"):
@@ -289,7 +300,7 @@ class HhrTest(MyTestCase):
             oo = o.text
 
         time.sleep(2)
-        self.assertIn(oo,ii)
+        self.assertEqual(oo,ii)
 
         self.driver.find_element_by_css_selector("#payways > ul:nth-child(1) > li").click()
         self.driver.find_element_by_css_selector("#alisubmit").click()
@@ -378,6 +389,17 @@ class HhrTest(MyTestCase):
 
 
         self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > div.order-form-page > div > div:nth-child(7) > div > a:nth-child(2)").click()
+
+        try:
+            self.driver.find_element(By.LINK_TEXT, "确认")
+            a = True
+        except:
+            a = False
+        if a is True:
+            """不足10小项确认提交"""
+            self.driver.find_element_by_link_text("确认").click()
+        elif a is False:
+            pass
 
         time.sleep(2)
 
