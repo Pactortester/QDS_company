@@ -1,13 +1,12 @@
 import random
 import re
 import time
-from _cffi_backend import string
-
 from selenium.webdriver import ActionChains
 
+from utils.datachoice import credit_code
 from utils.logincookie import DengLuPage
 from utils.mytestcase import MyTestCase
-from utils.random import unicode
+
 
 
 class SbNumTest(MyTestCase):
@@ -69,32 +68,32 @@ class SbNumTest(MyTestCase):
         suiji = random.randint(2, 45)
         time.sleep(2)
         self.driver.find_element_by_css_selector(
-            "#section-selfchoice > div > div.group-left.scroll > ul > li:nth-child({}) > span".format(suiji)).click()
+            "#section-selfchoice > div > div.group-left > ul > li:nth-child({}) > span".format(suiji)).click()
 
         time.sleep(2)
         self.driver.find_element_by_css_selector(
-            "#section-selfchoice > div > div.group-left.scroll > ul > li.list.open > div:nth-child(2) > span").click()
+            "#section-selfchoice > div > div.group-left > ul > li.list.open > div:nth-child(2) > span").click()
 
         self.driver.find_element_by_css_selector(
-            "#section-selfchoice > div > div.group-left.scroll > ul > li.list.open > div:nth-child(2) > dl > dt:nth-child(1) > span").click()
+            "#section-selfchoice > div > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(1) > span").click()
         self.driver.find_element_by_css_selector(
-            "#section-selfchoice > div > div.group-left.scroll > ul > li.list.open > div:nth-child(2) > dl > dt:nth-child(2) > span").click()
+            "#section-selfchoice > div > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(2) > span").click()
         self.driver.find_element_by_css_selector(
-            "#section-selfchoice > div > div.group-left.scroll > ul > li.list.open > div:nth-child(2) > dl > dt:nth-child(3) > span").click()
+            "#section-selfchoice > div > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(3) > span").click()
         self.driver.find_element_by_css_selector(
-            "#section-selfchoice > div > div.group-left.scroll > ul > li.list.open > div:nth-child(2) > dl > dt:nth-child(4) > span").click()
+            "#section-selfchoice > div > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(4) > span").click()
         self.driver.find_element_by_css_selector(
-            "#section-selfchoice > div > div.group-left.scroll > ul > li.list.open > div:nth-child(2) > dl > dt:nth-child(5) > span").click()
-        self.driver.find_element_by_css_selector(
-            "#section-selfchoice > div > div.group-left.scroll > ul > li.list.open > div:nth-child(2) > dl > dt:nth-child(6) > span").click()
+            "#section-selfchoice > div > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(5) > span").click()
         # self.driver.find_element_by_css_selector(
-        #     "#section-selfchoice > div > div.group-left.scroll > ul > li.list.open > div:nth-child(2) > dl > dt:nth-child(7) > span").click()
+        #     "#section-selfchoice > div > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(6) > span").click()
         # self.driver.find_element_by_css_selector(
-        #     "#section-selfchoice > div > div.group-left.scroll > ul > li.list.open > div:nth-child(2) > dl > dt:nth-child(8) > span").click()
+        #     "#section-selfchoice > div > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(7) > span").click()
         # self.driver.find_element_by_css_selector(
-        #     "#section-selfchoice > div > div.group-left.scroll > ul > li.list.open > div:nth-child(2) > dl > dt:nth-child(9) > span").click()
+        #     "#section-selfchoice > div > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(8) > span").click()
         # self.driver.find_element_by_css_selector(
-        #     "#section-selfchoice > div > div.group-left.scroll > ul > li.list.open > div:nth-child(2) > dl > dt:nth-child(10) > span").click()
+        #     "#section-selfchoice > div > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(9) > span").click()
+        # self.driver.find_element_by_css_selector(
+        #     "#section-selfchoice > div > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(10) > span").click()
 
         print("选择了第{}类商标分类!".format(suiji))
 
@@ -277,7 +276,7 @@ class SbNumTest(MyTestCase):
         time.sleep(2)
         self.driver.find_element_by_css_selector("body > div.recommend-help > i").click()
         # body > div.recommend-help > i
-        ss = "vivo"
+        ss = credit_code("en.txt")
         self.driver.find_element_by_name("brandName").send_keys("{}".format(ss))
         print("商标名称:{}".format(ss))
         self.driver.find_element_by_css_selector("#create-tuyang > label.label.checked").click()
@@ -290,11 +289,18 @@ class SbNumTest(MyTestCase):
             "#selectCategoryType > label:nth-child(3)").click()
         time.sleep(20)
 
+        print("选择类别:全类保护")
 
-        zf = self.driver.find_element_by_css_selector("#first01 > div.category-recommend-first > span.tips > a:nth-child(2)").text
-        print(str(zf).replace("，",""))
-        number1 = re.sub("\D", "", zf)
-        s2 = int(number1) + 0
+        xt = self.driver.find_element_by_css_selector(
+            "#first01 > div.category-recommend-first > span.tips > a:nth-child(1)").text
+        js = self.driver.find_element_by_css_selector(
+            "#first01 > div.category-recommend-first > span.tips > a:nth-child(2)").text
+
+        print(xt + js)
+        number1 = re.sub("\D", "", xt)
+        number2 = re.sub("\D", "", js)
+
+        s2 = int(number1) + int(number2)
         print(s2)
         time.sleep(1)
         self.driver.find_element_by_css_selector(

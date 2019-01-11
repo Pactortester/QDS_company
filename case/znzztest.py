@@ -121,7 +121,7 @@ class ZnZzTest(MyTestCase):
         time.sleep(2)
 
         # 添加社会信用代码
-        self.driver.find_element_by_name("creditcode").send_keys(credit_code())
+        self.driver.find_element_by_name("creditcode").send_keys(credit_code("credit_code.txt"))
 
         # 解决弹框
         # self.driver.find_element_by_css_selector("body > div.register-wrap > div.agentInfo-wrap.applicant-wrap > div.section-base > div.applicant-form > table.table-1.table-applicant.table-type1.active > tbody.tbody-qiye > tr:nth-child(4) > td.td-title").click()
@@ -272,7 +272,7 @@ class ZnZzTest(MyTestCase):
             "{}".format(unicode()))
 
         # 添加社会信用代码
-        self.driver.find_element_by_css_selector("body > div.register-wrap > div.agentInfo-wrap.applicant-wrap > div.section-base.open > div.applicant-form > table.table-1.table-applicant.table-type1.active > tbody.tbody-gsh > tr:nth-child(2) > td.td-content > input").send_keys(credit_code())
+        self.driver.find_element_by_css_selector("body > div.register-wrap > div.agentInfo-wrap.applicant-wrap > div.section-base.open > div.applicant-form > table.table-1.table-applicant.table-type1.active > tbody.tbody-gsh > tr:nth-child(2) > td.td-content > input").send_keys(credit_code("credit_code.txt"))
 
         self.driver.find_element_by_css_selector("#geren-idCard").send_keys("140121198906133513")
         time.sleep(1)
@@ -417,7 +417,7 @@ class ZnZzTest(MyTestCase):
         time.sleep(2)
 
         # 添加社会信用代码
-        self.driver.find_element_by_name("creditcode").send_keys(credit_code())
+        self.driver.find_element_by_name("creditcode").send_keys(credit_code("credit_code.txt"))
 
         # 解决弹框
         # self.driver.find_element_by_css_selector("body > div.register-wrap > div.agentInfo-wrap.applicant-wrap > div.section-base > div.applicant-form > table.table-1.table-applicant.table-type1.active > tbody.tbody-qiye > tr:nth-child(4) > td.td-title").click()
@@ -561,7 +561,7 @@ class ZnZzTest(MyTestCase):
         # 添加社会信用代码
         self.driver.find_element_by_css_selector(
             "body > div.register-wrap > div.agentInfo-wrap.applicant-wrap > div.section-base.open > div.applicant-form > table.table-1.table-applicant.table-type1.active > tbody.tbody-gsh > tr:nth-child(2) > td.td-content > input").send_keys(
-            credit_code())
+            credit_code("credit_code.txt"))
 
         self.driver.find_element_by_css_selector("#geren-idCard").send_keys("140121198906133513")
         time.sleep(1)
@@ -816,7 +816,7 @@ class ZnZzTest(MyTestCase):
         time.sleep(2)
 
         # 添加社会信用代码
-        self.driver.find_element_by_name("creditcode").send_keys(credit_code())
+        self.driver.find_element_by_name("creditcode").send_keys(credit_code("credit_code.txt"))
 
         # 解决弹框
         # self.driver.find_element_by_css_selector("body > div.register-wrap > div.agentInfo-wrap.applicant-wrap > div.section-base > div.applicant-form > table.table-1.table-applicant.table-type1.active > tbody.tbody-qiye > tr:nth-child(4) > td.td-title").click()
@@ -952,7 +952,7 @@ class ZnZzTest(MyTestCase):
         time.sleep(2)
 
         # 添加社会信用代码
-        self.driver.find_element_by_name("creditcode").send_keys(credit_code())
+        self.driver.find_element_by_name("creditcode").send_keys(credit_code("credit_code.txt"))
 
         # 解决弹框
         # self.driver.find_element_by_css_selector("body > div.register-wrap > div.agentInfo-wrap.applicant-wrap > div.section-base > div.applicant-form > table.table-1.table-applicant.table-type1.active > tbody.tbody-qiye > tr:nth-child(4) > td.td-title").click()

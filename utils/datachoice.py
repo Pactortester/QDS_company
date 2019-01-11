@@ -15,9 +15,9 @@ def xz(filename):
 
 
 
-def credit_code():
+def credit_code(filename):
     """读取数据"""
-    f = open(data_path + "\\" + "credit_code.txt")
+    f = open(data_path + "\\" + filename)
     line = f.readline()
     data_list = []
     while line:

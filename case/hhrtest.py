@@ -161,7 +161,7 @@ class HhrTest(MyTestCase):
         time.sleep(1)
 
         # 添加社会信用代码
-        self.driver.find_element_by_name("creditcode").send_keys(credit_code())
+        self.driver.find_element_by_name("creditcode").send_keys(credit_code("credit_code.txt"))
 
         print("申请人信息填写成功!")
 
@@ -262,7 +262,7 @@ class HhrTest(MyTestCase):
         time.sleep(1)
 
         # 添加社会信用代码
-        self.driver.find_element_by_name("creditcode").send_keys(credit_code())
+        self.driver.find_element_by_name("creditcode").send_keys(credit_code("credit_code.txt"))
         print("申请人信息填写成功!")
 
 
@@ -370,7 +370,7 @@ class HhrTest(MyTestCase):
         time.sleep(1)
 
         # 添加社会信用代码
-        self.driver.find_element_by_name("creditcode").send_keys(credit_code())
+        self.driver.find_element_by_name("creditcode").send_keys(credit_code("credit_code.txt"))
         print("申请人信息填写成功!")
 
 

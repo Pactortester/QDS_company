@@ -1,0 +1,94 @@
+1、ARROW，箭牌卫浴
+2、KONKA，康佳
+3、Skyworth创维
+4、JOMOO，九牧
+5、LAJOSON，蓝火星
+6、OPPEIN，欧派
+7、OPPLE，欧普照明
+8、Midea，美的
+9、Tiffany，蒂芙尼
+10、converse，匡威
+11、Estee Lauder，雅诗兰黛
+12、KFC，肯德基
+13、mcdonalds，麦当劳
+14、starbucks，星巴克
+15、Pizzahut，必胜客
+16、Gillette，吉列
+17、OLAY，玉兰油
+18、P&G，宝洁
+19、motorola，摩托罗拉
+20、NAUTICA，诺帝卡
+21、marlboro，万宝路
+22、Hasbro，孩之宝
+23、Cisco Systems，思科
+24、IBM，国际商业机器公司
+25、Lee，李
+26、Anna Sui，安娜·苏
+27、pantene，潘婷
+28、Zippo，芝宝
+29、CLINIQUE，倩碧
+30、Amway，安利
+31、PEVLON，露华浓
+32、BOEING，波音
+33、CK Calvin Klein，卡尔文·克莱恩
+34、VS，沙宣
+35、YORK，约克
+36、GUESS，盖尔斯
+37、VIAGRA，万艾可
+38、DQ，冰雪皇后
+39、new balance，新百伦
+41、Microsoft，微软
+42、hp，惠普
+43、NINE WEST，玖熙
+44、MONSANTO，孟山都
+45、PLAYBOY，花花公子
+46、EMC，易安信
+47、LISTERINE，李施德林
+48、Kodak，科达
+49、ESPRIT，思捷
+50、Pamper，帮宝适
+51、AVON，雅芳
+52、VISA，维萨
+53、COACH，寇兹
+54、BOSE，博士
+55、COSTCO，好市多
+57、DKNY，唐可娜儿DKNY
+58、dicos，德克士
+59、Honeywell，霍尼韦尔
+60、Kingston，金士顿
+61、qualcomm，高通
+62、Pfizer，辉瑞
+63、dahon，大行
+64、General Motors，通用汽车
+65、Morganstanley，摩根士丹利
+66、The treatment，特福莱
+67、Marc Jacobs，马克·雅可布
+69、dovechocolate，德芙
+70、ESSO，埃索
+71、MSD，默沙东
+72、WYeth，惠氏
+73、intel，英特尔
+75、Lincoln，林肯
+76、Disney，米奇
+77、NVIDIA，英伟达
+78、Caltex，加德士
+79、serta，舒达
+80、illume，伊奈美
+81、altria，奥驰亚
+82、CAT，猫
+83、xerox，施乐
+84、Emerson，艾默生
+85、H2O，水芝澳
+86、DELL，戴尔
+88、BonneBell
+89、Heinz，亨氏
+90、GAP，盖普
+91、Omnicom，奥姆尼康
+92、Crest，佳洁士
+93、Chevrolet，雪佛兰
+94、Burton，波顿
+95、MICKEY，米奇
+96、Cardinal Health，卡地纳健康
+98、LP，欧比
+99、kinwai，健威
+100、taylormade，泰勒梅
