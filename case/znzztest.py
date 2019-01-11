@@ -70,32 +70,32 @@ class ZnZzTest(MyTestCase):
         suiji = random.randint(2, 45)
         time.sleep(2)
         self.driver.find_element_by_css_selector(
-            "#section-selfchoice > div > div.group-left.scroll > ul > li:nth-child({}) > span".format(suiji)).click()
+            "#section-selfchoice > div > div.group-left > ul > li:nth-child({}) > span".format(suiji)).click()
 
         time.sleep(2)
         self.driver.find_element_by_css_selector(
-            "#section-selfchoice > div > div.group-left.scroll > ul > li.list.open > div:nth-child(2) > span").click()
+            "#section-selfchoice > div > div.group-left > ul > li.list.open > div:nth-child(2) > span").click()
 
         self.driver.find_element_by_css_selector(
-            "#section-selfchoice > div > div.group-left.scroll > ul > li.list.open > div:nth-child(2) > dl > dt:nth-child(1) > span").click()
+            "#section-selfchoice > div > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(1) > span").click()
         self.driver.find_element_by_css_selector(
-            "#section-selfchoice > div > div.group-left.scroll > ul > li.list.open > div:nth-child(2) > dl > dt:nth-child(2) > span").click()
+            "#section-selfchoice > div > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(2) > span").click()
         self.driver.find_element_by_css_selector(
-            "#section-selfchoice > div > div.group-left.scroll > ul > li.list.open > div:nth-child(2) > dl > dt:nth-child(3) > span").click()
+            "#section-selfchoice > div > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(3) > span").click()
         self.driver.find_element_by_css_selector(
-            "#section-selfchoice > div > div.group-left.scroll > ul > li.list.open > div:nth-child(2) > dl > dt:nth-child(4) > span").click()
+            "#section-selfchoice > div > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(4) > span").click()
         self.driver.find_element_by_css_selector(
-            "#section-selfchoice > div > div.group-left.scroll > ul > li.list.open > div:nth-child(2) > dl > dt:nth-child(5) > span").click()
+            "#section-selfchoice > div > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(5) > span").click()
         self.driver.find_element_by_css_selector(
-            "#section-selfchoice > div > div.group-left.scroll > ul > li.list.open > div:nth-child(2) > dl > dt:nth-child(6) > span").click()
+            "#section-selfchoice > div > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(6) > span").click()
         self.driver.find_element_by_css_selector(
-            "#section-selfchoice > div > div.group-left.scroll > ul > li.list.open > div:nth-child(2) > dl > dt:nth-child(7) > span").click()
+            "#section-selfchoice > div > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(7) > span").click()
         self.driver.find_element_by_css_selector(
-            "#section-selfchoice > div > div.group-left.scroll > ul > li.list.open > div:nth-child(2) > dl > dt:nth-child(8) > span").click()
+            "#section-selfchoice > div > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(8) > span").click()
         self.driver.find_element_by_css_selector(
-            "#section-selfchoice > div > div.group-left.scroll > ul > li.list.open > div:nth-child(2) > dl > dt:nth-child(9) > span").click()
+            "#section-selfchoice > div > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(9) > span").click()
         self.driver.find_element_by_css_selector(
-            "#section-selfchoice > div > div.group-left.scroll > ul > li.list.open > div:nth-child(2) > dl > dt:nth-child(10) > span").click()
+            "#section-selfchoice > div > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(10) > span").click()
 
         print("选择了第{}类商标分类!".format(suiji))
 
@@ -227,31 +227,32 @@ class ZnZzTest(MyTestCase):
         suiji = random.randint(2, 46)
         time.sleep(2)
         self.driver.find_element_by_css_selector(
-            "#section-selfchoice > div > div.group-left.scroll > ul > li:nth-child({}) > span".format(suiji)).click()
+            "#section-selfchoice > div > div.group-left > ul > li:nth-child({}) > span".format(suiji)).click()
+
         time.sleep(2)
         self.driver.find_element_by_css_selector(
-            "#section-selfchoice > div > div.group-left.scroll > ul > li.list.open > div:nth-child(2) > span").click()
+            "#section-selfchoice > div > div.group-left > ul > li.list.open > div:nth-child(2) > span").click()
 
         self.driver.find_element_by_css_selector(
-            "#section-selfchoice > div > div.group-left.scroll > ul > li.list.open > div:nth-child(2) > dl > dt:nth-child(1) > span").click()
+            "#section-selfchoice > div > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(1) > span").click()
         self.driver.find_element_by_css_selector(
-            "#section-selfchoice > div > div.group-left.scroll > ul > li.list.open > div:nth-child(2) > dl > dt:nth-child(2) > span").click()
+            "#section-selfchoice > div > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(2) > span").click()
         self.driver.find_element_by_css_selector(
-            "#section-selfchoice > div > div.group-left.scroll > ul > li.list.open > div:nth-child(2) > dl > dt:nth-child(3) > span").click()
+            "#section-selfchoice > div > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(3) > span").click()
         self.driver.find_element_by_css_selector(
-            "#section-selfchoice > div > div.group-left.scroll > ul > li.list.open > div:nth-child(2) > dl > dt:nth-child(4) > span").click()
+            "#section-selfchoice > div > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(4) > span").click()
         self.driver.find_element_by_css_selector(
-            "#section-selfchoice > div > div.group-left.scroll > ul > li.list.open > div:nth-child(2) > dl > dt:nth-child(5) > span").click()
+            "#section-selfchoice > div > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(5) > span").click()
         self.driver.find_element_by_css_selector(
-            "#section-selfchoice > div > div.group-left.scroll > ul > li.list.open > div:nth-child(2) > dl > dt:nth-child(6) > span").click()
+            "#section-selfchoice > div > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(6) > span").click()
         self.driver.find_element_by_css_selector(
-            "#section-selfchoice > div > div.group-left.scroll > ul > li.list.open > div:nth-child(2) > dl > dt:nth-child(7) > span").click()
+            "#section-selfchoice > div > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(7) > span").click()
         self.driver.find_element_by_css_selector(
-            "#section-selfchoice > div > div.group-left.scroll > ul > li.list.open > div:nth-child(2) > dl > dt:nth-child(8) > span").click()
+            "#section-selfchoice > div > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(8) > span").click()
         self.driver.find_element_by_css_selector(
-            "#section-selfchoice > div > div.group-left.scroll > ul > li.list.open > div:nth-child(2) > dl > dt:nth-child(9) > span").click()
+            "#section-selfchoice > div > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(9) > span").click()
         self.driver.find_element_by_css_selector(
-            "#section-selfchoice > div > div.group-left.scroll > ul > li.list.open > div:nth-child(2) > dl > dt:nth-child(10) > span").click()
+            "#section-selfchoice > div > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(10) > span").click()
 
         print("选择了第{}类商标分类!".format(suiji))
 
@@ -667,9 +668,23 @@ class ZnZzTest(MyTestCase):
         self.driver.find_element_by_css_selector("#section-selfchoice > div.group-left > ul > li.list.open > div.title-second.open > dl > dt:nth-child(10) > span").click()
 
         self.driver.find_element_by_css_selector("#edit-category > div.modal-button > a.button.save").click()
+
+        try:
+            self.driver.find_element(By.LINK_TEXT,"确认")
+            a = True
+        except :
+            a = False
+        if a is True:
+            """不足10小项确认提交"""
+            self.driver.find_element_by_link_text("确认").click()
+        elif a is False:
+            pass
+
         time.sleep(2)
         print("尼斯分类修改为第{}类!".format(suiji-1))
         time.sleep(2)
+
+        self.driver.execute_script("window.scrollBy(0,9200)")  # 滑动滚动条
 
         """申请人信息"""
 
