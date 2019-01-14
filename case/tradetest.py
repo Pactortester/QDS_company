@@ -45,12 +45,20 @@ class TradeTest(MyTestCase):
             print("选择" + str(fl) + "商标类别")
 
             jg = random.randint(2, 9)
-            self.driver.find_element_by_css_selector(
-                "#app > div > div.postNeedsBox > div > ul.structureBox.commonBox > li:nth-child({})".format(jg)).click()
-            structure = self.driver.find_element_by_css_selector(
-                "#app > div > div.postNeedsBox > div > ul.structureBox.commonBox > li:nth-child({})".format(jg)).text
 
-            print("商标结构:" + str(structure))
+            if jg == 4:
+                self.driver.find_element_by_css_selector("#app > div > div.postNeedsBox > div > ul.structureBox.commonBox > li.structureAct").click()
+                structure = self.driver.find_element_by_css_selector("#app > div > div.postNeedsBox > div > ul.structureBox.commonBox > li.structureAct").text
+                print("商标结构:" + str(structure))
+            else:
+                self.driver.find_element_by_css_selector(
+                    "#app > div > div.postNeedsBox > div > ul.structureBox.commonBox > li:nth-child({})".format(
+                        jg)).click()
+                structure = self.driver.find_element_by_css_selector(
+                    "#app > div > div.postNeedsBox > div > ul.structureBox.commonBox > li:nth-child({})".format(
+                        jg)).text
+
+                print("商标结构:" + str(structure))
 
             zs = random.randint(2, 6)
 
@@ -503,13 +511,23 @@ class TradeTest(MyTestCase):
             "#app > div > div.postNeedsBox > div > div > ul > li:nth-child({})".format(fl)).click()
         print("选择" + str(fl) + "商标类别")
 
-        jg = random.randint(2, 9)
-        self.driver.find_element_by_css_selector(
-            "#app > div > div.postNeedsBox > div > ul.structureBox.commonBox > li:nth-child({})".format(jg)).click()
-        structure = self.driver.find_element_by_css_selector(
-            "#app > div > div.postNeedsBox > div > ul.structureBox.commonBox > li:nth-child({})".format(jg)).text
+        jg = 4
 
-        print("商标结构:" + str(structure))
+        if jg == 4:
+            self.driver.find_element_by_css_selector(
+                "#app > div > div.postNeedsBox > div > ul.structureBox.commonBox > li.structureAct").click()
+            structure = self.driver.find_element_by_css_selector(
+                "#app > div > div.postNeedsBox > div > ul.structureBox.commonBox > li.structureAct").text
+            print("商标结构:" + str(structure))
+        else:
+            self.driver.find_element_by_css_selector(
+                "#app > div > div.postNeedsBox > div > ul.structureBox.commonBox > li:nth-child({})".format(
+                    jg)).click()
+            structure = self.driver.find_element_by_css_selector(
+                "#app > div > div.postNeedsBox > div > ul.structureBox.commonBox > li:nth-child({})".format(
+                    jg)).text
+
+            print("商标结构:" + str(structure))
 
         zs = random.randint(2, 6)
 

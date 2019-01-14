@@ -68,6 +68,18 @@ class HhrTest(MyTestCase):
         time.sleep(2)
 
         self.driver.find_element_by_css_selector("#edit-category > div.modal-button > a.button.save").click()
+
+        try:
+            self.driver.find_element(By.LINK_TEXT, "确认")
+            a = True
+        except:
+            a = False
+        if a is True:
+            """不足10小项确认提交"""
+            self.driver.find_element_by_link_text("确认").click()
+        elif a is False:
+            pass
+
         print("尼斯分类修改为第{}类!".format(suiji-1))
         time.sleep(1)
 
