@@ -1156,3 +1156,28 @@ class HhrTest(MyTestCase):
             error = self.driver.find_element_by_css_selector("body > div.error-box > div.error-left > p").text
             print(error)
             self.assertEqual(1,2,"凭证异常!请及时查看!")
+
+    def test_my_income(self):
+        """收益提现测试"""
+
+        dl = DengLuPage(self.driver)
+        dl.login()
+        time.sleep(1)
+        self.driver.find_element_by_css_selector("#page-header > div.item-right > ul > li:nth-child(2) > a").click()
+        time.sleep(1)
+        # 新版提示
+        self.driver.find_element_by_xpath("//*[@id=\"personalCenter2-rightContainer\"]/div[1]/div/a").click()
+
+        self.driver.find_element_by_link_text("申请提现").click()
+        # 获取打开的多个窗口句柄
+        windows = self.driver.window_handles
+        # 切换到当前最新打开的窗口
+        self.driver.switch_to.window(windows[-1])
+        time.sleep(2)
+        self.driver.set_window_size(1920, 1080)
+        print(self.driver.title)
+        get_screenshort(self.driver, "test_my_income.png")
+
+        info = self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.all-null").text
+        print(info)
+        print("我的收益功能正常,测试通过!")
