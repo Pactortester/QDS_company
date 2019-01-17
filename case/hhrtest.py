@@ -1178,6 +1178,6 @@ class HhrTest(MyTestCase):
         print(self.driver.title)
         get_screenshort(self.driver, "test_my_income.png")
 
-        info = self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.all-null").text
+        info = self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.order-page.apply-noe.bank-card-list > table > tbody > tr > td > div").text
         print(info)
         print("我的收益功能正常,测试通过!")
