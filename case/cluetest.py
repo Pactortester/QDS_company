@@ -93,7 +93,7 @@ class ClueTest(MyTestCase):
         dl.login()
         time.sleep(1)
         """新版首页"""
-        self.driver.find_element_by_css_selector("body > div.section-banner > div.public-navbar > div > ul > li:nth-child(6) > a").click()
+        self.driver.find_element_by_css_selector("body > div.section-banner > div.public-navbar > div > ul > li:nth-child(5) > a").click()
 
         windows = self.driver.window_handles
         self.driver.switch_to.window(windows[-1])
@@ -132,7 +132,7 @@ class ClueTest(MyTestCase):
         dl.login()
         time.sleep(1)
         """新版首页"""
-        self.driver.find_element_by_css_selector("body > div.section-banner > div.public-navbar > div > ul > li:nth-child(6) > a").click()
+        self.driver.find_element_by_css_selector("body > div.section-banner > div.public-navbar > div > ul > li:nth-child(5) > a").click()
 
         windows = self.driver.window_handles
         self.driver.switch_to.window(windows[-1])

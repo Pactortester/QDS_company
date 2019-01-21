@@ -16,7 +16,7 @@ class TradeTest(MyTestCase):
         dl = DengLuPage(self.driver)
 
         dl.login()
-        self.driver.find_element_by_css_selector("body > div.section-banner > div.public-navbar > div > ul > li:nth-child(5) > a").click()
+        self.driver.find_element_by_css_selector("body > div.section-banner > div.public-navbar > div > ul > li:nth-child(4) > a").click()
 
         windows = self.driver.window_handles
         self.driver.switch_to.window(windows[-1])
@@ -99,7 +99,7 @@ class TradeTest(MyTestCase):
 
         dl = DengLuPage(self.driver)
         dl.login()
-        self.driver.find_element_by_css_selector("body > div.section-banner > div.public-navbar > div > ul > li:nth-child(5) > a").click()
+        self.driver.find_element_by_css_selector("body > div.section-banner > div.public-navbar > div > ul > li:nth-child(4) > a").click()
 
         windows = self.driver.window_handles
         self.driver.switch_to.window(windows[-1])
@@ -165,7 +165,7 @@ class TradeTest(MyTestCase):
         dl = DengLuPage(self.driver)
 
         dl.login()
-        self.driver.find_element_by_css_selector("body > div.section-banner > div.public-navbar > div > ul > li:nth-child(5) > a").click()
+        self.driver.find_element_by_css_selector("body > div.section-banner > div.public-navbar > div > ul > li:nth-child(4) > a").click()
 
         windows = self.driver.window_handles
         self.driver.switch_to.window(windows[-1])
@@ -203,7 +203,7 @@ class TradeTest(MyTestCase):
         dl = DengLuPage(self.driver)
 
         dl.login()
-        self.driver.find_element_by_css_selector("body > div.section-banner > div.public-navbar > div > ul > li:nth-child(5) > a").click()
+        self.driver.find_element_by_css_selector("body > div.section-banner > div.public-navbar > div > ul > li:nth-child(4) > a").click()
 
         windows = self.driver.window_handles
         self.driver.switch_to.window(windows[-1])
@@ -243,7 +243,7 @@ class TradeTest(MyTestCase):
         dl = DengLuPage(self.driver)
 
         dl.login()
-        self.driver.find_element_by_css_selector("body > div.section-banner > div.public-navbar > div > ul > li:nth-child(5) > a").click()
+        self.driver.find_element_by_css_selector("body > div.section-banner > div.public-navbar > div > ul > li:nth-child(4) > a").click()
 
         windows = self.driver.window_handles
         self.driver.switch_to.window(windows[-1])
@@ -270,7 +270,7 @@ class TradeTest(MyTestCase):
         dl = DengLuPage(self.driver)
 
         dl.login()
-        self.driver.find_element_by_css_selector("body > div.section-banner > div.public-navbar > div > ul > li:nth-child(5) > a").click()
+        self.driver.find_element_by_css_selector("body > div.section-banner > div.public-navbar > div > ul > li:nth-child(4) > a").click()
 
         windows = self.driver.window_handles
         self.driver.switch_to.window(windows[-1])
@@ -310,7 +310,7 @@ class TradeTest(MyTestCase):
         dl = DengLuPage(self.driver)
 
         dl.login()
-        self.driver.find_element_by_css_selector("body > div.section-banner > div.public-navbar > div > ul > li:nth-child(5) > a").click()
+        self.driver.find_element_by_css_selector("body > div.section-banner > div.public-navbar > div > ul > li:nth-child(4) > a").click()
 
         windows = self.driver.window_handles
         self.driver.switch_to.window(windows[-1])
@@ -337,7 +337,7 @@ class TradeTest(MyTestCase):
         dl = DengLuPage(self.driver)
 
         dl.login()
-        self.driver.find_element_by_css_selector("body > div.section-banner > div.public-navbar > div > ul > li:nth-child(5) > a").click()
+        self.driver.find_element_by_css_selector("body > div.section-banner > div.public-navbar > div > ul > li:nth-child(4) > a").click()
 
         windows = self.driver.window_handles
         self.driver.switch_to.window(windows[-1])
@@ -383,7 +383,7 @@ class TradeTest(MyTestCase):
         dl = DengLuPage(self.driver)
 
         dl.login()
-        self.driver.find_element_by_css_selector("body > div.section-banner > div.public-navbar > div > ul > li:nth-child(5) > a").click()
+        self.driver.find_element_by_css_selector("body > div.section-banner > div.public-navbar > div > ul > li:nth-child(4) > a").click()
 
         windows = self.driver.window_handles
         self.driver.switch_to.window(windows[-1])
@@ -457,7 +457,7 @@ class TradeTest(MyTestCase):
         dl = DengLuPage(self.driver)
 
         dl.login()
-        self.driver.find_element_by_css_selector("body > div.section-banner > div.public-navbar > div > ul > li:nth-child(5) > a").click()
+        self.driver.find_element_by_css_selector("body > div.section-banner > div.public-navbar > div > ul > li:nth-child(4) > a").click()
 
         windows = self.driver.window_handles
         self.driver.switch_to.window(windows[-1])
@@ -494,7 +494,7 @@ class TradeTest(MyTestCase):
         dl = DengLuPage(self.driver)
 
         dl.login()
-        self.driver.find_element_by_css_selector("body > div.section-banner > div.public-navbar > div > ul > li:nth-child(5) > a").click()
+        self.driver.find_element_by_css_selector("body > div.section-banner > div.public-navbar > div > ul > li:nth-child(4) > a").click()
 
         windows = self.driver.window_handles
         self.driver.switch_to.window(windows[-1])
