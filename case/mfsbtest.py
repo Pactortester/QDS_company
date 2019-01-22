@@ -99,7 +99,7 @@ class MfSbTest(MyTestCase):
         time.sleep(3)
         zf = self.driver.find_element_by_css_selector("#searchList > div.page-content.w-center > div.page-content-left > div.search-top").text
         print(str(zf))
-        number = re.sub("\D", "", zf)
+        number = re.sub(r"\D", "", zf)
         time.sleep(2)
         self.driver.execute_script("window.scrollBy(0,1200)")  # 滑动滚动条
         if int(number) == 0:
@@ -281,7 +281,7 @@ class MfSbTest(MyTestCase):
         time.sleep(5)
         result_1 = self.driver.find_element_by_css_selector("#noticeList > div > div.page-form > div > span").text
         print(str(result_1))
-        sl_1 = int(re.sub("\D", "", result_1))
+        sl_1 = int(re.sub(r"\D", "", result_1))
 
         """筛选条件"""
         self.driver.find_element_by_css_selector("#noticeList > div > div.page-form > ul:nth-child(2) > li > a").click()
@@ -293,7 +293,7 @@ class MfSbTest(MyTestCase):
 
         result_2 = self.driver.find_element_by_css_selector("#noticeList > div > div.page-form > div > span").text
         print(str(result_2))
-        sl_2 = int(re.sub("\D", "", result_2))
+        sl_2 = int(re.sub(r"\D", "", result_2))
 
         if sl_1 > sl_2:
             print("初审公告筛选申请类别测试通过!")
@@ -322,7 +322,7 @@ class MfSbTest(MyTestCase):
         print(self.driver.title)
         num = self.driver.find_element_by_css_selector("body > div.patentSearchList-wrap.searchList-wrap > div.sort-condition.songti > div > div.s-left > dl > dt").text
         print(str(num))
-        number = re.sub("\D", "", num)
+        number = re.sub(r"\D", "", num)
         print(number)
 
         get_screenshort(self.driver,"test_patent_search.png")

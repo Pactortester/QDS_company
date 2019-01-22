@@ -128,7 +128,7 @@ class IndexTest(MyTestCase):
 
         print(lb)
 
-        number = re.sub("\D", "", lb)
+        number = re.sub(r"\D", "", lb)
 
         print(number)
 

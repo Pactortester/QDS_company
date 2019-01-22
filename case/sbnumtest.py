@@ -99,7 +99,7 @@ class SbNumTest(MyTestCase):
 
         zf = self.driver.find_element_by_css_selector("#section-selfchoice > div > div.group-right > div > div > h4 > div.header-left > a > span").text
         print(zf)
-        number1 = re.sub("\D", "", zf)
+        number1 = re.sub(r"\D", "", zf)
         print(number1)
         time.sleep(1)
         self.driver.find_element_by_css_selector("#section-selfchoice > div > div.group-right > div > div > h4 > div.header-left > a > span").click()
@@ -202,8 +202,8 @@ class SbNumTest(MyTestCase):
         js = self.driver.find_element_by_css_selector("#first09 > div.category-recommend-first > span.tips > a:nth-child(2)").text
 
         print(xt+js)
-        number1 = re.sub("\D", "", xt)
-        number2 = re.sub("\D", "", js)
+        number1 = re.sub(r"\D", "", xt)
+        number2 = re.sub(r"\D", "", js)
 
         sl = int(number1) + int(number2)
         print(sl)
@@ -297,8 +297,8 @@ class SbNumTest(MyTestCase):
             "#first01 > div.category-recommend-first > span.tips > a:nth-child(2)").text
 
         print(xt + js)
-        number1 = re.sub("\D", "", xt)
-        number2 = re.sub("\D", "", js)
+        number1 = re.sub(r"\D", "", xt)
+        number2 = re.sub(r"\D", "", js)
 
         s2 = int(number1) + int(number2)
         print(s2)

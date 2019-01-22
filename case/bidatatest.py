@@ -31,13 +31,13 @@ class BITest(MyTestCase):
 
         windows = self.driver.window_handles
         self.driver.switch_to.window(windows[-1])
-        time.sleep(2)
+        time.sleep(4)
         self.driver.set_window_size(1920, 1080)
 
         info_1 = self.driver.find_element_by_css_selector("body > div.main_wrap > ul").text
         print(info_1)
 
-        self.driver.find_element_by_link_text("山西").click()
+        # self.driver.find_element_by_link_text("山西").click()
 
 
     def test_data_2(self):

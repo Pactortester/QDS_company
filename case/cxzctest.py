@@ -117,7 +117,7 @@ class CxZcTest(MyTestCase):
         time.sleep(5)
         result_1 = self.driver.find_element_by_css_selector("#searchList > div.page-content.w-center > div.page-content-left > div.search-top").text
         print(str(result_1))
-        sl_1 = int(re.sub("\D", "", result_1))
+        sl_1 = int(re.sub(r"\D", "", result_1))
 
         """筛选条件"""
         self.driver.find_element_by_css_selector("#searchList > div.page-form.w-center > ul > li:nth-child(1) > a").click()
@@ -129,7 +129,7 @@ class CxZcTest(MyTestCase):
 
         result_2 = self.driver.find_element_by_css_selector("#searchList > div.page-content.w-center > div.page-content-left > div.search-top").text
         print(str(result_2))
-        sl_2 = int(re.sub("\D", "", result_2))
+        sl_2 = int(re.sub(r"\D", "", result_2))
 
         if sl_1 > sl_2:
             print("商标搜索筛选申请类别测试通过!")
@@ -225,7 +225,7 @@ class CxZcTest(MyTestCase):
         result_1 = self.driver.find_element_by_css_selector(
             "#searchList > div.page-content.w-center > div.page-content-left > div.search-top").text
         print(str(result_1))
-        sl_1 = int(re.sub("\D", "", result_1))
+        sl_1 = int(re.sub(r"\D", "", result_1))
         # 取消全选
         self.driver.find_element_by_css_selector("#searchList > div.page-checkbox.w-center > div > label:nth-child(1) > span").click()
         time.sleep(3)
@@ -237,7 +237,7 @@ class CxZcTest(MyTestCase):
         result_2 = self.driver.find_element_by_css_selector(
             "#searchList > div.page-content.w-center > div.page-content-left > div.search-top").text
         print(str(result_2))
-        sl_2 = int(re.sub("\D", "", result_2))
+        sl_2 = int(re.sub(r"\D", "", result_2))
 
 
         if sl_1 > sl_2:

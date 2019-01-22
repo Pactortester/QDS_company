@@ -1,5 +1,6 @@
 # coding=utf-8
 import random
+import re
 import time
 
 import logging
@@ -10,7 +11,7 @@ from selenium.webdriver.common.by import By
 from utils.mytestcase import MyTestCase
 from utils.logincookie import DengLuPage
 from utils.random import unicode
-from utils.datachoice import credit_code
+from utils.datachoice import credit_code, nice
 from utils.screenshort import get_screenshort
 
 
@@ -850,7 +851,7 @@ class ZnZzTest(MyTestCase):
             "html body div.register-wrap div.orderinfo-wrap div.order-content textarea").send_keys(
             time.strftime("%Y-%m-%d_%H-%M-%S") + "测试订单")
 
-        get_screenshort(self.driver, "test_znzz_1.png")
+        get_screenshort(self.driver, "test_znzz_6.png")
 
         for i in self.driver.find_elements_by_css_selector(
                 "body > div.register-wrap > div.orderinfo-wrap > div.last-pay.personal-last-pay > ul > li.row-sense > em > i"):
@@ -986,7 +987,7 @@ class ZnZzTest(MyTestCase):
             "html body div.register-wrap div.orderinfo-wrap div.order-content textarea").send_keys(
             time.strftime("%Y-%m-%d_%H-%M-%S") + "测试订单")
 
-        get_screenshort(self.driver, "test_znzz_1.png")
+        get_screenshort(self.driver, "test_znzz_7.png")
 
         for i in self.driver.find_elements_by_css_selector(
                 "body > div.register-wrap > div.orderinfo-wrap > div.last-pay.personal-last-pay > ul > li.row-sense > em > i"):
@@ -1000,6 +1001,204 @@ class ZnZzTest(MyTestCase):
             "body > div.register-wrap > div.orderinfo-wrap > div.last-pay.personal-last-pay > div > a").click()
         for o in self.driver.find_elements_by_class_name("payable"):
             print("订单提交成功,应付金额:" + o.text)
+            oo = o.text
+
+        self.assertIn(oo, ii)
+
+        print("测试通过!")
+
+        self.driver.find_element_by_css_selector("#alisubmit").click()
+
+    def test_znzz_8(self):
+        """智能注册_添加类别测试"""
+
+        # logging.basicConfig(filename='../LOG/' + __name__ + '.log',
+        #                     format='[%(asctime)s-%(filename)s-%(levelname)s:%(message)s]', level=logging.DEBUG,
+        #                     filemode='a', datefmt='%Y-%m-%d%I:%M:%S %p')
+        dl = DengLuPage(self.driver)
+        # 官方推荐有find_element(By.*(""))代替find_element_by_*("")
+        # self.driver.find_element_by_id()
+        # self.driver.find_element()
+        dl.login()
+        time.sleep(2)
+        ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
+            "body > div.section-banner > div.public-navbar > div > div > h3 > span")).perform()
+        time.sleep(2)
+        ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
+            "body > div.section-banner > div.public-navbar > div > div > div > ul:nth-child(1) > li:nth-child(1) > h3 > a")).perform()
+        ActionChains(self.driver).release()
+        self.driver.find_element_by_css_selector(
+            "body > div.section-banner > div.public-navbar > div > div > div > ul:nth-child(1) > li:nth-child(1) > div > dl:nth-child(3) > dd > a:nth-child(3)").click()
+        # 获取打开的多个窗口句柄
+        windows = self.driver.window_handles
+        # 切换到当前最新打开的窗口
+        self.driver.switch_to.window(windows[-1])
+        time.sleep(2)
+        self.driver.set_window_size(1920, 1080)
+        self.assertIn("商标智能注册|商标注册查询|商标注册网-权大师", self.driver.title)
+        print(self.driver.title)
+        self.driver.find_element_by_css_selector(
+            "body > div.section-product.width1200 > dl > dd > div.cont-serviceItems > table > tbody > tr > td.td-cont > ul > li:nth-child(3)").click()
+
+        for a in self.driver.find_elements_by_css_selector("#total-price"):
+            print("费用总计:"+a.text)
+            # aa=a.text
+
+        self.driver.find_element_by_css_selector(
+            "body > div.section-product.width1200 > dl > dd > div.cont-btnBuy > a.btn.btn-next.buynow").click()
+        time.sleep(2)
+        self.driver.find_element_by_css_selector("body > div.recommend-help > i").click()
+        # body > div.recommend-help > i
+        ss = unicode()
+        self.driver.find_element_by_name("brandName").send_keys("{}".format(ss))
+        print("商标名称：{}".format(ss))
+        self.driver.find_element_by_css_selector("#create-tuyang > label.label.checked").click()
+        self.driver.find_element_by_css_selector("body > div.register-wrap.brandinfo-wrap > div.brand-info-wrap.show1.form-wrap > ul > li.brand-upload > div > div.brand-upload-wrap > div.zidongdong-create > ul > li > a").click()
+        time.sleep(5)
+
+        self.driver.find_element_by_css_selector(
+            "#selectCategoryType > label.label.checked").click()
+        self.driver.execute_script("window.scrollBy(0,1200)")  # 滑动滚动条
+
+        """智能推荐"""
+        self.driver.find_element_by_css_selector("#selectBusiness > div").click()
+        industry = random.randint(1,12)
+        ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
+            "#selectBusiness > div > div > div.i-left.scroll > span:nth-child({})".format(industry))).perform()
+        ly = self.driver.find_element_by_css_selector("#selectBusiness > div > div > div.i-left.scroll > span:nth-child({})".format(industry)).text
+        time.sleep(2)
+        sz = random.randint(1,2)
+        hy = self.driver.find_element_by_css_selector(
+            "#selectBusiness > div > div > div.i-right.scroll > span:nth-child({})".format(sz)).text
+        self.driver.find_element_by_css_selector("#selectBusiness > div > div > div.i-right.scroll > span:nth-child({})".format(sz)).click()
+        ActionChains(self.driver).release()
+
+        print("选择所在领域:" + ly + "_" + hy + "_" + "行业精准推荐")
+        time.sleep(5)
+
+        # 推荐的类别信息
+        list_name = self.driver.find_element_by_css_selector("#section-recommend > div.category-recommend-show.clearfix > div.crs-left.scroll").text
+
+        # s_1 = re.findall(r"\d+",list_name)
+        # s_2 = ['01','02','03','04','05','06','07','08','09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20' ,'21', '22' ,'23' ,'24' ,'25', '26' ,'27', '28', '29', '30' ,'31' ,'32' ,'33' ,'34' ,'35' ,'36', '37', '38', '39' ,'40' ,'41', '42', '43' ,'44','45']
+        #
+        # # s_2中有而s_1中没有的
+        # s_3 = random.choice(list(set(s_2).difference(set(s_1))))
+
+        s_3 = nice(list_name)
+
+        # 点击添加类别
+
+        self.driver.execute_script("window.scrollBy(0,5200)")  # 滑动滚动条
+        self.driver.find_element_by_css_selector("#section-recommend > div.add-first-category > a").click()
+        # 选择类别
+        add = self.driver.find_element_by_css_selector("#section-recommend > div.add-first-category > ul > li:nth-child({})".format(s_3)).text
+
+        self.driver.find_element_by_css_selector("#section-recommend > div.add-first-category > ul > li:nth-child({})".format(s_3)).click()
+        # 点击添加小项
+        self.driver.find_element_by_css_selector("#first{} > div.category-recommend-groups-box > a".format(s_3)).click()
+        # 选择小项
+        self.driver.find_element_by_css_selector(
+            "#first{} > div.category-recommend-groups-box > div > div > ul > li:nth-child(1)".format(s_3)).click()
+
+        self.driver.find_element_by_css_selector(
+            "#first{} > div.category-recommend-groups-box > div > div > div > ul > li:nth-child(1)".format(s_3)).click()
+        self.driver.find_element_by_css_selector(
+            "#first{} > div.category-recommend-groups-box > div > div > div > ul > li:nth-child(2)".format(s_3)).click()
+        self.driver.find_element_by_css_selector(
+            "#first{} > div.category-recommend-groups-box > div > div > div > ul > li:nth-child(3)".format(s_3)).click()
+        self.driver.find_element_by_css_selector(
+            "#first{} > div.category-recommend-groups-box > div > div > div > ul > li:nth-child(4)".format(s_3)).click()
+        self.driver.find_element_by_css_selector(
+            "#first{} > div.category-recommend-groups-box > div > div > div > ul > li:nth-child(5)".format(s_3)).click()
+
+        print("添加类别:" + add)
+
+
+        self.driver.find_element_by_css_selector(
+            "body > div.register-wrap.brandinfo-wrap > div.register-pay > div > ul > li.row-step > a").click()
+        time.sleep(2)
+
+
+        try:
+            self.driver.find_element(By.LINK_TEXT,"确认")
+            a = True
+        except :
+            a = False
+        if a is True:
+            """不足10小项确认提交"""
+            self.driver.find_element_by_link_text("确认").click()
+        elif a is False:
+            pass
+
+        """申请人信息"""
+        time.sleep(3)
+        # self.driver.execute_script("document.getElementByName('fname').length = 0;")
+
+        # self.driver.find_element_by_css_selector(
+        #     "body > div.register-wrap > div.agentInfo-wrap.applicant-wrap > div.section-base > div.applicant-form > table.table-1.table-applicant.table-type1.active > tbody.tbody-qiye > tr:nth-child(1) > td.td-content.contact-select-container > dl > dt > input").clear()
+
+        self.driver.find_element_by_css_selector(
+            "body > div.register-wrap > div.agentInfo-wrap.applicant-wrap > div.section-base > div.applicant-form > table.table-1.table-applicant.table-type1.active > tbody.tbody-qiye > tr:nth-child(1) > td.td-content.contact-select-container > dl > dt > input").send_keys(
+            "{}".format(unicode()))
+        self.driver.find_element_by_css_selector("#ssq").click()
+        self.driver.find_element_by_css_selector(
+            "#companylistrative > div > div.d-dropdown > div.tab-content.active.tab-province > dl.item.item-a-g.clearfix > dd > span:nth-child(1)").click()
+        time.sleep(2)
+        self.driver.find_element_by_css_selector(
+            "#companylistrative > div > div.d-dropdown > div.tab-content.tab-city.active > dl.item.item-a-g.clearfix > dd > span:nth-child({})".format(
+                random.randint(1, 5))).click()
+        time.sleep(2)
+
+        # 添加社会信用代码
+        self.driver.find_element_by_name("creditcode").send_keys(credit_code("credit_code.txt"))
+
+        # 解决弹框
+        # self.driver.find_element_by_css_selector("body > div.register-wrap > div.agentInfo-wrap.applicant-wrap > div.section-base > div.applicant-form > table.table-1.table-applicant.table-type1.active > tbody.tbody-qiye > tr:nth-child(4) > td.td-title").click()
+        # time.sleep(1)
+
+        self.driver.find_element_by_css_selector(
+            "body > div.register-wrap > div.agentInfo-wrap.applicant-wrap > div.section-base > div.applicant-form > table:nth-child(13) > tbody.tbody-qiye > tr:nth-child(1) > td.td-content > input").send_keys(
+            "{}".format(unicode()))
+        self.driver.find_element_by_css_selector(
+            "body > div.register-wrap > div.agentInfo-wrap.applicant-wrap > div.section-base > div.applicant-form > table:nth-child(13) > tbody.tbody-qiye > tr:nth-child(2) > td.td-content > input").send_keys(
+            "15624992489")
+        self.driver.find_element_by_css_selector(
+            "body > div.register-wrap > div.agentInfo-wrap.applicant-wrap > div.section-base > div.applicant-form > table:nth-child(13) > tbody.tbody-qiye > tr:nth-child(3) > td.td-content > input").send_keys(
+            "132132@qq.com")
+        self.driver.find_element_by_css_selector(
+            "body > div.register-wrap > div.agentInfo-wrap.applicant-wrap > div.section-base > div.applicant-form > table:nth-child(13) > tbody.tbody-qiye > tr:nth-child(4) > td.td-content > input").send_keys(
+            "03515978787")
+        time.sleep(2)
+        # 解决常用申请人弹框，点击空白处
+        self.driver.find_element_by_css_selector(
+            "body > div.register-wrap > div.agentInfo-wrap.applicant-wrap > div.section-base > div.applicant-form > h2").click()
+
+        self.driver.find_element_by_css_selector(
+            "body > div.register-wrap > div.agentInfo-wrap.applicant-wrap > div.section-base > div.section-btns.clearfix > a:nth-child(2)").click()
+        time.sleep(1)
+        # self.driver.find_element_by_css_selector(
+        #     "body > div.register-wrap > div.agentInfo-wrap.applicant-wrap > div.section-base > div.section-btns.clearfix > a:nth-child(2)").click()
+        # time.sleep(1)
+        """订单备注"""
+        self.driver.find_element_by_css_selector(
+            "html body div.register-wrap div.orderinfo-wrap div.order-content textarea").send_keys(
+            time.strftime("%Y-%m-%d_%H-%M-%S") + "测试订单")
+
+        get_screenshort(self.driver, "test_znzz_8.png")
+
+        for i in self.driver.find_elements_by_css_selector(
+                "body > div.register-wrap > div.orderinfo-wrap > div.last-pay.personal-last-pay > ul > li.row-sense > em > i"):
+            print("总价:" + i.text)
+            ii = i.text
+
+        # self.assertIn(aa,ii)
+        # print("测试通过")
+        # self.driver.find_element_by_xpath("/html/body/div[6]/div[3]/div[5]/div/a").click()
+        self.driver.find_element_by_css_selector(
+            "body > div.register-wrap > div.orderinfo-wrap > div.last-pay.personal-last-pay > div > a").click()
+        for o in self.driver.find_elements_by_class_name("payable"):
+            print("订单提交成功，应付金额:" + o.text)
             oo = o.text
 
         self.assertIn(oo, ii)
