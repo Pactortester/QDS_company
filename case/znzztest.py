@@ -1077,7 +1077,8 @@ class ZnZzTest(MyTestCase):
         time.sleep(5)
 
         # 推荐的类别信息
-        list_name = self.driver.find_element_by_css_selector("#section-recommend > div.category-recommend-show.clearfix > div.crs-left.scroll").text
+        list_name = self.driver.find_element_by_css_selector("#section-recommend > div.category-recommend-scroll-box > div > div > div.crs-left.scroll").text
+                                                                
 
         # s_1 = re.findall(r"\d+",list_name)
         # s_2 = ['01','02','03','04','05','06','07','08','09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20' ,'21', '22' ,'23' ,'24' ,'25', '26' ,'27', '28', '29', '30' ,'31' ,'32' ,'33' ,'34' ,'35' ,'36', '37', '38', '39' ,'40' ,'41', '42', '43' ,'44','45']

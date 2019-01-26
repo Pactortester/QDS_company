@@ -890,7 +890,7 @@ class HwGsTest(MyTestCase):
 
         # 推荐的类别信息
         list_name = self.driver.find_element_by_css_selector(
-            "#section-recommend > div.category-recommend-show.clearfix > div.crs-left.scroll").text
+            "#section-recommend > div.category-recommend-scroll-box > div > div > div.crs-left.scroll").text
 
         s_3 = nice(list_name)
 
