@@ -1178,6 +1178,10 @@ class HhrTest(MyTestCase):
         print(self.driver.title)
         get_screenshort(self.driver, "test_my_income.png")
 
-        info = self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.order-page.apply-noe.bank-card-list > table > tbody > tr > td > div").text
-        print(info)
+        info_2 = self.driver.find_element_by_css_selector("#layui-layer1 > div.layui-layer-content").text
+        print(info_2)
+        self.driver.find_element_by_css_selector("#layui-layer1 > div.layui-layer-btn.layui-layer-btn- > a").click()
+        info_1 = self.driver.find_element_by_css_selector(
+            "#personalCenter2-rightContainer > div.order-page.apply-noe.bank-card-list > table > tbody > tr > td > div").text
+        print(info_1)
         print("我的收益功能正常,测试通过!")
