@@ -897,13 +897,13 @@ class HwGsTest(MyTestCase):
         # 点击添加类别
 
         self.driver.execute_script("window.scrollBy(0,5200)")  # 滑动滚动条
-        self.driver.find_element_by_css_selector("#section-recommend > div.add-first-category > a").click()
+        self.driver.find_element_by_link_text("+ 添加类别").click()
         # 选择类别
         add = self.driver.find_element_by_css_selector(
-            "#section-recommend > div.add-first-category > ul > li:nth-child({})".format(s_3)).text
+            "#section-recommend > div > div.add-first-category > ul > li:nth-child({})".format(s_3)).text
 
         self.driver.find_element_by_css_selector(
-            "#section-recommend > div.add-first-category > ul > li:nth-child({})".format(s_3)).click()
+            "#section-recommend > div > div.add-first-category > ul > li:nth-child({})".format(s_3)).click()
         # 点击添加小项
         self.driver.find_element_by_css_selector("#first{} > div.category-recommend-groups-box > a".format(s_3)).click()
         # 选择小项

@@ -264,7 +264,7 @@ class ZnZzTest(MyTestCase):
         time.sleep(3)
         # self.driver.execute_script("document.getElementByName('fname').length = 0;")
 
-        self.driver.find_element_by_css_selector("body > div.register-wrap > div.agentInfo-wrap.applicant-wrap > div.section-base > table > thead > tr > td.td-content > a:nth-child(2)").click()
+        self.driver.find_element_by_link_text("个体工商户").click()
         time.sleep(2)
         self.driver.find_element_by_css_selector(
             "body > div.register-wrap > div.agentInfo-wrap.applicant-wrap > div.section-base.open > div.applicant-form > table.table-1.table-applicant.table-type1.active > tbody.tbody-gsh > tr:nth-child(1) > td.td-content.contact-select-container > dl > dt > input").clear()
@@ -551,7 +551,7 @@ class ZnZzTest(MyTestCase):
         time.sleep(3)
         # self.driver.execute_script("document.getElementByName('fname').length = 0;")
 
-        self.driver.find_element_by_css_selector("body > div.register-wrap > div.agentInfo-wrap.applicant-wrap > div.section-base > table > thead > tr > td.td-content > a:nth-child(2)").click()
+        self.driver.find_element_by_link_text("个体工商户").click()
         time.sleep(2)
 
         self.driver.find_element_by_css_selector(
@@ -1091,11 +1091,13 @@ class ZnZzTest(MyTestCase):
         # 点击添加类别
 
         self.driver.execute_script("window.scrollBy(0,5200)")  # 滑动滚动条
-        self.driver.find_element_by_css_selector("#section-recommend > div.add-first-category > a").click()
+        self.driver.find_element_by_link_text("+ 添加类别").click()
         # 选择类别
-        add = self.driver.find_element_by_css_selector("#section-recommend > div.add-first-category > ul > li:nth-child({})".format(s_3)).text
+        add = self.driver.find_element_by_css_selector(
+            "#section-recommend > div > div.add-first-category > ul > li:nth-child({})".format(s_3)).text
 
-        self.driver.find_element_by_css_selector("#section-recommend > div.add-first-category > ul > li:nth-child({})".format(s_3)).click()
+        self.driver.find_element_by_css_selector(
+            "#section-recommend > div > div.add-first-category > ul > li:nth-child({})".format(s_3)).click()
         # 点击添加小项
         self.driver.find_element_by_css_selector("#first{} > div.category-recommend-groups-box > a".format(s_3)).click()
         # 选择小项
