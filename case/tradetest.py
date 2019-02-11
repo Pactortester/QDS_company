@@ -1,6 +1,9 @@
 # coding=utf-8
 import random
 import time
+
+from selenium.webdriver.common.by import By
+
 from utils.mytestcase import MyTestCase
 from utils.logincookie import DengLuPage
 from utils.random import unicode, request_number, patent_name
@@ -282,15 +285,24 @@ class TradeTest(MyTestCase):
 
         brand = random.randint(1, 36)
         name = self.driver.find_element_by_css_selector(
-            "#app > div > div.brandMarketBox > ul > li:nth-child({}) > div > b".format(brand)).text
+            "#app > div > div.brandMarketBox > ul > li:nth-child({}) > div > b".format(brand + 2)).text
         price = self.driver.find_element_by_css_selector(
-            "#app > div > div.brandMarketBox > ul > li:nth-child({}) > div > i".format(brand)).text
+            "#app > div > div.brandMarketBox > ul > li:nth-child({}) > div > i".format(brand + 2)).text
         lb = self.driver.find_element_by_css_selector(
-            "#app > div > div.brandMarketBox > ul > li:nth-child({}) > div > span".format(brand)).text
+            "#app > div > div.brandMarketBox > ul > li:nth-child({}) > div > span".format(brand + 2)).text
         print("商标信息:" + str(name) + "_" + str(price) + "_" + str(lb))
 
         self.driver.find_element_by_css_selector(
             "#app > div > div.brandMarketBox > ul > li:nth-child({}) > div > p > a:nth-child(3) > img".format(brand)).click()
+        time.sleep(1)
+        self.driver.find_element_by_css_selector(
+            "#app > div > div.brandMarketBox > ul > li:nth-child({}) > div > p > a:nth-child(3) > img".format(
+                brand + 1)).click()
+        time.sleep(1)
+        self.driver.find_element_by_css_selector(
+            "#app > div > div.brandMarketBox > ul > li:nth-child({}) > div > p > a:nth-child(3) > img".format(
+                brand + 2)).click()
+        time.sleep(1)
 
         self.driver.find_element_by_css_selector(
             "#app > div > div.header-wrap.clearfix > div.header-right.clearfix > p.shoppingCartEnter").click()
@@ -618,3 +630,48 @@ class TradeTest(MyTestCase):
 
         info2 = self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.order-page.brand-trade-page > div.tabsPanel > div > div.table-box > table > tbody > tr > td > div > span").text
         print(str(info2))
+
+    def test_trade_9(self):
+        """清空购物车测试"""
+
+        dl = DengLuPage(self.driver)
+
+        dl.login()
+        self.driver.find_element_by_css_selector(
+            "body > div.section-banner > div.public-navbar > div > ul > li:nth-child(5) > a").click()
+
+        windows = self.driver.window_handles
+        self.driver.switch_to.window(windows[-1])
+        time.sleep(2)
+        dl.refresh()
+        self.driver.set_window_size(1920, 1080)
+        self.assertIn("商标交易_商标转让_商标买卖_商标交易网-权大师", self.driver.title)
+        print(self.driver.title)
+
+        self.driver.find_element_by_css_selector(
+            "#app > div > div.header-wrap.clearfix > div.header-right.clearfix > p.shoppingCartEnter").click()
+
+        # app > div > div.header-wrap.clearfix > div.header-right.clearfix > p.shoppingCartEnter.shopAct
+        # app > div > div.header-wrap.clearfix > div.header-right.clearfix > p.shoppingCartEnter
+        # app > div > div.header-wrap.clearfix > div.header-right.clearfix > p.shoppingCartEnter.shopAct
+
+        while True :
+            n = self.driver.find_element_by_css_selector(
+                "#app > div > div.header-wrap.clearfix > div.header-right.clearfix > p.shoppingCartEnter > span").text
+            print(n)
+            brand = self.driver.find_element_by_css_selector(
+                "#app > div > div.shoppingCarBox > table > tr:nth-child(2) > td:nth-child(3)").text
+            print("商标名称:" + brand)
+            self.driver.find_element_by_css_selector(
+                "#app > div > div.shoppingCarBox > table > tr:nth-child(2) > td:nth-child(8) > a").click()
+            alert = self.driver.switch_to.alert
+            print("弹框信息:" + alert.text)
+            alert.accept()
+            time.sleep(2)
+            if int(n) == 1:
+                break
+
+
+            # if self.driver.find_element(By.CSS_SELECTOR, "#app > div > div.shoppingCarBox > table > tr:nth-child(2) > td > span") :
+            #     break
+        print("清空购物车商标成功,测试通过!")
