@@ -6,7 +6,7 @@ class DengLuPage:
     url = "https://www.quandashi.com/"
 
     cookie = ({'name': 'QDS_COOKIE',
-             'value': '8da2c05fff6e1a46b5e61888f0f7b7ed71226a0a',
+             'value': '5cdfbc798c35d6c3ecb66d8230079d6418b762d2',
             'Domain': '.quandashi.com'})
 
     url_pre = "https://apre-www.quandashi.com/"
@@ -26,6 +26,7 @@ class DengLuPage:
         self.driver.add_cookie(self.cookie)
         self.driver.refresh()
         time.sleep(1)
+        self.driver.find_element_by_css_selector("body > div.festival-modal-bg.new-year-bg > div > a").click()
 
     def refresh(self):
         self.driver.add_cookie(self.cookie)
