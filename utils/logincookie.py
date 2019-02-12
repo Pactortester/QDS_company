@@ -26,7 +26,7 @@ class DengLuPage:
         self.driver.add_cookie(self.cookie)
         self.driver.refresh()
         time.sleep(1)
-        self.driver.find_element_by_css_selector("body > div.festival-modal-bg.new-year-bg > div > a").click()
+        # self.driver.find_element_by_css_selector("body > div.festival-modal-bg.new-year-bg > div > a").click()
 
     def refresh(self):
         self.driver.add_cookie(self.cookie)
