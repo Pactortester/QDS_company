@@ -670,7 +670,7 @@ class TradeTest(MyTestCase):
             time.sleep(2)
             if int(n) == 1:
                 break
-                
+
             # if self.driver.find_element(By.CSS_SELECTOR, "#app > div > div.shoppingCarBox > table > tr:nth-child(2) > td > span") :
             #     break
         print("清空购物车商标成功,测试通过!")
