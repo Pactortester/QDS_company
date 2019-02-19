@@ -220,9 +220,9 @@ class IndexTest(MyTestCase):
         dl = DengLuPage(self.driver)
         dl.login()
         time.sleep(1)
-        tip = self.driver.find_element_by_css_selector("body > div.section-hotservice > ul > li.col-2 > a > h3").text
-        data = self.driver.find_element_by_css_selector("body > div.section-hotservice > ul > li.col-2 > a > div.row2 > strong").text
-        user = self.driver.find_element_by_css_selector("body > div.section-hotservice > ul > li.col-2 > a > div.row3 > strong").text
+        tip = self.driver.find_element_by_css_selector("body > div.section-tongji > div > ul > li.col-1").text
+        data = self.driver.find_element_by_css_selector("body > div.section-tongji > div > ul > li:nth-child(2) > span.s2").text
+        user = self.driver.find_element_by_css_selector("body > div.section-tongji > div > ul > li:nth-child(3) > span.s2").text
 
         print(str(tip))
         print("数据搜索:" + str(data))
