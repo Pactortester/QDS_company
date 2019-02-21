@@ -5,7 +5,7 @@ from selenium.webdriver.common.by import By
 from utils.mytestcase import MyTestCase
 from utils.logincookie import DengLuPage
 from utils.random import unicode
-from utils.datachoice import credit_code, xz
+from utils.datachoice import credit_code, xz, check_url
 from utils.screenshort import get_screenshort
 
 
@@ -219,6 +219,23 @@ class HhrTest(MyTestCase):
 
         print("订单已发送客户付款!")
 
+        # 订单url校验
+
+        self.driver.get(pay_url)
+        print(self.driver.title)
+        print(self.driver.current_url)
+        time.sleep(2)
+        order_number = self.driver.find_element_by_css_selector(
+            "#table-contract > table:nth-child(1) > tbody > tr:nth-child(2) > td:nth-child(2)").text
+        order_time = self.driver.find_element_by_css_selector(
+            "#table-contract > table:nth-child(1) > tbody > tr:nth-child(2) > td:nth-child(4)").text
+        if order_time == '':
+            self.assertEqual(1, 2, "付款链接异常请及时查看!")
+        else:
+            print("订单编号:" + order_number)
+
+
+
     def test_hhr_historical_1(self):
 
         """合伙人历史订单"""
@@ -330,6 +347,21 @@ class HhrTest(MyTestCase):
 
         print("订单已发送客户付款!")
 
+        # 订单url校验
+
+        self.driver.get(pay_url)
+        print(self.driver.title)
+        print(self.driver.current_url)
+        time.sleep(2)
+        order_number = self.driver.find_element_by_css_selector(
+            "#table-contract > table:nth-child(1) > tbody > tr:nth-child(2) > td:nth-child(2)").text
+        order_time = self.driver.find_element_by_css_selector(
+            "#table-contract > table:nth-child(1) > tbody > tr:nth-child(2) > td:nth-child(4)").text
+        if order_time == '':
+            self.assertEqual(1, 2, "付款链接异常请及时查看!")
+        else:
+            print("订单编号:" + order_number)
+
     def test_hhr_historical_2(self):
 
         """合伙人历史订单"""
@@ -437,6 +469,21 @@ class HhrTest(MyTestCase):
         self.driver.find_element_by_link_text("复制").click()
 
         print("订单已发送客户付款!")
+
+        # 订单url校验
+
+        self.driver.get(pay_url)
+        print(self.driver.title)
+        print(self.driver.current_url)
+        time.sleep(2)
+        order_number = self.driver.find_element_by_css_selector(
+            "#table-contract > table:nth-child(1) > tbody > tr:nth-child(2) > td:nth-child(2)").text
+        order_time = self.driver.find_element_by_css_selector(
+            "#table-contract > table:nth-child(1) > tbody > tr:nth-child(2) > td:nth-child(4)").text
+        if order_time == '':
+            self.assertEqual(1, 2, "付款链接异常请及时查看!")
+        else:
+            print("订单编号:" + order_number)
 
     @staticmethod
     def test_channel():
@@ -603,6 +650,21 @@ class HhrTest(MyTestCase):
 
         print("订单已发送客户付款!")
 
+        # 订单url校验
+
+        self.driver.get(order_url)
+        print(self.driver.title)
+        time.sleep(2)
+        order_number = self.driver.find_element_by_css_selector(
+            "body > div > section.section-applybaseinfo.pay-info.pay-infoall > ul > table > tbody > tr:nth-child(2) > td.pay-platform-charge").text
+        order_charge = self.driver.find_element_by_css_selector(
+            "body > div > section.section-applybaseinfo.pay-info.pay-infoall > ul > table > tbody > tr:nth-child(3) > td.pay-platform-charge").text
+        if order_charge == '':
+            self.assertEqual(1, 2, "h5链接异常请及时查看!")
+        else:
+            print("订单编号:" + order_number)
+
+
     def test_full_business_2(self):
 
         """合伙人(其他)全业务测试"""
@@ -678,6 +740,19 @@ class HhrTest(MyTestCase):
         self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.paying-wrap.paying-sk-wrap.paying-sk-hhr > div.paying-sk-ewm > div.link > a").click()
 
         print("订单已发送客户付款!")
+
+        # 订单url校验
+
+        self.driver.get(order_url)
+        print(self.driver.title)
+        time.sleep(2)
+        order_number = self.driver.find_element_by_css_selector("body > div > section.section-applybaseinfo.pay-info.pay-infoall > ul > table > tbody > tr:nth-child(2) > td.pay-platform-charge").text
+        order_charge = self.driver.find_element_by_css_selector("body > div > section.section-applybaseinfo.pay-info.pay-infoall > ul > table > tbody > tr:nth-child(3) > td.pay-platform-charge").text
+        if order_charge == '':
+            self.assertEqual(1,2,"h5链接异常请及时查看!")
+        else:
+            print("订单编号:" + order_number)
+        check_url(order_url)
 
     def test_full_business_3(self):
 
@@ -892,7 +967,7 @@ class HhrTest(MyTestCase):
         try:
             self.driver.find_element(By.CSS_SELECTOR,"#personalCenter2-rightContainer > div > div.nav > a")
             a = True
-        except :
+        except:
             a = False
         if a is True:
             print("当前无线索,点击申请!")
@@ -995,6 +1070,21 @@ class HhrTest(MyTestCase):
             "#personalCenter2-rightContainer > div.paying-wrap.paying-sk-wrap.paying-sk-hhr > div.paying-sk-ewm > div.link > a").click()
 
         print("订单已发送客户付款!")
+
+        # 订单url校验
+
+        self.driver.get(order_url)
+        print(self.driver.title)
+        time.sleep(2)
+        order_number = self.driver.find_element_by_css_selector(
+            "body > div > section.section-applybaseinfo.pay-info.pay-infoall > ul > table > tbody > tr:nth-child(2) > td.pay-platform-charge").text
+        order_charge = self.driver.find_element_by_css_selector(
+            "body > div > section.section-applybaseinfo.pay-info.pay-infoall > ul > table > tbody > tr:nth-child(3) > td.pay-platform-charge").text
+        if order_charge == '':
+            self.assertEqual(1, 2, "h5链接异常请及时查看!")
+        else:
+            print("订单编号:" + order_number)
+        check_url(order_url)
 
     def test_partner_clue_3(self):
 
@@ -1177,10 +1267,10 @@ class HhrTest(MyTestCase):
         self.driver.set_window_size(1920, 1080)
         print(self.driver.title)
         get_screenshort(self.driver, "test_my_income.png")
-
-        info_2 = self.driver.find_element_by_css_selector("#layui-layer1 > div.layui-layer-content").text
-        print(info_2)
-        self.driver.find_element_by_css_selector("#layui-layer1 > div.layui-layer-btn.layui-layer-btn- > a").click()
+        #
+        # info_2 = self.driver.find_element_by_css_selector("#layui-layer1 > div.layui-layer-content").text
+        # print(info_2)
+        # self.driver.find_element_by_css_selector("#layui-layer1 > div.layui-layer-btn.layui-layer-btn- > a").click()
         info_1 = self.driver.find_element_by_css_selector(
             "#personalCenter2-rightContainer > div.order-page.apply-noe.bank-card-list > table > tbody > tr > td > div").text
         print(info_1)
