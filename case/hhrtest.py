@@ -752,7 +752,7 @@ class HhrTest(MyTestCase):
             self.assertEqual(1,2,"h5链接异常请及时查看!")
         else:
             print("订单编号:" + order_number)
-        check_url(order_url)
+
 
     def test_full_business_3(self):
 
@@ -1084,7 +1084,7 @@ class HhrTest(MyTestCase):
             self.assertEqual(1, 2, "h5链接异常请及时查看!")
         else:
             print("订单编号:" + order_number)
-        check_url(order_url)
+
 
     def test_partner_clue_3(self):
 
