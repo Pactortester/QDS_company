@@ -18,6 +18,9 @@ class IndexTest(MyTestCase):
         dl = DengLuPage(self.driver)
         dl.login()
         time.sleep(2)
+
+        self.driver.find_element_by_css_selector("body > div.festival-modal-bg > a.close").click()
+
         self.driver.find_element_by_css_selector("#section-hotservice > div > dl:nth-child(2) > dt > a.more").click()
         # 获取打开的多个窗口句柄
         windows = self.driver.window_handles
@@ -34,6 +37,9 @@ class IndexTest(MyTestCase):
         dl = DengLuPage(self.driver)
         dl.login()
         time.sleep(2)
+
+        self.driver.find_element_by_css_selector("body > div.festival-modal-bg > a.close").click()
+
         self.driver.find_element_by_css_selector("#section-hotservice > div > dl:nth-child(4) > dt > a.more").click()
         # 获取打开的多个窗口句柄
         windows = self.driver.window_handles
@@ -50,6 +56,9 @@ class IndexTest(MyTestCase):
         dl = DengLuPage(self.driver)
         dl.login()
         time.sleep(2)
+
+        self.driver.find_element_by_css_selector("body > div.festival-modal-bg > a.close").click()
+
         self.driver.find_element_by_css_selector("#section-hotservice > div > dl.body2 > dt > a.more").click()
         # 获取打开的多个窗口句柄
         windows = self.driver.window_handles

@@ -20,6 +20,8 @@ class ClueTest(MyTestCase):
         time.sleep(1)
         """新版首页"""
 
+        self.driver.find_element_by_css_selector("body > div.festival-modal-bg > a.close").click()
+
         self.driver.execute_script("window.scrollBy(0,1000)")  # 滑动滚动条
 
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector("#section-tools > div > ul > li:nth-child(2)")).perform()
