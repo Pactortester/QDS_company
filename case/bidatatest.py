@@ -67,11 +67,17 @@ class BITest(MyTestCase):
         print(name)
         time.sleep(2)
 
-        suiji_2 = random.randint(1,8)
+        if suiji == "地理标志":
+            suiji_2 = random.randint(1,2)
+        else:
+            suiji_2 = random.randint(1,10)
+
         info_2 = self.driver.find_element_by_css_selector(
             "#BIShow > div.infoListBox > ul > li:nth-child({})".format(suiji_2)).text
-        self.driver.find_element_by_css_selector("#BIShow > div.infoListBox > ul > li:nth-child({})".format(suiji_2)).click()
+        self.driver.find_element_by_css_selector(
+            "#BIShow > div.infoListBox > ul > li:nth-child({})".format(suiji_2)).click()
         print(info_2)
+
 
         windows = self.driver.window_handles
         self.driver.switch_to.window(windows[-1])

@@ -126,17 +126,43 @@ class TradeTest(MyTestCase):
         time.sleep(2)
         self.driver.set_window_size(1920, 1080)
         time.sleep(2)
+
         name_1 = self.driver.find_element_by_css_selector("#app > div > div.brandDetailMsgBox > div.brandMsgBox > div.brandMsg > dl > dt").text
         print(name_1)
         self.assertIn(str(name_1),str(name))
         self.driver.find_element_by_css_selector("#app > div > div.brandDetailMsgBox > div.brandMsgBox > div.brandMsg > dl > dd:nth-child(9) > a:nth-child(2)").click()
-        time.sleep(4)
+        time.sleep(2)
         price_1 = self.driver.find_element_by_css_selector("#app > div > div.shoppingCarBox > div.totalMoney > div > p > span").text
 
         print(price_1)
         # self.assertIn(price_1,price)
         info_1 = self.driver.find_element_by_css_selector("#app > div > div.shoppingCarBox > div.totalMoney > div > p").text
         print(str(info_1))
+
+
+        """判断是否选中购物车的第一个商标"""
+        price_2 = self.driver.find_element_by_css_selector("#app > div > div.shoppingCarBox > div.totalMoney > div > p > b").text
+        print(price_2)
+
+        if price_2 == "¥0.00":
+            self.driver.find_element_by_css_selector(
+                "#app > div > div.shoppingCarBox > table > tr:nth-child(2) > td:nth-child(1) > img").click()
+        else:
+            pass
+
+        #
+        # try:
+        #     self.driver.find_element(By.CSS_SELECTOR, "#app > div > div.shoppingCarBox > table > tr:nth-child(2) > td:nth-child(1) > img")
+        #     a = True
+        # except:
+        #     a = False
+        # if a is True:
+        #     """自动选中购物车的第一个商标"""
+        #     self.driver.find_element_by_css_selector("#app > div > div.shoppingCarBox > table > tr:nth-child(2) > td:nth-child(1) > img").click()
+        # elif a is False:
+        #     pass
+
+
         self.driver.find_element_by_css_selector("#app > div > div.shoppingCarBox > div.userMsg > div > dl:nth-child(1) > dd > input[type=\"text\"]").send_keys(patent_name())
         self.driver.find_element_by_css_selector("#app > div > div.shoppingCarBox > div.userMsg > div > dl:nth-child(2) > dd > input[type=\"text\"]").send_keys("15624992498")
         self.driver.find_element_by_css_selector("#app > div > div.shoppingCarBox > div.userMsg > div > dl:nth-child(3) > dd > input[type=\"text\"]").clear()
