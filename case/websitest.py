@@ -17,6 +17,10 @@ class WebSiTest(MyTestCase):
         dl = DengLuPage(self.driver)
         dl.login()
         time.sleep(2)
+
+        """点击关闭商标广告"""
+        self.driver.find_element_by_css_selector("body > div.festival-modal-bg > a.close").click()
+
         self.driver.find_element_by_css_selector("body > div.footer-wrap > div > ul.items-2 > li:nth-child(7) > a").click()
         # 获取打开的多个窗口句柄
         windows = self.driver.window_handles

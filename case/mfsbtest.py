@@ -306,7 +306,10 @@ class MfSbTest(MyTestCase):
         dl.login()
         time.sleep(2)
         self.driver.find_element_by_css_selector("#qds-search-common > li:nth-child(2)").click()
-        zl = patent_name()
+
+        patent = ["摩托车","自行车","电动车","ofo"]
+
+        zl = random.choice(patent)
         self.driver.find_element_by_css_selector("#qds-searchkey").send_keys(zl)
         print("专利名称:" + str(zl))
         self.driver.find_element_by_css_selector("#serch-word").click()
@@ -321,11 +324,19 @@ class MfSbTest(MyTestCase):
         self.assertIn("注册专利查询_中国专利查询系统_让知识产生财富_权大师",self.driver.title)
         print(self.driver.title)
         num = self.driver.find_element_by_css_selector("body > div.patentSearchList-wrap.searchList-wrap > div.sort-condition.songti > div > div.s-left > dl > dt").text
+
+        get_screenshort(self.driver, "test_patent_search.png")
         print(str(num))
         number = re.sub(r"\D", "", num)
+
+        if int(number) == 0:
+            self.assertEqual(1,0,"专利搜索异常!")
+        else:
+            pass
+
         print(number)
 
-        get_screenshort(self.driver,"test_patent_search.png")
+
         print("专利搜索测试通过!")
 
     def test_enterprise_search(self):
