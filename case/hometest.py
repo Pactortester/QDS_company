@@ -187,3 +187,71 @@ class HomeTest(MyTestCase):
 
         self.assertEqual(number_1,number_2,"批量支付金额异常!")
         print("批量支付测试通过!")
+
+    def test_patent_cancel(self):
+        """取消专利订单"""
+        dl = DengLuPage(self.driver)
+        dl.login()
+        time.sleep(1)
+
+        self.driver.find_element_by_css_selector("#page-header > div.item-right > ul > li:nth-child(1) > a").click()
+        time.sleep(1)
+
+
+        self.driver.find_element_by_css_selector("#personalCenter2-leftNav > ul > li.menu.open > ul > li:nth-child(1) > a").click()
+        self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.order-page-tab > a.p-index").click()
+        time.sleep(4)
+
+        while True:
+
+            n = self.driver.find_element_by_css_selector(
+                "#personalCenter2-rightContainer > div.order-page > div.tabsPanel > ul > li:nth-child(2) > a").text
+            self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.order-page > div.tabsPanel > div > div > table > tbody > tr:nth-child(1) > td:nth-child(7) > div > a.order-cancel-old").click()
+
+            alert = self.driver.switch_to.alert
+            # print("弹框信息:" + alert.text)
+            alert.accept()
+
+            time.sleep(2)
+            self.driver.find_element_by_css_selector("#alert > div > div.footer > a").click()
+            time.sleep(2)
+
+            print(n)
+            if str(n) == "待付款 (4889)":
+                break
+
+        print("取消未付款专利订单,测试通过!")
+
+    def test_copyright_cancel(self):
+        """取消版权订单"""
+        dl = DengLuPage(self.driver)
+        dl.login()
+        time.sleep(1)
+
+        self.driver.find_element_by_css_selector("#page-header > div.item-right > ul > li:nth-child(1) > a").click()
+        time.sleep(1)
+
+
+        self.driver.find_element_by_css_selector("#personalCenter2-leftNav > ul > li.menu.open > ul > li:nth-child(1) > a").click()
+        self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.order-page-tab > a.c-index").click()
+        time.sleep(4)
+
+        while True:
+
+            n = self.driver.find_element_by_css_selector(
+                "#personalCenter2-rightContainer > div.order-page > div.tabsPanel > ul > li:nth-child(2) > a").text
+            self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.order-page > div.tabsPanel > div > div > table > tbody > tr:nth-child(1) > td:nth-child(7) > div > a.order-cancel-old").click()
+
+            alert = self.driver.switch_to.alert
+            # print("弹框信息:" + alert.text)
+            alert.accept()
+
+            time.sleep(2)
+            self.driver.find_element_by_css_selector("#alert > div > div.footer > a").click()
+            time.sleep(2)
+
+            print(n)
+            if str(n) == "待付款 (1)":
+                break
+
+        print("取消未付款专利订单,测试通过!")

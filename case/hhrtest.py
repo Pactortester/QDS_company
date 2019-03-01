@@ -1450,7 +1450,7 @@ class HhrTest(MyTestCase):
 
         time.sleep(2)
         tip_1 = self.driver.find_element_by_css_selector(
-            "#layui-layer2 > div.layui-layer-content.layui-layer-padding").text
+            "#layui-layer2 > div.layui-layer-content").text
         print(tip_1)
         self.driver.find_element_by_link_text("确定").click()
 
@@ -1474,6 +1474,36 @@ class HhrTest(MyTestCase):
             "#layui-layer2 > div.layui-layer-content.layui-layer-padding").text
         print(tip_3)
         self.driver.find_element_by_link_text("确定").click()
+
+    def test_clue_cancel(self):
+        """取消线索订单"""
+        dl = DengLuPage(self.driver)
+        dl.login()
+        time.sleep(1)
+
+        self.driver.find_element_by_css_selector("#page-header > div.item-right > ul > li:nth-child(2) > a").click()
+        time.sleep(1)
+        # 新版提示
+        self.driver.find_element_by_xpath("//*[@id=\"personalCenter2-rightContainer\"]/div[1]/div/a").click()
+
+        self.driver.find_element_by_css_selector("#personalCenter2-leftNav > ul > li.menu.open > ul > li:nth-child(1) > a").click()
+        self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.order-page-tab > a.o-index").click()
+        time.sleep(2)
+
+        while True:
+
+            n = self.driver.find_element_by_css_selector(
+                "#personalCenter2-rightContainer > div.order-page > div.tabsPanel > ul > li.list.selected > a").text
+            self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.order-page > div.tabsPanel > div:nth-child(4) > div > table > tbody > tr > td:nth-child(8) > a.order-cancel").click()
+            time.sleep(3)
+            self.driver.find_element_by_css_selector("#layui-layer1 > div.layui-layer-btn.layui-layer-btn- > a.layui-layer-btn0").click()
+            time.sleep(2)
+
+            print(n)
+            if str(n) == "待付款（1）":
+                break
+
+        print("取消未付款线索订单,测试通过!")
 
     def test_CancelState(self):
         """取消订单测试"""
