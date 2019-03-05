@@ -1558,7 +1558,7 @@ class HhrTest(MyTestCase):
         self.driver.find_element_by_css_selector(
             "#personalCenter2-rightContainer > div.order-page > div.tabsPanel > div > div > table > tbody > tr:nth-child(1) > td:nth-child(9) > div.td-handle > a.info").click()
         time.sleep(3)
-        self.driver.execute_script("window.scrollBy(0,1500)")  # 滑动滚动条
+        self.driver.execute_script("window.scrollBy(0,6500)")  # 滑动滚动条
 
         # 点击支付凭证
         self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.order-detail-page > div.order-detail-box.order-detail-pay-info > table > tbody > tr:nth-child(2) > td:nth-child(6) > a").click()
