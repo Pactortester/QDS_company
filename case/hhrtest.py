@@ -1,5 +1,6 @@
 # coding=utf-8
 import random
+import re
 import time
 from selenium.webdriver.common.by import By
 from utils.mytestcase import MyTestCase
@@ -86,14 +87,16 @@ class HhrTest(MyTestCase):
         """申请人信息"""
 
         self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.order-detail-page > div.order-detail-box.applicant-info > h2 > a").click()
-        self.driver.find_element_by_css_selector("#change-applicant-info > div.modal-body.scroll > div > table > thead > tr:nth-child(1) > td.td-content > a:nth-child(2)").click()
-        self.driver.find_element_by_css_selector("#change-applicant-info > div.modal-body.scroll > div > div > div > div > table > tbody.tbody-gsh > tr:nth-child(1) > td.td-content.contact-select-container > dl > dt > input").clear()
-        self.driver.find_element_by_css_selector("#change-applicant-info > div.modal-body.scroll > div > div > div > div > table > tbody.tbody-gsh > tr:nth-child(1) > td.td-content.contact-select-container > dl > dt > input").send_keys("田伟")
-        self.driver.find_element_by_css_selector("#geren-idCard").clear()
-        self.driver.find_element_by_css_selector("#geren-idCard").send_keys("140121198906311532")
-        self.driver.find_element_by_css_selector("#personalssq").click()
-        self.driver.find_element_by_css_selector("#personalistrative > div > div.d-dropdown > div.tab-content.active.tab-province > dl.item.item-a-g.clearfix > dd > span:nth-child(1)").click()
-        self.driver.find_element_by_css_selector("#personalistrative > div > div.d-dropdown > div.tab-content.tab-city.active > dl.item.item-a-g.clearfix > dd > span:nth-child(1)").click()
+        self.driver.find_element_by_css_selector("#change-applicant-info > div.modal-body.scroll > div > table > thead > tr:nth-child(1) > td.td-content > a.btn-choice.fownertype.active").click()
+        self.driver.find_element_by_css_selector("#change-applicant-info > div.modal-body.scroll > div > div > div > div > table.table-1.table-applicant.table-type1.active > tbody.tbody-qiye > tr:nth-child(1) > td.td-content.contact-select-container > dl > dt > input").clear()
+        time.sleep(2)
+        self.driver.find_element_by_css_selector("#change-applicant-info > div.modal-body.scroll > div > div > div > div > table.table-1.table-applicant.table-type1.active > tbody.tbody-qiye > tr:nth-child(1) > td.td-content.contact-select-container > dl > dt > input").send_keys("海航万豪第{}子公司".format(random.randint(1,1000)))
+        time.sleep(2)
+        # self.driver.find_element_by_css_selector("#geren-idCard").clear()
+        # self.driver.find_element_by_css_selector("#geren-idCard").send_keys("140121198906311532")
+        # self.driver.find_element_by_css_selector("#personalssq").click()
+        # self.driver.find_element_by_css_selector("#personalistrative > div > div.d-dropdown > div.tab-content.active.tab-province > dl.item.item-a-g.clearfix > dd > span:nth-child(1)").click()
+        # self.driver.find_element_by_css_selector("#personalistrative > div > div.d-dropdown > div.tab-content.tab-city.active > dl.item.item-a-g.clearfix > dd > span:nth-child(1)").click()
         self.driver.find_element_by_css_selector("#change-applicant-info > div.modal-button > a.button.save").click()
         print("申请人信息修改成功!")
         time.sleep(4)
@@ -1178,30 +1181,42 @@ class HhrTest(MyTestCase):
         self.driver.find_element_by_css_selector(
             "#personalCenter2-leftNav > ul > li.menu.open > ul > li:nth-child(2) > a").click()
 
-        try:
-            self.driver.find_element(By.CSS_SELECTOR,
-                                     "#personalCenter2-rightContainer > div.clue-list > div.clue-list > div.tbody > div > a")
-            a = True
-        except:
-            a = False
-        if a is True:
-            print("当前无线索,点击申请!")
-            self.driver.find_element_by_css_selector(
-                "#personalCenter2-rightContainer > div.clue-list > div.clue-list > div.tbody > div > a").click()
-            time.sleep(4)
-            clue = self.driver.find_element_by_css_selector(
-                "#personalCenter2-rightContainer > div.clue-list > div.clue-list > div.tbody > div:nth-child(1) > div.t-info").text
-            print(str(clue).replace("\n", " ").replace("认领", ""))
-            self.driver.find_element_by_css_selector(
-                "#personalCenter2-rightContainer > div.clue-list > div.clue-list > div.tbody > div:nth-child(1) > div.t-info > span.td-handle > a.button.claim_clue").click()  # tr-a claim_clue
-        elif a is False:
-            print("线索存在!")
-            time.sleep(2)
-            clue = self.driver.find_element_by_css_selector(
-                "#personalCenter2-rightContainer > div.clue-list > div.clue-list > div.tbody > div:nth-child(1) > div.t-info").text
-            print(str(clue).replace("\n", " ").replace("认领", ""))
-            self.driver.find_element_by_css_selector(
-                "#personalCenter2-rightContainer > div.clue-list > div.clue-list > div.tbody > div:nth-child(1) > div.t-info > span.td-handle > a.button.claim_clue").click()
+
+        number_1 = self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.clue-list > div.partner > a:nth-child(2)").text
+
+        number_2 = re.sub(r"\D", "", number_1)
+
+        number_3 = int(number_2) + 0
+
+        if number_3 >= 1:
+            print("亲，您暂无未认领的线索哦~快去联系已认领的线索客户赚取收益吧~")
+
+        else:
+
+            try:
+                self.driver.find_element(By.CSS_SELECTOR,
+                                         "#personalCenter2-rightContainer > div.clue-list > div.clue-list > div.tbody > div > a")
+                a = True
+            except:
+                a = False
+            if a is True:
+                print("当前无线索,点击申请!")
+                self.driver.find_element_by_css_selector(
+                    "#personalCenter2-rightContainer > div.clue-list > div.clue-list > div.tbody > div > a").click()
+                time.sleep(4)
+                clue = self.driver.find_element_by_css_selector(
+                    "#personalCenter2-rightContainer > div.clue-list > div.clue-list > div.tbody > div:nth-child(1) > div.t-info").text
+                print(str(clue).replace("\n", " ").replace("认领", ""))
+                self.driver.find_element_by_css_selector(
+                    "#personalCenter2-rightContainer > div.clue-list > div.clue-list > div.tbody > div:nth-child(1) > div.t-info > span.td-handle > a.button.claim_clue").click()  # tr-a claim_clue
+            elif a is False:
+                print("线索存在!")
+                time.sleep(2)
+                clue = self.driver.find_element_by_css_selector(
+                    "#personalCenter2-rightContainer > div.clue-list > div.clue-list > div.tbody > div:nth-child(1) > div.t-info").text
+                print(str(clue).replace("\n", " ").replace("认领", ""))
+                self.driver.find_element_by_css_selector(
+                    "#personalCenter2-rightContainer > div.clue-list > div.clue-list > div.tbody > div:nth-child(1) > div.t-info > span.td-handle > a.button.claim_clue").click()
         get_screenshort(self.driver, "test_partner_clue_1.png")
 
     def test_partner_clue_2(self):
@@ -1471,7 +1486,7 @@ class HhrTest(MyTestCase):
 
         time.sleep(2)
         tip_3 = self.driver.find_element_by_css_selector(
-            "#layui-layer2 > div.layui-layer-content.layui-layer-padding").text
+            "#layui-layer2 > div.layui-layer-content").text
         print(tip_3)
         self.driver.find_element_by_link_text("确定").click()
 
