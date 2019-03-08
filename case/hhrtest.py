@@ -1649,3 +1649,27 @@ class HhrTest(MyTestCase):
             "#personalCenter2-rightContainer > div.home-page.userInfo > div.article1.home-page-top.clearfix > div.article-bottom-info").text
         print(info_1)
         print("收益滚动展示条,测试通过!")
+
+
+
+    def test_nice_search(self):
+        """尼斯分类搜索"""
+
+        dl = DengLuPage(self.driver)
+        dl.login()
+        time.sleep(1)
+        self.driver.find_element_by_css_selector("#page-header > div.item-right > ul > li:nth-child(2) > a").click()
+        time.sleep(1)
+        # 新版提示
+        self.driver.find_element_by_xpath("//*[@id=\"personalCenter2-rightContainer\"]/div[1]/div/a").click()
+
+        self.driver.find_element_by_css_selector("#personalCenter2-leftNav > ul > li:nth-child(2) > ul > li:nth-child(1) > a").click()
+        time.sleep(2)
+
+        self.driver.find_element_by_css_selector("#section-selfchoice > div.group-left > div > div > input").send_keys("摩托车")
+        self.driver.find_element_by_css_selector("#btn-search > i").click()
+        time.sleep(2)
+
+        search_result = self.driver.find_element_by_css_selector("#section-selfchoice > div.group-left > ul > div").text
+
+        print(search_result)
