@@ -277,7 +277,7 @@ class SbNumTest(MyTestCase):
         self.driver.find_element_by_css_selector("body > div.recommend-help > i").click()
         # body > div.recommend-help > i
         # ss = credit_code("en.txt")
-        ss = 'H'
+        ss = 'OLAY'
         self.driver.find_element_by_name("brandName").send_keys("{}".format(ss))
         print("商标名称:{}".format(ss))
         self.driver.find_element_by_css_selector("#create-tuyang > label.label.checked").click()

@@ -414,7 +414,7 @@ class HhrTest(MyTestCase):
         self.driver.find_element_by_xpath("//*[@id=\"companylistrative\"]/div/div[2]/div[1]/dl[1]/dd/span[1]").click()
         time.sleep(2)
         self.driver.find_element_by_xpath("//*[@id=\"companylistrative\"]/div/div[2]/div[2]/dl[2]/dd/span[1]").click()
-        time.sleep(1)
+        time.sleep(2)
 
         # 添加社会信用代码
         self.driver.find_element_by_name("creditcode").send_keys(credit_code("credit_code.txt"))
@@ -1631,3 +1631,21 @@ class HhrTest(MyTestCase):
             "#personalCenter2-rightContainer > div.order-page.apply-noe.bank-card-list > table > tbody > tr > td > div").text
         print(info_1)
         print("我的收益功能正常,测试通过!")
+
+
+    def test_income_show(self):
+        """收益滚动展示条"""
+
+        dl = DengLuPage(self.driver)
+        dl.login()
+        time.sleep(1)
+        self.driver.find_element_by_css_selector("#page-header > div.item-right > ul > li:nth-child(2) > a").click()
+        time.sleep(1)
+        # 新版提示
+        self.driver.find_element_by_xpath("//*[@id=\"personalCenter2-rightContainer\"]/div[1]/div/a").click()
+
+
+        info_1 = self.driver.find_element_by_css_selector(
+            "#personalCenter2-rightContainer > div.home-page.userInfo > div.article1.home-page-top.clearfix > div.article-bottom-info").text
+        print(info_1)
+        print("收益滚动展示条,测试通过!")
