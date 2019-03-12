@@ -10,7 +10,7 @@ from utils.mytestcase import MyTestCase
 
 class WebSiTest(MyTestCase):
     """网站地图测试集"""
-    def test_number1(self):
+    def test_site(self):
 
         """网站地图测试"""
 
@@ -19,7 +19,7 @@ class WebSiTest(MyTestCase):
         time.sleep(2)
 
         """点击关闭商标广告"""
-        self.driver.find_element_by_css_selector("body > div.festival-modal-bg > a.close").click()
+        # self.driver.find_element_by_css_selector("body > div.festival-modal-bg > a.close").click()
 
         self.driver.find_element_by_css_selector("body > div.footer-wrap > div > ul.items-2 > li:nth-child(7) > a").click()
         # 获取打开的多个窗口句柄
