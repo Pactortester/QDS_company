@@ -86,6 +86,7 @@ class HhrTest(MyTestCase):
         print("尼斯分类修改为第{}类!".format(suiji-1))
         time.sleep(1)
         self.driver.execute_script("window.scrollBy(0,4200)")  # 滑动滚动条
+        self.driver.execute_script("window.scrollBy(0,1000)")  # 滑动滚动条
         """申请人信息"""
 
         self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.order-detail-page > div.order-detail-box.applicant-info > h2 > a").click()
@@ -183,7 +184,11 @@ class HhrTest(MyTestCase):
             print("总价:"+i.text)
             ii = i.text
 
+        
+        self.driver.execute_script("window.scrollBy(0,500)")  # 滑动滚动条
+        self.driver.execute_script("window.scrollBy(0,1000)")  # 滑动滚动条
         """申请人信息"""
+        
         self.driver.find_element_by_css_selector("#selectOwnerType > label.label.fownertype.active").click()
         self.driver.find_element_by_css_selector("#overseastype > label.label.checked").click()
         self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > div.order-form-page > div > div.order-detail-box.agentInfo-wrap > div > div > div > div > table.table-1.table-applicant.table-type1.active > tbody.tbody-qiye > tr:nth-child(1) > td.td-content.contact-select-container > dl > dt > input").send_keys("文思海辉技术有限公司{}".format(random.randint(1,1000)))
@@ -223,7 +228,7 @@ class HhrTest(MyTestCase):
         # self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > div.order-form-page > div > div:nth-child(7) > div > a.mybtn.mybtn-inverse.mybtn-lg.saveAll").click()
 
 
-        self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > div.order-form-page > div > div:nth-child(7) > div > a:nth-child(2)").click()
+        self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > div.order-detail-fix > div > div.right.change-price > div.pay-btns > a:nth-child(2)").click()
 
         time.sleep(2)
 
@@ -308,12 +313,13 @@ class HhrTest(MyTestCase):
         ActionChains(self.driver).release()
 
         print("选择所在领域:" + ly + "_" + hy + "_" + "行业精准推荐")
-        time.sleep(5)
+        time.sleep(10)
 
         for i in self.driver.find_elements_by_css_selector("#personalCenter2-rightContainer > div > div.order-form-page > div > div.smartRegister-section > div.order-categories-calc > div.order-categories-total > span.span-total > strong > i"):
             print("总价:"+i.text)
             ii = i.text
 
+        self.driver.execute_script("window.scrollBy(0,1000)")  # 滑动滚动条
         """申请人信息"""
         self.driver.find_element_by_css_selector("#selectOwnerType > label.label.fownertype.active").click()
         self.driver.find_element_by_css_selector("#overseastype > label.label.checked").click()
@@ -354,7 +360,7 @@ class HhrTest(MyTestCase):
         # self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > div.order-form-page > div > div:nth-child(7) > div > a.mybtn.mybtn-inverse.mybtn-lg.saveAll").click()
 
 
-        self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > div.order-form-page > div > div:nth-child(7) > div > a:nth-child(2)").click()
+        self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > div.order-detail-fix > div > div.right.change-price > div.pay-btns > a:nth-child(2)").click()
 
         try:
             self.driver.find_element(By.LINK_TEXT, "确认")
@@ -443,6 +449,7 @@ class HhrTest(MyTestCase):
             print("总价:"+i.text)
             ii = i.text
 
+        self.driver.execute_script("window.scrollBy(0,1000)")  # 滑动滚动条
         """申请人信息"""
         self.driver.find_element_by_css_selector("#selectOwnerType > label.label.fownertype.active").click()
         self.driver.find_element_by_css_selector("#overseastype > label.label.checked").click()
@@ -483,7 +490,7 @@ class HhrTest(MyTestCase):
         # self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > div.order-form-page > div > div:nth-child(7) > div > a.mybtn.mybtn-inverse.mybtn-lg.saveAll").click()
 
 
-        self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > div.order-form-page > div > div:nth-child(7) > div > a:nth-child(2)").click()
+        self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > div.order-detail-fix > div > div.right.change-price > div.pay-btns > a:nth-child(2)").click()
 
         try:
             self.driver.find_element(By.LINK_TEXT, "确认")
@@ -627,6 +634,7 @@ class HhrTest(MyTestCase):
             print("总价:"+i.text)
             ii = i.text
 
+        self.driver.execute_script("window.scrollBy(0,1000)")  # 滑动滚动条
         """申请人信息"""
         self.driver.find_element_by_css_selector("#selectOwnerType > label.label.fownertype.active").click()
         self.driver.find_element_by_css_selector("#overseastype > label.label.checked").click()
@@ -667,7 +675,7 @@ class HhrTest(MyTestCase):
         # self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > div.order-form-page > div > div:nth-child(7) > div > a.mybtn.mybtn-inverse.mybtn-lg.saveAll").click()
 
 
-        self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > div.order-form-page > div > div:nth-child(7) > div > a:nth-child(2)").click()
+        self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > div.order-detail-fix > div > div.right.change-price > div.pay-btns > a:nth-child(2)").click()
 
         try:
             self.driver.find_element(By.LINK_TEXT, "确认")
@@ -765,6 +773,7 @@ class HhrTest(MyTestCase):
             print("总价:"+i.text)
             ii = i.text
 
+        self.driver.execute_script("window.scrollBy(0,1000)")  # 滑动滚动条
         """申请人信息"""
         self.driver.find_element_by_css_selector("#selectOwnerType > label.label.fownertype.active").click()
         self.driver.find_element_by_css_selector("#overseastype > label.label.checked").click()
@@ -805,7 +814,7 @@ class HhrTest(MyTestCase):
         # self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > div.order-form-page > div > div:nth-child(7) > div > a.mybtn.mybtn-inverse.mybtn-lg.saveAll").click()
 
 
-        self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > div.order-form-page > div > div:nth-child(7) > div > a:nth-child(2)").click()
+        self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > div.order-detail-fix > div > div.right.change-price > div.pay-btns > a:nth-child(2)").click()
 
         try:
             self.driver.find_element(By.LINK_TEXT, "确认")
@@ -902,6 +911,7 @@ class HhrTest(MyTestCase):
             print("总价:"+i.text)
             ii = i.text
 
+        self.driver.execute_script("window.scrollBy(0,1000)")  # 滑动滚动条
         """申请人信息"""
         self.driver.find_element_by_css_selector("#selectOwnerType > label.label.fownertype.active").click()
         self.driver.find_element_by_css_selector("#overseastype > label.label.checked").click()
@@ -942,7 +952,7 @@ class HhrTest(MyTestCase):
         # self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > div.order-form-page > div > div:nth-child(7) > div > a.mybtn.mybtn-inverse.mybtn-lg.saveAll").click()
 
 
-        self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > div.order-form-page > div > div:nth-child(7) > div > a:nth-child(2)").click()
+        self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > div.order-detail-fix > div > div.right.change-price > div.pay-btns > a:nth-child(2)").click()
 
         try:
             self.driver.find_element(By.LINK_TEXT, "确认")
@@ -1076,6 +1086,7 @@ class HhrTest(MyTestCase):
             print("总价:" + i.text)
             ii = i.text
 
+        self.driver.execute_script("window.scrollBy(0,1000)")  # 滑动滚动条
         """申请人信息"""
         self.driver.find_element_by_css_selector("#selectOwnerType > label.label.fownertype.active").click()
         self.driver.find_element_by_css_selector("#overseastype > label.label.checked").click()
@@ -1122,7 +1133,7 @@ class HhrTest(MyTestCase):
         # self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > div.order-form-page > div > div:nth-child(7) > div > a.mybtn.mybtn-inverse.mybtn-lg.saveAll").click()
 
         self.driver.find_element_by_css_selector(
-            "#personalCenter2-rightContainer > div > div.order-form-page > div > div:nth-child(7) > div > a:nth-child(2)").click()
+            "#personalCenter2-rightContainer > div > div.order-detail-fix > div > div.right.change-price > div.pay-btns > a:nth-child(2)").click()
 
         try:
             self.driver.find_element(By.LINK_TEXT, "确认")
@@ -1236,7 +1247,8 @@ class HhrTest(MyTestCase):
         # #     print("总价:"+i.text)
         # #     ii=i.text
         #
-        # """申请人信息"""
+        # self.driver.execute_script("window.scrollBy(0,1000)")  # 滑动滚动条
+        """申请人信息"""
         #
         # self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > div.smartRegister-page.smartRegister-page-source2.smartRegister-page-personal > div:nth-child(5) > div.agentInfo-wrap.agentInfo-wrap-in > div > table > thead > tr > td.td-content > a.btn-choice.fownertype.active").click()
         # self.driver.find_element_by_xpath("//*[@id=\"personalCenter2-rightContainer\"]/div/div[1]/div[4]/div[1]/div/table/tbody[1]/tr[1]/td[2]/dl/dt/input").clear()
