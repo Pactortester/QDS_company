@@ -2,7 +2,7 @@
 import os
 import smtplib
 import unittest
-
+from multiprocessing import Pool
 import time
 from email.mime.text import MIMEText
 
@@ -141,7 +141,7 @@ if __name__ == "__main__":
     now = time.strftime("%Y-%m-%d_%H-%M-%S")
     path = report_path + "\\" + now + "_report.html"
     with open(path, 'wb') as file:
-        HTMLTestRunner(stream=file, verbosity=1, title="权大师测试报告", description="Environment ：win10 chrome", tester="lijiawei").run(suite)
+        HTMLTestRunner(stream=file, verbosity=2, title="权大师测试报告", description="Environment ：win10 chrome", tester="lijiawei").run(suite)
     # send_mail(path)
     sendMail = SendMail()
     sendMail.send()

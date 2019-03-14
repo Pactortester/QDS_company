@@ -19,7 +19,7 @@ class HhrTest(MyTestCase):
     def test_partner_modify(self):
         """商标订单修改"""
         dl = DengLuPage(self.driver)
-        dl.login_pre()
+        dl.login()
         time.sleep(1)
 
         self.driver.find_element_by_css_selector("#page-header > div.item-right > ul > li:nth-child(2) > a").click()
@@ -184,7 +184,7 @@ class HhrTest(MyTestCase):
             ii = i.text
 
         """申请人信息"""
-        self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > div.order-form-page > div > div.order-detail-box.agentInfo-wrap > div > table > thead > tr:nth-child(1) > td.td-content > a.btn-choice.fownertype.active").click()
+        self.driver.find_element_by_css_selector("#selectOwnerType > label.label.fownertype.active").click()
         self.driver.find_element_by_css_selector("#overseastype > label.label.checked").click()
         self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > div.order-form-page > div > div.order-detail-box.agentInfo-wrap > div > div > div > div > table.table-1.table-applicant.table-type1.active > tbody.tbody-qiye > tr:nth-child(1) > td.td-content.contact-select-container > dl > dt > input").send_keys("文思海辉技术有限公司{}".format(random.randint(1,1000)))
         self.driver.find_element_by_xpath("//*[@id=\"ssq\"]").click()
@@ -315,7 +315,7 @@ class HhrTest(MyTestCase):
             ii = i.text
 
         """申请人信息"""
-        self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > div.order-form-page > div > div.order-detail-box.agentInfo-wrap > div > table > thead > tr:nth-child(1) > td.td-content > a.btn-choice.fownertype.active").click()
+        self.driver.find_element_by_css_selector("#selectOwnerType > label.label.fownertype.active").click()
         self.driver.find_element_by_css_selector("#overseastype > label.label.checked").click()
         self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > div.order-form-page > div > div.order-detail-box.agentInfo-wrap > div > div > div > div > table.table-1.table-applicant.table-type1.active > tbody.tbody-qiye > tr:nth-child(1) > td.td-content.contact-select-container > dl > dt > input").send_keys("文思海辉技术有限公司{}".format(random.randint(1,1000)))
         self.driver.find_element_by_xpath("//*[@id=\"ssq\"]").click()
@@ -444,7 +444,7 @@ class HhrTest(MyTestCase):
             ii = i.text
 
         """申请人信息"""
-        self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > div.order-form-page > div > div.order-detail-box.agentInfo-wrap > div > table > thead > tr:nth-child(1) > td.td-content > a.btn-choice.fownertype.active").click()
+        self.driver.find_element_by_css_selector("#selectOwnerType > label.label.fownertype.active").click()
         self.driver.find_element_by_css_selector("#overseastype > label.label.checked").click()
         self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > div.order-form-page > div > div.order-detail-box.agentInfo-wrap > div > div > div > div > table.table-1.table-applicant.table-type1.active > tbody.tbody-qiye > tr:nth-child(1) > td.td-content.contact-select-container > dl > dt > input").send_keys("文思海辉技术有限公司{}".format(random.randint(1,1000)))
         self.driver.find_element_by_xpath("//*[@id=\"ssq\"]").click()
@@ -628,7 +628,7 @@ class HhrTest(MyTestCase):
             ii = i.text
 
         """申请人信息"""
-        self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > div.order-form-page > div > div.order-detail-box.agentInfo-wrap > div > table > thead > tr:nth-child(1) > td.td-content > a.btn-choice.fownertype.active").click()
+        self.driver.find_element_by_css_selector("#selectOwnerType > label.label.fownertype.active").click()
         self.driver.find_element_by_css_selector("#overseastype > label.label.checked").click()
         self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > div.order-form-page > div > div.order-detail-box.agentInfo-wrap > div > div > div > div > table.table-1.table-applicant.table-type1.active > tbody.tbody-qiye > tr:nth-child(1) > td.td-content.contact-select-container > dl > dt > input").send_keys("文思海辉技术有限公司{}".format(random.randint(1,1000)))
         self.driver.find_element_by_xpath("//*[@id=\"ssq\"]").click()
@@ -766,7 +766,7 @@ class HhrTest(MyTestCase):
             ii = i.text
 
         """申请人信息"""
-        self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > div.order-form-page > div > div.order-detail-box.agentInfo-wrap > div > table > thead > tr:nth-child(1) > td.td-content > a.btn-choice.fownertype.active").click()
+        self.driver.find_element_by_css_selector("#selectOwnerType > label.label.fownertype.active").click()
         self.driver.find_element_by_css_selector("#overseastype > label.label.checked").click()
         self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > div.order-form-page > div > div.order-detail-box.agentInfo-wrap > div > div > div > div > table.table-1.table-applicant.table-type1.active > tbody.tbody-qiye > tr:nth-child(1) > td.td-content.contact-select-container > dl > dt > input").send_keys("文思海辉技术有限公司{}".format(random.randint(1,1000)))
         self.driver.find_element_by_xpath("//*[@id=\"ssq\"]").click()
@@ -903,7 +903,7 @@ class HhrTest(MyTestCase):
             ii = i.text
 
         """申请人信息"""
-        self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > div.order-form-page > div > div.order-detail-box.agentInfo-wrap > div > table > thead > tr:nth-child(1) > td.td-content > a.btn-choice.fownertype.active").click()
+        self.driver.find_element_by_css_selector("#selectOwnerType > label.label.fownertype.active").click()
         self.driver.find_element_by_css_selector("#overseastype > label.label.checked").click()
         self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div > div.order-form-page > div > div.order-detail-box.agentInfo-wrap > div > div > div > div > table.table-1.table-applicant.table-type1.active > tbody.tbody-qiye > tr:nth-child(1) > td.td-content.contact-select-container > dl > dt > input").send_keys("文思海辉技术有限公司{}".format(random.randint(1,1000)))
         self.driver.find_element_by_xpath("//*[@id=\"ssq\"]").click()
@@ -1045,7 +1045,7 @@ class HhrTest(MyTestCase):
         self.driver.find_element_by_css_selector(
             "#section-selfchoice > div > div.group-right > h3 > div > a.btn.showHistoryOrder").click()
         time.sleep(2)
-        history_number_2 = 3
+        history_number_2 = 2
         info = self.driver.find_element_by_css_selector(
             "#history_order > li:nth-child({}) > h2".format(history_number_2)).text
         print("导入历史订单信息:" + info)
@@ -1077,8 +1077,7 @@ class HhrTest(MyTestCase):
             ii = i.text
 
         """申请人信息"""
-        self.driver.find_element_by_css_selector(
-            "#personalCenter2-rightContainer > div > div.order-form-page > div > div.order-detail-box.agentInfo-wrap > div > table > thead > tr:nth-child(1) > td.td-content > a.btn-choice.fownertype.active").click()
+        self.driver.find_element_by_css_selector("#selectOwnerType > label.label.fownertype.active").click()
         self.driver.find_element_by_css_selector("#overseastype > label.label.checked").click()
         self.driver.find_element_by_css_selector(
             "#personalCenter2-rightContainer > div > div.order-form-page > div > div.order-detail-box.agentInfo-wrap > div > div > div > div > table.table-1.table-applicant.table-type1.active > tbody.tbody-qiye > tr:nth-child(1) > td.td-content.contact-select-container > dl > dt > input").send_keys(
@@ -2355,10 +2354,13 @@ class HhrTest(MyTestCase):
         self.driver.find_element_by_css_selector("#personalCenter2-leftNav > ul > li:nth-child(2) > ul > li:nth-child(1) > a").click()
         time.sleep(2)
 
-        self.driver.find_element_by_css_selector("#section-selfchoice > div.group-left > div > div > input").send_keys("摩托车")
+
+        self.driver.find_element_by_css_selector("#selectCategoryType > label:nth-child(2)").click()
+
+        self.driver.find_element_by_css_selector("#section-selfchoice > div > div.group-left > div > div > input").send_keys("摩托车")
         self.driver.find_element_by_css_selector("#btn-search > i").click()
         time.sleep(2)
 
-        search_result = self.driver.find_element_by_css_selector("#section-selfchoice > div.group-left > ul > div").text
+        search_result = self.driver.find_element_by_css_selector("#section-selfchoice > div > div.group-left > ul > div").text
 
         print(search_result)
