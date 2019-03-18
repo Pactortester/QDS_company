@@ -1209,3 +1209,31 @@ class ZnZzTest(MyTestCase):
         print("测试通过!")
 
         self.driver.find_element_by_css_selector("#alisubmit").click()
+
+
+    def test_smart_nice_search(self):
+        """尼斯分类搜索(智能注册)"""
+
+        dl = DengLuPage(self.driver)
+        self.driver.get("https://www.quandashi.com/product-buy/PC10003.html")
+        dl.refresh()
+        time.sleep(2)
+        self.driver.find_element_by_css_selector("body > div.recommend-help > i").click()
+        time.sleep(2)
+
+        self.driver.find_element_by_css_selector("#selectCategoryType > label:nth-child(2)").click()
+
+        self.driver.find_element_by_css_selector("#section-selfchoice > div > div.group-left > div > div > input").send_keys("摩托车")
+        self.driver.find_element_by_css_selector("#btn-search > i").click()
+        time.sleep(3)
+
+        number_1 = self.driver.find_element_by_css_selector(
+            "#section-selfchoice > div > div.group-left > ul > div > li:nth-child(1) > span").text
+
+        number_2 = re.sub(r"\D", "", number_1)
+
+        number_3 = int(number_2) + 0
+
+        self.assertEqual(number_3,7,"尼斯分类搜索结果异常!")
+
+        print("智能商标注册尼斯分类搜索结果正常!")

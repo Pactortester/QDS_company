@@ -676,3 +676,27 @@ class MfSbTest(MyTestCase):
         selected = self.driver.find_element_by_css_selector(
             "#searchList > div.page-form.w-center > div.selected-category").text
         print((str(selected).replace("\n", " ")).replace("×", " "))
+
+    def test_nice_search(self):
+        """尼斯分类搜索(search)"""
+
+        dl = DengLuPage(self.driver)
+        self.driver.get("https://so.quandashi.com/index/search?key=%E6%91%A9%E6%89%98%E8%BD%A6")
+        dl.refresh()
+
+        self.driver.find_element_by_css_selector("#searchList > div.page-form.w-center > ul > li:nth-child(4) > div.category-show-box > a.cross-search").click()
+
+        self.driver.find_element_by_css_selector("#section-selfchoice > div.group-left > div > div > input").send_keys("摩托车")
+        self.driver.find_element_by_css_selector("#btn-search > i").click()
+        time.sleep(3)
+
+        number_1 = self.driver.find_element_by_css_selector(
+            "#section-selfchoice > div.group-left > ul > div > li:nth-child(1) > span").text
+
+        number_2 = re.sub(r"\D", "", number_1)
+
+        number_3 = int(number_2) + 0
+
+        self.assertEqual(number_3,7,"尼斯分类搜索结果异常!")
+
+        print("so.QDS.com商标注册尼斯分类搜索结果正常!")

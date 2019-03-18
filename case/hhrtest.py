@@ -2366,8 +2366,8 @@ class HhrTest(MyTestCase):
 
 
 
-    def test_nice_search(self):
-        """尼斯分类搜索"""
+    def test_hhr_nice_search(self):
+        """尼斯分类搜索(hhr)"""
 
         dl = DengLuPage(self.driver)
         dl.login()
@@ -2385,8 +2385,15 @@ class HhrTest(MyTestCase):
 
         self.driver.find_element_by_css_selector("#section-selfchoice > div > div.group-left > div > div > input").send_keys("摩托车")
         self.driver.find_element_by_css_selector("#btn-search > i").click()
-        time.sleep(2)
+        time.sleep(3)
 
-        search_result = self.driver.find_element_by_css_selector("#section-selfchoice > div > div.group-left > ul > div").text
+        number_1 = self.driver.find_element_by_css_selector(
+            "#section-selfchoice > div > div.group-left > ul > div > li:nth-child(1) > span").text
 
-        print(search_result)
+        number_2 = re.sub(r"\D", "", number_1)
+
+        number_3 = int(number_2) + 0
+
+        self.assertEqual(number_3,7,"尼斯分类搜索结果异常!")
+
+        print("合伙人商标注册尼斯分类搜索结果正常!")
