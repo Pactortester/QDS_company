@@ -132,6 +132,11 @@ class TradeTest(MyTestCase):
         self.assertIn(str(name_1),str(name))
         self.driver.find_element_by_css_selector("#app > div > div.brandDetailMsgBox > div.brandMsgBox > div.brandMsg > dl > dd:nth-child(9) > a:nth-child(2)").click()
         time.sleep(2)
+
+        """刷新页面显示商品"""
+        self.driver.refresh()
+        time.sleep(2)
+
         price_1 = self.driver.find_element_by_css_selector("#app > div > div.shoppingCarBox > div.totalMoney > div > p > span").text
 
         print(price_1)

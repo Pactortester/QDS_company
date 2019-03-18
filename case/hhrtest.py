@@ -2050,9 +2050,23 @@ class HhrTest(MyTestCase):
         self.driver.find_element_by_css_selector(
             "#personalCenter2-leftNav > ul > li.menu.open > ul > li:nth-child(2) > a").click()
         time.sleep(2)
-        self.driver.find_element_by_css_selector(
-            "#personalCenter2-rightContainer > div.clue-list > div.partner > a:nth-child(5)").click()
+
+        number_1 = self.driver.find_element_by_css_selector(
+            "#personalCenter2-rightContainer > div.clue-list > div.partner > a.select").text
+
+        number_2 = re.sub(r"\D", "", number_1)
+
+        number_3 = int(number_2) + 0
+
+        if number_3 == 0:
+
+            print("暂无线索，无需换单!")
+        else:
+            self.driver.find_element_by_css_selector(
+                "#personalCenter2-rightContainer > div.clue-list > div.partner > a:nth-child(5)").click()
         time.sleep(2)
+
+
         self.driver.find_element_by_css_selector("#product_100003").click()
         lb = (100001, 100004, 100007, 100020, 100021)
         xm = random.choice(lb)
@@ -2117,7 +2131,7 @@ class HhrTest(MyTestCase):
         time.sleep(5)
         self.driver.set_window_size(1920, 1080)
 
-        # """关掉时间提示"""
+        # """关掉时间提示"""  """根据时间出现，如有需要请及时解除注释"""
         # self.driver.find_element_by_css_selector("#layui-layer1 > span.layui-layer-setwin > a").click()
 
         """客户工商信息搜索"""

@@ -624,7 +624,7 @@ class HwGsTest(MyTestCase):
         ActionChains(self.driver).release()
 
         print("选择所在领域:" + ly + "_" + hy + "_" + "行业精准推荐")
-        time.sleep(5)
+        time.sleep(10)
 
         self.driver.find_element_by_css_selector(
             "body > div.register-wrap.brandinfo-wrap > div.register-pay > div > ul > li.row-step > a").click()
