@@ -1210,6 +1210,112 @@ class ZnZzTest(MyTestCase):
 
         self.driver.find_element_by_css_selector("#alisubmit").click()
 
+    def test_znzz_9(self):
+
+        """智能商标注册_添加类别（金额校验）"""
+        dl = DengLuPage(self.driver)
+        self.driver.get("https://www.quandashi.com/product-buy/PC10003.html")
+        dl.refresh()
+        time.sleep(2)
+        self.driver.find_element_by_css_selector("body > div.recommend-help > i").click()
+        time.sleep(2)
+
+        """填写商标信息"""
+
+        self.driver.find_element_by_css_selector("#selectBrandType > label.label.checked").click()
+        ss = unicode()
+        self.driver.find_element_by_name("brandName").send_keys("{}".format(ss))
+        print("商标名称：{}".format(ss))
+        self.driver.find_element_by_css_selector("#create-tuyang > label.label.checked").click()
+        self.driver.find_element_by_link_text("生成黑白图样").click()
+        print("商标名称填写成功!")
+
+        time.sleep(5)
+        self.driver.find_element_by_css_selector("#selectCategoryType > label.label.checked").click()
+        self.driver.execute_script("window.scrollBy(0,500)")  # 滑动滚动条
+
+        """智能推荐"""
+        self.driver.find_element_by_css_selector("#selectBusiness > div").click()
+        industry = random.randint(1, 12)
+        ActionChains(self.driver).move_to_element(self.driver.find_element_by_css_selector(
+            "#selectBusiness > div > div > div.i-left.scroll > span:nth-child({})".format(industry))).perform()
+        ly = self.driver.find_element_by_css_selector(
+            "#selectBusiness > div > div > div.i-left.scroll > span:nth-child({})".format(industry)).text
+        time.sleep(2)
+        sz = random.randint(1, 2)
+        hy = self.driver.find_element_by_css_selector(
+            "#selectBusiness > div > div > div.i-right.scroll > span:nth-child({})".format(sz)).text
+        self.driver.find_element_by_css_selector(
+            "#selectBusiness > div > div > div.i-right.scroll > span:nth-child({})".format(sz)).click()
+        ActionChains(self.driver).release()
+
+        print("选择所在领域:" + ly + "_" + hy + "_" + "行业精准推荐")
+
+        time.sleep(5)
+
+        number_1 = self.driver.find_element_by_css_selector(
+            "body > div.register-wrap.brandinfo-wrap > div.register-pay > div > ul > li.row-sense > em > i").text
+
+        number_2 = re.sub(r"\D", "", number_1)
+
+        number_3 = int(number_2) + 0
+        print(number_3)
+
+
+        # 推荐的类别信息
+        list_name = self.driver.find_element_by_css_selector(
+            "#section-recommend > div.category-recommend-scroll-box > div > div > div.crs-left.scroll").text
+
+        # s_1 = re.findall(r"\d+",list_name)
+        # s_2 = ['01','02','03','04','05','06','07','08','09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20' ,'21', '22' ,'23' ,'24' ,'25', '26' ,'27', '28', '29', '30' ,'31' ,'32' ,'33' ,'34' ,'35' ,'36', '37', '38', '39' ,'40' ,'41', '42', '43' ,'44','45']
+        #
+        # # s_2中有而s_1中没有的
+        # s_3 = random.choice(list(set(s_2).difference(set(s_1))))
+
+        s_3 = nice(list_name)
+
+        # 点击添加类别
+
+        self.driver.execute_script("window.scrollBy(0,5200)")  # 滑动滚动条
+        self.driver.find_element_by_link_text("+ 添加类别").click()
+        # 选择类别
+        add = self.driver.find_element_by_css_selector(
+            "#section-recommend > div > div.add-first-category > ul > li:nth-child({})".format(s_3)).text
+
+        self.driver.find_element_by_css_selector(
+            "#section-recommend > div > div.add-first-category > ul > li:nth-child({})".format(s_3)).click()
+        # 点击添加小项
+        self.driver.find_element_by_css_selector("#first{} > div.category-recommend-groups-box > a".format(s_3)).click()
+        # 选择小项
+        # self.driver.find_element_by_css_selector(
+        #     "#first{} > div.category-recommend-groups-box > div > div > ul > li:nth-child(1)".format(s_3)).click()
+        #
+        # self.driver.find_element_by_css_selector(
+        #     "#first{} > div.category-recommend-groups-box > div > div > div > ul > li:nth-child(1)".format(s_3)).click()
+        # self.driver.find_element_by_css_selector(
+        #     "#first{} > div.category-recommend-groups-box > div > div > div > ul > li:nth-child(2)".format(s_3)).click()
+        # self.driver.find_element_by_css_selector(
+        #     "#first{} > div.category-recommend-groups-box > div > div > div > ul > li:nth-child(3)".format(s_3)).click()
+        # self.driver.find_element_by_css_selector(
+        #     "#first{} > div.category-recommend-groups-box > div > div > div > ul > li:nth-child(4)".format(s_3)).click()
+        # self.driver.find_element_by_css_selector(
+        #     "#first{} > div.category-recommend-groups-box > div > div > div > ul > li:nth-child(5)".format(s_3)).click()
+
+        print("添加类别:" + add)
+        time.sleep(5)
+
+        number_4 = self.driver.find_element_by_css_selector(
+            "body > div.register-wrap.brandinfo-wrap > div.register-pay > div > ul > li.row-sense > em > i").text
+
+        number_5 = re.sub(r"\D", "", number_4)
+
+        number_6 = int(number_5) + 0
+        print(number_6)
+
+        self.assertEqual(number_3,number_6,"价格异常请及时查看!")
+
+        print("智能商标注册_添加类别（金额校验）,测试通过!")
+
 
     def test_smart_nice_search(self):
         """尼斯分类搜索(智能注册)"""
