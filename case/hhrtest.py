@@ -84,9 +84,9 @@ class HhrTest(MyTestCase):
             pass
 
         print("尼斯分类修改为第{}类!".format(suiji-1))
-        time.sleep(1)
+        time.sleep(10)
         self.driver.execute_script("window.scrollBy(0,4200)")  # 滑动滚动条
-        self.driver.execute_script("window.scrollBy(0,1000)")  # 滑动滚动条
+
         """申请人信息"""
 
         self.driver.find_element_by_css_selector("#personalCenter2-rightContainer > div.order-detail-page > div.order-detail-box.applicant-info > h2 > a").click()
@@ -587,7 +587,7 @@ class HhrTest(MyTestCase):
 
         print("选择所在领域:" + ly + "_" + hy + "_" + "行业精准推荐")
 
-        time.sleep(5)
+        time.sleep(10)
 
         # 推荐的类别信息
         list_name = self.driver.find_element_by_css_selector(
@@ -603,7 +603,7 @@ class HhrTest(MyTestCase):
 
         # 点击添加类别
 
-        self.driver.execute_script("window.scrollBy(0,5200)")  # 滑动滚动条
+        self.driver.execute_script("window.scrollBy(0,4200)")  # 滑动滚动条
         self.driver.find_element_by_link_text("+ 添加类别").click()
         # 选择类别
         add = self.driver.find_element_by_css_selector(
@@ -629,6 +629,7 @@ class HhrTest(MyTestCase):
             "#first{} > div.category-recommend-groups-box > div > div > div > ul > li:nth-child(5)".format(s_3)).click()
 
         print("添加类别:" + add)
+        time.sleep(5)
 
         for i in self.driver.find_elements_by_css_selector("#personalCenter2-rightContainer > div > div.order-form-page > div > div.smartRegister-section > div.order-categories-calc > div.order-categories-total > span.span-total > strong > i"):
             print("总价:"+i.text)

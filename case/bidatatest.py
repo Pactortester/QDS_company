@@ -19,7 +19,7 @@ from utils.screenshort import get_screenshort
 
 
 class BITest(MyTestCase):
-    """商标大数据测试集"""
+    """商标数据测试集"""
 
 
     def test_data_1(self):
@@ -35,8 +35,8 @@ class BITest(MyTestCase):
         time.sleep(4)
         self.driver.set_window_size(1920, 1080)
 
-        info_1 = self.driver.find_element_by_css_selector("body > div.main_wrap > ul").text
-        print(info_1)
+        info_1 = self.driver.find_element_by_css_selector("body > div.main_wrap > div.num_box.clearfix").text
+        print(str(info_1).replace("全部年份",""))
 
         # print("商标大数据已经下线!")
 
