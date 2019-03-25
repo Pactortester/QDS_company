@@ -3,6 +3,8 @@ import random
 import re
 import time
 from selenium.webdriver import ActionChains
+
+from utils.datachoice import xz
 from utils.mytestcase import MyTestCase
 from utils.logincookie import DengLuPage
 from utils.random import unicode
@@ -146,7 +148,7 @@ class CxZcTest(MyTestCase):
         self.driver.set_window_size(1920, 1080)
         print(self.driver.title)
         dl.refresh()
-        self.driver.find_element_by_name("key").send_keys("大王")
+        self.driver.find_element_by_name("key").send_keys("美人")
         print("商标名称:大王")
         self.driver.find_element_by_css_selector("#btnSearchkey").click()
         time.sleep(5)
@@ -189,7 +191,7 @@ class CxZcTest(MyTestCase):
         self.driver.set_window_size(1920, 1080)
         print(self.driver.title)
         dl.refresh()
-        self.driver.find_element_by_name("key").send_keys("大王")
+        self.driver.find_element_by_name("key").send_keys("美人")
         print("商标名称:大王")
         self.driver.find_element_by_css_selector("#btnSearchkey").click()
         time.sleep(5)
@@ -204,6 +206,94 @@ class CxZcTest(MyTestCase):
         self.driver.switch_to.window(windows[-1])
         time.sleep(2)
         print("后续业务:" + self.driver.title)
+
+    def test_TrademarkMonitor(self):
+        """商标详情监控按钮测试"""
+        dl = DengLuPage(self.driver)
+        self.driver.get("https://apre-so.quandashi.com/")
+        dl.refresh()
+        self.driver.find_element_by_name("key").send_keys(xz("著名商标.txt").replace(".0", ""))
+        time.sleep(2)
+        self.driver.find_element_by_css_selector(
+            "#btnSearchkey").click()
+        time.sleep(5)
+
+
+        result = self.driver.find_element_by_css_selector(
+            "#searchList > div.page-content.w-center > div.page-content-left > div.search-top").text
+        print(str(result))
+
+        number = 1
+        info = self.driver.find_element_by_css_selector(
+            "#searchList > div.page-content.w-center > div.page-content-left > ul > li:nth-child({}) > div.result-href".format(
+                number)).text
+        print(str(info).replace("\n", " "))
+
+        self.driver.find_element_by_css_selector(
+            "#searchList > div.page-content.w-center > div.page-content-left > ul > li:nth-child({}) > div.result-href".format(
+                number)).click()
+
+        windows = self.driver.window_handles
+        self.driver.switch_to.window(windows[-1])
+        time.sleep(2)
+        self.driver.set_window_size(1920, 1080)
+
+        print(self.driver.current_url)
+
+        result2 = self.driver.find_element_by_css_selector(
+            "#searchDetail > div.page-brand > div > div.brand-left > div.brand-info > h2").text
+        result3 = self.driver.find_element_by_css_selector("#searchDetail > div.page-brand > div > div.brand-left > div.brand-info > div > span:nth-child(3)").text
+        print(result3)
+
+        result4 = re.sub(r"\D", "", result3)
+
+        result8 = int(result4) + 0
+
+
+        print(str(result2))
+        self.driver.execute_script("window.scrollBy(0,2000)")  # 滑动滚动条
+
+        self.driver.find_element_by_link_text("监控该商标").click()
+        time.sleep(2)
+        self.driver.find_element_by_link_text("确定").click()
+
+        # 获取打开的多个窗口句柄
+        windows = self.driver.window_handles
+        # 切换到当前最新打开的窗口
+        self.driver.switch_to.window(windows[-1])
+
+        """连续注入cookies,垃圾网站"""
+        time.sleep(5)
+        dl.refresh()
+        time.sleep(2)
+        dl.refresh()
+        time.sleep(2)
+
+        self.driver.find_element_by_link_text("智能工具").click()
+        time.sleep(2)
+        self.driver.find_element_by_link_text("商标监控").click()
+
+        windows = self.driver.window_handles
+        self.driver.switch_to.window(windows[-1])
+        time.sleep(2)
+        self.driver.set_window_size(1920, 1080)
+        self.assertIn("商标监控首页_权大师", self.driver.title)
+        print(self.driver.title)
+
+        self.driver.find_element_by_css_selector(
+            "body > div.brandMonitor-wrap > div > div.section1 > div.btns > a").click()
+        time.sleep(2)
+
+
+        result5 = self.driver.find_element_by_css_selector("body > div.brandMonitor-wrap > div > div > div.myPanel-bodyer.brandMonitor-all > div > table > tbody > tr:nth-child(1) > td:nth-child(3) > a").text
+
+        result6 = re.sub(r"\D", "", result5)
+
+        result7 = int(result6) + 0
+
+        get_screenshort(self.driver, "test_TrademarkMonitor.png")
+
+        self.assertEqual(result8,result7,"监控异常!")
 
     def test_group_search(self):
         """群组种类搜索测试"""
