@@ -1255,7 +1255,7 @@ class ZnZzTest(MyTestCase):
 
         print("选择所在领域:" + ly + "_" + hy + "_" + "行业精准推荐")
 
-        time.sleep(5)
+        time.sleep(15)
 
         number_1 = self.driver.find_element_by_css_selector(
             "body > div.register-wrap.brandinfo-wrap > div.register-pay > div > ul > li.row-sense > em > i").text
@@ -1282,6 +1282,7 @@ class ZnZzTest(MyTestCase):
 
         self.driver.execute_script("window.scrollBy(0,5200)")  # 滑动滚动条
         self.driver.find_element_by_link_text("+ 添加类别").click()
+        time.sleep(3)
         # 选择类别
         add = self.driver.find_element_by_css_selector(
             "#section-recommend > div > div.add-first-category > ul > li:nth-child({})".format(s_3)).text

@@ -891,7 +891,7 @@ class HwGsTest(MyTestCase):
         ActionChains(self.driver).release()
 
         print("选择所在领域:" + ly + "_" + hy + "_" + "行业精准推荐")
-        time.sleep(5)
+        time.sleep(15)
 
         # 推荐的类别信息
         list_name = self.driver.find_element_by_css_selector(
