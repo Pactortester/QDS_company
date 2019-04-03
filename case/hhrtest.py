@@ -88,7 +88,7 @@ class HhrTest(MyTestCase):
 
         print("尼斯分类修改为第{}类!".format(suiji-1))
         time.sleep(10)
-        self.driver.execute_script("window.scrollBy(0,4200)")  # 滑动滚动条
+        self.driver.execute_script("window.scrollBy(0,6200)")  # 滑动滚动条
 
         """申请人信息"""
 
