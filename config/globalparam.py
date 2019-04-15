@@ -10,6 +10,8 @@ read_config = ReadConfig(os.path.join(config_file_path, 'config.ini'))
 prj_path = read_config.getValue('projectConfig', 'project_path')
 # 测试用例路径
 case_path = os.path.join(prj_path, 'case')
+# if not os.path.exists(case_path):
+#     os.makedirs(case_path)
 # 日志路径
 log_path = os.path.join(prj_path, 'log')
 # 截图文件路径

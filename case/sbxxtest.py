@@ -277,7 +277,7 @@ class SbXxTest(MyTestCase):
         self.driver.switch_to.window(windows[-1])
         time.sleep(2)
         self.driver.set_window_size(1920, 1080)
-        self.assertIn("商标变更|商标变更流程|商标变更多少钱-权大师",self.driver.title)
+        self.assertIn("商标变更|商标变更流程|商标变更价格-权大师",self.driver.title)
         print(self.driver.title)
 
         for a in self.driver.find_elements_by_css_selector("#total-price"):

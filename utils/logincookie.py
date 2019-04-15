@@ -6,7 +6,7 @@ class DengLuPage:
     url = "https://www.quandashi.com/"
 
     cookie = ({'name': 'QDS_COOKIE',
-             'value': '2c9d728f418dae188fc572d04828f0fcff23b03d',
+             'value': '19cd02cc521cb4395d3e98dd35fde8c70f7dc581',
             'Domain': '.quandashi.com'})
 
     url_pre = "https://apre-www.quandashi.com/"
