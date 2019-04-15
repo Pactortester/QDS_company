@@ -313,6 +313,8 @@ class TradeTest(MyTestCase):
         self.driver.set_window_size(1920, 1080)
         self.assertIn("商标交易_商标转让_商标买卖_商标交易网-权大师", self.driver.title)
         print(self.driver.title)
+        time.sleep(2)
+        self.driver.execute_script("window.scrollBy(0,1200)")  # 滑动滚动条
 
         brand = random.randint(1, 36)
         name = self.driver.find_element_by_css_selector(
@@ -345,7 +347,7 @@ class TradeTest(MyTestCase):
 
         self.assertIn(str(name_1), str(name))
 
-        print("商标收藏成功,测试通过!")
+        print("商标添加成功,测试通过!")
 
     def test_trade_7(self):
         """删除购物车测试"""
