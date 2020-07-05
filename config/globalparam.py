@@ -7,7 +7,8 @@ from utils.readconfig import ReadConfig
 config_file_path = os.path.split(os.path.realpath(__file__))[0]
 read_config = ReadConfig(os.path.join(config_file_path, 'config.ini'))
 # 项目参数设置
-prj_path = read_config.getValue('projectConfig', 'project_path')
+# prj_path = read_config.getValue('projectConfig', 'project_path')
+prj_path = config_file_path.replace('config', '')
 # 测试用例路径
 case_path = os.path.join(prj_path, 'case')
 # if not os.path.exists(case_path):
