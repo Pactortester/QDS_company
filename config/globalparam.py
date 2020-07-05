@@ -5,7 +5,7 @@ from utils.readconfig import ReadConfig
 
 # 读取配置文件
 config_file_path = os.path.split(os.path.realpath(__file__))[0]
-read_config = ReadConfig(os.path.join(config_file_path, 'config.ini'))
+# read_config = ReadConfig(os.path.join(config_file_path, 'config.ini'))
 # 项目参数设置
 # prj_path = read_config.getValue('projectConfig', 'project_path')
 prj_path = config_file_path.replace('config', '')
